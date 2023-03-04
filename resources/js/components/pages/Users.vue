@@ -4,7 +4,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Users Table</h3>
+            <h3 class="card-title">Manage Users</h3>
 
             <div class="card-tools">
               <button class="btn btn-success" @click="newModal()">
@@ -26,8 +26,8 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Type</th>
-                  <th>Registered At</th>
-                  <th>Modify</th>
+                  <th>Date Created</th>
+                  <th>Actions</th>
                 </tr>
 
                 <tr v-for="(user, index) in users.results.data" :key="user.id">
@@ -40,11 +40,21 @@
 
                   <td>
                     <a href="#" @click="editModal(user)">
-                      <i class="fa fa-edit blue"></i>
+                      <i
+                        class="fas fa-pencil-alt"
+                        style="color: #999; font-size: 18px"
+                      ></i>
                     </a>
-                    /
-                    <a href="#" @click="deleteUser(user.id)">
-                      <i class="fa fa-trash red"></i>
+
+                    <a
+                      href="#"
+                      @click="deleteUser(user.id)"
+                      style="margin-left: 8px"
+                    >
+                      <i
+                        class="far fa-trash-alt"
+                        style="color: #999; font-size: 18px"
+                      ></i>
                     </a>
                   </td>
                 </tr>
