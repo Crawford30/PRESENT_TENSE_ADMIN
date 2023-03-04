@@ -189,7 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                     <router-link to="/big-songbook-songs" class="nav-link">
                         <i class="fa fa-music nav-icon nav-icon nav-icon text-green"></i>
-                        <p>The Big SongBook Songs</p>
+                        <p>Big Song Book Songs</p>
                       </router-link>
               </li>
               <li class="nav-item">
