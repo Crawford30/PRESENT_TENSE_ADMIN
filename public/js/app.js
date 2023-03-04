@@ -4930,6 +4930,24 @@ var render = function render() {
         color: "#999",
         "font-size": "18px"
       }
+    })]), _vm._v(" "), _c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.deleteUser(user.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fa fa-ban",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
     })])])]);
   })], 2)])]) : _vm._e()])])]) : _vm._e(), _vm._v(" "), !_vm.$gate.isAdmin() ? _c("div", [_c("not-found")], 1) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "modal fade",

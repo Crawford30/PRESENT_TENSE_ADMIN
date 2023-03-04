@@ -56,6 +56,17 @@
                         style="color: #999; font-size: 18px"
                       ></i>
                     </a>
+
+                    <a
+                      href="#"
+                      @click="deleteUser(user.id)"
+                      style="margin-left: 8px"
+                    >
+                      <i
+                        class="fa fa-ban"
+                        style="color: #999; font-size: 18px"
+                      ></i>
+                    </a>
                   </td>
                 </tr>
               </tbody>
