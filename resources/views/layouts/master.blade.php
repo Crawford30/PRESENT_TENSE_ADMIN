@@ -101,9 +101,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @can('isAdmin')
           <li class="nav-item">
             <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-cog"></i>
+                <i class="nav-icon fas fa-users"></i>
               <p>
-                Management
+                User Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -120,12 +120,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Roles</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa fa-lock nav-icon"></i>
+                  <p>Permissions</p>
+                </a>
+              </li>
             </ul>
           </li>
           @endcan
 
 
-
+          @can('isAdmin')
           <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-cog"></i>
@@ -152,9 +158,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+          @endcan
 
 
-
+          @can('isAdmin')
           <li class="nav-item">
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-music"></i>
@@ -200,6 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
+          @endcan
 
           {{-- @can('isAdmin')
           <li class="nav-item">
@@ -244,24 +252,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    {{-- <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div> --}}
-    <!-- /.content-header -->
-
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
