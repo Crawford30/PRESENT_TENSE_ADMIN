@@ -5,7 +5,7 @@ export default class Gate {
     }
 
     isSuperAdmin() {
-        return this.user.type === 'superadmin';
+        return this.user.type === 'super_admin';
     }
 
 
@@ -18,7 +18,7 @@ export default class Gate {
     }
 
     isAdminOrSuperAdmin() {
-        if (this.user.type === 'admin' || this.user.type === 'superadmin') {
+        if (this.user.type === 'admin' || this.user.type === 'super_admin') {
             return true;
         }
 
