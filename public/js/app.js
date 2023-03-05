@@ -2218,7 +2218,8 @@ __webpack_require__.r(__webpack_exports__);
               app.loadUsers();
             },
             error: function error(e) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("Failed!", "There was something wrong.", "warning");
+              console.log("ERROR ON DEACTIVATE: ", e);
+              //Swal.fire("Failed!", "There was something wrong.", "warning");
               //   app.showAjaxError(e);
             }
           });
@@ -2251,7 +2252,8 @@ __webpack_require__.r(__webpack_exports__);
               app.loadUsers();
             },
             error: function error(e) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("Failed!", "There was something wrong.", "warning");
+              console.log("ERROR ON ACTIVATE: ", e);
+              // Swal.fire("Failed!", "There was something wrong.", "warning");
               //   app.showAjaxError(e);
             }
           });
@@ -2282,6 +2284,7 @@ __webpack_require__.r(__webpack_exports__);
               app.loadUsers();
             },
             error: function error(e) {
+              console.log("ERROR ON DELETE: ", e);
               sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("Failed!", "There was something wrong.", "warning");
               //   app.showAjaxError(e);
             }
@@ -2305,12 +2308,12 @@ __webpack_require__.r(__webpack_exports__);
       app.form.post("api/user/create").then(function () {
         Fire.$emit("AfterCreate");
         $("#addNew").modal("hide");
-        toast({
-          type: "success",
-          title: "User Created in successfully"
-        });
+        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User Created Successfully!", "", "success");
+        app.loadUsers();
         app.$Progress.finish();
-      })["catch"](function () {});
+      })["catch"](function (e) {
+        console.log("ERROR: ", e);
+      });
     }
   },
   created: function created() {

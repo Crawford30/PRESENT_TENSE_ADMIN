@@ -294,7 +294,8 @@ export default {
               app.loadUsers();
             },
             error(e) {
-              Swal.fire("Failed!", "There was something wrong.", "warning");
+              console.log("ERROR ON DEACTIVATE: ", e);
+              //Swal.fire("Failed!", "There was something wrong.", "warning");
               //   app.showAjaxError(e);
             },
           });
@@ -328,7 +329,8 @@ export default {
               app.loadUsers();
             },
             error(e) {
-              Swal.fire("Failed!", "There was something wrong.", "warning");
+              console.log("ERROR ON ACTIVATE: ", e);
+              // Swal.fire("Failed!", "There was something wrong.", "warning");
               //   app.showAjaxError(e);
             },
           });
@@ -360,6 +362,7 @@ export default {
               app.loadUsers();
             },
             error(e) {
+              console.log("ERROR ON DELETE: ", e);
               Swal.fire("Failed!", "There was something wrong.", "warning");
               //   app.showAjaxError(e);
             },
@@ -385,13 +388,13 @@ export default {
         .then(() => {
           Fire.$emit("AfterCreate");
           $("#addNew").modal("hide");
-          toast({
-            type: "success",
-            title: "User Created in successfully",
-          });
+          Swal.fire("User Created Successfully!", "", "success");
+          app.loadUsers();
           app.$Progress.finish();
         })
-        .catch(() => {});
+        .catch((e) => {
+          console.log("ERROR: ", e);
+        });
     },
   },
   created() {

@@ -23,21 +23,14 @@ Route::middleware([ 'auth:api'])->get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'user'], function () {
 
-    Route::post('/update-user-status', [App\Http\Controllers\Api\UserController::class, 'activateAndDeactivateUserData']);
-
     Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/create', [App\Http\Controllers\Api\UserController::class, 'saveUserData']);
     Route::get('/get-user', [App\Http\Controllers\Api\UserController::class, 'getUserData']);
 
     Route::post('/create', [App\Http\Controllers\Api\UserController::class, 'saveUserData']);
     Route::post('/update-user', [App\Http\Controllers\Api\UserController::class, 'updateUserData']);
-
-
-
+    Route::post('/update-user-status', [App\Http\Controllers\Api\UserController::class, 'activateAndDeactivateUserData']);
     Route::post('/delete-user',  [App\Http\Controllers\Api\UserController::class, 'deleteUserData']);
-
-    // Route::post('/create', 'UserController@createUser');
-
 });
 
 });

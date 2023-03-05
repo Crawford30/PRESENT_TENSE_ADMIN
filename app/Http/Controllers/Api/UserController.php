@@ -31,19 +31,20 @@ class UserController extends Controller
 
     public function saveUserData(CreateUserRequest $request)
     {
+        $this->authorize('isAdmin');
         return $request->createUser($request);
     }
 
     public function getUserData()
     {
-        //$this->authorize('isAdmin');
+        $this->authorize('isAdmin');
         $users = User::latest()->paginate(5);
         return apiResponse($users);
     }
 
     public function deleteUserData(DeleteUserRequest $request)
     {
-        //$this->authorize('isAdmin');
+        $this->authorize('isAdmin');
         //dd($request);
          return $request->delete($request);
     }
