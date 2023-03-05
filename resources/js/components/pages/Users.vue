@@ -255,6 +255,8 @@
 // import Form from "vform";
 
 import Izitoast from "../mixin/IziToast";
+import ToolTip from "./../Helpers/Tooltip.vue";
+
 import Swal from "sweetalert2";
 
 export default {
