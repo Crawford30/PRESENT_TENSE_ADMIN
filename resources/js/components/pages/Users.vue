@@ -142,18 +142,6 @@
               </div>
 
               <div class="form-group">
-                <textarea
-                  v-model="form.bio"
-                  name="bio"
-                  id="bio"
-                  placeholder="Short bio for user (Optional)"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('bio') }"
-                ></textarea>
-                <has-error :form="form" field="bio"></has-error>
-              </div>
-
-              <div class="form-group">
                 <select
                   name="type"
                   v-model="form.type"
@@ -219,8 +207,6 @@ export default {
         email: "",
         password: "",
         type: "",
-        bio: "",
-        photo: "",
       }),
     };
   },

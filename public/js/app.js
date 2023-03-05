@@ -2150,9 +2150,7 @@ __webpack_require__.r(__webpack_exports__);
         name: "",
         email: "",
         password: "",
-        type: "",
-        bio: "",
-        photo: ""
+        type: ""
       })
     };
   },
@@ -5116,38 +5114,6 @@ var render = function render() {
     attrs: {
       form: _vm.form,
       field: "email"
-    }
-  })], 1), _vm._v(" "), _c("div", {
-    staticClass: "form-group"
-  }, [_c("textarea", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.bio,
-      expression: "form.bio"
-    }],
-    staticClass: "form-control",
-    "class": {
-      "is-invalid": _vm.form.errors.has("bio")
-    },
-    attrs: {
-      name: "bio",
-      id: "bio",
-      placeholder: "Short bio for user (Optional)"
-    },
-    domProps: {
-      value: _vm.form.bio
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.form, "bio", $event.target.value);
-      }
-    }
-  }), _vm._v(" "), _c("has-error", {
-    attrs: {
-      form: _vm.form,
-      field: "bio"
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "form-group"

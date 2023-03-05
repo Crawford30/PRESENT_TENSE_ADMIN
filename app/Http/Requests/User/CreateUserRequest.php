@@ -48,8 +48,6 @@ class CreateUserRequest extends FormRequest
         $data = [
             "name" => $request->name,
             "email" => $request->email,
-            "bio" => $request->bio,
-            "photo" => $request->photo,
             "type" => $request->type,
             "password" => Hash::make($request->password),
         ];
