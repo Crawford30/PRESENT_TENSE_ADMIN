@@ -26,7 +26,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Type</th>
-                  <th>Status</th>
+                  <!-- <th>Status</th> -->
                   <th>Date Created</th>
                   <th>Actions</th>
                 </tr>
@@ -37,7 +37,7 @@
                   <td>{{ user.name }}</td>
                   <td>{{ user.email }}</td>
                   <td>{{ user.type | upText }}</td>
-                  <td>{{ user.user_status | upText }}</td>
+                  <!-- <td>{{ user.user_status | upText }}</td> -->
                   <td>{{ user.created_at | myDate }}</td>
 
                   <td>

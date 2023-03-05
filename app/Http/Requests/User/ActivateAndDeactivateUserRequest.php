@@ -39,21 +39,17 @@ class ActivateAndDeactivateUserRequest extends FormRequest
 
     public function activateAndDeactivateUser()
     {
-
-
-
         //dd($this->all());
          $user = User::findOrFail($this->user_id);
-
-
          if($this->user_status == 1){
             $user->user_status = 'ACTIVATED';
          }else{
             $user->user_status = 'DEACTIVATED';
          }
-
          $user->save();
-         return response()->json($user, 200);
+
+        return apiResponse($user, 200);
+
     }
 
 }
