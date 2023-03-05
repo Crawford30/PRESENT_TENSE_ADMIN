@@ -5238,7 +5238,7 @@ var render = function render() {
       type: "button",
       "data-dismiss": "modal"
     }
-  }, [_vm._v("\n                        Close\n                        ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                            Close\n                        ")]), _vm._v(" "), _c("button", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5249,7 +5249,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                            Update\n                            ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                            Update\n                        ")]), _vm._v(" "), _c("button", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5260,7 +5260,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                                Create\n                                ")])])])])])])]);
+  }, [_vm._v("\n                            Create\n                        ")])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
