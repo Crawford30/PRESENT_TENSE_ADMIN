@@ -29,7 +29,7 @@ class UserController extends Controller
     public function getUserData()
     {
         //$this->authorize('isAdmin');
-        $users = User::latest()->paginate(10);
+        $users = User::latest()->paginate(5);
         return apiResponse($users);
     }
 
@@ -61,9 +61,6 @@ class UserController extends Controller
 
         return apiResponse($users);
     }
-
-
-
 
 
 }

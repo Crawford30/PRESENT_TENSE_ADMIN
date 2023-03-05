@@ -300,21 +300,6 @@ export default {
           app.$Progress.finish();
         })
         .catch(() => {});
-      //user_id
-      //   this.$Progress.start();
-      //   // console.log('Editing data');
-      //   this.form
-      //     .put("api/user/" + this.form.id)
-      //     .then(() => {
-      //       // success
-      //       $("#addNew").modal("hide");
-      //       Swal("Updated!", "Information has been updated.", "success");
-      //       this.$Progress.finish();
-      //       Fire.$emit("AfterCreate");
-      //     })
-      //     .catch(() => {
-      //       this.$Progress.fail();
-      //     });
     },
     editModal(user) {
       this.editmode = true;
@@ -364,7 +349,6 @@ export default {
     loadUsers() {
       if (this.$gate.isAdmin()) {
         let app = this;
-
         axios
           .get("api/user/get-user")
           .then(({ data }) => (app.users = data.results));
