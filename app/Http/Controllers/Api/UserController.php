@@ -8,17 +8,25 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\CreateUserRequest;
 use App\Http\Requests\User\DeleteUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Requests\user\ActivateAndDeactivateUserRequest;
+use App\Http\Requests\user\ActivateUserRequest;
+use App\Http\Requests\user\DeactivateUserRequest;
 
 class UserController extends Controller
 {
 
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
-
-        // $this->authorize('isAdmin');
-        // $this->middleware('auth:api');
+        $this->middleware('auth:api');
     }
+
+
 
 
     public function saveUserData(CreateUserRequest $request)
@@ -35,14 +43,19 @@ class UserController extends Controller
 
     public function deleteUserData(DeleteUserRequest $request)
     {
-        $this->authorize('isAdmin');
+        //$this->authorize('isAdmin');
         //dd($request);
          return $request->delete($request);
     }
 
+
+    public function activateAndDeactivateUserData(ActivateAndDeactivateUserRequest $request)
+    {
+         return $request->activateAndDeactivateUser($request);
+    }
+
     public function updateUserData(UpdateUserRequest $request)
     {
-        //dd($request);
          return $request->updateeUser($request);
     }
 

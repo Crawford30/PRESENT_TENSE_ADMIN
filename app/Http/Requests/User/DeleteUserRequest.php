@@ -29,13 +29,11 @@ class DeleteUserRequest extends FormRequest
         ];
     }
 
-
     public function delete()
     {
         $user = User::findOrFail($this->user_id);
-
         $user->delete();
+        return apiResponse("DELETED", 200);
 
-        return response()->json("DELETED", 200);
     }
 }

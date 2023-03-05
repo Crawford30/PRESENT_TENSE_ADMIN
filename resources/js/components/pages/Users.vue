@@ -26,6 +26,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Type</th>
+                  <th>Status</th>
                   <th>Date Created</th>
                   <th>Actions</th>
                 </tr>
@@ -36,6 +37,7 @@
                   <td>{{ user.name }}</td>
                   <td>{{ user.email }}</td>
                   <td>{{ user.type | upText }}</td>
+                  <td>{{ user.user_status | upText }}</td>
                   <td>{{ user.created_at | myDate }}</td>
 
                   <td>
@@ -56,17 +58,30 @@
                         style="color: #999; font-size: 18px"
                       ></i>
                     </a>
-
-                    <a
-                      href="#"
-                      @click="deleteUser(user.id)"
-                      style="margin-left: 8px"
-                    >
-                      <i
-                        class="fa fa-ban"
-                        style="color: #999; font-size: 18px"
-                      ></i>
-                    </a>
+                    <span v-if="user.user_status === 'DEACTIVATED'">
+                      <a
+                        href="#"
+                        @click="activateUser(user)"
+                        style="margin-left: 8px"
+                      >
+                        <i
+                          class="fa fa-toggle-off"
+                          style="color: #999; font-size: 18px"
+                        ></i>
+                      </a>
+                    </span>
+                    <span v-else>
+                      <a
+                        href="#"
+                        @click="deactivateUser(user)"
+                        style="margin-left: 8px"
+                      >
+                        <i
+                          class="fa fa-toggle-on"
+                          style="color: #999; font-size: 18px"
+                        ></i>
+                      </a>
+                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -200,6 +215,7 @@ export default {
   data() {
     return {
       editmode: false,
+      isUserActivated: false,
       users: {},
       form: new Form({
         id: "",
@@ -250,15 +266,86 @@ export default {
       $("#addNew").modal("show");
     },
 
-    deleteUser(id) {
+    deactivateUser(user) {
+      console.log("DEACITVATE USER: ", user.user_status);
+      this.isUserActivated = false;
+
       let app = this;
       Swal.fire({
-        title: "Are you sure?",
-        html: "<p style='font-size: 14px;'>You won't be able to revert this!</p>",
-        icon: "warning",
+        title: "Deactivate User",
+        html: `<p style="font-size: 13px;">Would you like to deactivate <span style="font-size: 13px; font-weight: bold; color: #000000;">${user.email}</span>?</p>`,
+        icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
+        cancelButtonText: "No, Cancel",
+        confirmButtonText: "Yes, Deactivate",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "/api/user/update-user-status",
+            type: "post",
+            data: {
+              user_id: user.id,
+              user_status: 0,
+            },
+            success(data) {
+              Swal.fire("User Deactivated Successfully!", "", "success");
+              app.loadUsers();
+            },
+            error(e) {
+              Swal.fire("Failed!", "There was something wrong.", "warning");
+              //   app.showAjaxError(e);
+            },
+          });
+        }
+      });
+    },
+
+    activateUser(user) {
+      this.isUserActivated = true;
+      let app = this;
+      Swal.fire({
+        title: "Activate User",
+        html: `<p style="font-size: 13px;">Would you like to activate <span style="font-size: 13px; font-weight: bold; color: #000000;">${user.email}</span>?</p>`,
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "No, Cancel",
+        confirmButtonText: "Yes, Activate",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "/api/user/update-user-status",
+            type: "post",
+            data: {
+              user_id: user.id,
+              user_status: 1,
+            },
+            success(data) {
+              Swal.fire("User Activated Successfully!", "", "success");
+              app.loadUsers();
+            },
+            error(e) {
+              Swal.fire("Failed!", "There was something wrong.", "warning");
+              //   app.showAjaxError(e);
+            },
+          });
+        }
+      });
+    },
+
+    deleteUser(id) {
+      let app = this;
+      Swal.fire({
+        title: "Delete User",
+        html: "<p style='font-size: 14px;'>You won't be able to revert this!</p>",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "No, Cancel",
         confirmButtonText: "Yes, Delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
@@ -280,7 +367,6 @@ export default {
         }
       });
     },
-
     loadUsers() {
       if (this.$gate.isAdmin()) {
         let app = this;

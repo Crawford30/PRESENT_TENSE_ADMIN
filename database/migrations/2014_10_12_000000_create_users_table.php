@@ -19,8 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('type')->default('user');
-            // $table->mediumText('bio')->nullable();
-            // $table->string('photo')->default('profile.png')->nullable();
+            $table->enum('user_status', ['ACTIVATED', 'DEACTIVATED'])->default('DEACTIVATED');
+            $table->enum('dvd_access_status', ['NONE', 'AUDIO_DVD', 'VIDEO_DVD', 'ALL'])->default('NONE');
+            $table->enum('song_access_status', ['NO',  'YES'])->default('NO');
+            $table->enum('is_email_verified', ['NO', 'YES'])->default('NO');
             $table->string('api_token', 80)
             ->unique()
             ->nullable()

@@ -2144,6 +2144,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       editmode: false,
+      isUserActivated: false,
       users: {},
       form: new Form({
         id: "",
@@ -2190,15 +2191,83 @@ __webpack_require__.r(__webpack_exports__);
       this.form.reset();
       $("#addNew").modal("show");
     },
-    deleteUser: function deleteUser(id) {
+    deactivateUser: function deactivateUser(user) {
+      console.log("DEACITVATE USER: ", user.user_status);
+      this.isUserActivated = false;
       var app = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
-        title: "Are you sure?",
-        html: "<p style='font-size: 14px;'>You won't be able to revert this!</p>",
-        icon: "warning",
+        title: "Deactivate User",
+        html: "<p style=\"font-size: 13px;\">Would you like to deactivate <span style=\"font-size: 13px; font-weight: bold; color: #000000;\">".concat(user.email, "</span>?</p>"),
+        icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
+        cancelButtonText: "No, Cancel",
+        confirmButtonText: "Yes, Deactivate"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "/api/user/update-user-status",
+            type: "post",
+            data: {
+              user_id: user.id,
+              user_status: 0
+            },
+            success: function success(data) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User Deactivated Successfully!", "", "success");
+              app.loadUsers();
+            },
+            error: function error(e) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("Failed!", "There was something wrong.", "warning");
+              //   app.showAjaxError(e);
+            }
+          });
+        }
+      });
+    },
+    activateUser: function activateUser(user) {
+      this.isUserActivated = true;
+      var app = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+        title: "Activate User",
+        html: "<p style=\"font-size: 13px;\">Would you like to activate <span style=\"font-size: 13px; font-weight: bold; color: #000000;\">".concat(user.email, "</span>?</p>"),
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "No, Cancel",
+        confirmButtonText: "Yes, Activate"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "/api/user/update-user-status",
+            type: "post",
+            data: {
+              user_id: user.id,
+              user_status: 1
+            },
+            success: function success(data) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User Activated Successfully!", "", "success");
+              app.loadUsers();
+            },
+            error: function error(e) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("Failed!", "There was something wrong.", "warning");
+              //   app.showAjaxError(e);
+            }
+          });
+        }
+      });
+    },
+    deleteUser: function deleteUser(id) {
+      var app = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+        title: "Delete User",
+        html: "<p style='font-size: 14px;'>You won't be able to revert this!</p>",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "No, Cancel",
         confirmButtonText: "Yes, Delete it!"
       }).then(function (result) {
         if (result.isConfirmed) {
@@ -4939,7 +5008,7 @@ var render = function render() {
   }, [_c("tbody", [_vm._m(0), _vm._v(" "), _vm._l(_vm.users.data, function (user, index) {
     return _c("tr", {
       key: user.id
-    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.type)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(user.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.type)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.user_status)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(user.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
@@ -4972,7 +5041,7 @@ var render = function render() {
         color: "#999",
         "font-size": "18px"
       }
-    })]), _vm._v(" "), _c("a", {
+    })]), _vm._v(" "), user.user_status === "DEACTIVATED" ? _c("span", [_c("a", {
       staticStyle: {
         "margin-left": "8px"
       },
@@ -4981,16 +5050,34 @@ var render = function render() {
       },
       on: {
         click: function click($event) {
-          return _vm.deleteUser(user.id);
+          return _vm.activateUser(user);
         }
       }
     }, [_c("i", {
-      staticClass: "fa fa-ban",
+      staticClass: "fa fa-toggle-off",
       staticStyle: {
         color: "#999",
         "font-size": "18px"
       }
-    })])])]);
+    })])]) : _c("span", [_c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.deactivateUser(user);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fa fa-toggle-on",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })])])])]);
   })], 2)])]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   }, [_c("pagination", {
@@ -5231,7 +5318,7 @@ var render = function render() {
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("tr", [_c("th", [_vm._v("No")]), _vm._v(" "), _c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Email")]), _vm._v(" "), _c("th", [_vm._v("Type")]), _vm._v(" "), _c("th", [_vm._v("Date Created")]), _vm._v(" "), _c("th", [_vm._v("Actions")])]);
+  return _c("tr", [_c("th", [_vm._v("No")]), _vm._v(" "), _c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Email")]), _vm._v(" "), _c("th", [_vm._v("Type")]), _vm._v(" "), _c("th", [_vm._v("Status")]), _vm._v(" "), _c("th", [_vm._v("Date Created")]), _vm._v(" "), _c("th", [_vm._v("Actions")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
