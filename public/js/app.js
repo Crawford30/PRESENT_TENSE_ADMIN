@@ -4932,7 +4932,7 @@ var render = function render() {
         return _vm.newModal();
       }
     }
-  }, [_vm._v("\n                            Add New\n                            "), _c("i", {
+  }, [_vm._v("\n              Add New\n              "), _c("i", {
     staticClass: "fas fa-user-plus fa-fw"
   })])])]), _vm._v(" "), _vm.users != null && _vm.users != undefined ? _c("div", {
     staticClass: "card-body table-responsive p-0"
@@ -5238,7 +5238,7 @@ var render = function render() {
       type: "button",
       "data-dismiss": "modal"
     }
-  }, [_vm._v("\n                            Close\n                        ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n              Close\n            ")]), _vm._v(" "), _c("button", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5249,7 +5249,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                            Update\n                        ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n              Update\n            ")]), _vm._v(" "), _c("button", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5260,7 +5260,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                            Create\n                        ")])])])])])])]);
+  }, [_vm._v("\n              Create\n            ")])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
