@@ -4,6 +4,10 @@ export default class Gate {
         this.user = user;
     }
 
+    isSuperAdmin() {
+        return this.user.type === 'superadmin';
+    }
+
 
     isAdmin() {
         return this.user.type === 'admin';
@@ -12,6 +16,14 @@ export default class Gate {
     isUser() {
         return this.user.type === 'user';
     }
+
+    isAdminOrSuperAdmin() {
+        if (this.user.type === 'admin' || this.user.type === 'superadmin') {
+            return true;
+        }
+
+    }
+
     isAdminOrAuthor() {
         if (this.user.type === 'admin' || this.user.type === 'author') {
             return true;
