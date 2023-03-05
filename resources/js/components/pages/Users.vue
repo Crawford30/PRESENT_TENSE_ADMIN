@@ -30,7 +30,7 @@
                   <th>Actions</th>
                 </tr>
 
-                <tr v-for="(user, index) in users.results.data" :key="user.id">
+                <tr v-for="(user, index) in users.data" :key="user.id">
                   <td>{{ index + 1 }}</td>
                   <!-- <td>{{ user.id }}</td> -->
                   <td>{{ user.name }}</td>
@@ -73,12 +73,12 @@
             </table>
           </div>
           <!-- /.card-body -->
-          <!-- <div class="card-footer">
+          <div class="card-footer">
             <pagination
               :data="users"
               @pagination-change-page="getResults"
             ></pagination>
-          </div> -->
+          </div>
         </div>
         <!-- /.card -->
       </div>
@@ -226,10 +226,12 @@ export default {
       }),
     };
   },
+
   methods: {
     getResults(page = 1) {
-      axios.get("api/user?page=" + page).then((response) => {
-        this.users = response.data;
+      axios.get("api/user/get-user?page=" + page).then((response) => {
+        console.log("RESPONSE On NEXT PAGE: ", response);
+        this.users = response.data.results;
       });
     },
     updateUser() {
@@ -313,7 +315,10 @@ export default {
     loadUsers() {
       if (this.$gate.isAdmin()) {
         let app = this;
-        axios.get("api/user/get-user").then(({ data }) => (app.users = data));
+
+        axios
+          .get("api/user/get-user")
+          .then(({ data }) => (app.users = data.results));
         //   console.log("USER DATA: ", app.users);
       }
     },
