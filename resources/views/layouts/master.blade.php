@@ -91,7 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <router-link to="/dashboard" class="nav-link">
                   <i class="nav-icon fas fa-th text-blue"></i>
                   <p>
-                   Dashboard
+                   DASHBOARD
                     {{-- <span class="right badge badge-danger">New</span> --}}
                   </p>
                 </router-link>
@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
               <p>
-                User Management
+                USER MANAGEMENT
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -205,6 +205,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <p>Songs In Various Tongues</p>
                       </router-link>
               </li>
+            </ul>
+          </li>
+          @endcan
+
+
+
+          @can('isAdmin')
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-book"></i>
+              <p>
+                PUBLICATIONS
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                    <router-link to="/present-tense-songs" class="nav-link">
+                        <i class="fa  fa-book nav-icon nav-icon nav-icon text-green"></i>
+                        <p>Publication One</p>
+                      </router-link>
+                  </li>
             </ul>
           </li>
           @endcan
