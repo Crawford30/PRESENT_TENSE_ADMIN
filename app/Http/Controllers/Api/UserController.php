@@ -44,9 +44,7 @@ class UserController extends Controller
 
     public function deleteUserData(DeleteUserRequest $request)
     {
-       // $this->authorize('isAdmin');
-        //dd($request);
-         return $request->delete($request);
+         return $request->deleteUser($request);
     }
 
 

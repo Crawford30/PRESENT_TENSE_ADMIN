@@ -29,7 +29,7 @@ class DeleteUserRequest extends FormRequest
         ];
     }
 
-    public function delete()
+    public function deleteUser()
     {
         $user = User::findOrFail($this->user_id);
         $user->delete();
