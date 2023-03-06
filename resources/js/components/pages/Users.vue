@@ -355,61 +355,24 @@ export default {
         confirmButtonText: "Yes, Delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          axios({
-            method: "post",
+          $.ajax({
             url: "/api/user/delete-user",
+            type: "post",
             data: {
               user_id: id,
             },
-          })
-            .then((response) => {
+            success(data) {
               app.isProcessing = false;
-              if (response.success) {
-                Swal.fire("User Deleted Successfully!", "", "success");
-              }
-
+              Swal.fire("User Deleted Successfully!", "", "success");
               app.loadUsers();
-              //this.$refs.grantRef.reset();
-              //======dismiss the model
-              //   Swal.fire({
-              //     icon: "success",
-              //     title: "Success",
-              //     html: "<p class='font-size: 13px'>User Deleted Successfully</p>",
-              //     showConfirmButton: true,
-              //     allowOutsideClick: false,
-              //     showCloseButton: true,
-              //     confirmButtonText: "Ok",
-              //     confirmButtonColor: "#32CD32",
-              //   }).then((result) => {
-              //     if (result.isConfirmed) {
-              //       // window.location.href = "/list";
-              //     }
-              //   });
-            })
-            .catch((error) => {
+            },
+            error(e) {
               app.isProcessing = false;
-              this.errors = error.response.data.errors;
-
-              Swal.fire("Failed!", error.response.data.errors, "warning");
-              //   formModal.modal("hide");
-              //   app.showErrorMessage(error.response.data.errors);
-            });
-          //   $.ajax({
-          //     url: "/api/user/delete-user",
-          //     type: "post",
-          //     data: {
-          //       user_id: id,
-          //     },
-          //     success(data) {
-          //       Swal.fire("User Deleted Successfully!", "", "success");
-          //       app.loadUsers();
-          //     },
-          //     error(e) {
-          //       console.log("ERROR ON DELETE: ", e);
-          //       Swal.fire("Failed!", "There was something wrong.", "warning");
-          //       //   app.showAjaxError(e);
-          //     },
-          //   });
+              console.log("ERROR ON DELETE: ", e);
+              Swal.fire("Failed!", "There was something wrong.", "warning");
+              //   app.showAjaxError(e);
+            },
+          });
         }
       });
     },

@@ -4,7 +4,12 @@ window._ = require('lodash');
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
+ *
+ *
  */
+
+window.Popper = require('popper.js').default;
+window.$ = window.jQuery = require('jquery');
 
 try {
     window.Popper = require('popper.js').default;
@@ -12,6 +17,23 @@ try {
 
     require('bootstrap');
     require('admin-lte');
+    require("jquery-validation");
+
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+            'Access-Control-Allow-Headers': '*'
+        }
+    });
 } catch (e) { }
 
 /**
