@@ -2132,9 +2132,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixin_IziToast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mixin/IziToast */ "./resources/js/components/mixin/IziToast.js");
 /* harmony import */ var _Helpers_Tooltip_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Helpers/Tooltip.vue */ "./resources/js/components/Helpers/Tooltip.vue");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
 // import Form from "vform";
+
 
 
 
@@ -2143,6 +2146,8 @@ __webpack_require__.r(__webpack_exports__);
   mixins: [_mixin_IziToast__WEBPACK_IMPORTED_MODULE_0__["default"]],
   data: function data() {
     return {
+      errors: null,
+      isProcessing: false,
       editmode: false,
       isUserActivated: false,
       users: {},
@@ -2159,7 +2164,7 @@ __webpack_require__.r(__webpack_exports__);
     getResults: function getResults() {
       var _this = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("api/user/get-user?page=" + page).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("api/user/get-user?page=" + page).then(function (response) {
         console.log("RESPONSE On NEXT PAGE: ", response);
         _this.users = response.data.results;
       });
@@ -2170,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
       app.form.post("api/user/update-user").then(function () {
         Fire.$emit("AfterCreate");
         $("#addNew").modal("hide");
-        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User updated Successfully!", "", "success");
+        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User updated Successfully!", "", "success");
         app.loadUsers();
         //   toast({
         //     type: "success",
@@ -2195,7 +2200,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log("DEACITVATE USER: ", user.user_status);
       this.isUserActivated = false;
       var app = this;
-      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+      sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire({
         title: "Deactivate User",
         html: "<p style=\"font-size: 13px;\">Would you like to deactivate <span style=\"font-size: 13px; font-weight: bold; color: #000000;\">".concat(user.email, "</span>?</p>"),
         icon: "question",
@@ -2214,7 +2219,7 @@ __webpack_require__.r(__webpack_exports__);
               user_status: 0
             },
             success: function success(data) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User Deactivated Successfully!", "", "success");
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Deactivated Successfully!", "", "success");
               app.loadUsers();
             },
             error: function error(e) {
@@ -2229,7 +2234,7 @@ __webpack_require__.r(__webpack_exports__);
     activateUser: function activateUser(user) {
       this.isUserActivated = true;
       var app = this;
-      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+      sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire({
         title: "Activate User",
         html: "<p style=\"font-size: 13px;\">Would you like to activate <span style=\"font-size: 13px; font-weight: bold; color: #000000;\">".concat(user.email, "</span>?</p>"),
         icon: "question",
@@ -2248,7 +2253,7 @@ __webpack_require__.r(__webpack_exports__);
               user_status: 1
             },
             success: function success(data) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User Activated Successfully!", "", "success");
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Activated Successfully!", "", "success");
               app.loadUsers();
             },
             error: function error(e) {
@@ -2261,8 +2266,10 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deleteUser: function deleteUser(id) {
+      var _this2 = this;
       var app = this;
-      sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
+      app.isProcessing = true;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire({
         title: "Delete User",
         html: "<p style='font-size: 14px;'>You won't be able to revert this!</p>",
         icon: "question",
@@ -2273,29 +2280,64 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: "Yes, Delete it!"
       }).then(function (result) {
         if (result.isConfirmed) {
-          $.ajax({
+          axios__WEBPACK_IMPORTED_MODULE_2___default()({
+            method: "post",
             url: "/api/user/delete-user",
-            type: "post",
             data: {
               user_id: id
-            },
-            success: function success(data) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User Deleted Successfully!", "", "success");
-              app.loadUsers();
-            },
-            error: function error(e) {
-              console.log("ERROR ON DELETE: ", e);
-              sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
             }
+          }).then(function (response) {
+            app.isProcessing = false;
+            if (response.success) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Deleted Successfully!", "", "success");
+            }
+            app.loadUsers();
+            //this.$refs.grantRef.reset();
+            //======dismiss the model
+            //   Swal.fire({
+            //     icon: "success",
+            //     title: "Success",
+            //     html: "<p class='font-size: 13px'>User Deleted Successfully</p>",
+            //     showConfirmButton: true,
+            //     allowOutsideClick: false,
+            //     showCloseButton: true,
+            //     confirmButtonText: "Ok",
+            //     confirmButtonColor: "#32CD32",
+            //   }).then((result) => {
+            //     if (result.isConfirmed) {
+            //       // window.location.href = "/list";
+            //     }
+            //   });
+          })["catch"](function (error) {
+            app.isProcessing = false;
+            _this2.errors = error.response.data.errors;
+            sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("Failed!", error.response.data.errors, "warning");
+            //   formModal.modal("hide");
+            //   app.showErrorMessage(error.response.data.errors);
           });
+          //   $.ajax({
+          //     url: "/api/user/delete-user",
+          //     type: "post",
+          //     data: {
+          //       user_id: id,
+          //     },
+          //     success(data) {
+          //       Swal.fire("User Deleted Successfully!", "", "success");
+          //       app.loadUsers();
+          //     },
+          //     error(e) {
+          //       console.log("ERROR ON DELETE: ", e);
+          //       Swal.fire("Failed!", "There was something wrong.", "warning");
+          //       //   app.showAjaxError(e);
+          //     },
+          //   });
         }
       });
     },
     loadUsers: function loadUsers() {
       if (this.$gate.isAdmin()) {
         var app = this;
-        axios.get("api/user/get-user").then(function (_ref) {
+        axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("api/user/get-user").then(function (_ref) {
           var data = _ref.data;
           return app.users = data.results;
         });
@@ -2308,7 +2350,7 @@ __webpack_require__.r(__webpack_exports__);
       app.form.post("api/user/create").then(function () {
         Fire.$emit("AfterCreate");
         $("#addNew").modal("hide");
-        sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire("User Created Successfully!", "", "success");
+        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Created Successfully!", "", "success");
         app.loadUsers();
         app.$Progress.finish();
       })["catch"](function (e) {
@@ -2317,16 +2359,16 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    var _this2 = this;
+    var _this3 = this;
     Fire.$on("searching", function () {
-      var query = _this2.$parent.search;
-      axios.get("api/user/findUser?q=" + query).then(function (data) {
-        _this2.users = data.data;
+      var query = _this3.$parent.search;
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("api/user/findUser?q=" + query).then(function (data) {
+        _this3.users = data.data;
       })["catch"](function () {});
     });
     this.loadUsers();
     Fire.$on("AfterCreate", function () {
-      _this2.loadUsers();
+      _this3.loadUsers();
     });
     // setInterval(() => this.loadUsers(), 3000);
   },

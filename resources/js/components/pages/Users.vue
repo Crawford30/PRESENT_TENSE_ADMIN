@@ -207,6 +207,7 @@
 
 import Izitoast from "../mixin/IziToast";
 import ToolTip from "./../Helpers/Tooltip.vue";
+import axios from "axios";
 
 import Swal from "sweetalert2";
 
@@ -214,6 +215,8 @@ export default {
   mixins: [Izitoast],
   data() {
     return {
+      errors: null,
+      isProcessing: false,
       editmode: false,
       isUserActivated: false,
       users: {},
@@ -340,6 +343,7 @@ export default {
 
     deleteUser(id) {
       let app = this;
+      app.isProcessing = true;
       Swal.fire({
         title: "Delete User",
         html: "<p style='font-size: 14px;'>You won't be able to revert this!</p>",
@@ -351,22 +355,61 @@ export default {
         confirmButtonText: "Yes, Delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          $.ajax({
+          axios({
+            method: "post",
             url: "/api/user/delete-user",
-            type: "post",
             data: {
               user_id: id,
             },
-            success(data) {
-              Swal.fire("User Deleted Successfully!", "", "success");
+          })
+            .then((response) => {
+              app.isProcessing = false;
+              if (response.success) {
+                Swal.fire("User Deleted Successfully!", "", "success");
+              }
+
               app.loadUsers();
-            },
-            error(e) {
-              console.log("ERROR ON DELETE: ", e);
-              Swal.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
-            },
-          });
+              //this.$refs.grantRef.reset();
+              //======dismiss the model
+              //   Swal.fire({
+              //     icon: "success",
+              //     title: "Success",
+              //     html: "<p class='font-size: 13px'>User Deleted Successfully</p>",
+              //     showConfirmButton: true,
+              //     allowOutsideClick: false,
+              //     showCloseButton: true,
+              //     confirmButtonText: "Ok",
+              //     confirmButtonColor: "#32CD32",
+              //   }).then((result) => {
+              //     if (result.isConfirmed) {
+              //       // window.location.href = "/list";
+              //     }
+              //   });
+            })
+            .catch((error) => {
+              app.isProcessing = false;
+              this.errors = error.response.data.errors;
+
+              Swal.fire("Failed!", error.response.data.errors, "warning");
+              //   formModal.modal("hide");
+              //   app.showErrorMessage(error.response.data.errors);
+            });
+          //   $.ajax({
+          //     url: "/api/user/delete-user",
+          //     type: "post",
+          //     data: {
+          //       user_id: id,
+          //     },
+          //     success(data) {
+          //       Swal.fire("User Deleted Successfully!", "", "success");
+          //       app.loadUsers();
+          //     },
+          //     error(e) {
+          //       console.log("ERROR ON DELETE: ", e);
+          //       Swal.fire("Failed!", "There was something wrong.", "warning");
+          //       //   app.showAjaxError(e);
+          //     },
+          //   });
         }
       });
     },
