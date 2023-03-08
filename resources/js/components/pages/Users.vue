@@ -293,7 +293,11 @@ export default {
               user_status: 0,
             },
             success(data) {
-              Swal.fire("User Deactivated Successfully!", "", "success");
+              Swal.fire(
+                "<p style='font-size: 14px;'>User Deactivated Successfully</p>",
+                "",
+                "success"
+              );
               app.loadUsers();
             },
             error(e) {
@@ -328,7 +332,11 @@ export default {
               user_status: 1,
             },
             success(data) {
-              Swal.fire("User Activated Successfully!", "", "success");
+              Swal.fire(
+                "<p style='font-size: 14px;'>User Activated Successfully</p>",
+                "",
+                "success"
+              );
               app.loadUsers();
             },
             error(e) {

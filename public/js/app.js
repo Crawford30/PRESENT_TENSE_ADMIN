@@ -2219,7 +2219,7 @@ __webpack_require__.r(__webpack_exports__);
               user_status: 0
             },
             success: function success(data) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Deactivated Successfully!", "", "success");
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("<p style='font-size: 14px;'>User Deactivated Successfully</p>", "", "success");
               app.loadUsers();
             },
             error: function error(e) {
@@ -2253,7 +2253,7 @@ __webpack_require__.r(__webpack_exports__);
               user_status: 1
             },
             success: function success(data) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Activated Successfully!", "", "success");
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("<p style='font-size: 14px;'>User Activated Successfully</p>", "", "success");
               app.loadUsers();
             },
             error: function error(e) {
