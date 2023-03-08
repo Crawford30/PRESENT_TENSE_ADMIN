@@ -246,7 +246,11 @@ export default {
           Fire.$emit("AfterCreate");
           $("#addNew").modal("hide");
 
-          Swal.fire("User updated Successfully!", "", "success");
+          Swal.fire(
+            "<p style='font-size: 14px;'>User Updated Successfully</p>",
+            "",
+            "success"
+          );
           app.loadUsers();
           //   toast({
           //     type: "success",

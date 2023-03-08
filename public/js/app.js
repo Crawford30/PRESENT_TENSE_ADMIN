@@ -2175,7 +2175,7 @@ __webpack_require__.r(__webpack_exports__);
       app.form.post("api/user/update-user").then(function () {
         Fire.$emit("AfterCreate");
         $("#addNew").modal("hide");
-        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User updated Successfully!", "", "success");
+        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("<p style='font-size: 14px;'>User Updated Successfully</p>", "", "success");
         app.loadUsers();
         //   toast({
         //     type: "success",
