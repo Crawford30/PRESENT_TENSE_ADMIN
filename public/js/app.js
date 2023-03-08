@@ -2287,7 +2287,7 @@ __webpack_require__.r(__webpack_exports__);
             },
             success: function success(data) {
               app.isProcessing = false;
-              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Deleted Successfully!", "", "success");
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("<p style='font-size: 14px;'>User Deleted Successfully</p>", "", "success");
               app.loadUsers();
             },
             error: function error(e) {

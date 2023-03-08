@@ -363,7 +363,11 @@ export default {
             },
             success(data) {
               app.isProcessing = false;
-              Swal.fire("User Deleted Successfully!", "", "success");
+              Swal.fire(
+                "<p style='font-size: 14px;'>User Deleted Successfully</p>",
+                "",
+                "success"
+              );
               app.loadUsers();
             },
             error(e) {
