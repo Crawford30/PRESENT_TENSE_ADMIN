@@ -252,10 +252,6 @@ export default {
             "success"
           );
           app.loadUsers();
-          //   toast({
-          //     type: "success",
-          //     title: "User Updated successfully"
-          //   });
           app.$Progress.finish();
         })
         .catch(() => {});
@@ -305,9 +301,12 @@ export default {
               app.loadUsers();
             },
             error(e) {
-              console.log("ERROR ON DEACTIVATE: ", e);
-              //Swal.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
+              Swal.fire(
+                "Failed!",
+                "<p style='font-size: 14px;'>There was something wrong!</p>",
+                "warning"
+              );
+              // app.showAjaxError(e);
             },
           });
         }
@@ -344,9 +343,11 @@ export default {
               app.loadUsers();
             },
             error(e) {
-              console.log("ERROR ON ACTIVATE: ", e);
-              // Swal.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
+              Swal.fire(
+                "Failed!",
+                "<p style='font-size: 14px;'>There was something wrong!</p>",
+                "warning"
+              );
             },
           });
         }
@@ -384,9 +385,11 @@ export default {
             },
             error(e) {
               app.isProcessing = false;
-              console.log("ERROR ON DELETE: ", e);
-              Swal.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
+              Swal.fire(
+                "Failed!",
+                "<p style='font-size: 14px;'>There was something wrong!</p>",
+                "warning"
+              );
             },
           });
         }
@@ -410,12 +413,20 @@ export default {
         .then(() => {
           Fire.$emit("AfterCreate");
           $("#addNew").modal("hide");
-          Swal.fire("User Created Successfully!", "", "success");
+          Swal.fire(
+            "<p style='font-size: 14px;'>User account created successfully</p>",
+            "",
+            "success"
+          );
           app.loadUsers();
           app.$Progress.finish();
         })
         .catch((e) => {
-          console.log("ERROR: ", e);
+          Swal.fire(
+            "Failed!",
+            "<p style='font-size: 14px;'>There was something wrong!</p>",
+            "warning"
+          );
         });
     },
   },

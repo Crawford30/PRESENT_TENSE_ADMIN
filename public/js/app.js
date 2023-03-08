@@ -2177,10 +2177,6 @@ __webpack_require__.r(__webpack_exports__);
         $("#addNew").modal("hide");
         sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("<p style='font-size: 14px;'>User Updated Successfully</p>", "", "success");
         app.loadUsers();
-        //   toast({
-        //     type: "success",
-        //     title: "User Updated successfully"
-        //   });
         app.$Progress.finish();
       })["catch"](function () {});
     },
@@ -2223,9 +2219,8 @@ __webpack_require__.r(__webpack_exports__);
               app.loadUsers();
             },
             error: function error(e) {
-              console.log("ERROR ON DEACTIVATE: ", e);
-              //Swal.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("Failed!", "<p style='font-size: 14px;'>There was something wrong!</p>", "warning");
+              // app.showAjaxError(e);
             }
           });
         }
@@ -2257,9 +2252,7 @@ __webpack_require__.r(__webpack_exports__);
               app.loadUsers();
             },
             error: function error(e) {
-              console.log("ERROR ON ACTIVATE: ", e);
-              // Swal.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("Failed!", "<p style='font-size: 14px;'>There was something wrong!</p>", "warning");
             }
           });
         }
@@ -2292,9 +2285,7 @@ __webpack_require__.r(__webpack_exports__);
             },
             error: function error(e) {
               app.isProcessing = false;
-              console.log("ERROR ON DELETE: ", e);
-              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("Failed!", "There was something wrong.", "warning");
-              //   app.showAjaxError(e);
+              sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("Failed!", "<p style='font-size: 14px;'>There was something wrong!</p>", "warning");
             }
           });
         }
@@ -2316,11 +2307,11 @@ __webpack_require__.r(__webpack_exports__);
       app.form.post("api/user/create").then(function () {
         Fire.$emit("AfterCreate");
         $("#addNew").modal("hide");
-        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("User Created Successfully!", "", "success");
+        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("<p style='font-size: 14px;'>User account created successfully</p>", "", "success");
         app.loadUsers();
         app.$Progress.finish();
       })["catch"](function (e) {
-        console.log("ERROR: ", e);
+        sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("Failed!", "<p style='font-size: 14px;'>There was something wrong!</p>", "warning");
       });
     }
   },
