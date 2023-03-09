@@ -90,17 +90,10 @@
                                   <i
                                     class="fa fa-toggle-on"
                                     style="color: #999; font-size: 18px"
-                                  ></i>
+                                  >
+                                  </i>
                                 </a>
                               </span>
-                              <!-- <span v-if="item.owner_ids.includes(session.id) || item.user_id == session.id">
-                                                <a href="#" @click.prevent="editForm(item.id)">
-                                                    <i class="fas fa-pencil-alt" style="color: #999; font-size: 18px;"></i>
-                                                </a>
-                                                <a @click.prevent="deleteForm(item.id)" href="#" style="margin-left: 8px;">
-                                                    <i class="far fa-trash-alt" style="color: #999; font-size: 18px;"></i>
-                                                </a>
-                                            </span> -->
                             </td>
                           </tr>
                         </tbody>
