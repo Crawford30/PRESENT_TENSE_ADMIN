@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                   <div class="form-card shadow-sm table-padding">
                     <div class="row justify-content-center">
-                      <table class="table table-sm unicef-forms-list">
+                      <table class="table table-sm table-forms-list">
                         <thead>
                           <tr>
                             <th>#</th>
@@ -118,176 +118,6 @@
             ></pagination>
           </div>
         </div>
-
-        <!-- <div class="supply-view">
-          <div class="card">
-            <div class="row mt-3">
-              <div class="col-md-12">
-                <div class="form-card shadow-sm">
-                  <div class="row justify-content-center">
-                    <table
-                      class="table table-sm unicef-forms-list table-padding"
-                    >
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>NAME</th>
-                          <th>E-MAIL</th>
-                          <th>TYPE</th>
-                          <th>DATE CREATED</th>
-                          <th>ACTIONS</th>
-                        </tr>
-                      </thead>
-
-                      <tr v-for="(user, index) in users.data" :key="user.id">
-                        <td>{{ index + 1 }}</td>
-                        <td>{{ user.id }}</td> -->
-        <!-- <td>{{ user.name }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.type | upText }}</td> -->
-        <!-- <td>{{ user.user_status | upText }}</td> -->
-        <!-- <td>
-                          {{ user.created_at | myDate }}
-                        </td>
-
-                        <td>
-                          <a href="#" @click="editModal(user)">
-                            <i
-                              class="fas fa-pencil-alt"
-                              style="color: #999; font-size: 18px"
-                            ></i>
-                          </a>
-
-                          <a
-                            href="#"
-                            @click="deleteUser(user.id)"
-                            style="margin-left: 8px"
-                          >
-                            <i
-                              class="far fa-trash-alt"
-                              style="color: #999; font-size: 18px"
-                            ></i>
-                          </a>
-                          <span v-if="user.user_status === 'DEACTIVATED'">
-                            <a
-                              href="#"
-                              @click="activateUser(user)"
-                              style="margin-left: 8px"
-                            >
-                              <i
-                                class="fa fa-toggle-off"
-                                style="color: #999; font-size: 18px"
-                              ></i>
-                            </a>
-                          </span>
-                          <span v-else>
-                            <a
-                              href="#"
-                              @click="deactivateUser(user)"
-                              style="margin-left: 8px"
-                            >
-                              <i
-                                class="fa fa-toggle-on"
-                                style="color: #999; font-size: 18px"
-                              ></i>
-                            </a>
-                          </span>
-                        </td>
-                      </tr>
-                    </table>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <pagination
-                    :data="users"
-                    @pagination-change-page="getResults"
-                  ></pagination>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>  -->
-
-        <!-- <div
-            class="card-body table-responsive p-0 supply-form"
-            v-if="users != null && users != undefined"
-          >
-            <table class="table table-hover">
-              <tbody>
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th class="text-center">NAME</th>
-                    <th class="text-center">E-MAIL</th>
-                    <th class="text-center">TYPE</th>
-                    <th class="text-center">DATE CREATED</th>
-                    <th class="text-right">ACTIONS</th>
-                  </tr>
-                </thead>
-
-                <tr v-for="(user, index) in users.data" :key="user.id">
-                  <td>{{ index + 1 }}</td>
-                  <td>{{ user.name }}</td>
-                  <td>{{ user.email }}</td>
-                  <td>{{ user.type | upText }}</td>
-                  <td>{{ user.created_at | myDate }}</td>
-
-                  <td>
-                    <a href="#" @click="editModal(user)">
-                      <i
-                        class="fas fa-pencil-alt"
-                        style="color: #999; font-size: 18px"
-                      ></i>
-                    </a>
-
-                    <a
-                      href="#"
-                      @click="deleteUser(user.id)"
-                      style="margin-left: 8px"
-                    >
-                      <i
-                        class="far fa-trash-alt"
-                        style="color: #999; font-size: 18px"
-                      ></i>
-                    </a>
-                    <span v-if="user.user_status === 'DEACTIVATED'">
-                      <a
-                        href="#"
-                        @click="activateUser(user)"
-                        style="margin-left: 8px"
-                      >
-                        <i
-                          class="fa fa-toggle-off"
-                          style="color: #999; font-size: 18px"
-                        ></i>
-                      </a>
-                    </span>
-                    <span v-else>
-                      <a
-                        href="#"
-                        @click="deactivateUser(user)"
-                        style="margin-left: 8px"
-                      >
-                        <i
-                          class="fa fa-toggle-on"
-                          style="color: #999; font-size: 18px"
-                        ></i>
-                      </a>
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div> -->
-        <!-- /.card-body -->
-        <!-- <div class="card-footer">
-            <pagination
-              :data="users"
-              @pagination-change-page="getResults"
-            ></pagination>
-          </div> -->
-
-        <!-- /.card -->
       </div>
     </div>
 
@@ -668,32 +498,10 @@ export default {
 .shadow-sm {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
-.unicef-forms-list tr th,
-.unicef-forms-list tr td {
+.table-forms-list tr th,
+.table-forms-list tr td {
   font-size: 13px;
 }
-
-/* .supply-view,
-.form-card {
-  background: #fff;
-}
-.supply-view table thead {
-  background-color: #f5f6fa;
-  color: #a6a9b7;
-}
-
-.supply-view .table-padding {
-  padding: 25px 35px;
-} */
-
-/* .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-}
-
-.unicef-forms-list tr th,
-.unicef-forms-list tr td {
-  font-size: 13px;
-} */
 
 .table-padding {
   padding: 25px 35px;

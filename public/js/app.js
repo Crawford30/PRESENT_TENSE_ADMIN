@@ -2884,7 +2884,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "row justify-content-center"
   }, [_c("table", {
-    staticClass: "table table-sm unicef-forms-list"
+    staticClass: "table table-sm table-forms-list"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.users.data, function (user, index) {
     return _c("tr", {
       key: user.id
@@ -10379,7 +10379,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.table thead[data-v-07e2d234] {\n  background-color: #f5f6fa;\n  color: #a6a9b7;\n}\n.modal[data-v-07e2d234] {\n  overflow-y: auto !important;\n}\n.form-view[data-v-07e2d234],\n.form-card[data-v-07e2d234] {\n  background: #fff;\n}\n.form-view .table-padding[data-v-07e2d234] {\n  padding: 25px 35px;\n}\n.shadow-sm[data-v-07e2d234] {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n.unicef-forms-list tr th[data-v-07e2d234],\n.unicef-forms-list tr td[data-v-07e2d234] {\n  font-size: 13px;\n}\n\n/* .supply-view,\n.form-card {\n  background: #fff;\n}\n.supply-view table thead {\n  background-color: #f5f6fa;\n  color: #a6a9b7;\n}\n\n.supply-view .table-padding {\n  padding: 25px 35px;\n} */\n\n/* .shadow-sm {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n\n.unicef-forms-list tr th,\n.unicef-forms-list tr td {\n  font-size: 13px;\n} */\n.table-padding[data-v-07e2d234] {\n  padding: 25px 35px;\n}\n", ""]);
+exports.push([module.i, "\n.table thead[data-v-07e2d234] {\n  background-color: #f5f6fa;\n  color: #a6a9b7;\n}\n.modal[data-v-07e2d234] {\n  overflow-y: auto !important;\n}\n.form-view[data-v-07e2d234],\n.form-card[data-v-07e2d234] {\n  background: #fff;\n}\n.form-view .table-padding[data-v-07e2d234] {\n  padding: 25px 35px;\n}\n.shadow-sm[data-v-07e2d234] {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n.table-forms-list tr th[data-v-07e2d234],\n.table-forms-list tr td[data-v-07e2d234] {\n  font-size: 13px;\n}\n.table-padding[data-v-07e2d234] {\n  padding: 25px 35px;\n}\n", ""]);
 
 // exports
 
