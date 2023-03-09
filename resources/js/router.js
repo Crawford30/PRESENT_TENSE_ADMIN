@@ -6,8 +6,9 @@ Vue.use(VueRouter)
 let routes = [
     { path: '/dashboard', component: require('./components/pages/Dashboard.vue').default },
     { path: '/profile', component: require('./components/pages/Profile.vue').default },
-    { path: '/users', component: require('./components/pages/Users.vue').default },
-    { path: '*', component: require('./components/pages/NotFound.vue').default },
+    { path: '/users', component: require('./components/pages/ManageUser.vue').default },
+    //{ path: '/users', component: require('./components/pages/Users.vue').default },
+    // { path: '*', component: require('./components/pages/NotFound.vue').default },
 
     { path: '/audio-dvds', component: require('./components/pages/DVDS/AudioDVDS.vue').default },
     { path: '/video-dvds', component: require('./components/pages/DVDS/VideoDVDS.vue').default },
