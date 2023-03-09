@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row" v-if="$gate.isAdmin()">
       <div class="col-md-12">
-        <div class="row mt-5">
+        <div class="row mt-3">
           <div class="col-md-9">
             <h3 style="font-weight: 500; color: #333; font-size: 1.575rem">
               Manage Users
@@ -36,7 +36,7 @@
                             <th>STATUS</th>
                             <th>TYPE</th>
                             <th>DATE CREATED</th>
-                            <th class="text-right">ACTIONS</th>
+                            <th>ACTIONS</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -51,7 +51,7 @@
                             <td>{{ user.type | upText }}</td>
                             <td>{{ user.created_at | myDate }}</td>
 
-                            <td class="text-right">
+                            <td>
                               <a href="#" @click="editModal(user)">
                                 <i
                                   class="fas fa-pencil-alt"
@@ -141,7 +141,7 @@
 
                       <tr v-for="(user, index) in users.data" :key="user.id">
                         <td>{{ index + 1 }}</td>
-                        <!-- <td>{{ user.id }}</td> -->
+                        <td>{{ user.id }}</td> -->
         <!-- <td>{{ user.name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.type | upText }}</td> -->

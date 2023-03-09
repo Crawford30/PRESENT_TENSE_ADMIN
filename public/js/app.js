@@ -2855,7 +2855,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "col-md-12"
   }, [_c("div", {
-    staticClass: "row mt-5"
+    staticClass: "row mt-3"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("button", {
@@ -2888,9 +2888,7 @@ var render = function render() {
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.users.data, function (user, index) {
     return _c("tr", {
       key: user.id
-    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.user_status)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.type)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(user.created_at)))]), _vm._v(" "), _c("td", {
-      staticClass: "text-right"
-    }, [_c("a", {
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.email))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.user_status)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("upText")(user.type)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(user.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
@@ -3212,9 +3210,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("NAME")]), _vm._v(" "), _c("th", [_vm._v("E-MAIL")]), _vm._v(" "), _c("th", [_vm._v("STATUS")]), _vm._v(" "), _c("th", [_vm._v("TYPE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", {
-    staticClass: "text-right"
-  }, [_vm._v("ACTIONS")])])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("NAME")]), _vm._v(" "), _c("th", [_vm._v("E-MAIL")]), _vm._v(" "), _c("th", [_vm._v("STATUS")]), _vm._v(" "), _c("th", [_vm._v("TYPE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
