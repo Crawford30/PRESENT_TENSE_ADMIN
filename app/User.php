@@ -11,6 +11,11 @@ class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
 
+    const STATUS_PENDING = 'PENDING';
+    const STATUS_DISABLED = 'DEACTIVATED';
+    const STATUS_ACTIVE = 'ACTIVATED';
+
+
     /**
      * The attributes that are mass assignable.
      *

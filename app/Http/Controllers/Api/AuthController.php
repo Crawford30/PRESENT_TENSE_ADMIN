@@ -21,9 +21,6 @@ class AuthController extends Controller
 
         $user = User::where("email", $request->email)->first();
 
-
-
-
         if($user){
 
         if(Hash::check($request->password, $user->password)) {
@@ -43,28 +40,6 @@ class AuthController extends Controller
         }
 
 
-
-        // if (!$user)  {
-
-        //     $user = $this->attemptLDAP($request->email, $request->password);
-        //     if($user) {
-        //         return $this->proceedToLogin($user);
-        //     }
-
-        //     return response()->json([
-        //         'message' => 'WrongCredentials'
-        //     ], 401);
-        // }
-
-        // else {
-        //     if(Hash::check($request->password, $user->password)) {
-        //         return $this->proceedToLogin($user);
-        //     }
-
-        //     return response()->json([
-        //         'message' => 'WrongCredentials'
-        //     ], 401);
-        // }
     }
 
 

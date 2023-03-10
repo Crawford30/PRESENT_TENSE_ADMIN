@@ -20,6 +20,12 @@ Route::middleware([ 'auth:api'])->get('/user', function (Request $request) {
 });
 
 
+Route::group(['namespace' => 'Api', 'middleware' => 'return-json'], function () {
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('/login', 'AuthController@login');
+});
+
 
 Route::group(['prefix' => 'user'], function () {
 
@@ -31,6 +37,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/update-user', [App\Http\Controllers\Api\UserController::class, 'updateUserData']);
     Route::post('/update-user-status', [App\Http\Controllers\Api\UserController::class, 'activateAndDeactivateUserData']);
     Route::post('/delete-user',  [App\Http\Controllers\Api\UserController::class, 'deleteUserData']);
+});
+
 });
 
 });
