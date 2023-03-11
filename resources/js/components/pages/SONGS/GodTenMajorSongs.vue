@@ -48,7 +48,7 @@
 
                   <a
                     class="pt-2 mb-0 dropdown-item text-center"
-                    @click="downloadSongTemplate"
+                    @click="downloadTemplate"
                   >
                     <img
                       src="/images/icons/icon.excel.png"
@@ -391,6 +391,61 @@ export default {
 
     downloadSongTemplate() {
       window.location.href = "/download-song-template";
+    },
+
+    downloadSavedReciept(file) {
+      let app = this;
+      let phone_bill_url = $("#phonebill-url").val();
+
+      axios
+        .get("/api/user/download-receipt", {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+          params: {
+            fileName: file,
+          },
+          responseType: "blob",
+        })
+        .then((response) => {
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", file);
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch((error) => {
+          app.showErrorMessage(error.response.data);
+        });
+    },
+
+    //   const url = URL.createObjectURL(new Blob([response.data], {
+    //         type: 'application/vnd.ms-excel'
+    //     }))
+    downloadTemplate() {
+      let app = this;
+      let file = "song_template.xlsx";
+
+      axios
+        .get("/api/user/download-song-template", {
+          params: {
+            fileName: "song_template.xlsx",
+          },
+          responseType: "blob",
+        })
+        .then((response) => {
+          const url = window.URL.createObjectURL(new Blob([response.data]));
+          const link = document.createElement("a");
+          link.href = url;
+          link.setAttribute("download", file);
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch((error) => {
+          console.log("ERRRR:: ", error.response.data);
+          //app.showErrorMessage(error.response.data);
+        });
     },
 
     showAddSingleSongModal() {

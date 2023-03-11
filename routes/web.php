@@ -31,7 +31,11 @@ Route::get('/{any}', 'HomeController@index')->where('any', '.*');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/download-song-template', 'HomeController@downloadSongTemplate')->name('download-song-template');
+    // Route::get('/download-song-template', [App\Http\Controllers\Api\HomeController::class, 'downloadSongTemplate'])->name('download-song-template');
+
+    // Route::get('/receipt-files/download', 'HomeController@downloadFile')->name('receipt.download');
+
+    // Route::get('/download-song-template', 'HomeController@downloadSongTemplate')->name('download-song-template');
 
 
 });

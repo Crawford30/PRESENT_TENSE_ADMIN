@@ -36,4 +36,11 @@ class HomeController extends Controller
         return response()->download($public_path, $fileName);
     }
 
+
+
+    public function downloadFile(Request $request)
+    {
+        return response()->download(storage_path("/app/public/{$request->file_path}"));
+    }
+
 }

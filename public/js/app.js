@@ -4515,7 +4515,7 @@ var render = function render() {
   }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
     staticClass: "pt-2 mb-0 dropdown-item text-center",
     on: {
-      click: _vm.downloadSongTemplate
+      click: _vm.downloadTemplate
     }
   }, [_c("img", {
     staticClass: "img-logo",
@@ -6247,6 +6247,51 @@ __webpack_require__.r(__webpack_exports__);
     uploadFile: function uploadFile() {},
     downloadSongTemplate: function downloadSongTemplate() {
       window.location.href = "/download-song-template";
+    },
+    downloadSavedReciept: function downloadSavedReciept(file) {
+      var app = this;
+      var phone_bill_url = $("#phonebill-url").val();
+      axios.get("/api/user/download-receipt", {
+        headers: {
+          Authorization: "Bearer " + token
+        },
+        params: {
+          fileName: file
+        },
+        responseType: "blob"
+      }).then(function (response) {
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", file);
+        document.body.appendChild(link);
+        link.click();
+      })["catch"](function (error) {
+        app.showErrorMessage(error.response.data);
+      });
+    },
+    //   const url = URL.createObjectURL(new Blob([response.data], {
+    //         type: 'application/vnd.ms-excel'
+    //     }))
+    downloadTemplate: function downloadTemplate() {
+      var app = this;
+      var file = "song_template.xlsx";
+      axios.get("/api/user/download-song-template", {
+        params: {
+          fileName: "song_template.xlsx"
+        },
+        responseType: "blob"
+      }).then(function (response) {
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", file);
+        document.body.appendChild(link);
+        link.click();
+      })["catch"](function (error) {
+        console.log("ERRRR:: ", error.response.data);
+        //app.showErrorMessage(error.response.data);
+      });
     },
     showAddSingleSongModal: function showAddSingleSongModal() {
       var app = this;

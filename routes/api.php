@@ -37,6 +37,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/update-user', [App\Http\Controllers\Api\UserController::class, 'updateUserData']);
     Route::post('/update-user-status', [App\Http\Controllers\Api\UserController::class, 'activateAndDeactivateUserData']);
     Route::post('/delete-user',  [App\Http\Controllers\Api\UserController::class, 'deleteUserData']);
+
+    Route::get('/download-song-template',  [App\Http\Controllers\Api\UserController::class, 'download']);
 });
 
 });

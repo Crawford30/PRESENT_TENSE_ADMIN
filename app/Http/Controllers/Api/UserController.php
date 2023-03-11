@@ -11,6 +11,8 @@ use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\user\ActivateAndDeactivateUserRequest;
 use App\Http\Requests\user\ActivateUserRequest;
 use App\Http\Requests\user\DeactivateUserRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -60,19 +62,15 @@ class UserController extends Controller
 
 
 
-    // public function findUserData()
-    // {
-    //     if ($search = \Request::get('q')) {
-    //         $users = User::where(function($query) use ($search){
-    //             $query->where('name','LIKE',"%$search%")
-    //                     ->orWhere('email','LIKE',"%$search%");
-    //         })->paginate(20);
-    //     }else{
-    //         $users = User::latest()->paginate(5);
-    //     }
+    public function download(Request $request)
+    {
+        $filePath = Storage::disk('public')->get($request->fileName);
+        if(explode(".",$request->fileName)[1] == "xlsx"){
+            return (new Response($filePath, 200))->header('Content-Type', 'application/vnd.ms-excel');
+        }
 
-    //     return apiResponse($users);
-    // }
+		return (new Response($filePath, 200))->header('Content-Type', 'image/jpeg');
+    }
 
 
 }
