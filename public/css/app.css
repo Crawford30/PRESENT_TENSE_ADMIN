@@ -74319,6 +74319,94 @@ readers do not read off random characters that represent icons */
   font-weight: 400;
 }
 
+.dvd-view .btn-modal {
+  background-color: #1F69A2;
+  padding: 10px 80px;
+}
+
+.dvd-view .browse-text {
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dvd-view .drag-drop-area {
+  background-color: #EFF2F8;
+  text-align: center;
+  margin: 5px 25px;
+}
+
+.dvd-view .drag-drop-area img {
+  height: 48px;
+  width: 48px;
+}
+
+.dvd-view .add-new-dropdown {
+  position: relative;
+}
+
+.dvd-view .add-new-dropdown .dropdown-menu {
+  position: absolute !important;
+  left: -149px !important;
+  top: 0 !important;
+}
+
+.dvd-view .add-new-dropdown li:hover {
+  background-color: inherit;
+}
+
+.dvd-view .add-new-dropdown .dropdown-item {
+  cursor: pointer;
+  text-align: center;
+}
+
+.dvd-view .add-new-dropdown .dropdown-item:hover {
+  color: #3B86FF;
+}
+
+.dvd-view .add-btn {
+  background-color: #3B86FF;
+  padding: 5px 25px;
+}
+
+.dvd-view .table-padding {
+  padding: 25px 35px;
+}
+
+.dvd-view table thead {
+  background-color: #F5F6FA;
+  color: #A6A9B7;
+}
+
+.dvd-view .staff-card {
+  background: white;
+}
+
+.dvd-view .staff-side-menu .link {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dvd-view .staff-side-menu .link.active {
+  color: #0285E3;
+}
+
+.dvd-view .staff-side-menu .material-icons {
+  font-size: 32px;
+}
+
+.dvd-view .staff-side-menu .desc {
+  font-size: 11px;
+}
+
+.dvd-view .permission-table .header {
+  margin-left: 20px;
+}
+
+.dvd-view.leave-view .header .icon-img {
+  height: 32px;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

@@ -5174,10 +5174,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&":
-/*!*************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5194,28 +5194,92 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "dvd-view"
+  }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
+    staticClass: "row my-3"
   }, [_c("div", {
-    staticClass: "col-md-8"
+    staticClass: "col-md-9 text-left"
+  }, [_c("h4", [_vm._v("God Ten Major Songs")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
   }, [_c("div", {
+    staticClass: "btn-group add-new-dropdown",
+    staticStyle: {
+      width: "100%"
+    }
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group"
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Add Song")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
+    attrs: {
+      type: "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_c("div", {
+    staticClass: "dropdown-menu"
+  }, [_c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/user_folder.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Single Record")])]), _vm._v(" "), _c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/upload_purple.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
+    staticClass: "pt-2 mb-0 dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    staticStyle: {
+      height: "25px !important"
+    },
+    attrs: {
+      src: "/images/icons/icon.excel.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("I'm an example component.")])])])])]);
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("table", {
+    staticClass: "table table-sm"
+  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])])])]);
 }];
 render._withStripped = true;
 
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&":
-/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5232,28 +5296,92 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "dvd-view"
+  }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
+    staticClass: "row my-3"
   }, [_c("div", {
-    staticClass: "col-md-8"
+    staticClass: "col-md-9 text-left"
+  }, [_c("h4", [_vm._v("Praises And Whorship Songs")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
   }, [_c("div", {
+    staticClass: "btn-group add-new-dropdown",
+    staticStyle: {
+      width: "100%"
+    }
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group"
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Add Song")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
+    attrs: {
+      type: "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_c("div", {
+    staticClass: "dropdown-menu"
+  }, [_c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/user_folder.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Single Record")])]), _vm._v(" "), _c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/upload_purple.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
+    staticClass: "pt-2 mb-0 dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    staticStyle: {
+      height: "25px !important"
+    },
+    attrs: {
+      src: "/images/icons/icon.excel.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("I'm an example component.")])])])])]);
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("table", {
+    staticClass: "table table-sm"
+  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])])])]);
 }];
 render._withStripped = true;
 
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5270,28 +5398,92 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "dvd-view"
+  }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
+    staticClass: "row my-3"
   }, [_c("div", {
-    staticClass: "col-md-8"
+    staticClass: "col-md-9 text-left"
+  }, [_c("h4", [_vm._v("Songs In Various Tongues")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
   }, [_c("div", {
+    staticClass: "btn-group add-new-dropdown",
+    staticStyle: {
+      width: "100%"
+    }
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group"
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Add Song")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
+    attrs: {
+      type: "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_c("div", {
+    staticClass: "dropdown-menu"
+  }, [_c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/user_folder.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Single Record")])]), _vm._v(" "), _c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/upload_purple.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
+    staticClass: "pt-2 mb-0 dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    staticStyle: {
+      height: "25px !important"
+    },
+    attrs: {
+      src: "/images/icons/icon.excel.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("I'm an example component.")])])])])]);
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("table", {
+    staticClass: "table table-sm"
+  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])])])]);
 }];
 render._withStripped = true;
 
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&":
-/*!****************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5308,28 +5500,92 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "dvd-view"
+  }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
+    staticClass: "row my-3"
   }, [_c("div", {
-    staticClass: "col-md-8"
+    staticClass: "col-md-9 text-left"
+  }, [_c("h4", [_vm._v("The Big Song Book")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
   }, [_c("div", {
+    staticClass: "btn-group add-new-dropdown",
+    staticStyle: {
+      width: "100%"
+    }
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group"
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Add Song")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
+    attrs: {
+      type: "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_c("div", {
+    staticClass: "dropdown-menu"
+  }, [_c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/user_folder.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Single Record")])]), _vm._v(" "), _c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/upload_purple.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
+    staticClass: "pt-2 mb-0 dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    staticStyle: {
+      height: "25px !important"
+    },
+    attrs: {
+      src: "/images/icons/icon.excel.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("I'm an example component.")])])])])]);
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("table", {
+    staticClass: "table table-sm"
+  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])])])]);
 }];
 render._withStripped = true;
 
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -5346,18 +5602,82 @@ var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
+    staticClass: "dvd-view"
+  }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
+    staticClass: "row my-3"
   }, [_c("div", {
-    staticClass: "col-md-8"
+    staticClass: "col-md-9 text-left"
+  }, [_c("h4", [_vm._v("The Present Tense Songs")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
   }, [_c("div", {
+    staticClass: "btn-group add-new-dropdown",
+    staticStyle: {
+      width: "100%"
+    }
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group"
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("Add Song")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
+    attrs: {
+      type: "button",
+      "data-toggle": "dropdown",
+      "aria-haspopup": "true",
+      "aria-expanded": "false"
+    }
+  }, [_c("div", {
+    staticClass: "dropdown-menu"
+  }, [_c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/user_folder.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Single Record")])]), _vm._v(" "), _c("div", {
+    staticClass: "border-bottom dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/upload_purple.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
+    staticClass: "pt-2 mb-0 dropdown-item text-center"
+  }, [_c("img", {
+    staticClass: "img-logo",
+    staticStyle: {
+      height: "25px !important"
+    },
+    attrs: {
+      src: "/images/icons/icon.excel.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("I'm an example component.")])])])])]);
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("table", {
+    staticClass: "table table-sm"
+  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])])])]);
 }];
 render._withStripped = true;
 
@@ -10344,6 +10664,101 @@ render._withStripped = true;
 
 }));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".unicef-rates-table th[data-v-df091f66],\n.unicef-rates-table td[data-v-df091f66] {\n  font-size: 13px !important;\n}\n.dropdown-toggle[data-v-df091f66]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  float: right !important;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-df091f66] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-df091f66] {\n  min-width: 8rem !important;\n}\n.container[data-v-df091f66] {\n  text-align: center;\n}\n.progress-container[data-v-df091f66] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-df091f66]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-df091f66] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-df091f66] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-df091f66] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-df091f66] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-df091f66] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-df091f66] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-df091f66] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-df091f66 2s linear infinite;\n}\n@keyframes spin-df091f66 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-df091f66] {\n  display: none;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".unicef-rates-table th[data-v-0368f52f],\n.unicef-rates-table td[data-v-0368f52f] {\n  font-size: 13px !important;\n}\n.dropdown-toggle[data-v-0368f52f]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  float: right !important;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-0368f52f] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-0368f52f] {\n  min-width: 8rem !important;\n}\n.container[data-v-0368f52f] {\n  text-align: center;\n}\n.progress-container[data-v-0368f52f] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-0368f52f]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-0368f52f] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-0368f52f] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-0368f52f] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-0368f52f] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-0368f52f] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-0368f52f] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-0368f52f] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-0368f52f 2s linear infinite;\n}\n@keyframes spin-0368f52f {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-0368f52f] {\n  display: none;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".unicef-rates-table th[data-v-25192965],\n.unicef-rates-table td[data-v-25192965] {\n  font-size: 13px !important;\n}\n.dropdown-toggle[data-v-25192965]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  float: right !important;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-25192965] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-25192965] {\n  min-width: 8rem !important;\n}\n.container[data-v-25192965] {\n  text-align: center;\n}\n.progress-container[data-v-25192965] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-25192965]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-25192965] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-25192965] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-25192965] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-25192965] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-25192965] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-25192965] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-25192965] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-25192965 2s linear infinite;\n}\n@keyframes spin-25192965 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-25192965] {\n  display: none;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".unicef-rates-table th[data-v-0665dfcc],\n.unicef-rates-table td[data-v-0665dfcc] {\n  font-size: 13px !important;\n}\n.dropdown-toggle[data-v-0665dfcc]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  float: right !important;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-0665dfcc] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-0665dfcc] {\n  min-width: 8rem !important;\n}\n.container[data-v-0665dfcc] {\n  text-align: center;\n}\n.progress-container[data-v-0665dfcc] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-0665dfcc]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-0665dfcc] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-0665dfcc] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-0665dfcc] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-0665dfcc] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-0665dfcc] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-0665dfcc] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-0665dfcc] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-0665dfcc 2s linear infinite;\n}\n@keyframes spin-0665dfcc {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-0665dfcc] {\n  display: none;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".unicef-rates-table th[data-v-7d73d540],\n.unicef-rates-table td[data-v-7d73d540] {\n  font-size: 13px !important;\n}\n.dropdown-toggle[data-v-7d73d540]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  float: right !important;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-7d73d540] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-7d73d540] {\n  min-width: 8rem !important;\n}\n.container[data-v-7d73d540] {\n  text-align: center;\n}\n.progress-container[data-v-7d73d540] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-7d73d540]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-7d73d540] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-7d73d540] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-7d73d540] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-7d73d540] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-7d73d540] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-7d73d540] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-7d73d540] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-7d73d540 2s linear infinite;\n}\n@keyframes spin-7d73d540 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-7d73d540] {\n  display: none;\n}", ""]);
+
+// exports
 
 
 /***/ }),
@@ -67082,6 +67497,156 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Helpers/Tooltip.vue?vue&type=style&index=0&id=a43b2384&scoped=true&lang=css&":
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Helpers/Tooltip.vue?vue&type=style&index=0&id=a43b2384&scoped=true&lang=css& ***!
@@ -88625,9 +89190,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _GodTenMajorSongs_vue_vue_type_template_id_df091f66___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GodTenMajorSongs.vue?vue&type=template&id=df091f66& */ "./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&");
+/* harmony import */ var _GodTenMajorSongs_vue_vue_type_template_id_df091f66_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true& */ "./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true&");
 /* harmony import */ var _GodTenMajorSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GodTenMajorSongs.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _GodTenMajorSongs_vue_vue_type_style_index_0_id_df091f66_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true& */ "./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88635,13 +89202,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _GodTenMajorSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _GodTenMajorSongs_vue_vue_type_template_id_df091f66___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _GodTenMajorSongs_vue_vue_type_template_id_df091f66___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _GodTenMajorSongs_vue_vue_type_template_id_df091f66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GodTenMajorSongs_vue_vue_type_template_id_df091f66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "df091f66",
   null
   
 )
@@ -88667,19 +89234,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66& ***!
-  \*************************************************************************************************/
+/***/ "./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_style_index_0_id_df091f66_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=style&index=0&id=df091f66&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_style_index_0_id_df091f66_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_style_index_0_id_df091f66_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_style_index_0_id_df091f66_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_style_index_0_id_df091f66_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true& ***!
+  \*************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_template_id_df091f66___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./GodTenMajorSongs.vue?vue&type=template&id=df091f66& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_template_id_df091f66___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_template_id_df091f66_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/GodTenMajorSongs.vue?vue&type=template&id=df091f66&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_template_id_df091f66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_template_id_df091f66___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_GodTenMajorSongs_vue_vue_type_template_id_df091f66_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -88694,9 +89277,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f& */ "./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&");
+/* harmony import */ var _PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true& */ "./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true&");
 /* harmony import */ var _PraisesAndWorshipSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PraisesAndWorshipSongs.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _PraisesAndWorshipSongs_vue_vue_type_style_index_0_id_0368f52f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true& */ "./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88704,13 +89289,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _PraisesAndWorshipSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "0368f52f",
   null
   
 )
@@ -88736,19 +89321,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f& ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_style_index_0_id_0368f52f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=style&index=0&id=0368f52f&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_style_index_0_id_0368f52f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_style_index_0_id_0368f52f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_style_index_0_id_0368f52f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_style_index_0_id_0368f52f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true& ***!
+  \*******************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/PraisesAndWorshipSongs.vue?vue&type=template&id=0368f52f&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_PraisesAndWorshipSongs_vue_vue_type_template_id_0368f52f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -88763,9 +89364,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SongInVariousTongues_vue_vue_type_template_id_25192965___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SongInVariousTongues.vue?vue&type=template&id=25192965& */ "./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&");
+/* harmony import */ var _SongInVariousTongues_vue_vue_type_template_id_25192965_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true& */ "./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true&");
 /* harmony import */ var _SongInVariousTongues_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SongInVariousTongues.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _SongInVariousTongues_vue_vue_type_style_index_0_id_25192965_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true& */ "./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88773,13 +89376,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _SongInVariousTongues_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _SongInVariousTongues_vue_vue_type_template_id_25192965___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _SongInVariousTongues_vue_vue_type_template_id_25192965___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _SongInVariousTongues_vue_vue_type_template_id_25192965_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _SongInVariousTongues_vue_vue_type_template_id_25192965_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "25192965",
   null
   
 )
@@ -88805,19 +89408,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&":
-/*!*****************************************************************************************************!*\
-  !*** ./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965& ***!
-  \*****************************************************************************************************/
+/***/ "./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_style_index_0_id_25192965_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=style&index=0&id=25192965&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_style_index_0_id_25192965_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_style_index_0_id_25192965_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_style_index_0_id_25192965_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_style_index_0_id_25192965_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true& ***!
+  \*****************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_template_id_25192965___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SongInVariousTongues.vue?vue&type=template&id=25192965& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_template_id_25192965___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_template_id_25192965_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/SongInVariousTongues.vue?vue&type=template&id=25192965&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_template_id_25192965_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_template_id_25192965___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_SongInVariousTongues_vue_vue_type_template_id_25192965_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -88832,9 +89451,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc& */ "./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&");
+/* harmony import */ var _TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true& */ "./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true&");
 /* harmony import */ var _TheBigSongBookSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TheBigSongBookSongs.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _TheBigSongBookSongs_vue_vue_type_style_index_0_id_0665dfcc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true& */ "./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88842,13 +89463,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _TheBigSongBookSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "0665dfcc",
   null
   
 )
@@ -88874,19 +89495,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc& ***!
-  \****************************************************************************************************/
+/***/ "./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true&":
+/*!*******************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true& ***!
+  \*******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_style_index_0_id_0665dfcc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=style&index=0&id=0665dfcc&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_style_index_0_id_0665dfcc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_style_index_0_id_0665dfcc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_style_index_0_id_0665dfcc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_style_index_0_id_0665dfcc_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true&":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true& ***!
+  \****************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/TheBigSongBookSongs.vue?vue&type=template&id=0665dfcc&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_TheBigSongBookSongs_vue_vue_type_template_id_0665dfcc_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -88901,9 +89538,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ThePresentTenseSongs_vue_vue_type_template_id_7d73d540___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ThePresentTenseSongs.vue?vue&type=template&id=7d73d540& */ "./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&");
+/* harmony import */ var _ThePresentTenseSongs_vue_vue_type_template_id_7d73d540_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true& */ "./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true&");
 /* harmony import */ var _ThePresentTenseSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ThePresentTenseSongs.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _ThePresentTenseSongs_vue_vue_type_style_index_0_id_7d73d540_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true& */ "./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -88911,13 +89550,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ThePresentTenseSongs_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ThePresentTenseSongs_vue_vue_type_template_id_7d73d540___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ThePresentTenseSongs_vue_vue_type_template_id_7d73d540___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ThePresentTenseSongs_vue_vue_type_template_id_7d73d540_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ThePresentTenseSongs_vue_vue_type_template_id_7d73d540_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "7d73d540",
   null
   
 )
@@ -88943,19 +89582,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&":
-/*!*****************************************************************************************************!*\
-  !*** ./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540& ***!
-  \*****************************************************************************************************/
+/***/ "./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_style_index_0_id_7d73d540_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=style&index=0&id=7d73d540&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_style_index_0_id_7d73d540_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_style_index_0_id_7d73d540_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_style_index_0_id_7d73d540_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_style_index_0_id_7d73d540_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true& ***!
+  \*****************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_template_id_7d73d540___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ThePresentTenseSongs.vue?vue&type=template&id=7d73d540& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_template_id_7d73d540___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_template_id_7d73d540_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/SONGS/ThePresentTenseSongs.vue?vue&type=template&id=7d73d540&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_template_id_7d73d540_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_template_id_7d73d540___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_ThePresentTenseSongs_vue_vue_type_template_id_7d73d540_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
