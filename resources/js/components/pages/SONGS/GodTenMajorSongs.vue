@@ -34,7 +34,10 @@
                     />
                     <p class="font-weight-light small mt-1">Single Record</p>
                   </div>
-                  <div class="border-bottom dropdown-item text-center">
+                  <div
+                    class="border-bottom dropdown-item text-center"
+                    @click="showUploadExcel"
+                  >
                     <img
                       src="/images/icons/upload_purple.png"
                       alt="single image"
@@ -42,6 +45,7 @@
                     />
                     <p class="font-weight-light small mt-1">Batch Upload</p>
                   </div>
+
                   <a class="pt-2 mb-0 dropdown-item text-center">
                     <img
                       src="/images/icons/icon.excel.png"
@@ -206,16 +210,125 @@
       </div>
     </div>
     <!-------Add Single Grant  End------>
+
+    <!-- Upload Excel -->
+    <div class="modal fade" id="modal-upload-song-excel">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <!-- Modal body -->
+          <div class="modal-body py-4">
+            <button
+              type="button"
+              style="position: absolute; right: 1.5rem; top: 1.5rem"
+              class="close"
+              @click="closeDialog"
+            >
+              &times;
+            </button>
+            <h5 style="text-align: center; font-weight: bold">
+              Upload Song Template
+            </h5>
+            <br />
+            <div class="bs-stepper-content mt-4">
+              <div id="step1-view" class="content">
+                <div
+                  v-if="!hasFile"
+                  id="drop-area"
+                  class="drag-drop-area px-5 py-3"
+                  style="margin-left: 0; margin-right: 0"
+                >
+                  <div class="text-center drop-zone">
+                    <img class="icon-img" src="/images/icons/upload_gray.png" />
+                    <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
+                      DRAG &amp; DROP
+                    </h6>
+                  </div>
+                  <div class="text-center">
+                    <p
+                      style="
+                        color: #bbbbbb;
+                        margin-bottom: 0;
+                        padding-bottom: 0;
+                        font-size: 12px;
+                      "
+                    >
+                      God Ten Major Songs Template, or if you prefer
+                    </p>
+                    <div class="position-relative">
+                      <button
+                        type="button"
+                        class="btn btn-primary position-relative"
+                        style="font-size: 12px; margin-top: 5px"
+                      >
+                        Browse
+                        <input
+                          @change="onBrowseFile"
+                          type="file"
+                          style="
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            opacity: 0;
+                            cursor: pointer;
+                          "
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div v-else class="border p-5">
+                  <h6 class="text-center te xt-black-50">{{ file.name }}</h6>
+                  <div class="text-center">
+                    <button
+                      @click.prevent="removeFile()"
+                      style="
+                        font-size: 24px;
+                        color: #666666;
+                        background: #ffffff;
+                        outline: none;
+                        border: none;
+                        cursor: pointer;
+                      "
+                    >
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="step2-view" class="content"></div>
+              <div id="step3-view" class="content"></div>
+            </div>
+            <div class="text-center mt-2">
+              <button
+                :disabled="file === null || isProcessing"
+                @click="uploadFile"
+                type="button"
+                class="present-tense-btn present-tense-primary"
+              >
+                <span>
+                  <i v-if="isProcessing" class="fa fa-spinner fa-spin"> </i>
+                  UPLOAD</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!---End of upload --->
   </div>
 </template>
 
 <script>
 import { VueEditor } from "vue2-editor";
+import Swal from "sweetalert2";
+import dragAndDropHelper from "./../../mixin/dragAndDropHelper";
 
 export default {
   components: {
     VueEditor,
   },
+  mixins: [dragAndDropHelper],
   data() {
     return {
       file: null,
@@ -271,6 +384,8 @@ export default {
   methods: {
     saveSong() {},
 
+    uploadFile() {},
+
     showAddSingleSongModal() {
       let app = this;
       app.selectedSong = null;
@@ -286,6 +401,51 @@ export default {
 
     closeModel() {
       $("#single-song-modal").modal("hide");
+    },
+
+    showUploadExcel() {
+      $("#modal-upload-song-excel").modal(
+        {
+          backdrop: "static",
+          keyboard: false,
+        },
+        "show"
+      );
+    },
+
+    processSelectedFile(fileData) {
+      let app = this;
+      if (
+        fileData.ext.toLowerCase() !== "xls" &&
+        fileData.ext.toLowerCase() !== "xlsx"
+      ) {
+        app.file = null;
+        app.hasFile = false;
+        Swal.fire({
+          icon: "error",
+          title: "Invalid File",
+          text: "File must be in excel format",
+        });
+      } else {
+        app.file = fileData.file;
+        app.hasFile = true;
+      }
+    },
+
+    removeFile() {
+      (this.file = null), (this.hasFile = false);
+    },
+    onBrowseFile(e) {
+      let app = this;
+      app.processSelectedFile(app.fileData(e, "browse"));
+    },
+
+    closeDialog() {
+      let app = this;
+      app.file = null;
+      app.hasFile = false;
+      app.isProcessing = false;
+      $("#modal-upload-song-excel").modal("hide");
     },
   },
 };

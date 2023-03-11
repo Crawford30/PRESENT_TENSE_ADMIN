@@ -4499,7 +4499,20 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("Single Record")])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)])])])])])]), _vm._v(" "), _vm._m(3)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Single Record")])]), _vm._v(" "), _c("div", {
+    staticClass: "border-bottom dropdown-item text-center",
+    on: {
+      click: _vm.showUploadExcel
+    }
+  }, [_c("img", {
+    staticClass: "img-logo",
+    attrs: {
+      src: "/images/icons/upload_purple.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _vm._m(1)])])])])])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
       id: "single-song-modal"
@@ -4628,7 +4641,132 @@ var render = function render() {
     attrs: {
       id: "sendlog-spinner-spinner"
     }
-  }) : _vm._e(), _vm._v(" "), _c("span", [_vm._v("Save")])])])])])])])])])]);
+  }) : _vm._e(), _vm._v(" "), _c("span", [_vm._v("Save")])])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "modal-upload-song-excel"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-lg"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-body py-4"
+  }, [_c("button", {
+    staticClass: "close",
+    staticStyle: {
+      position: "absolute",
+      right: "1.5rem",
+      top: "1.5rem"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeDialog
+    }
+  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+    staticClass: "bs-stepper-content mt-4"
+  }, [_c("div", {
+    staticClass: "content",
+    attrs: {
+      id: "step1-view"
+    }
+  }, [!_vm.hasFile ? _c("div", {
+    staticClass: "drag-drop-area px-5 py-3",
+    staticStyle: {
+      "margin-left": "0",
+      "margin-right": "0"
+    },
+    attrs: {
+      id: "drop-area"
+    }
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "text-center"
+  }, [_c("p", {
+    staticStyle: {
+      color: "#bbbbbb",
+      "margin-bottom": "0",
+      "padding-bottom": "0",
+      "font-size": "12px"
+    }
+  }, [_vm._v("\n                    God Ten Major Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+    staticClass: "position-relative"
+  }, [_c("button", {
+    staticClass: "btn btn-primary position-relative",
+    staticStyle: {
+      "font-size": "12px",
+      "margin-top": "5px"
+    },
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
+    staticStyle: {
+      position: "absolute",
+      left: "0",
+      top: "0",
+      opacity: "0",
+      cursor: "pointer"
+    },
+    attrs: {
+      type: "file"
+    },
+    on: {
+      change: _vm.onBrowseFile
+    }
+  })])])])]) : _c("div", {
+    staticClass: "border p-5"
+  }, [_c("h6", {
+    staticClass: "text-center te xt-black-50"
+  }, [_vm._v(_vm._s(_vm.file.name))]), _vm._v(" "), _c("div", {
+    staticClass: "text-center"
+  }, [_c("button", {
+    staticStyle: {
+      "font-size": "24px",
+      color: "#666666",
+      background: "#ffffff",
+      outline: "none",
+      border: "none",
+      cursor: "pointer"
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.removeFile();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "far fa-trash-alt"
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "content",
+    attrs: {
+      id: "step2-view"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "content",
+    attrs: {
+      id: "step3-view"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "text-center mt-2"
+  }, [_c("button", {
+    staticClass: "present-tense-btn present-tense-primary",
+    attrs: {
+      disabled: _vm.file === null || _vm.isProcessing,
+      type: "button"
+    },
+    on: {
+      click: _vm.uploadFile
+    }
+  }, [_c("span", [_vm.isProcessing ? _c("i", {
+    staticClass: "fa fa-spinner fa-spin"
+  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4636,20 +4774,6 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "col-md-9 text-left"
   }, [_c("h4", [_vm._v("God Ten Major Songs")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "border-bottom dropdown-item text-center"
-  }, [_c("img", {
-    staticClass: "img-logo",
-    attrs: {
-      src: "/images/icons/upload_purple.png",
-      alt: "single image"
-    }
-  }), _vm._v(" "), _c("p", {
-    staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("Batch Upload")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -4679,6 +4803,22 @@ var staticRenderFns = [function () {
   }, [_c("table", {
     staticClass: "table table-sm present-tense-table"
   }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "text-center drop-zone"
+  }, [_c("img", {
+    staticClass: "icon-img",
+    attrs: {
+      src: "/images/icons/upload_gray.png"
+    }
+  }), _vm._v(" "), _c("h6", {
+    staticStyle: {
+      color: "#bbbbbb",
+      "margin-bottom": "0.2rem"
+    }
+  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
 }];
 render._withStripped = true;
 
@@ -6056,11 +6196,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../mixin/dragAndDropHelper */ "./resources/js/components/mixin/dragAndDropHelper.js");
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
   },
+  mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     return {
       file: null,
@@ -6095,6 +6241,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     saveSong: function saveSong() {},
+    uploadFile: function uploadFile() {},
     showAddSingleSongModal: function showAddSingleSongModal() {
       var app = this;
       app.selectedSong = null;
@@ -6108,6 +6255,41 @@ __webpack_require__.r(__webpack_exports__);
     },
     closeModel: function closeModel() {
       $("#single-song-modal").modal("hide");
+    },
+    showUploadExcel: function showUploadExcel() {
+      $("#modal-upload-song-excel").modal({
+        backdrop: "static",
+        keyboard: false
+      }, "show");
+    },
+    processSelectedFile: function processSelectedFile(fileData) {
+      var app = this;
+      if (fileData.ext.toLowerCase() !== "xls" && fileData.ext.toLowerCase() !== "xlsx") {
+        app.file = null;
+        app.hasFile = false;
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: "error",
+          title: "Invalid File",
+          text: "File must be in excel format"
+        });
+      } else {
+        app.file = fileData.file;
+        app.hasFile = true;
+      }
+    },
+    removeFile: function removeFile() {
+      this.file = null, this.hasFile = false;
+    },
+    onBrowseFile: function onBrowseFile(e) {
+      var app = this;
+      app.processSelectedFile(app.fileData(e, "browse"));
+    },
+    closeDialog: function closeDialog() {
+      var app = this;
+      app.file = null;
+      app.hasFile = false;
+      app.isProcessing = false;
+      $("#modal-upload-song-excel").modal("hide");
     }
   }
 });
@@ -103529,6 +103711,56 @@ var Izitoast = {
   }
 };
 /* harmony default export */ __webpack_exports__["default"] = (Izitoast);
+
+/***/ }),
+
+/***/ "./resources/js/components/mixin/dragAndDropHelper.js":
+/*!************************************************************!*\
+  !*** ./resources/js/components/mixin/dragAndDropHelper.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var dragAndDropHelper = {
+  data: function data() {
+    return {};
+  },
+  methods: {
+    stopDrop: function stopDrop(e) {
+      e.preventDefault();
+    },
+    fileData: function fileData(e, type) {
+      var app = this;
+      var file = null;
+      var fileExtension = null;
+      if (type === 'browse') {
+        var files = e.target.files || e.dataTransfer.files;
+        file = files[0];
+      } else {
+        file = e.originalEvent.dataTransfer.files[0];
+      }
+      var fileNameArray = file["name"].split(".");
+      fileExtension = fileNameArray[fileNameArray.length - 1];
+      return {
+        "file": file,
+        "ext": fileExtension
+      };
+    },
+    dragAndDrop: function dragAndDrop(onFileDropped) {
+      var app = this;
+      var uploadZone = $("#drop-area");
+      uploadZone.on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }).on('dragover dragenter', function () {}).on('dragleave dragend drop', function () {}).on('drop', function (e) {
+        onFileDropped(e);
+      });
+    }
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = (dragAndDropHelper);
 
 /***/ }),
 
