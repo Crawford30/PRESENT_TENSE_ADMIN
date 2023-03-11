@@ -100,7 +100,7 @@ export default {
   border-right: 0.3em solid transparent;
   border-bottom: 0;
   border-left: 0.3em solid transparent;
-  float: right !important;
+  //   float: right !important;
   margin-top: 8px !important;
   margin-right: 5px;
 }
