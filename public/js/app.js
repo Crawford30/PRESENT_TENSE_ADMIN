@@ -4526,7 +4526,21 @@ var render = function render() {
       src: "/images/icons/icon.excel.png",
       alt: "single image"
     }
-  }), _vm._v(" "), _vm._m(1)])])])])])])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(1)])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("table", {
+    staticClass: "table table-sm present-tense-table"
+  }, [_vm._m(2), _vm._v(" "), _vm._l(_vm.tenMajorSongs.results, function (tenMajorSong, index) {
+    return _c("tr", {
+      key: tenMajorSong.id + "_" + index
+    }, [_c("td", [_vm._v(_vm._s(tenMajorSong.song_number))]), _vm._v(" "), _c("td", {
+      staticClass: "text-left"
+    }, [_vm._v(_vm._s(tenMajorSong.song_title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(tenMajorSong.created_at)))])]);
+  })], 2)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
       id: "single-song-modal"
@@ -4797,15 +4811,9 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "card"
-  }, [_c("div", {
-    staticClass: "staff-card shadow-sm table-padding"
-  }, [_c("div", {
-    staticClass: "row justify-content-center"
-  }, [_c("table", {
-    staticClass: "table table-sm present-tense-table"
-  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", {
+    staticClass: "text-left"
+  }, [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -6214,6 +6222,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       file: null,
       hasFile: false,
+      tenMajorSongs: [],
       isProcessing: false,
       songTitle: "",
       songBody: "",
@@ -6242,10 +6251,21 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    var app = this;
+    app.getTenMajorSongs();
     console.log("Component mounted.");
   },
   methods: {
     saveSong: function saveSong() {},
+    getTenMajorSongs: function getTenMajorSongs() {
+      var app = this;
+      axios.get("api/ten-major/list").then(function (response) {
+        app.tenMajorSongs = response.data;
+        console.log("ALL GRANTS", app.tenMajorSongs);
+      })["catch"](function (error) {
+        //   app.showErrorMessage(error.response.data);
+      });
+    },
     uploadFile: function uploadFile() {
       var _this = this;
       var app = this;
@@ -6262,7 +6282,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         app.isProcessing = false;
         app.importResults = response.data;
-        //   app.getGrantExpiry();
+        app.getTenMajorSongs();
         app.closeDialog();
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
           icon: "success",

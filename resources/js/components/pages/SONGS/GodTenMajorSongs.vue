@@ -74,13 +74,24 @@
             <table class="table table-sm present-tense-table">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <!-- <th>#</th> -->
                   <th>SONG NUMBER</th>
-                  <th>SONG TITLE</th>
+                  <th class="text-left">SONG TITLE</th>
                   <th>DATE CREATED</th>
                   <th>ACTIONS</th>
                 </tr>
               </thead>
+
+              <tr
+                v-for="(tenMajorSong, index) in tenMajorSongs.results"
+                :key="tenMajorSong.id + '_' + index"
+              >
+                <!-- <td>{{ index + 1 }}</td> -->
+                <!-- <td>{{ user.id }}</td> -->
+                <td>{{ tenMajorSong.song_number }}</td>
+                <td class="text-left">{{ tenMajorSong.song_title }}</td>
+                <td>{{ tenMajorSong.created_at | myDate }}</td>
+              </tr>
             </table>
           </div>
 
@@ -336,6 +347,7 @@ export default {
     return {
       file: null,
       hasFile: false,
+      tenMajorSongs: [],
       isProcessing: false,
       songTitle: "",
       songBody: "",
@@ -384,10 +396,25 @@ export default {
   },
 
   mounted() {
+    let app = this;
+    app.getTenMajorSongs();
     console.log("Component mounted.");
   },
   methods: {
     saveSong() {},
+
+    getTenMajorSongs() {
+      let app = this;
+      axios
+        .get("api/ten-major/list")
+        .then((response) => {
+          app.tenMajorSongs = response.data;
+          console.log("ALL GRANTS", app.tenMajorSongs);
+        })
+        .catch((error) => {
+          //   app.showErrorMessage(error.response.data);
+        });
+    },
 
     uploadFile() {
       let app = this;
@@ -406,7 +433,7 @@ export default {
         .then((response) => {
           app.isProcessing = false;
           app.importResults = response.data;
-          //   app.getGrantExpiry();
+          app.getTenMajorSongs();
           app.closeDialog();
           Swal.fire({
             icon: "success",
