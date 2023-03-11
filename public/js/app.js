@@ -6217,7 +6217,9 @@ __webpack_require__.r(__webpack_exports__);
       isProcessing: false,
       songTitle: "",
       songBody: "",
+      errors: null,
       selectedSong: null,
+      importResults: {},
       defaultToolbar: [[{
         header: [false, 1, 2, 3, 4, 5, 6]
       }], ["bold", "italic", "underline", "strike"], [{
@@ -6244,7 +6246,44 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     saveSong: function saveSong() {},
-    uploadFile: function uploadFile() {},
+    uploadFile: function uploadFile() {
+      var _this = this;
+      var app = this;
+      app.isProcessing = true;
+      var formData = new FormData();
+      formData.append("file", app.file);
+      axios({
+        method: "post",
+        url: "api/ten-major/import-ten-major-songs",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(function (response) {
+        app.isProcessing = false;
+        app.importResults = response.data;
+        //   app.getGrantExpiry();
+        app.closeDialog();
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: "success",
+          title: "Success",
+          html: "<p class='font-size: 13px'>Song  Successfully Submitted</p>",
+          showConfirmButton: true,
+          allowOutsideClick: false,
+          showCloseButton: true,
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#32CD32"
+        }).then(function (result) {
+          if (result.isConfirmed) {
+            // window.location.href = "/list";
+          }
+        });
+      })["catch"](function (error) {
+        _this.isProcessing = false;
+        //   app.showErrorMessage(error.response.data);
+        _this.errors = error.response.data.errors;
+      });
+    },
     downloadSongTemplate: function downloadSongTemplate() {
       window.location.href = "/download-song-template";
     },

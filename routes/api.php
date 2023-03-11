@@ -41,6 +41,24 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/download-song-template',  [App\Http\Controllers\Api\UserController::class, 'download']);
 });
 
+
+
 });
+
+
+
+Route::group(['middleware' => ['auth:api']], function () {
+
+    //============Grants ======
+    Route::group(['prefix' => 'ten-major'], function () {
+      Route::post('/import-ten-major-songs', 'GodTenMajorSongsController@importGodTenMajorTemplate');
+      // Route::post('/create-grant', 'GrantsExpiryController@saveGrantsExpiry');
+      // Route::post('/delete-grant', 'GrantsExpiryController@deleteGrantsExpiry');
+      // Route::get('/list', 'GrantsExpiryController@getFilteredGrantsExpiry');
+      // Route::get('/list-unfiltered-grant', 'GrantsExpiryController@getUnfilteredGrantsExpiry');
+  });
+  });
+
+
 
 });

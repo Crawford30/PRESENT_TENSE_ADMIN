@@ -339,7 +339,9 @@ export default {
       isProcessing: false,
       songTitle: "",
       songBody: "",
+      errors: null,
       selectedSong: null,
+      importResults: {},
       defaultToolbar: [
         [
           {
@@ -387,7 +389,46 @@ export default {
   methods: {
     saveSong() {},
 
-    uploadFile() {},
+    uploadFile() {
+      let app = this;
+      app.isProcessing = true;
+      let formData = new FormData();
+      formData.append("file", app.file);
+
+      axios({
+        method: "post",
+        url: "api/ten-major/import-ten-major-songs",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+        .then((response) => {
+          app.isProcessing = false;
+          app.importResults = response.data;
+          //   app.getGrantExpiry();
+          app.closeDialog();
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            html: "<p class='font-size: 13px'>Song  Successfully Submitted</p>",
+            showConfirmButton: true,
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#32CD32",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // window.location.href = "/list";
+            }
+          });
+        })
+        .catch((error) => {
+          this.isProcessing = false;
+          //   app.showErrorMessage(error.response.data);
+          this.errors = error.response.data.errors;
+        });
+    },
 
     downloadSongTemplate() {
       window.location.href = "/download-song-template";
