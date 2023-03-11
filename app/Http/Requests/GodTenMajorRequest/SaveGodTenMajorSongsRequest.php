@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\GodTenMajorRequest;
 
+use App\GodTenMajorSongs;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SaveGodTenMajorSongsRequest extends FormRequest
@@ -13,7 +14,7 @@ class SaveGodTenMajorSongsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,24 @@ class SaveGodTenMajorSongsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'song_number'=>'required',
+            'song_title' =>'required',
+            'song_body' =>'required'
+
         ];
+    }
+
+    public function saveSong($request){
+           $data = [
+            'song_number' => strip_tags($request->song_number),
+            'user_id' => auth()->user()->id,
+            'song_title' => strip_tags($request->song_title),
+            'song_body' => strip_tags($request->song_body),
+           ];
+
+            $songData = GodTenMajorSongs::updateOrCreate([
+                'id' => $request->song_id], $data);
+        return apiResponse($songData);
+
     }
 }

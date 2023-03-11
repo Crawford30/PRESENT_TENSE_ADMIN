@@ -53,10 +53,8 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::group(['prefix' => 'ten-major'], function () {
      Route::get('/list', 'GodTenMajorSongsController@getAllGodMajorSongs');
       Route::post('/import-ten-major-songs', 'GodTenMajorSongsController@importGodTenMajorTemplate');
-      // Route::post('/create-grant', 'GrantsExpiryController@saveGrantsExpiry');
-      // Route::post('/delete-grant', 'GrantsExpiryController@deleteGrantsExpiry');
-
-      // Route::get('/list-unfiltered-grant', 'GrantsExpiryController@getUnfilteredGrantsExpiry');
+      Route::post('/create-ten-major-song', 'GodTenMajorSongsController@saveTenMajorSong');
+       Route::post('/delete-ten-major-song', 'GodTenMajorSongsController@deleteTenMajorSong');
   });
   });
 

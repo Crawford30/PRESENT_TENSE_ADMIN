@@ -4539,7 +4539,40 @@ var render = function render() {
       key: tenMajorSong.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(tenMajorSong.song_number))]), _vm._v(" "), _c("td", {
       staticClass: "text-left"
-    }, [_vm._v(_vm._s(tenMajorSong.song_title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(tenMajorSong.created_at)))])]);
+    }, [_vm._v(_vm._s(tenMajorSong.song_title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(tenMajorSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.updateSong(tenMajorSong);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fas fa-pencil-alt",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })]), _vm._v(" "), _c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.deleteSong(tenMajorSong.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })])])]);
   })], 2)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
@@ -4564,12 +4597,31 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: !_vm.editmode,
+      expression: "!editmode"
+    }]
+  }, [_c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n            Add Ten Major Song\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  }, [_vm._v("\n              Add Ten Major Song\n            ")])]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.editmode,
+      expression: "editmode"
+    }]
+  }, [_c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("\n              Update Ten Major Song\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     ref: "songRef",
     attrs: {
       id: "song-form"
@@ -4597,6 +4649,12 @@ var render = function render() {
       value: _vm.selectedSong.song_number
     }
   }) : _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.songNumber,
+      expression: "songNumber"
+    }],
     staticClass: "form-control",
     attrs: {
       name: "song_number",
@@ -4604,10 +4662,33 @@ var render = function render() {
       autocomplete: "off",
       placeholder: "Song Number",
       required: ""
+    },
+    domProps: {
+      value: _vm.songNumber
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.songNumber = $event.target.value;
+      }
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
-  }, [_c("label", [_vm._v("Song Title")]), _vm._v(" "), _c("vue-editor", {
+  }, [_c("label", [_vm._v("Song Title")]), _vm._v(" "), _vm.selectedSong != null ? _c("vue-editor", {
+    attrs: {
+      id: "song-title",
+      placeholder: "Please Type Song Title Here",
+      disabled: false,
+      editorToolbar: _vm.defaultToolbar
+    },
+    model: {
+      value: _vm.songTitle,
+      callback: function callback($$v) {
+        _vm.songTitle = $$v;
+      },
+      expression: "songTitle"
+    }
+  }) : _c("vue-editor", {
     attrs: {
       id: "song-title",
       placeholder: "Please Type Song Title Here",
@@ -6210,6 +6291,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../mixin/dragAndDropHelper */ "./resources/js/components/mixin/dragAndDropHelper.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 
@@ -6219,36 +6304,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
-    return {
+    var _ref;
+    return _ref = {
       file: null,
+      editmode: false,
+      selectedSong: null,
       hasFile: false,
       tenMajorSongs: [],
       isProcessing: false,
       songTitle: "",
       songBody: "",
-      errors: null,
-      selectedSong: null,
-      importResults: {},
-      defaultToolbar: [[{
-        header: [false, 1, 2, 3, 4, 5, 6]
-      }], ["bold", "italic", "underline", "strike"], [{
-        align: ""
-      }, {
-        align: "center"
-      }, {
-        align: "right"
-      }, {
-        align: "justify"
-      }], [{
-        list: "ordered"
-      }, {
-        list: "bullet"
-      }], [{
-        indent: "-1"
-      }, {
-        indent: "+1"
-      }]]
-    };
+      songNumber: "",
+      errors: null
+    }, _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
+      header: [false, 1, 2, 3, 4, 5, 6]
+    }], ["bold", "italic", "underline", "strike"], [{
+      align: ""
+    }, {
+      align: "center"
+    }, {
+      align: "right"
+    }, {
+      align: "justify"
+    }], [{
+      list: "ordered"
+    }, {
+      list: "bullet"
+    }], [{
+      indent: "-1"
+    }, {
+      indent: "+1"
+    }]]), _ref;
   },
   mounted: function mounted() {
     var app = this;
@@ -6256,7 +6342,99 @@ __webpack_require__.r(__webpack_exports__);
     console.log("Component mounted.");
   },
   methods: {
-    saveSong: function saveSong() {},
+    saveSong: function saveSong() {
+      var _this = this;
+      var app = this;
+      var form = $("#song-form");
+      var formModal = $("#single-song-modal");
+      var songFormData = new FormData();
+      if (this.editmode) {
+        songFormData.append("song_id", this.selectedSong.id), songFormData.append("song_number", this.selectedSong.song_number), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
+      } else {
+        songFormData.append("song_number", this.songNumber), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
+      }
+      if (form.valid()) {
+        app.isProcessing = true;
+        //console.log("SERIALIZED: ", form.serialize());
+        axios({
+          method: "post",
+          url: "/api/ten-major/create-ten-major-song",
+          data: songFormData
+          //form.serialize(),
+        }).then(function (response) {
+          app.isProcessing = false;
+          app.getTenMajorSongs();
+          formModal.modal("hide");
+          //this.$refs.grantRef.reset();
+          //======dismiss the model
+          _this.closeModel();
+          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+            icon: "success",
+            title: "Success",
+            html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
+            showConfirmButton: true,
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#32CD32"
+          }).then(function (result) {
+            if (result.isConfirmed) {
+              // window.location.href = "/list";
+            }
+          });
+        })["catch"](function (error) {
+          app.isProcessing = false;
+          _this.errors = error.response.data.errors;
+          formModal.modal("hide");
+          app.showErrorMessage(error.response.data.errors);
+        });
+      }
+      //   let app = this;
+      //   app.editmode = true;
+
+      //   if (app.selectedSong != null) {
+      //     app.requestFormData.append("bsc_request_id", app.request.id);
+      //     app.requestFormData.append("edited_request", true);
+      //   }
+    },
+    updateSong: function updateSong(item) {
+      var app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_body;
+      //console.log("UPDATE GRANT: ", app.selectedGrant);
+      $("#single-song-modal").modal("show");
+    },
+    deleteSong: function deleteSong(id) {
+      var app = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "api/ten-major/delete-ten-major-song",
+            type: "post",
+            data: {
+              ten_major_id: id
+            },
+            success: function success(data) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Song Deleted Successfully</p>", "", "success");
+              app.getTenMajorSongs();
+            },
+            error: function error(e) {
+              //   app.showAjaxError(e);
+            }
+          });
+        }
+      });
+    },
     getTenMajorSongs: function getTenMajorSongs() {
       var app = this;
       axios.get("api/ten-major/list").then(function (response) {
@@ -6267,7 +6445,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     uploadFile: function uploadFile() {
-      var _this = this;
+      var _this2 = this;
       var app = this;
       app.isProcessing = true;
       var formData = new FormData();
@@ -6299,9 +6477,9 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       })["catch"](function (error) {
-        _this.isProcessing = false;
+        _this2.isProcessing = false;
         //   app.showErrorMessage(error.response.data);
-        _this.errors = error.response.data.errors;
+        _this2.errors = error.response.data.errors;
       });
     },
     downloadSongTemplate: function downloadSongTemplate() {

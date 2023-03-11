@@ -91,6 +91,25 @@
                 <td>{{ tenMajorSong.song_number }}</td>
                 <td class="text-left">{{ tenMajorSong.song_title }}</td>
                 <td>{{ tenMajorSong.created_at | myDate }}</td>
+                <td>
+                  <a href="#" @click="updateSong(tenMajorSong)">
+                    <i
+                      class="fas fa-pencil-alt"
+                      style="color: #999; font-size: 18px"
+                    ></i>
+                  </a>
+
+                  <a
+                    href="#"
+                    @click="deleteSong(tenMajorSong.id)"
+                    style="margin-left: 8px"
+                  >
+                    <i
+                      class="far fa-trash-alt"
+                      style="color: #999; font-size: 18px"
+                    ></i>
+                  </a>
+                </td>
               </tr>
             </table>
           </div>
@@ -112,9 +131,17 @@
             >
               &times;
             </button>
-            <h5 style="text-align: center; font-weight: bold">
-              Add Ten Major Song
-            </h5>
+            <div v-show="!editmode">
+              <h5 style="text-align: center; font-weight: bold">
+                Add Ten Major Song
+              </h5>
+            </div>
+            <div v-show="editmode">
+              <h5 style="text-align: center; font-weight: bold">
+                Update Ten Major Song
+              </h5>
+            </div>
+
             <br />
             <hr />
 
@@ -140,6 +167,7 @@
                 />
                 <input
                   v-else
+                  v-model="songNumber"
                   name="song_number"
                   type="text"
                   class="form-control"
@@ -153,6 +181,16 @@
               <div class="form-group">
                 <label>Song Title</label>
                 <vue-editor
+                  v-if="selectedSong != null"
+                  id="song-title"
+                  placeholder="Please Type Song Title Here"
+                  :disabled="false"
+                  v-model="songTitle"
+                  :editorToolbar="defaultToolbar"
+                ></vue-editor>
+
+                <vue-editor
+                  v-else
                   id="song-title"
                   placeholder="Please Type Song Title Here"
                   :disabled="false"
@@ -346,11 +384,14 @@ export default {
   data() {
     return {
       file: null,
+      editmode: false,
+      selectedSong: null,
       hasFile: false,
       tenMajorSongs: [],
       isProcessing: false,
       songTitle: "",
       songBody: "",
+      songNumber: "",
       errors: null,
       selectedSong: null,
       importResults: {},
@@ -401,7 +442,113 @@ export default {
     console.log("Component mounted.");
   },
   methods: {
-    saveSong() {},
+    saveSong() {
+      let app = this;
+      let form = $("#song-form");
+      let formModal = $("#single-song-modal");
+
+      let songFormData = new FormData();
+      if (this.editmode) {
+        songFormData.append("song_id", this.selectedSong.id),
+          songFormData.append("song_number", this.selectedSong.song_number),
+          songFormData.append("song_title", this.songTitle),
+          songFormData.append("song_body", this.songBody);
+      } else {
+        songFormData.append("song_number", this.songNumber),
+          songFormData.append("song_title", this.songTitle),
+          songFormData.append("song_body", this.songBody);
+      }
+
+      if (form.valid()) {
+        app.isProcessing = true;
+        //console.log("SERIALIZED: ", form.serialize());
+        axios({
+          method: "post",
+          url: "/api/ten-major/create-ten-major-song",
+          data: songFormData,
+          //form.serialize(),
+        })
+          .then((response) => {
+            app.isProcessing = false;
+            app.getTenMajorSongs();
+            formModal.modal("hide");
+            //this.$refs.grantRef.reset();
+            //======dismiss the model
+            this.closeModel();
+            Swal.fire({
+              icon: "success",
+              title: "Success",
+              html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
+              showConfirmButton: true,
+              allowOutsideClick: false,
+              showCloseButton: true,
+              confirmButtonText: "Ok",
+              confirmButtonColor: "#32CD32",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // window.location.href = "/list";
+              }
+            });
+          })
+          .catch((error) => {
+            app.isProcessing = false;
+            this.errors = error.response.data.errors;
+            formModal.modal("hide");
+            app.showErrorMessage(error.response.data.errors);
+          });
+      }
+      //   let app = this;
+      //   app.editmode = true;
+
+      //   if (app.selectedSong != null) {
+      //     app.requestFormData.append("bsc_request_id", app.request.id);
+      //     app.requestFormData.append("edited_request", true);
+      //   }
+    },
+
+    updateSong(item) {
+      let app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_body;
+      //console.log("UPDATE GRANT: ", app.selectedGrant);
+      $("#single-song-modal").modal("show");
+    },
+
+    deleteSong(id) {
+      let app = this;
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "api/ten-major/delete-ten-major-song",
+            type: "post",
+            data: {
+              ten_major_id: id,
+            },
+            success(data) {
+              Swal.fire(
+                "<p style='font-size: 14px;'>Song Deleted Successfully</p>",
+                "",
+                "success"
+              );
+              app.getTenMajorSongs();
+            },
+            error(e) {
+              //   app.showAjaxError(e);
+            },
+          });
+        }
+      });
+    },
 
     getTenMajorSongs() {
       let app = this;

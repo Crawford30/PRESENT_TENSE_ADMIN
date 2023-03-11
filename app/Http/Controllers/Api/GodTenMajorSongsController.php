@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\GodTenMajorSongs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GodTenMajorRequest\DeleteGodTenMajorSongsRequest;
 use App\Http\Requests\GodTenMajorRequest\ImportGodTenMajorSongsRequest;
+use App\Http\Requests\GodTenMajorRequest\SaveGodTenMajorSongsRequest;
 
 class GodTenMajorSongsController extends Controller
 {
@@ -30,6 +32,18 @@ class GodTenMajorSongsController extends Controller
     public function importGodTenMajorTemplate(ImportGodTenMajorSongsRequest $request)
     {
         return $request->importTemplate();
+    }
+
+
+
+    public function saveTenMajorSong(SaveGodTenMajorSongsRequest  $request)
+    {
+        return $request->saveSong($request);
+    }
+
+    public function deleteTenMajorSong(DeleteGodTenMajorSongsRequest $request)
+    {
+        return $request->delete();
     }
 
 

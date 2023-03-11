@@ -2,29 +2,30 @@
 
 namespace App\Http\Requests\GodTenMajorRequest;
 
+use App\GodTenMajorSongs;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeleteGodTenMajorSongsRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
-        return false;
+
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+            "ten_major_id" => "required"
         ];
+    }
+
+
+    public function delete()
+    {
+        $grant= GodTenMajorSongs::findOrFail($this->ten_major_id);
+        $grant->delete();
+        return response()->json("DELETED", 200);
     }
 }
