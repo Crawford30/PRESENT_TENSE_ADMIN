@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -87,6 +88,12 @@ class LoginController extends Controller
 
             else {
                 Auth::login($user);
+
+                // if($user->api_token == NULL ) {
+                //     $user->update([
+                //         "api_token" => Str::random(60).$user->id,
+                //     ]);
+                // }
                 return redirect()->route('home');
                 //dd($user);
                 // dd($user->id);
