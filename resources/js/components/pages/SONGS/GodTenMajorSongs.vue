@@ -8,7 +8,13 @@
         <div class="col-md-3">
           <div class="btn-group add-new-dropdown" style="width: 100%">
             <div class="btn-group w-100" role="group">
-              <button type="button" class="btn btn-primary">Add Song</button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="showAddSingleSongModal"
+              >
+                Add Song
+              </button>
               <button
                 type="button"
                 class="btn btn-primary dropdown-toggle dropdown-toggle-split"
@@ -17,7 +23,10 @@
                 aria-expanded="false"
               >
                 <div class="dropdown-menu">
-                  <div class="border-bottom dropdown-item text-center">
+                  <div
+                    class="border-bottom dropdown-item text-center"
+                    @click="showAddSingleSongModal"
+                  >
                     <img
                       src="/images/icons/user_folder.png"
                       alt="single image"
@@ -55,7 +64,7 @@
         <!-- <div class="col-11 ml-0 pl-0" v-if="checkPermission(current_user)"> -->
         <div class="staff-card shadow-sm table-padding">
           <div class="row justify-content-center">
-            <table class="table table-sm">
+            <table class="table table-sm present-tense-table">
               <thead>
                 <tr>
                   <th>#</th>
@@ -72,13 +81,212 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="single-song-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body p-4">
+            <button
+              type="button"
+              style="position: absolute; right: 1.5rem; top: 1.5rem"
+              class="close"
+              @click="closeModel"
+            >
+              &times;
+            </button>
+            <h5 style="text-align: center; font-weight: bold">
+              Add Ten Major Song
+            </h5>
+            <br />
+            <hr />
+
+            <form id="song-form" ref="songRef">
+              <input
+                hidden
+                name="id"
+                v-if="selectedSong != null"
+                :value="selectedSong.id"
+              />
+
+              <div class="form-group">
+                <label>Song Number</label>
+                <input
+                  v-if="selectedSong != null"
+                  :value="selectedSong.song_number"
+                  name="song_number"
+                  type="text"
+                  class="form-control"
+                  autocomplete="off"
+                  placeholder="Song Number"
+                  required
+                />
+                <input
+                  v-else
+                  name="song_number"
+                  type="text"
+                  class="form-control"
+                  autocomplete="off"
+                  placeholder="Song Number"
+                  required
+                />
+              </div>
+              <p style="color: red" v-if="validated">Song number is required</p>
+
+              <div class="form-group">
+                <label>Song Title</label>
+                <vue-editor
+                  id="song-title"
+                  placeholder="Please Type Song Title Here"
+                  :disabled="false"
+                  v-model="songTitle"
+                  :editorToolbar="defaultToolbar"
+                ></vue-editor>
+              </div>
+
+              <div class="form-group">
+                <label>Song Body</label>
+                <vue-editor
+                  id="song-body"
+                  placeholder="Please Type Song Body Here"
+                  :disabled="false"
+                  v-model="songBody"
+                  :editorToolbar="defaultToolbar"
+                ></vue-editor>
+              </div>
+            </form>
+
+            <div class="row d-flex justify-content-center">
+              <div class="col-4 px-6">
+                <div class="text-center mt-2">
+                  <button
+                    type="button"
+                    class="present-tense-btn present-tense-secondary"
+                    @click="closeModel"
+                  >
+                    <span> Close</span>
+                  </button>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="text-center mt-2">
+                  <button
+                    :disabled="isProcessing"
+                    type="button"
+                    class="present-tense-btn present-tense-primary"
+                    @click="saveSong"
+                  >
+                    <i
+                      v-if="isProcessing"
+                      id="sendlog-spinner-spinner"
+                      class="fa fa-spinner fa-spin"
+                    ></i>
+                    <span>Save</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="w-100 d-flex justify-content-center text-center">
+              <div class="w-100 d-flex justify-content-center text-center mt-3">
+                <button
+                  :disabled="isProcessing"
+                  @click.prevent="saveSong"
+                  type="submit"
+                  class="present-tense-btn present-tense-primary btn btn-primary px-6 myButton"
+                >
+                  <span>
+                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"> </i>
+                    SAVE</span
+                  >
+                </button>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------Add Single Grant  End------>
   </div>
 </template>
 
 <script>
+import { VueEditor } from "vue2-editor";
+
 export default {
+  components: {
+    VueEditor,
+  },
+  data() {
+    return {
+      file: null,
+      hasFile: false,
+      isProcessing: false,
+      songTitle: "",
+      songBody: "",
+      selectedSong: null,
+      defaultToolbar: [
+        [
+          {
+            header: [false, 1, 2, 3, 4, 5, 6],
+          },
+        ],
+        ["bold", "italic", "underline", "strike"],
+        [
+          {
+            align: "",
+          },
+          {
+            align: "center",
+          },
+          {
+            align: "right",
+          },
+          {
+            align: "justify",
+          },
+        ],
+        [
+          {
+            list: "ordered",
+          },
+          {
+            list: "bullet",
+          },
+        ],
+        [
+          {
+            indent: "-1",
+          },
+          {
+            indent: "+1",
+          },
+        ],
+      ],
+    };
+  },
+
   mounted() {
     console.log("Component mounted.");
+  },
+  methods: {
+    saveSong() {},
+
+    showAddSingleSongModal() {
+      let app = this;
+      app.selectedSong = null;
+      $("#single-song-modal").modal("show");
+    },
+
+    updateGrant(item) {
+      let app = this;
+      app.selectedSong = item;
+      //console.log("UPDATE GRANT: ", app.selectedGrant);
+      $("#single-song-modal").modal("show");
+    },
+
+    closeModel() {
+      $("#single-song-modal").modal("hide");
+    },
   },
 };
 </script>
@@ -86,9 +294,13 @@ export default {
 
 
 <style lang="scss" scoped>
-.unicef-rates-table th,
-.unicef-rates-table td {
+.present-tense-table th,
+.present-tense-table td {
   font-size: 13px !important;
+}
+
+#song-title .ql-editor {
+  height: 20px;
 }
 
 .dropdown-toggle::after {
