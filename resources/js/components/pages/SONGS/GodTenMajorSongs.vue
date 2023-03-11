@@ -46,7 +46,10 @@
                     <p class="font-weight-light small mt-1">Batch Upload</p>
                   </div>
 
-                  <a class="pt-2 mb-0 dropdown-item text-center">
+                  <a
+                    class="pt-2 mb-0 dropdown-item text-center"
+                    @click="downloadSongTemplate"
+                  >
                     <img
                       src="/images/icons/icon.excel.png"
                       alt="single image"
@@ -385,6 +388,10 @@ export default {
     saveSong() {},
 
     uploadFile() {},
+
+    downloadSongTemplate() {
+      window.location.href = "/download-song-template";
+    },
 
     showAddSingleSongModal() {
       let app = this;

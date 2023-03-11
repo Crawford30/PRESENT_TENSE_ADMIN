@@ -25,4 +25,15 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+
+
+    public function downloadSongTemplate(Request $request)
+    {
+        $format = now()->format("Ymd");
+        $public_path = public_path("templates/song_template.xlsx");
+        $fileName = "Templates.Song.$format.xlsx";
+        return response()->download($public_path, $fileName);
+    }
+
 }

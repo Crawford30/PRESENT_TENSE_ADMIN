@@ -4512,7 +4512,21 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _vm._m(1)])])])])])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
+    staticClass: "pt-2 mb-0 dropdown-item text-center",
+    on: {
+      click: _vm.downloadSongTemplate
+    }
+  }, [_c("img", {
+    staticClass: "img-logo",
+    staticStyle: {
+      height: "25px !important"
+    },
+    attrs: {
+      src: "/images/icons/icon.excel.png",
+      alt: "single image"
+    }
+  }), _vm._v(" "), _vm._m(1)])])])])])])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
       id: "single-song-modal"
@@ -4777,20 +4791,9 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("a", {
-    staticClass: "pt-2 mb-0 dropdown-item text-center"
-  }, [_c("img", {
-    staticClass: "img-logo",
-    staticStyle: {
-      height: "25px !important"
-    },
-    attrs: {
-      src: "/images/icons/icon.excel.png",
-      alt: "single image"
-    }
-  }), _vm._v(" "), _c("p", {
+  return _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")])]);
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -6242,6 +6245,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     saveSong: function saveSong() {},
     uploadFile: function uploadFile() {},
+    downloadSongTemplate: function downloadSongTemplate() {
+      window.location.href = "/download-song-template";
+    },
     showAddSingleSongModal: function showAddSingleSongModal() {
       var app = this;
       app.selectedSong = null;
