@@ -130,7 +130,7 @@
                   required
                 />
               </div>
-              <p style="color: red" v-if="validated">Song number is required</p>
+              <!-- <p style="color: red">Song number is required</p> -->
 
               <div class="form-group">
                 <label>Song Title</label>
