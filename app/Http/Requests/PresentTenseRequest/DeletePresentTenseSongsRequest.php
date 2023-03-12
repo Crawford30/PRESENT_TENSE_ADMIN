@@ -2,29 +2,29 @@
 
 namespace App\Http\Requests\PresentTenseRequest;
 
+use App\PresentTenseSongs;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeletePresentTenseSongsRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
-        return false;
+
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+            "present_tense_id" => "required"
         ];
+    }
+
+
+    public function delete()
+    {
+        $grant= PresentTenseSongs::findOrFail($this->present_tense_id);
+        $grant->delete();
+        return response()->json("DELETED", 200);
     }
 }

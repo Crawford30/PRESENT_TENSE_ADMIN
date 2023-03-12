@@ -66,6 +66,18 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/delete-praises-and-worship-song', 'PraisesAndWorshipSongsController@deletePraisesAndWorshipSong');
   });
 
+
+  //============Present Tense Songs ======
+  Route::group(['prefix' => 'present-tense'], function () {
+    Route::get('/list', 'PresentTenseSongsController@getAllPresentTenseSongs');
+    Route::post('/import-present-tense-songs', 'PresentTenseSongsController@importPresentTenseTemplate');
+    Route::post('/create-present-tense-song', 'PresentTenseSongsController@savePresentTenseSong');
+    Route::post('/delete-present-tense-song', 'PresentTenseSongsController@deletePresentTenseSong');
+  });
+
+
+
+
   });
 
 

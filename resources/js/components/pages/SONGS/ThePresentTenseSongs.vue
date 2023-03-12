@@ -494,7 +494,7 @@ export default {
         //console.log("SERIALIZED: ", form.serialize());
         axios({
           method: "post",
-          url: "/api/praises-and-worship/create-praises-and-worship-song",
+          url: "/api/present-tense/create-present-tense-song",
           data: songFormData,
           //form.serialize(),
         })
@@ -559,10 +559,10 @@ export default {
       }).then((result) => {
         if (result.isConfirmed) {
           $.ajax({
-            url: "api/praises-and-worship/delete-praises-and-worship-song",
+            url: "api/present-tense/delete-present-tense-song",
             type: "post",
             data: {
-              praises_and_worship_id: id,
+              present_tense_id: id,
             },
             success(data) {
               Swal.fire(
@@ -583,7 +583,7 @@ export default {
     getPresentTenseSongs() {
       let app = this;
       axios
-        .get("api/praises-and-worship/list")
+        .get("api/present-tense/list")
         .then((response) => {
           app.presentTenseSongs = response.data;
         })
@@ -600,7 +600,7 @@ export default {
 
       axios({
         method: "post",
-        url: "api/praises-and-worship/import-praises-and-worship-songs",
+        url: "api/present-tense/import-present-tense-songs",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",

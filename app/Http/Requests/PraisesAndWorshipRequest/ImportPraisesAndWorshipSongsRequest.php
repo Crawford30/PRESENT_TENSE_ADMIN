@@ -115,7 +115,7 @@ class ImportPraisesAndWorshipSongsRequest extends FormRequest
            ];
 
 
-            $tenMajorData = PraisesAndWorshipSongs::updateOrCreate([
+            $praisesAndWorshipData = PraisesAndWorshipSongs::updateOrCreate([
                 'song_number' => $item['song_number'],
                 // 'song_title' => $item['song_title'],
                 // 'song_body' => $item['song_body'],

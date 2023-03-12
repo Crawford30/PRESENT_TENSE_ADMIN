@@ -7952,7 +7952,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         //console.log("SERIALIZED: ", form.serialize());
         axios({
           method: "post",
-          url: "/api/praises-and-worship/create-praises-and-worship-song",
+          url: "/api/present-tense/create-present-tense-song",
           data: songFormData
           //form.serialize(),
         }).then(function (response) {
@@ -8012,10 +8012,10 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }).then(function (result) {
         if (result.isConfirmed) {
           $.ajax({
-            url: "api/praises-and-worship/delete-praises-and-worship-song",
+            url: "api/present-tense/delete-present-tense-song",
             type: "post",
             data: {
-              praises_and_worship_id: id
+              present_tense_id: id
             },
             success: function success(data) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Song Deleted Successfully</p>", "", "success");
@@ -8030,7 +8030,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     getPresentTenseSongs: function getPresentTenseSongs() {
       var app = this;
-      axios.get("api/praises-and-worship/list").then(function (response) {
+      axios.get("api/present-tense/list").then(function (response) {
         app.presentTenseSongs = response.data;
       })["catch"](function (error) {
         //   app.showErrorMessage(error.response.data);
@@ -8044,7 +8044,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       formData.append("file", app.file);
       axios({
         method: "post",
-        url: "api/praises-and-worship/import-praises-and-worship-songs",
+        url: "api/present-tense/import-present-tense-songs",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data"
