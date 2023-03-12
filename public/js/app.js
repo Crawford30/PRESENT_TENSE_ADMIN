@@ -2537,6 +2537,7 @@ var render = function render() {
     staticClass: "form-control",
     attrs: {
       name: "creation_date",
+      required: "",
       placeholder: "e.g 2019-12-30 for 30-DEC-2019",
       type: "text"
     },
@@ -2549,7 +2550,16 @@ var render = function render() {
         _vm.$set(_vm.selectedVideo, "creation_date", $event.target.value);
       }
     }
-  })]), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("input", {
+    attrs: {
+      hidden: "",
+      name: "video_id",
+      type: "text"
+    },
+    domProps: {
+      value: _vm.selectedVideo.id
+    }
+  }), _vm._v(" "), _c("div", {
     staticClass: "form-group text-center"
   }, [_c("button", {
     staticClass: "present-tense-btn present-tense-primary px-6 mt-3 mb-3",
@@ -2559,7 +2569,7 @@ var render = function render() {
     on: {
       click: function click($event) {
         $event.preventDefault();
-        return _vm.saveVideoConfig.apply(null, arguments);
+        return _vm.uploadVideo.apply(null, arguments);
       }
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
@@ -8466,7 +8476,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../mixin/dragAndDropHelper */ "./resources/js/components/mixin/dragAndDropHelper.js");
-/* harmony import */ var _common_DropFile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../common/DropFile */ "./resources/js/components/common/DropFile.vue");
+/* harmony import */ var _mixin_IziToast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../mixin/IziToast */ "./resources/js/components/mixin/IziToast.js");
+/* harmony import */ var _common_DropFile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../common/DropFile */ "./resources/js/components/common/DropFile.vue");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
@@ -8476,20 +8487,19 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"],
-    DropFile: _common_DropFile__WEBPACK_IMPORTED_MODULE_3__["default"],
-    Tooltip: _common_DropFile__WEBPACK_IMPORTED_MODULE_3__["default"]
+    DropFile: _common_DropFile__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Tooltip: _common_DropFile__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
-  mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"], _mixin_IziToast__WEBPACK_IMPORTED_MODULE_3__["default"]],
   data: function data() {
     var _ref;
     return _ref = {
       videos: [],
-      selectedVideo: {
-        location: ""
-      },
+      selectedVideo: {},
       displayVideo: null,
       uploadedVideo: null,
       file: null,
@@ -8535,6 +8545,58 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     app.getTenMajorSongs();
   },
   methods: {
+    isValid: function isValid() {
+      if (!this.selectedVideo.video_dvd_name) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>DVD name is required!</p>", "warning");
+        // this.showErrorMessage("DVD name is required");
+        return false;
+      }
+      if (!this.selectedVideo.creation_date) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>DVD creation date is required!</p>", "warning");
+        // this.showErrorMessage("DVD creation date is required");
+        return false;
+      }
+      if (!this.uploadedVideo) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>Browse and Upload a video!</p>", "warning");
+        // this.showErrorMessage("Browse and Upload a video");
+        return false;
+      }
+      return true;
+    },
+    uploadVideo: function uploadVideo() {
+      var app = this;
+      var form = $("#videos-form");
+      var modal = $("#modal-upload-video");
+      if (form.valid()) {
+        if (!this.isValid()) {
+          return;
+        }
+        app.isProcessing = true;
+        var formData = new FormData(document.getElementById("videos-form"));
+        formData.append("file", app.uploadedVideo);
+        $.ajax({
+          processData: false,
+          contentType: false,
+          enctype: "multipart/form-data",
+          type: "post",
+          url: "/api/video-dvd/create-video-dvd",
+          data: formData,
+          success: function success(data) {
+            app.isProcessing = false;
+            app.showSuccessMessage("Video Successfully Saved");
+            // app.getVideos();
+            modal.modal("hide");
+            document.getElementById("videos-form").reset();
+            form.reset();
+          },
+          error: function error(e) {
+            modal.modal("hide");
+            app.isProcessing = false;
+            app.showErrorMessage(app.formatAjaxError(e));
+          }
+        });
+      }
+    },
     saveSong: function saveSong() {
       var _this = this;
       var app = this;

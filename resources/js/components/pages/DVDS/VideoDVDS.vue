@@ -365,11 +365,19 @@
                 <input
                   v-model="selectedVideo.creation_date"
                   name="creation_date"
+                  required
                   class="form-control"
                   placeholder="e.g 2019-12-30 for 30-DEC-2019"
                   type="text"
                 />
               </div>
+
+              <input
+                hidden
+                :value="selectedVideo.id"
+                name="video_id"
+                type="text"
+              />
 
               <!-- <div class=" form-group mt-3">
                         <label for="">About the Video</label>
@@ -385,7 +393,7 @@
 
               <div class="form-group text-center">
                 <button
-                  @click.prevent="saveVideoConfig"
+                  @click.prevent="uploadVideo"
                   :disabled="isProcessing"
                   class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
                 >
@@ -407,6 +415,7 @@
 import { VueEditor } from "vue2-editor";
 import Swal from "sweetalert2";
 import dragAndDropHelper from "./../../mixin/dragAndDropHelper";
+import Izitoast from "./../../mixin/IziToast";
 import DropFile from "./../../common/DropFile";
 import Tooltip from "./../../common/DropFile";
 
@@ -416,13 +425,11 @@ export default {
     DropFile,
     Tooltip,
   },
-  mixins: [dragAndDropHelper],
+  mixins: [dragAndDropHelper, Izitoast],
   data() {
     return {
       videos: [],
-      selectedVideo: {
-        location: "",
-      },
+      selectedVideo: {},
       displayVideo: null,
       uploadedVideo: null,
       file: null,
@@ -494,6 +501,72 @@ export default {
     app.getTenMajorSongs();
   },
   methods: {
+    isValid() {
+      if (!this.selectedVideo.video_dvd_name) {
+        Swal.fire(
+          "Failed!",
+          "<p style='font-size: 14px;'>DVD name is required!</p>",
+          "warning"
+        );
+        // this.showErrorMessage("DVD name is required");
+        return false;
+      }
+      if (!this.selectedVideo.creation_date) {
+        Swal.fire(
+          "Failed!",
+          "<p style='font-size: 14px;'>DVD creation date is required!</p>",
+          "warning"
+        );
+        // this.showErrorMessage("DVD creation date is required");
+        return false;
+      }
+      if (!this.uploadedVideo) {
+        Swal.fire(
+          "Failed!",
+          "<p style='font-size: 14px;'>Browse and Upload a video!</p>",
+          "warning"
+        );
+        // this.showErrorMessage("Browse and Upload a video");
+        return false;
+      }
+      return true;
+    },
+
+    uploadVideo() {
+      let app = this;
+      let form = $("#videos-form");
+      let modal = $("#modal-upload-video");
+      if (form.valid()) {
+        if (!this.isValid()) {
+          return;
+        }
+        app.isProcessing = true;
+        var formData = new FormData(document.getElementById("videos-form"));
+        formData.append("file", app.uploadedVideo);
+        $.ajax({
+          processData: false,
+          contentType: false,
+          enctype: "multipart/form-data",
+          type: "post",
+          url: "/api/video-dvd/create-video-dvd",
+          data: formData,
+          success(data) {
+            app.isProcessing = false;
+            app.showSuccessMessage("Video Successfully Saved");
+            // app.getVideos();
+            modal.modal("hide");
+            document.getElementById("videos-form").reset();
+            form.reset();
+          },
+          error(e) {
+            modal.modal("hide");
+            app.isProcessing = false;
+            app.showErrorMessage(app.formatAjaxError(e));
+          },
+        });
+      }
+    },
+
     saveSong() {
       let app = this;
       let form = $("#song-form");

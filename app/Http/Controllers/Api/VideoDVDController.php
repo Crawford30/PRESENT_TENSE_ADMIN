@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VideoDVDRequest\SaveVideoDVDRequest;
 
 class VideoDVDController extends Controller
 {
@@ -15,6 +16,11 @@ class VideoDVDController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api');
+    }
+
+
+    public function saveVideoDVD(SaveVideoDVDRequest $request){
+        return $request->save();
     }
 
 
