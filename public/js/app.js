@@ -5419,7 +5419,7 @@ var render = function render() {
       "padding-bottom": "0",
       "font-size": "12px"
     }
-  }, [_vm._v("\n                    God Ten Major Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    Praises And Worship Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
     staticClass: "position-relative"
   }, [_c("button", {
     staticClass: "btn btn-primary position-relative",

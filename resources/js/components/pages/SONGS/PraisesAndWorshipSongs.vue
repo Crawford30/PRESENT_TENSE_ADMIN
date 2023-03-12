@@ -336,7 +336,7 @@
                         font-size: 12px;
                       "
                     >
-                      God Ten Major Songs Template, or if you prefer
+                      Praises And Worship Songs Template, or if you prefer
                     </p>
                     <div class="position-relative">
                       <button
