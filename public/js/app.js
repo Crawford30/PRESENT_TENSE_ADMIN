@@ -5648,20 +5648,13 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
-};
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("div", {
     staticClass: "dvd-view"
   }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row my-3"
-  }, [_c("div", {
-    staticClass: "col-md-9 text-left"
-  }, [_c("h4", [_vm._v("The Big Song Book")])]), _vm._v(" "), _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "col-md-3"
   }, [_c("div", {
     staticClass: "btn-group add-new-dropdown",
@@ -5677,8 +5670,11 @@ var staticRenderFns = [function () {
     staticClass: "btn btn-primary",
     attrs: {
       type: "button"
+    },
+    on: {
+      click: _vm.showAddSingleSongModal
     }
-  }, [_vm._v("Add Song")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n              Add Song\n            ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
     attrs: {
       type: "button",
@@ -5689,7 +5685,10 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "dropdown-menu"
   }, [_c("div", {
-    staticClass: "border-bottom dropdown-item text-center"
+    staticClass: "border-bottom dropdown-item text-center",
+    on: {
+      click: _vm.showAddSingleSongModal
+    }
   }, [_c("img", {
     staticClass: "img-logo",
     attrs: {
@@ -5699,7 +5698,10 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("p", {
     staticClass: "font-weight-light small mt-1"
   }, [_vm._v("Single Record")])]), _vm._v(" "), _c("div", {
-    staticClass: "border-bottom dropdown-item text-center"
+    staticClass: "border-bottom dropdown-item text-center",
+    on: {
+      click: _vm.showUploadExcel
+    }
   }, [_c("img", {
     staticClass: "img-logo",
     attrs: {
@@ -5709,7 +5711,10 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("p", {
     staticClass: "font-weight-light small mt-1"
   }, [_vm._v("Batch Upload")])]), _vm._v(" "), _c("a", {
-    staticClass: "pt-2 mb-0 dropdown-item text-center"
+    staticClass: "pt-2 mb-0 dropdown-item text-center",
+    on: {
+      click: _vm.downloadTemplate
+    }
   }, [_c("img", {
     staticClass: "img-logo",
     staticStyle: {
@@ -5719,17 +5724,458 @@ var staticRenderFns = [function () {
       src: "/images/icons/icon.excel.png",
       alt: "single image"
     }
-  }), _vm._v(" "), _c("p", {
-    staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")])])])])])])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(1)])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "staff-card shadow-sm table-padding"
   }, [_c("div", {
     staticClass: "row justify-content-center"
   }, [_c("table", {
-    staticClass: "table table-sm"
-  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])])])])])])])]);
+    staticClass: "table table-sm present-tense-table"
+  }, [_vm._m(2), _vm._v(" "), _vm._l(_vm.theBigSongBookSongs.results, function (theBigSongBookSong, index) {
+    return _c("tr", {
+      key: theBigSongBookSong.id + "_" + index
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(theBigSongBookSong.song_number))]), _vm._v(" "), _c("td", {
+      staticClass: "text-left"
+    }, [_vm._v("\n                " + _vm._s(theBigSongBookSong.song_title) + "\n              ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(theBigSongBookSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.updateSong(theBigSongBookSong);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fas fa-pencil-alt",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })]), _vm._v(" "), _c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.deleteSong(theBigSongBookSong.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })]), _vm._v(" "), _c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.viewSongDetail(theBigSongBookSong);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fas fa-ellipsis-v",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })])])]);
+  })], 2)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "single-song-modal"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-body p-4"
+  }, [_c("button", {
+    staticClass: "close",
+    staticStyle: {
+      position: "absolute",
+      right: "1.5rem",
+      top: "1.5rem"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeModel
+    }
+  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: !_vm.editmode,
+      expression: "!editmode"
+    }]
+  }, [_c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("\n              Add The Big Song Book Song\n            ")])]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.editmode,
+      expression: "editmode"
+    }]
+  }, [_c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("\n              Update The Big Song Book Song\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+    ref: "songRef",
+    attrs: {
+      id: "song-form"
+    }
+  }, [_vm.selectedSong != null ? _c("input", {
+    attrs: {
+      hidden: "",
+      name: "id"
+    },
+    domProps: {
+      value: _vm.selectedSong.id
+    }
+  }) : _vm._e(), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", [_vm._v("Song Number")]), _vm._v(" "), _vm.selectedSong != null ? _c("input", {
+    staticClass: "form-control",
+    attrs: {
+      name: "song_number",
+      type: "text",
+      autocomplete: "off",
+      placeholder: "Song Number",
+      required: ""
+    },
+    domProps: {
+      value: _vm.selectedSong.song_number
+    }
+  }) : _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.songNumber,
+      expression: "songNumber"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "song_number",
+      type: "text",
+      autocomplete: "off",
+      placeholder: "Song Number",
+      required: ""
+    },
+    domProps: {
+      value: _vm.songNumber
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.songNumber = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", [_vm._v("Song Title")]), _vm._v(" "), _vm.selectedSong != null ? _c("vue-editor", {
+    attrs: {
+      id: "song-title",
+      placeholder: "Please Type Song Title Here",
+      disabled: false,
+      editorToolbar: _vm.defaultToolbar
+    },
+    model: {
+      value: _vm.songTitle,
+      callback: function callback($$v) {
+        _vm.songTitle = $$v;
+      },
+      expression: "songTitle"
+    }
+  }) : _c("vue-editor", {
+    attrs: {
+      id: "song-title",
+      placeholder: "Please Type Song Title Here",
+      disabled: false,
+      editorToolbar: _vm.defaultToolbar
+    },
+    model: {
+      value: _vm.songTitle,
+      callback: function callback($$v) {
+        _vm.songTitle = $$v;
+      },
+      expression: "songTitle"
+    }
+  })], 1), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", [_vm._v("Song Body")]), _vm._v(" "), _c("vue-editor", {
+    attrs: {
+      id: "song-body",
+      placeholder: "Please Type Song Body Here",
+      disabled: false,
+      editorToolbar: _vm.defaultToolbar
+    },
+    model: {
+      value: _vm.songBody,
+      callback: function callback($$v) {
+        _vm.songBody = $$v;
+      },
+      expression: "songBody"
+    }
+  })], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "row d-flex justify-content-center"
+  }, [_c("div", {
+    staticClass: "col-4 px-6"
+  }, [_c("div", {
+    staticClass: "text-center mt-2"
+  }, [_c("button", {
+    staticClass: "present-tense-btn present-tense-secondary",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeModel
+    }
+  }, [_c("span", [_vm._v(" Close")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-4"
+  }, [_c("div", {
+    staticClass: "text-center mt-2"
+  }, [_c("button", {
+    staticClass: "present-tense-btn present-tense-primary",
+    attrs: {
+      disabled: _vm.isProcessing,
+      type: "button"
+    },
+    on: {
+      click: _vm.saveSong
+    }
+  }, [_vm.isProcessing ? _c("i", {
+    staticClass: "fa fa-spinner fa-spin",
+    attrs: {
+      id: "sendlog-spinner-spinner"
+    }
+  }) : _vm._e(), _vm._v(" "), _c("span", [_vm._v("Save")])])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "single-song-modal-detail"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-body p-4"
+  }, [_c("button", {
+    staticClass: "close",
+    staticStyle: {
+      position: "absolute",
+      right: "1.5rem",
+      top: "1.5rem"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeModel
+    }
+  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("Song Details")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+    ref: "songRef",
+    attrs: {
+      id: "song-form"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("vue-editor", {
+    attrs: {
+      id: "song-body",
+      disabled: true,
+      editorToolbar: _vm.defaultToolbar
+    },
+    model: {
+      value: _vm.songBody,
+      callback: function callback($$v) {
+        _vm.songBody = $$v;
+      },
+      expression: "songBody"
+    }
+  })], 1)])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "modal-upload-song-excel"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-lg"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-body py-4"
+  }, [_c("button", {
+    staticClass: "close",
+    staticStyle: {
+      position: "absolute",
+      right: "1.5rem",
+      top: "1.5rem"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeDialog
+    }
+  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+    staticClass: "bs-stepper-content mt-4"
+  }, [_c("div", {
+    staticClass: "content",
+    attrs: {
+      id: "step1-view"
+    }
+  }, [!_vm.hasFile ? _c("div", {
+    staticClass: "drag-drop-area px-5 py-3",
+    staticStyle: {
+      "margin-left": "0",
+      "margin-right": "0"
+    },
+    attrs: {
+      id: "drop-area"
+    }
+  }, [_vm._m(3), _vm._v(" "), _c("div", {
+    staticClass: "text-center"
+  }, [_c("p", {
+    staticStyle: {
+      color: "#bbbbbb",
+      "margin-bottom": "0",
+      "padding-bottom": "0",
+      "font-size": "12px"
+    }
+  }, [_vm._v("\n                    The Big Song Book Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+    staticClass: "position-relative"
+  }, [_c("button", {
+    staticClass: "btn btn-primary position-relative",
+    staticStyle: {
+      "font-size": "12px",
+      "margin-top": "5px"
+    },
+    attrs: {
+      type: "button"
+    }
+  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
+    staticStyle: {
+      position: "absolute",
+      left: "0",
+      top: "0",
+      opacity: "0",
+      cursor: "pointer"
+    },
+    attrs: {
+      type: "file"
+    },
+    on: {
+      change: _vm.onBrowseFile
+    }
+  })])])])]) : _c("div", {
+    staticClass: "border p-5"
+  }, [_c("h6", {
+    staticClass: "text-center te xt-black-50"
+  }, [_vm._v(_vm._s(_vm.file.name))]), _vm._v(" "), _c("div", {
+    staticClass: "text-center"
+  }, [_c("button", {
+    staticStyle: {
+      "font-size": "24px",
+      color: "#666666",
+      background: "#ffffff",
+      outline: "none",
+      border: "none",
+      cursor: "pointer"
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.removeFile();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "far fa-trash-alt"
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "content",
+    attrs: {
+      id: "step2-view"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "content",
+    attrs: {
+      id: "step3-view"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "text-center mt-2"
+  }, [_c("button", {
+    staticClass: "present-tense-btn present-tense-primary",
+    attrs: {
+      disabled: _vm.file === null || _vm.isProcessing,
+      type: "button"
+    },
+    on: {
+      click: _vm.uploadFile
+    }
+  }, [_c("span", [_vm.isProcessing ? _c("i", {
+    staticClass: "fa fa-spinner fa-spin"
+  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-md-9 text-left"
+  }, [_c("h4", [_vm._v("The Big Song Book Songs")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("p", {
+    staticClass: "font-weight-light small mt-1"
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", {
+    staticClass: "text-left"
+  }, [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "text-center drop-zone"
+  }, [_c("img", {
+    staticClass: "icon-img",
+    attrs: {
+      src: "/images/icons/upload_gray.png"
+    }
+  }), _vm._v(" "), _c("h6", {
+    staticStyle: {
+      color: "#bbbbbb",
+      "margin-bottom": "0.2rem"
+    }
+  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
 }];
 render._withStripped = true;
 
@@ -7448,28 +7894,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     downloadSongTemplate: function downloadSongTemplate() {
       window.location.href = "/download-song-template";
     },
-    downloadSavedReciept: function downloadSavedReciept(file) {
-      var app = this;
-      var phone_bill_url = $("#phonebill-url").val();
-      axios.get("/api/user/download-receipt", {
-        headers: {
-          Authorization: "Bearer " + token
-        },
-        params: {
-          fileName: file
-        },
-        responseType: "blob"
-      }).then(function (response) {
-        var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", file);
-        document.body.appendChild(link);
-        link.click();
-      })["catch"](function (error) {
-        app.showErrorMessage(error.response.data);
-      });
-    },
     //   const url = URL.createObjectURL(new Blob([response.data], {
     //         type: 'application/vnd.ms-excel'
     //     }))
@@ -7745,28 +8169,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     downloadSongTemplate: function downloadSongTemplate() {
       window.location.href = "/download-song-template";
     },
-    downloadSavedReciept: function downloadSavedReciept(file) {
-      var app = this;
-      var phone_bill_url = $("#phonebill-url").val();
-      axios.get("/api/user/download-receipt", {
-        headers: {
-          Authorization: "Bearer " + token
-        },
-        params: {
-          fileName: file
-        },
-        responseType: "blob"
-      }).then(function (response) {
-        var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", file);
-        document.body.appendChild(link);
-        link.click();
-      })["catch"](function (error) {
-        app.showErrorMessage(error.response.data);
-      });
-    },
     //   const url = URL.createObjectURL(new Blob([response.data], {
     //         type: 'application/vnd.ms-excel'
     //     }))
@@ -7865,9 +8267,268 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../mixin/dragAndDropHelper */ "./resources/js/components/mixin/dragAndDropHelper.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
+  },
+  mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"]],
+  data: function data() {
+    var _ref;
+    return _ref = {
+      file: null,
+      editmode: false,
+      selectedSong: null,
+      hasFile: false,
+      theBigSongBookSongs: [],
+      isProcessing: false,
+      songTitle: "",
+      songBody: "",
+      songNumber: "",
+      errors: null
+    }, _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
+      header: [false, 1, 2, 3, 4, 5, 6]
+    }], ["bold", "italic", "underline", "strike"], [{
+      align: ""
+    }, {
+      align: "center"
+    }, {
+      align: "right"
+    }, {
+      align: "justify"
+    }], [{
+      list: "ordered"
+    }, {
+      list: "bullet"
+    }], [{
+      indent: "-1"
+    }, {
+      indent: "+1"
+    }]]), _ref;
+  },
   mounted: function mounted() {
-    console.log("Component mounted.");
+    var app = this;
+    app.geBigSongBookSongs();
+  },
+  methods: {
+    saveSong: function saveSong() {
+      var _this = this;
+      var app = this;
+      var form = $("#song-form");
+      var formModal = $("#single-song-modal");
+      var songFormData = new FormData();
+      if (this.editmode) {
+        songFormData.append("song_id", this.selectedSong.id), songFormData.append("song_number", this.selectedSong.song_number), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
+      } else {
+        songFormData.append("song_number", this.songNumber), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
+      }
+      if (form.valid()) {
+        app.isProcessing = true;
+        //console.log("SERIALIZED: ", form.serialize());
+        axios({
+          method: "post",
+          url: "/api/big-song-book/create-big-song-book-song",
+          data: songFormData
+          //form.serialize(),
+        }).then(function (response) {
+          app.isProcessing = false;
+          app.geBigSongBookSongs();
+          formModal.modal("hide");
+          //======dismiss the model
+          _this.closeModel();
+          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+            icon: "success",
+            title: "Success",
+            html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
+            showConfirmButton: true,
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#32CD32"
+          }).then(function (result) {
+            if (result.isConfirmed) {
+              // window.location.href = "/list";
+            }
+          });
+        })["catch"](function (error) {
+          app.isProcessing = false;
+          _this.errors = error.response.data.errors;
+          formModal.modal("hide");
+          app.showErrorMessage(error.response.data.errors);
+        });
+      }
+    },
+    updateSong: function updateSong(item) {
+      var app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_body;
+      $("#single-song-modal").modal("show");
+    },
+    viewSongDetail: function viewSongDetail(item) {
+      var app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_title + "<br/>" + item.song_body;
+      $("#single-song-modal-detail").modal("show");
+    },
+    deleteSong: function deleteSong(id) {
+      var app = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "api/big-song-book/delete-big-song-book-song",
+            type: "post",
+            data: {
+              big_song_book_id: id
+            },
+            success: function success(data) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Song Deleted Successfully</p>", "", "success");
+              app.geBigSongBookSongs();
+            },
+            error: function error(e) {
+              //   app.showAjaxError(e);
+            }
+          });
+        }
+      });
+    },
+    geBigSongBookSongs: function geBigSongBookSongs() {
+      var app = this;
+      axios.get("api/big-song-book/list").then(function (response) {
+        app.theBigSongBookSongs = response.data;
+      })["catch"](function (error) {
+        //   app.showErrorMessage(error.response.data);
+      });
+    },
+    uploadFile: function uploadFile() {
+      var _this2 = this;
+      var app = this;
+      app.isProcessing = true;
+      var formData = new FormData();
+      formData.append("file", app.file);
+      axios({
+        method: "post",
+        url: "api/big-song-book/import-big-song-book-songs",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(function (response) {
+        app.isProcessing = false;
+        app.importResults = response.data;
+        app.geBigSongBookSongs();
+        app.closeDialog();
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: "success",
+          title: "Success",
+          html: "<p class='font-size: 13px'>Song  Successfully Submitted</p>",
+          showConfirmButton: true,
+          allowOutsideClick: false,
+          showCloseButton: true,
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#32CD32"
+        }).then(function (result) {
+          if (result.isConfirmed) {
+            // window.location.href = "/list";
+          }
+        });
+      })["catch"](function (error) {
+        _this2.isProcessing = false;
+        //   app.showErrorMessage(error.response.data);
+        _this2.errors = error.response.data.errors;
+      });
+    },
+    downloadSongTemplate: function downloadSongTemplate() {
+      window.location.href = "/download-song-template";
+    },
+    //   const url = URL.createObjectURL(new Blob([response.data], {
+    //         type: 'application/vnd.ms-excel'
+    //     }))
+    downloadTemplate: function downloadTemplate() {
+      var app = this;
+      var file = "song_template.xlsx";
+      axios.get("/api/user/download-song-template", {
+        params: {
+          fileName: "song_template.xlsx"
+        },
+        responseType: "blob"
+      }).then(function (response) {
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", file);
+        document.body.appendChild(link);
+        link.click();
+      })["catch"](function (error) {
+        console.log("ERRRR:: ", error.response.data);
+        //app.showErrorMessage(error.response.data);
+      });
+    },
+    showAddSingleSongModal: function showAddSingleSongModal() {
+      var app = this;
+      app.selectedSong = null;
+      app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
+    },
+    closeModel: function closeModel() {
+      $("#single-song-modal").modal("hide");
+      $("#single-song-modal-detail").modal("hide");
+    },
+    showUploadExcel: function showUploadExcel() {
+      $("#modal-upload-song-excel").modal({
+        backdrop: "static",
+        keyboard: false
+      }, "show");
+    },
+    processSelectedFile: function processSelectedFile(fileData) {
+      var app = this;
+      if (fileData.ext.toLowerCase() !== "xls" && fileData.ext.toLowerCase() !== "xlsx") {
+        app.file = null;
+        app.hasFile = false;
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: "error",
+          title: "Invalid File",
+          text: "File must be in excel format"
+        });
+      } else {
+        app.file = fileData.file;
+        app.hasFile = true;
+      }
+    },
+    removeFile: function removeFile() {
+      this.file = null, this.hasFile = false;
+    },
+    onBrowseFile: function onBrowseFile(e) {
+      var app = this;
+      app.processSelectedFile(app.fileData(e, "browse"));
+    },
+    closeDialog: function closeDialog() {
+      var app = this;
+      app.file = null;
+      app.hasFile = false;
+      app.isProcessing = false;
+      $("#modal-upload-song-excel").modal("hide");
+    }
   }
 });
 
@@ -8076,28 +8737,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     downloadSongTemplate: function downloadSongTemplate() {
       window.location.href = "/download-song-template";
-    },
-    downloadSavedReciept: function downloadSavedReciept(file) {
-      var app = this;
-      var phone_bill_url = $("#phonebill-url").val();
-      axios.get("/api/user/download-receipt", {
-        headers: {
-          Authorization: "Bearer " + token
-        },
-        params: {
-          fileName: file
-        },
-        responseType: "blob"
-      }).then(function (response) {
-        var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", file);
-        document.body.appendChild(link);
-        link.click();
-      })["catch"](function (error) {
-        app.showErrorMessage(error.response.data);
-      });
     },
     //   const url = URL.createObjectURL(new Blob([response.data], {
     //         type: 'application/vnd.ms-excel'
@@ -14888,7 +15527,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".unicef-rates-table th[data-v-0665dfcc],\n.unicef-rates-table td[data-v-0665dfcc] {\n  font-size: 13px !important;\n}\n.dropdown-toggle[data-v-0665dfcc]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-0665dfcc] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-0665dfcc] {\n  min-width: 8rem !important;\n}\n.container[data-v-0665dfcc] {\n  text-align: center;\n}\n.progress-container[data-v-0665dfcc] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-0665dfcc]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-0665dfcc] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-0665dfcc] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-0665dfcc] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-0665dfcc] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-0665dfcc] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-0665dfcc] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-0665dfcc] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-0665dfcc 2s linear infinite;\n}\n@keyframes spin-0665dfcc {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-0665dfcc] {\n  display: none;\n}", ""]);
+exports.push([module.i, ".present-tense-table th[data-v-0665dfcc],\n.present-tense-table td[data-v-0665dfcc] {\n  font-size: 13px !important;\n}\n#song-title .ql-editor[data-v-0665dfcc] {\n  height: 20px;\n}\n.dropdown-toggle[data-v-0665dfcc]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-0665dfcc] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-0665dfcc] {\n  min-width: 8rem !important;\n}\n.container[data-v-0665dfcc] {\n  text-align: center;\n}\n.progress-container[data-v-0665dfcc] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-0665dfcc]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-0665dfcc] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-0665dfcc] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-0665dfcc] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-0665dfcc] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-0665dfcc] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-0665dfcc] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-0665dfcc] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-0665dfcc 2s linear infinite;\n}\n@keyframes spin-0665dfcc {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-0665dfcc] {\n  display: none;\n}", ""]);
 
 // exports
 

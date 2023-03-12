@@ -637,33 +637,6 @@ export default {
       window.location.href = "/download-song-template";
     },
 
-    downloadSavedReciept(file) {
-      let app = this;
-      let phone_bill_url = $("#phonebill-url").val();
-
-      axios
-        .get("/api/user/download-receipt", {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-          params: {
-            fileName: file,
-          },
-          responseType: "blob",
-        })
-        .then((response) => {
-          const url = window.URL.createObjectURL(new Blob([response.data]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", file);
-          document.body.appendChild(link);
-          link.click();
-        })
-        .catch((error) => {
-          app.showErrorMessage(error.response.data);
-        });
-    },
-
     //   const url = URL.createObjectURL(new Blob([response.data], {
     //         type: 'application/vnd.ms-excel'
     //     }))

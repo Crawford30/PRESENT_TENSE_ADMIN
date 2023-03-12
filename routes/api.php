@@ -76,6 +76,16 @@ Route::group(['middleware' => ['auth:api']], function () {
   });
 
 
+   //============The Big SongBook Songs ======
+   Route::group(['prefix' => 'big-song-book'], function () {
+    Route::get('/list', 'BigSongBookSongsController@getAllBigSongBookSongs');
+    Route::post('/import-big-song-book-songs', 'BigSongBookSongsController@importBigSongBookTemplate');
+    Route::post('/create-big-song-book-song', 'BigSongBookSongsController@saveBigSongBookSong');
+    Route::post('/delete-big-song-book-song', 'BigSongBookSongsController@deleteBigSongBookSong');
+  });
+
+
+
 
 
   });
