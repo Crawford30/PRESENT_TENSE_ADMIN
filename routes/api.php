@@ -99,7 +99,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     //============VVideo DVD ======
     Route::group(['prefix' => 'video-dvd'], function () {
-        Route::get('/list', 'VideoDVDController@getAllSongsInVariousTonguesSongs');
+        Route::get('/list', 'VideoDVDController@getAllDVDVideos');
         Route::post('/create-video-dvd', 'VideoDVDController@saveVideoDVD');
         Route::post('/delete-various-tongue-song', 'VideoDVDController@deleteSongsInVariousTonguesSong');
       });

@@ -12,8 +12,12 @@ class VideoDVD extends Model
     ];
 
 
-    public function videoDVDViews(){
+    public function views(){
         return $this->hasMany(VideoDVDView::class);
     }
+
+    // public function videoDVDViews(){
+    //     return $this->hasMany(VideoDVDView::class);
+    // }
 
 }

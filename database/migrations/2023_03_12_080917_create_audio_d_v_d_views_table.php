@@ -15,7 +15,7 @@ class CreateAudioDVDViewsTable extends Migration
     {
         Schema::create('audio_d_v_d_views', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("audio_dvd_id");
+            $table->integer("audio_d_v_d_id");
             $table->integer("user_id");
             $table->timestamps();
         });

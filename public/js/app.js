@@ -2068,241 +2068,23 @@ var render = function render() {
     staticClass: "row justify-content-center"
   }, [_c("table", {
     staticClass: "table table-sm present-tense-table"
-  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.tenMajorSongs.results, function (tenMajorSong, index) {
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.dvdVideos.results, function (dvdVideo, index) {
     return _c("tr", {
-      key: tenMajorSong.id + "_" + index
-    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(tenMajorSong.song_title))]), _vm._v(" "), _c("td", {
+      key: dvdVideo.id + "_" + index
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_c("a", {
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          $event.preventDefault();
+          return _vm.showVideo(dvdVideo);
+        }
+      }
+    }, [_vm._v(_vm._s(dvdVideo.video_dvd_name))])]), _vm._v(" "), _c("td", {
       staticClass: "text-center"
-    }, [_vm._v("1")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(tenMajorSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
-      attrs: {
-        href: "#"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.updateSong(tenMajorSong);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "fas fa-pencil-alt",
-      staticStyle: {
-        color: "#999",
-        "font-size": "18px"
-      }
-    })]), _vm._v(" "), _c("a", {
-      staticStyle: {
-        "margin-left": "8px"
-      },
-      attrs: {
-        href: "#"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.deleteSong(tenMajorSong.id);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "far fa-trash-alt",
-      staticStyle: {
-        color: "#999",
-        "font-size": "18px"
-      }
-    })]), _vm._v(" "), _c("a", {
-      staticStyle: {
-        "margin-left": "8px"
-      },
-      attrs: {
-        href: "#"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.viewSongDetail(tenMajorSong);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "fas fa-ellipsis-v",
-      staticStyle: {
-        color: "#999",
-        "font-size": "18px"
-      }
-    })])])]);
+    }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _vm._m(2, true)]);
   })], 2)])])])]), _vm._v(" "), _c("div", {
-    staticClass: "modal fade",
-    attrs: {
-      id: "single-song-modal"
-    }
-  }, [_c("div", {
-    staticClass: "modal-dialog"
-  }, [_c("div", {
-    staticClass: "modal-content"
-  }, [_c("div", {
-    staticClass: "modal-body p-4"
-  }, [_c("button", {
-    staticClass: "close",
-    staticStyle: {
-      position: "absolute",
-      right: "1.5rem",
-      top: "1.5rem"
-    },
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: _vm.closeModel
-    }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: !_vm.editmode,
-      expression: "!editmode"
-    }]
-  }, [_c("h5", {
-    staticStyle: {
-      "text-align": "center",
-      "font-weight": "bold"
-    }
-  }, [_vm._v("\n              Add Ten Major Song\n            ")])]), _vm._v(" "), _c("div", {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: _vm.editmode,
-      expression: "editmode"
-    }]
-  }, [_c("h5", {
-    staticStyle: {
-      "text-align": "center",
-      "font-weight": "bold"
-    }
-  }, [_vm._v("\n              Update Ten Major Song\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
-    ref: "songRef",
-    attrs: {
-      id: "song-form"
-    }
-  }, [_vm.selectedSong != null ? _c("input", {
-    attrs: {
-      hidden: "",
-      name: "id"
-    },
-    domProps: {
-      value: _vm.selectedSong.id
-    }
-  }) : _vm._e(), _vm._v(" "), _c("div", {
-    staticClass: "form-group"
-  }, [_c("label", [_vm._v("Song Number")]), _vm._v(" "), _vm.selectedSong != null ? _c("input", {
-    staticClass: "form-control",
-    attrs: {
-      name: "song_number",
-      type: "text",
-      autocomplete: "off",
-      placeholder: "Song Number",
-      required: ""
-    },
-    domProps: {
-      value: _vm.selectedSong.song_number
-    }
-  }) : _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.songNumber,
-      expression: "songNumber"
-    }],
-    staticClass: "form-control",
-    attrs: {
-      name: "song_number",
-      type: "text",
-      autocomplete: "off",
-      placeholder: "Song Number",
-      required: ""
-    },
-    domProps: {
-      value: _vm.songNumber
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.songNumber = $event.target.value;
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "form-group"
-  }, [_c("label", [_vm._v("Song Title")]), _vm._v(" "), _vm.selectedSong != null ? _c("vue-editor", {
-    attrs: {
-      id: "song-title",
-      placeholder: "Please Type Song Title Here",
-      disabled: false,
-      editorToolbar: _vm.defaultToolbar
-    },
-    model: {
-      value: _vm.songTitle,
-      callback: function callback($$v) {
-        _vm.songTitle = $$v;
-      },
-      expression: "songTitle"
-    }
-  }) : _c("vue-editor", {
-    attrs: {
-      id: "song-title",
-      placeholder: "Please Type Song Title Here",
-      disabled: false,
-      editorToolbar: _vm.defaultToolbar
-    },
-    model: {
-      value: _vm.songTitle,
-      callback: function callback($$v) {
-        _vm.songTitle = $$v;
-      },
-      expression: "songTitle"
-    }
-  })], 1), _vm._v(" "), _c("div", {
-    staticClass: "form-group"
-  }, [_c("label", [_vm._v("Song Body")]), _vm._v(" "), _c("vue-editor", {
-    attrs: {
-      id: "song-body",
-      placeholder: "Please Type Song Body Here",
-      disabled: false,
-      editorToolbar: _vm.defaultToolbar
-    },
-    model: {
-      value: _vm.songBody,
-      callback: function callback($$v) {
-        _vm.songBody = $$v;
-      },
-      expression: "songBody"
-    }
-  })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "row d-flex justify-content-center"
-  }, [_c("div", {
-    staticClass: "col-4 px-6"
-  }, [_c("div", {
-    staticClass: "text-center mt-2"
-  }, [_c("button", {
-    staticClass: "present-tense-btn present-tense-secondary",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: _vm.closeModel
-    }
-  }, [_c("span", [_vm._v(" Close")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-4"
-  }, [_c("div", {
-    staticClass: "text-center mt-2"
-  }, [_c("button", {
-    staticClass: "present-tense-btn present-tense-primary",
-    attrs: {
-      disabled: _vm.isProcessing,
-      type: "button"
-    },
-    on: {
-      click: _vm.saveSong
-    }
-  }, [_vm.isProcessing ? _c("i", {
-    staticClass: "fa fa-spinner fa-spin",
-    attrs: {
-      id: "sendlog-spinner-spinner"
-    }
-  }) : _vm._e(), _vm._v(" "), _c("span", [_vm._v("Save")])])])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
       id: "single-song-modal-detail"
@@ -2527,7 +2309,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "form-group mt-3"
-  }, [_vm._m(2), _vm._v(" "), _c("input", {
+  }, [_vm._m(3), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2574,7 +2356,30 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n              ")])])], 1)])])])])]);
+  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n              ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal",
+    attrs: {
+      id: "showVideo"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-lg"
+  }, [_vm.displayVideo ? _c("div", {
+    staticClass: "modal-content px-2 py-2"
+  }, [_c("p", {
+    staticClass: "text-lg"
+  }, [_vm._v(_vm._s(_vm.displayVideo.video_dvd_name))]), _vm._v(" "), _c("iframe", {
+    attrs: {
+      id: "vid-show",
+      autoplay: "false",
+      width: "100%",
+      height: "400px",
+      src: _vm.displayVideo.video_path ? "/storage" + _vm.displayVideo.video_dvd_path : _vm.displayVideo.video_dvd_path,
+      frameborder: "0",
+      gesture: "media",
+      allow: "encrypted-media",
+      allowfullscreen: ""
+    }
+  })]) : _vm._e()])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2588,6 +2393,46 @@ var staticRenderFns = [function () {
   return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("DVD NAME")]), _vm._v(" "), _c("th", {
     staticClass: "text-center"
   }, [_vm._v("VIEWS")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("td", [_c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-pencil-alt",
+    staticStyle: {
+      color: "#999",
+      "font-size": "18px"
+    }
+  })]), _vm._v(" "), _c("a", {
+    staticStyle: {
+      "margin-left": "8px"
+    },
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "far fa-trash-alt",
+    staticStyle: {
+      color: "#999",
+      "font-size": "18px"
+    }
+  })]), _vm._v(" "), _c("a", {
+    staticStyle: {
+      "margin-left": "8px"
+    },
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-ellipsis-v",
+    staticStyle: {
+      color: "#999",
+      "font-size": "18px"
+    }
+  })])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -8498,21 +8343,10 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   data: function data() {
     var _ref;
     return _ref = {
-      videos: [],
+      dvdVideos: [],
       selectedVideo: {},
-      displayVideo: null,
-      uploadedVideo: null,
-      file: null,
-      editmode: false,
-      selectedSong: null,
-      hasFile: false,
-      tenMajorSongs: [],
-      isProcessing: false,
-      songTitle: "",
-      songBody: "",
-      songNumber: "",
-      errors: null
-    }, _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
+      displayVideo: null
+    }, _defineProperty(_ref, "displayVideo", null), _defineProperty(_ref, "uploadedVideo", null), _defineProperty(_ref, "file", null), _defineProperty(_ref, "editmode", false), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "hasFile", false), _defineProperty(_ref, "tenMajorSongs", []), _defineProperty(_ref, "isProcessing", false), _defineProperty(_ref, "songTitle", ""), _defineProperty(_ref, "songBody", ""), _defineProperty(_ref, "songNumber", ""), _defineProperty(_ref, "errors", null), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
       header: [false, 1, 2, 3, 4, 5, 6]
     }], ["bold", "italic", "underline", "strike"], [{
       align: ""
@@ -8534,10 +8368,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   },
   mounted: function mounted() {
     var app = this;
+    app.getAllDVDVideos();
     app.$on("video-uploaded", function (data) {
       app.uploadedVideo = data;
-      console.log("VIDEO DATA: ", data);
+      //   console.log("VIDEO DATA: ", data);
     });
+
     app.$on("video-removed", function () {
       app.uploadedVideo = null;
     });
@@ -8545,6 +8381,21 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     app.getTenMajorSongs();
   },
   methods: {
+    showVideo: function showVideo(video) {
+      console.log("VIDE: ", video);
+      this.displayVideo = video;
+      $("#showVideo").modal("show");
+    },
+    getAllDVDVideos: function getAllDVDVideos() {
+      var app = this;
+      $.ajax({
+        url: "/api/video-dvd/list",
+        success: function success(data) {
+          app.dvdVideos = data;
+        }
+      });
+      console.log("DVD VIDEOS", app.dvdVideos);
+    },
     isValid: function isValid() {
       if (!this.selectedVideo.video_dvd_name) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>DVD name is required!</p>", "warning");
@@ -8583,15 +8434,21 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           data: formData,
           success: function success(data) {
             app.isProcessing = false;
-            app.showSuccessMessage("Video Successfully Saved");
-            // app.getVideos();
+            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Successfully Saved</p>", "", "success");
+            app.getAllDVDVideos();
             modal.modal("hide");
             document.getElementById("videos-form").reset();
-            form.reset();
+            $("#videos-form").trigger("reset");
+            this.uploadedVideo = null;
+            app.selectedVideo.video_dvd_name = "";
+            app.selectedVideo.creation_date = "";
+
+            // form.reset();
           },
           error: function error(e) {
             modal.modal("hide");
             app.isProcessing = false;
+            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Error Occured</p>", e, "warning");
             app.showErrorMessage(app.formatAjaxError(e));
           }
         });

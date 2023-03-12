@@ -15,7 +15,7 @@ class CreateVideoDVDViewsTable extends Migration
     {
         Schema::create('video_d_v_d_views', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("video_dvd_id");
+            $table->integer("video_d_v_d_id");
             $table->integer("user_id");
             $table->timestamps();
         });

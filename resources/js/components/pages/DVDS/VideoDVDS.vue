@@ -36,39 +36,36 @@
                 </tr>
               </thead>
               <tr
-                v-for="(tenMajorSong, index) in tenMajorSongs.results"
-                :key="tenMajorSong.id + '_' + index"
+                v-for="(dvdVideo, index) in dvdVideos.results"
+                :key="dvdVideo.id + '_' + index"
               >
                 <td>{{ index + 1 }}</td>
 
-                <td>{{ tenMajorSong.song_title }}</td>
-                <td class="text-center">1</td>
-
-                <td>{{ tenMajorSong.created_at | myDate }}</td>
                 <td>
-                  <a href="#" @click="updateSong(tenMajorSong)">
+                  <a @click.prevent="showVideo(dvdVideo)" href="#">{{
+                    dvdVideo.video_dvd_name
+                  }}</a>
+                </td>
+
+                <td class="text-center">{{ dvdVideo.views_count }}</td>
+
+                <td>{{ dvdVideo.creation_date | myDate }}</td>
+                <td>
+                  <a href="#">
                     <i
                       class="fas fa-pencil-alt"
                       style="color: #999; font-size: 18px"
                     ></i>
                   </a>
 
-                  <a
-                    href="#"
-                    @click="deleteSong(tenMajorSong.id)"
-                    style="margin-left: 8px"
-                  >
+                  <a href="#" style="margin-left: 8px">
                     <i
                       class="far fa-trash-alt"
                       style="color: #999; font-size: 18px"
                     ></i>
                   </a>
 
-                  <a
-                    href="#"
-                    @click="viewSongDetail(tenMajorSong)"
-                    style="margin-left: 8px"
-                  >
+                  <a href="#" style="margin-left: 8px">
                     <i
                       class="fas fa-ellipsis-v"
                       style="color: #999; font-size: 18px"
@@ -83,134 +80,6 @@
         </div>
       </div>
     </div>
-
-    <div class="modal fade" id="single-song-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body p-4">
-            <button
-              type="button"
-              style="position: absolute; right: 1.5rem; top: 1.5rem"
-              class="close"
-              @click="closeModel"
-            >
-              &times;
-            </button>
-            <div v-show="!editmode">
-              <h5 style="text-align: center; font-weight: bold">
-                Add Ten Major Song
-              </h5>
-            </div>
-            <div v-show="editmode">
-              <h5 style="text-align: center; font-weight: bold">
-                Update Ten Major Song
-              </h5>
-            </div>
-
-            <br />
-            <hr />
-
-            <form id="song-form" ref="songRef">
-              <input
-                hidden
-                name="id"
-                v-if="selectedSong != null"
-                :value="selectedSong.id"
-              />
-
-              <div class="form-group">
-                <label>Song Number</label>
-                <input
-                  v-if="selectedSong != null"
-                  :value="selectedSong.song_number"
-                  name="song_number"
-                  type="text"
-                  class="form-control"
-                  autocomplete="off"
-                  placeholder="Song Number"
-                  required
-                />
-                <input
-                  v-else
-                  v-model="songNumber"
-                  name="song_number"
-                  type="text"
-                  class="form-control"
-                  autocomplete="off"
-                  placeholder="Song Number"
-                  required
-                />
-              </div>
-              <!-- <p style="color: red">Song number is required</p> -->
-
-              <div class="form-group">
-                <label>Song Title</label>
-                <vue-editor
-                  v-if="selectedSong != null"
-                  id="song-title"
-                  placeholder="Please Type Song Title Here"
-                  :disabled="false"
-                  v-model="songTitle"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
-
-                <vue-editor
-                  v-else
-                  id="song-title"
-                  placeholder="Please Type Song Title Here"
-                  :disabled="false"
-                  v-model="songTitle"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
-              </div>
-
-              <div class="form-group">
-                <label>Song Body</label>
-                <vue-editor
-                  id="song-body"
-                  placeholder="Please Type Song Body Here"
-                  :disabled="false"
-                  v-model="songBody"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
-              </div>
-            </form>
-
-            <div class="row d-flex justify-content-center">
-              <div class="col-4 px-6">
-                <div class="text-center mt-2">
-                  <button
-                    type="button"
-                    class="present-tense-btn present-tense-secondary"
-                    @click="closeModel"
-                  >
-                    <span> Close</span>
-                  </button>
-                </div>
-              </div>
-              <div class="col-4">
-                <div class="text-center mt-2">
-                  <button
-                    :disabled="isProcessing"
-                    type="button"
-                    class="present-tense-btn present-tense-primary"
-                    @click="saveSong"
-                  >
-                    <i
-                      v-if="isProcessing"
-                      id="sendlog-spinner-spinner"
-                      class="fa fa-spinner fa-spin"
-                    ></i>
-                    <span>Save</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-------Add Single Song  End------>
 
     <div class="modal fade" id="single-song-modal-detail">
       <div class="modal-dialog">
@@ -378,19 +247,6 @@
                 name="video_id"
                 type="text"
               />
-
-              <!-- <div class=" form-group mt-3">
-                        <label for="">About the Video</label>
-                        <textarea
-                            v-text="selectedVideo.about_the_video"
-                            class="form-control"
-                            name="about_the_video"
-                            id=""
-                            cols="30"
-                            rows="5"
-                        ></textarea>
-                    </div> -->
-
               <div class="form-group text-center">
                 <button
                   @click.prevent="uploadVideo"
@@ -405,6 +261,30 @@
               </div>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="showVideo">
+      <div class="modal-dialog modal-lg">
+        <div v-if="displayVideo" class="modal-content px-2 py-2">
+          <p class="text-lg">{{ displayVideo.video_dvd_name }}</p>
+          <!-- {{selectedVideo}} -->
+          <iframe
+            id="vid-show"
+            autoplay="false"
+            width="100%"
+            height="400px"
+            :src="
+              displayVideo.video_path
+                ? '/storage' + displayVideo.video_dvd_path
+                : displayVideo.video_dvd_path
+            "
+            frameborder="0"
+            gesture="media"
+            allow="encrypted-media"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </div>
@@ -428,8 +308,9 @@ export default {
   mixins: [dragAndDropHelper, Izitoast],
   data() {
     return {
-      videos: [],
+      dvdVideos: [],
       selectedVideo: {},
+      displayVideo: null,
       displayVideo: null,
       uploadedVideo: null,
       file: null,
@@ -487,10 +368,10 @@ export default {
 
   mounted() {
     let app = this;
-
+    app.getAllDVDVideos();
     app.$on("video-uploaded", (data) => {
       app.uploadedVideo = data;
-      console.log("VIDEO DATA: ", data);
+      //   console.log("VIDEO DATA: ", data);
     });
 
     app.$on("video-removed", () => {
@@ -501,6 +382,22 @@ export default {
     app.getTenMajorSongs();
   },
   methods: {
+    showVideo(video) {
+      console.log("VIDE: ", video);
+      this.displayVideo = video;
+      $("#showVideo").modal("show");
+    },
+
+    getAllDVDVideos() {
+      let app = this;
+      $.ajax({
+        url: "/api/video-dvd/list",
+        success(data) {
+          app.dvdVideos = data;
+        },
+      });
+      console.log("DVD VIDEOS", app.dvdVideos);
+    },
     isValid() {
       if (!this.selectedVideo.video_dvd_name) {
         Swal.fire(
@@ -552,15 +449,30 @@ export default {
           data: formData,
           success(data) {
             app.isProcessing = false;
-            app.showSuccessMessage("Video Successfully Saved");
-            // app.getVideos();
+            Swal.fire(
+              "<p style='font-size: 14px;'>Video Successfully Saved</p>",
+              "",
+              "success"
+            );
+            app.getAllDVDVideos();
             modal.modal("hide");
             document.getElementById("videos-form").reset();
-            form.reset();
+            $("#videos-form").trigger("reset");
+            this.uploadedVideo = null;
+            app.selectedVideo.video_dvd_name = "";
+            app.selectedVideo.creation_date = "";
+
+            // form.reset();
           },
           error(e) {
             modal.modal("hide");
             app.isProcessing = false;
+
+            Swal.fire(
+              "<p style='font-size: 14px;'>Error Occured</p>",
+              e,
+              "warning"
+            );
             app.showErrorMessage(app.formatAjaxError(e));
           },
         });

@@ -280,12 +280,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <router-view></router-view>
         <vue-progress-bar></vue-progress-bar>
-        <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+  {{-- <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750">
+    <div class="container-fluid">
+            <router-view></router-view>
+            <vue-progress-bar></vue-progress-bar>
+        </div>
+
+    </div>
+  </div> --}}
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
