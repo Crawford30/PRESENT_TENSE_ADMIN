@@ -69,25 +69,25 @@ class AuthController extends Controller
             Auth::login($user);
 
 
-            $token = $user->createToken('API Token')->accessToken;
+           // $token = $user->createToken('API Token')->accessToken;
 
             // return response(['user' => auth()->user(), 'token' => $token]);
 
-            // $tokenResult = $user->createToken('Personal Access Token');
-            // $token = $tokenResult->token;
+            $tokenResult = $user->createToken('API Token');
+            $token = $tokenResult->token;
             $token->expires_at = Carbon::now()->addWeeks(1);
             $token->save();
 
             return response()->json([
                 'message' => "API_MESSAGE_PASS",
                 'user' => auth()->user(),
-                'token' => $token,
+                'token' => $tokenResult->accessToken,
                 // 'token' => encrypt($user->id),
                 // 'access_token' => $tokenResult->accessToken,
                 'token_type' => 'Bearer',
-                // 'expires_at' => Carbon::parse(
-                //     $tokenResult->token->expires_at
-                // )->toDateTimeString()
+                'expires_at' => Carbon::parse(
+                    $tokenResult->token->expires_at
+                )->toDateTimeString()
             ]);
         } catch (\Exception $ex) {
             return $ex->getMessage();
