@@ -2058,7 +2058,7 @@ var render = function render() {
       type: "button"
     },
     on: {
-      click: _vm.showAddSingleSongModal
+      click: _vm.showUploadVideo
     }
   }, [_vm._v("\n              Upload Video DVD\n            ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
@@ -2354,14 +2354,20 @@ var render = function render() {
   })], 1)])])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
-      id: "modal-upload-song-excel"
+      id: "modal-upload-video"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-lg"
+    staticClass: "modal-dialog"
   }, [_c("div", {
     staticClass: "modal-content"
+  }, [_c("form", {
+    attrs: {
+      enctype: "multipart/form-data",
+      id: "videos-form",
+      method: "post"
+    }
   }, [_c("div", {
-    staticClass: "modal-body py-4"
+    staticClass: "modal-body px-4 mb-3"
   }, [_c("button", {
     staticClass: "close",
     staticStyle: {
@@ -2373,110 +2379,192 @@ var render = function render() {
       type: "button"
     },
     on: {
-      click: _vm.closeDialog
+      click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
-    staticStyle: {
-      "text-align": "center",
-      "font-weight": "bold"
-    }
-  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
-    staticClass: "bs-stepper-content mt-4"
-  }, [_c("div", {
-    staticClass: "content",
-    attrs: {
-      id: "step1-view"
-    }
-  }, [!_vm.hasFile ? _c("div", {
-    staticClass: "drag-drop-area px-5 py-3",
-    staticStyle: {
-      "margin-left": "0",
-      "margin-right": "0"
-    },
-    attrs: {
-      id: "drop-area"
-    }
-  }, [_vm._m(2), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n              ×\n            ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
-  }, [_c("p", {
-    staticStyle: {
-      color: "#bbbbbb",
-      "margin-bottom": "0",
-      "padding-bottom": "0",
-      "font-size": "12px"
-    }
-  }, [_vm._v("\n                    God Ten Major Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
-    staticClass: "position-relative"
-  }, [_c("button", {
-    staticClass: "btn btn-primary position-relative",
-    staticStyle: {
-      "font-size": "12px",
-      "margin-top": "5px"
-    },
+  }, [_vm._v("Add Video DVD")]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
     attrs: {
-      type: "button"
+      "for": ""
     }
-  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
-    staticStyle: {
-      position: "absolute",
-      left: "0",
-      top: "0",
-      opacity: "0",
-      cursor: "pointer"
-    },
+  }, [_vm._v("Video DVD Name")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selectedVideo.video_title,
+      expression: "selectedVideo.video_title"
+    }],
+    staticClass: "form-control",
     attrs: {
-      type: "file"
+      required: "",
+      name: "video_title",
+      placeholder: "Video DVD Name",
+      type: "text"
+    },
+    domProps: {
+      value: _vm.selectedVideo.video_title
     },
     on: {
-      change: _vm.onBrowseFile
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.selectedVideo, "video_title", $event.target.value);
+      }
     }
-  })])])])]) : _c("div", {
-    staticClass: "border p-5"
-  }, [_c("h6", {
-    staticClass: "text-center te xt-black-50"
-  }, [_vm._v(_vm._s(_vm.file.name))]), _vm._v(" "), _c("div", {
-    staticClass: "text-center"
+  })]), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Video DVD File")]), _vm._v(" "), _c("DropFile", {
+    ref: "dropFile",
+    inlineTemplate: {
+      render: function render() {
+        var _vm = this,
+          _c = _vm._self._c;
+        return _c("div", {
+          staticClass: "text-muted"
+        }, [!_vm.hasFile ? _c("div", {
+          staticClass: "drag-drop-area px-5 py-3",
+          staticStyle: {
+            "margin-left": "0",
+            "margin-right": "0"
+          },
+          style: {
+            backgroundImage: _vm.backgroundImage
+          },
+          on: {
+            drop: function drop($event) {
+              $event.preventDefault();
+              return _vm.dragDrop.apply(null, arguments);
+            },
+            dragover: function dragover($event) {
+              $event.preventDefault();
+              return _vm.dragOver.apply(null, arguments);
+            }
+          }
+        }, [_vm._m(0), _vm._v(" "), _c("div", {
+          staticClass: "text-center"
+        }, [_c("p", {
+          staticStyle: {
+            color: "#bbbbbb",
+            "margin-bottom": "0",
+            "padding-bottom": "0",
+            "font-size": "12px"
+          }
+        }, [_vm._v("\n                      the video, or if you prefer\n                    ")]), _vm._v(" "), _c("div", {
+          staticClass: "position-relative"
+        }, [_c("button", {
+          staticClass: "btn btn-primary position-relative",
+          staticStyle: {
+            "font-size": "12px",
+            "margin-top": "5px"
+          },
+          attrs: {
+            type: "button"
+          }
+        }, [_vm._v("\n                        Choose files\n                        "), _c("input", {
+          ref: "FileInput",
+          staticClass: "opactiy-none",
+          staticStyle: {
+            position: "absolute",
+            left: "0",
+            top: "0",
+            opacity: "0",
+            cursor: "pointer"
+          },
+          attrs: {
+            type: "file",
+            accept: "video/mp4,video/x-m4v,video/*",
+            id: "videoFile",
+            name: "file"
+          },
+          on: {
+            change: _vm.fileChanged
+          }
+        })])])])]) : _c("div", {
+          staticClass: "border p-5"
+        }, [_c("h6", {
+          staticClass: "text-center te xt-black-50"
+        }, [_vm._v(_vm._s(_vm.fileName))]), _vm._v(" "), _c("div", {
+          staticClass: "text-center"
+        }, [_c("button", {
+          staticStyle: {
+            "font-size": "24px",
+            color: "#666666",
+            background: "#ffffff",
+            outline: "none",
+            border: "none",
+            cursor: "pointer"
+          },
+          on: {
+            click: function click($event) {
+              $event.preventDefault();
+              return _vm.removeFile();
+            }
+          }
+        }, [_c("i", {
+          staticClass: "far fa-trash-alt"
+        })])])])]);
+      },
+      staticRenderFns: [function () {
+        var _vm = this,
+          _c = _vm._self._c;
+        return _c("div", {
+          staticClass: "text-center drop-zone"
+        }, [_c("img", {
+          staticClass: "icon-img",
+          attrs: {
+            src: "/images/icons/upload_gray.png"
+          }
+        }), _vm._v(" "), _c("h6", {
+          staticStyle: {
+            color: "#bbbbbb",
+            "margin-bottom": "0.2rem"
+          }
+        }, [_vm._v("\n                      DRAG & DROP\n                    ")])]);
+      }]
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "form-group mt-3"
+  }, [_vm._m(2), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selectedVideo.embed_url,
+      expression: "selectedVideo.embed_url"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "embed_url",
+      placeholder: "e.g 2019-12-30 for 30-DEC-2019",
+      type: "text"
+    },
+    domProps: {
+      value: _vm.selectedVideo.embed_url
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.selectedVideo, "embed_url", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "form-group text-center"
   }, [_c("button", {
-    staticStyle: {
-      "font-size": "24px",
-      color: "#666666",
-      background: "#ffffff",
-      outline: "none",
-      border: "none",
-      cursor: "pointer"
+    staticClass: "present-tense-btn present-tense-primary px-6 mt-3 mb-3",
+    attrs: {
+      disabled: _vm.isProcessing
     },
     on: {
       click: function click($event) {
         $event.preventDefault();
-        return _vm.removeFile();
+        return _vm.saveVideoConfig.apply(null, arguments);
       }
-    }
-  }, [_c("i", {
-    staticClass: "far fa-trash-alt"
-  })])])])]), _vm._v(" "), _c("div", {
-    staticClass: "content",
-    attrs: {
-      id: "step2-view"
-    }
-  }), _vm._v(" "), _c("div", {
-    staticClass: "content",
-    attrs: {
-      id: "step3-view"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "text-center mt-2"
-  }, [_c("button", {
-    staticClass: "present-tense-btn present-tense-primary",
-    attrs: {
-      disabled: _vm.file === null || _vm.isProcessing,
-      type: "button"
-    },
-    on: {
-      click: _vm.uploadFile
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
+  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n              ")])])], 1)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -2493,19 +2581,11 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "text-center drop-zone"
-  }, [_c("img", {
-    staticClass: "icon-img",
+  return _c("label", {
     attrs: {
-      src: "/images/icons/upload_gray.png"
+      "for": ""
     }
-  }), _vm._v(" "), _c("h6", {
-    staticStyle: {
-      color: "#bbbbbb",
-      "margin-bottom": "0.2rem"
-    }
-  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
+  }, [_c("label", [_vm._v("Date Created")])]);
 }];
 render._withStripped = true;
 
@@ -8285,6 +8365,77 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/common/DropFile.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/common/DropFile.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "drop-file",
+  props: {
+    ImageValue: {
+      type: String,
+      required: false
+    }
+  },
+  data: function data() {
+    return {
+      formType: "basic",
+      imgSource: "",
+      containerStyle: {
+        backgroundRepeat: "no-repeat"
+      },
+      backgroundImage: "",
+      hasFile: false,
+      fileName: ""
+    };
+  },
+  mounted: function mounted() {
+    if (this.ImageValue != null && this.ImageValue != "") {
+      this.backgroundImage = "url(" + this.ImageValue + ")";
+    }
+  },
+  methods: {
+    dragOver: function dragOver(e) {
+      e.preventDefault();
+    },
+    dragDrop: function dragDrop(e) {
+      e.preventDefault();
+      var app = this;
+      var dt = e.dataTransfer;
+      var files = dt.files;
+      var file = files[0];
+      app.$refs.FileInput.files = files;
+      app.fileName = file.name;
+      app.imgSource = URL.createObjectURL(file);
+      app.backgroundImage = "url(" + this.imgSource + ")";
+      app.hasFile = true;
+      this.$parent.$emit("video-uploaded", file);
+    },
+    fileChanged: function fileChanged(e) {
+      var file = e.target.files[0];
+      this.fileName = file.name;
+      this.imgSource = URL.createObjectURL(file);
+      this.backgroundImage = "url(" + this.imgSource + ")";
+      this.hasFile = true;
+      this.$parent.$emit("video-uploaded", file);
+    },
+    removeFile: function removeFile() {
+      this.hasFile = false;
+      this.fileName = "";
+      this.imgSource = null;
+      this.backgroundImage = "";
+      this.$parent.$emit("video-removed");
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=script&lang=js& ***!
@@ -8315,6 +8466,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../mixin/dragAndDropHelper */ "./resources/js/components/mixin/dragAndDropHelper.js");
+/* harmony import */ var _common_DropFile__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../common/DropFile */ "./resources/js/components/common/DropFile.vue");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
@@ -8322,14 +8474,24 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
+    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"],
+    DropFile: _common_DropFile__WEBPACK_IMPORTED_MODULE_3__["default"],
+    Tooltip: _common_DropFile__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"]],
   data: function data() {
     var _ref;
     return _ref = {
+      videos: [],
+      selectedVideo: {
+        location: ""
+      },
+      displayVideo: null,
+      uploadedVideo: null,
       file: null,
       editmode: false,
       selectedSong: null,
@@ -8362,6 +8524,14 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   },
   mounted: function mounted() {
     var app = this;
+    app.$on("video-uploaded", function (data) {
+      app.uploadedVideo = data;
+      console.log("VIDEO DATA: ", data);
+    });
+    app.$on("video-removed", function () {
+      app.uploadedVideo = null;
+    });
+    console.log("Uploaded vdeo: ", app.uploadedVideo);
     app.getTenMajorSongs();
   },
   methods: {
@@ -8543,9 +8713,16 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     closeModel: function closeModel() {
       $("#single-song-modal").modal("hide");
       $("#single-song-modal-detail").modal("hide");
+      $("#modal-upload-video").modal("hide");
     },
     showUploadExcel: function showUploadExcel() {
       $("#modal-upload-song-excel").modal({
+        backdrop: "static",
+        keyboard: false
+      }, "show");
+    },
+    showUploadVideo: function showUploadVideo() {
+      $("#modal-upload-video").modal({
         backdrop: "static",
         keyboard: false
       }, "show");
@@ -107588,6 +107765,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_Tooltip_vue_vue_type_template_id_a43b2384_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/components/common/DropFile.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/common/DropFile.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DropFile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DropFile.vue?vue&type=script&lang=js& */ "./resources/js/components/common/DropFile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _DropFile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/common/DropFile.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/common/DropFile.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/common/DropFile.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DropFile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./DropFile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/common/DropFile.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DropFile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 

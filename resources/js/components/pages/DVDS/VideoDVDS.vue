@@ -12,7 +12,7 @@
               <button
                 type="button"
                 class="btn btn-primary"
-                @click="showAddSingleSongModal"
+                @click="showUploadVideo"
               >
                 Upload Video DVD
               </button>
@@ -246,111 +246,170 @@
     </div>
     <!-------Add Single Song  End------>
 
-    <!-- Upload Excel -->
-    <div class="modal fade" id="modal-upload-song-excel">
-      <div class="modal-dialog modal-lg">
+    <div class="modal fade" id="modal-upload-video">
+      <div class="modal-dialog">
         <div class="modal-content">
           <!-- Modal body -->
-          <div class="modal-body py-4">
-            <button
-              type="button"
-              style="position: absolute; right: 1.5rem; top: 1.5rem"
-              class="close"
-              @click="closeDialog"
-            >
-              &times;
-            </button>
-            <h5 style="text-align: center; font-weight: bold">
-              Upload Song Template
-            </h5>
-            <br />
-            <div class="bs-stepper-content mt-4">
-              <div id="step1-view" class="content">
-                <div
-                  v-if="!hasFile"
-                  id="drop-area"
-                  class="drag-drop-area px-5 py-3"
-                  style="margin-left: 0; margin-right: 0"
-                >
-                  <div class="text-center drop-zone">
-                    <img class="icon-img" src="/images/icons/upload_gray.png" />
-                    <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
-                      DRAG &amp; DROP
-                    </h6>
-                  </div>
-                  <div class="text-center">
-                    <p
-                      style="
-                        color: #bbbbbb;
-                        margin-bottom: 0;
-                        padding-bottom: 0;
-                        font-size: 12px;
-                      "
-                    >
-                      God Ten Major Songs Template, or if you prefer
-                    </p>
-                    <div class="position-relative">
-                      <button
-                        type="button"
-                        class="btn btn-primary position-relative"
-                        style="font-size: 12px; margin-top: 5px"
+          <form enctype="multipart/form-data" id="videos-form" method="post">
+            <div class="modal-body px-4 mb-3">
+              <button
+                type="button"
+                style="position: absolute; right: 1.5rem; top: 1.5rem"
+                class="close"
+                @click="closeModel"
+              >
+                &times;
+              </button>
+              <h5 class="text-center">Add Video DVD</h5>
+              <!-- <hr /> -->
+              <div class="form-group">
+                <label for="">Video DVD Name</label>
+                <input
+                  required
+                  v-model="selectedVideo.video_title"
+                  name="video_title"
+                  class="form-control"
+                  placeholder="Video DVD Name"
+                  type="text"
+                />
+              </div>
+
+              <label for="">Video DVD File</label>
+              <DropFile ref="dropFile" inline-template v-cloak>
+                <div class="text-muted">
+                  <div
+                    v-if="!hasFile"
+                    v-bind:style="{ backgroundImage: backgroundImage }"
+                    v-on:drop.prevent="dragDrop"
+                    v-on:dragover.prevent="dragOver"
+                    class="drag-drop-area px-5 py-3"
+                    style="margin-left: 0; margin-right: 0"
+                  >
+                    <div class="text-center drop-zone">
+                      <img
+                        class="icon-img"
+                        src="/images/icons/upload_gray.png"
+                      />
+                      <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
+                        DRAG &amp; DROP
+                      </h6>
+                    </div>
+                    <div class="text-center">
+                      <p
+                        style="
+                          color: #bbbbbb;
+                          margin-bottom: 0;
+                          padding-bottom: 0;
+                          font-size: 12px;
+                        "
                       >
-                        Browse
-                        <input
-                          @change="onBrowseFile"
-                          type="file"
-                          style="
-                            position: absolute;
-                            left: 0;
-                            top: 0;
-                            opacity: 0;
-                            cursor: pointer;
-                          "
-                        />
+                        the video, or if you prefer
+                      </p>
+                      <div class="position-relative">
+                        <button
+                          type="button"
+                          class="btn btn-primary position-relative"
+                          style="font-size: 12px; margin-top: 5px"
+                        >
+                          Choose files
+                          <input
+                            type="file"
+                            style="
+                              position: absolute;
+                              left: 0;
+                              top: 0;
+                              opacity: 0;
+                              cursor: pointer;
+                            "
+                            accept="video/mp4,video/x-m4v,video/*"
+                            id="videoFile"
+                            class="opactiy-none"
+                            @change="fileChanged"
+                            name="file"
+                            ref="FileInput"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-else class="border p-5">
+                    <h6 class="text-center te xt-black-50">{{ fileName }}</h6>
+                    <div class="text-center">
+                      <button
+                        @click.prevent="removeFile()"
+                        style="
+                          font-size: 24px;
+                          color: #666666;
+                          background: #ffffff;
+                          outline: none;
+                          border: none;
+                          cursor: pointer;
+                        "
+                      >
+                        <i class="far fa-trash-alt"></i>
                       </button>
                     </div>
                   </div>
                 </div>
-                <div v-else class="border p-5">
-                  <h6 class="text-center te xt-black-50">{{ file.name }}</h6>
-                  <div class="text-center">
-                    <button
-                      @click.prevent="removeFile()"
-                      style="
-                        font-size: 24px;
-                        color: #666666;
-                        background: #ffffff;
-                        outline: none;
-                        border: none;
-                        cursor: pointer;
-                      "
-                    >
-                      <i class="far fa-trash-alt"></i>
-                    </button>
-                  </div>
-                </div>
+              </DropFile>
+              <div class="form-group mt-3">
+                <!-- <label for="">or embed Video URL</label>
+                <input
+                  v-model="selectedVideo.embed_url"
+                  name="embed_url"
+                  class="form-control"
+                  placeholder="Embed URL"
+                  type="text"
+                />
+              </div> -->
+
+                <!-- <label for="">Date Created</label> -->
+                <label for="">
+                  <label>Date Created</label>
+                  <!-- <Tooltip
+                    id="fi-doc-number"
+                    title=""
+                    content="e.g 2019-12-30 for 30-DEC-2019"
+                  /> -->
+                </label>
+                <input
+                  v-model="selectedVideo.embed_url"
+                  name="embed_url"
+                  class="form-control"
+                  placeholder="e.g 2019-12-30 for 30-DEC-2019"
+                  type="text"
+                />
               </div>
-              <div id="step2-view" class="content"></div>
-              <div id="step3-view" class="content"></div>
-            </div>
-            <div class="text-center mt-2">
-              <button
-                :disabled="file === null || isProcessing"
-                @click="uploadFile"
-                type="button"
-                class="present-tense-btn present-tense-primary"
-              >
-                <span>
-                  <i v-if="isProcessing" class="fa fa-spinner fa-spin"> </i>
-                  UPLOAD</span
+
+              <!-- <div class=" form-group mt-3">
+                        <label for="">About the Video</label>
+                        <textarea
+                            v-text="selectedVideo.about_the_video"
+                            class="form-control"
+                            name="about_the_video"
+                            id=""
+                            cols="30"
+                            rows="5"
+                        ></textarea>
+                    </div> -->
+
+              <div class="form-group text-center">
+                <button
+                  @click.prevent="saveVideoConfig"
+                  :disabled="isProcessing"
+                  class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
                 >
-              </button>
+                  <span>
+                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"></i>
+                  </span>
+                  SAVE CHANGES
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>
-    <!---End of upload --->
   </div>
 </template>
 
@@ -358,14 +417,24 @@
 import { VueEditor } from "vue2-editor";
 import Swal from "sweetalert2";
 import dragAndDropHelper from "./../../mixin/dragAndDropHelper";
+import DropFile from "./../../common/DropFile";
+import Tooltip from "./../../common/DropFile";
 
 export default {
   components: {
     VueEditor,
+    DropFile,
+    Tooltip,
   },
   mixins: [dragAndDropHelper],
   data() {
     return {
+      videos: [],
+      selectedVideo: {
+        location: "",
+      },
+      displayVideo: null,
+      uploadedVideo: null,
       file: null,
       editmode: false,
       selectedSong: null,
@@ -421,6 +490,17 @@ export default {
 
   mounted() {
     let app = this;
+
+    app.$on("video-uploaded", (data) => {
+      app.uploadedVideo = data;
+      console.log("VIDEO DATA: ", data);
+    });
+
+    app.$on("video-removed", () => {
+      app.uploadedVideo = null;
+    });
+
+    console.log("Uploaded vdeo: ", app.uploadedVideo);
     app.getTenMajorSongs();
   },
   methods: {
@@ -634,10 +714,21 @@ export default {
     closeModel() {
       $("#single-song-modal").modal("hide");
       $("#single-song-modal-detail").modal("hide");
+      $("#modal-upload-video").modal("hide");
     },
 
     showUploadExcel() {
       $("#modal-upload-song-excel").modal(
+        {
+          backdrop: "static",
+          keyboard: false,
+        },
+        "show"
+      );
+    },
+
+    showUploadVideo() {
+      $("#modal-upload-video").modal(
         {
           backdrop: "static",
           keyboard: false,
