@@ -79,9 +79,17 @@ Route::group(['middleware' => ['auth:api']], function () {
    //============The Big SongBook Songs ======
    Route::group(['prefix' => 'big-song-book'], function () {
     Route::get('/list', 'BigSongBookSongsController@getAllBigSongBookSongs');
-    Route::post('/import-big-song-book-songs', 'BigSongBookSongsController@importBigSongBookTemplate');
+    Route::post('/import-big-song-book-songs', 'BigSongBookSongsController@importSongsInVariousTonguesTemplate');
     Route::post('/create-big-song-book-song', 'BigSongBookSongsController@saveBigSongBookSong');
     Route::post('/delete-big-song-book-song', 'BigSongBookSongsController@deleteBigSongBookSong');
+  });
+
+  //============Songs In Various Tongues ======
+  Route::group(['prefix' => 'various-tongue'], function () {
+    Route::get('/list', 'VariousTonguesSongsController@getAllSongsInVariousTonguesSongs');
+    Route::post('/import-various-tongue-songs', 'VariousTonguesSongsController@importSongsInVariousTonguesTemplate');
+    Route::post('/create-various-tongue-song', 'VariousTonguesSongsController@saveSongsInVariousTonguesSong');
+    Route::post('/delete-various-tongue-song', 'VariousTonguesSongsController@deleteSongsInVariousTonguesSong');
   });
 
 

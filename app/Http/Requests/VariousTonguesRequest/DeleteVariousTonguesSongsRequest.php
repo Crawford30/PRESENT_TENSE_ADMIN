@@ -2,29 +2,29 @@
 
 namespace App\Http\Requests\VariousTonguesRequest;
 
+use App\SongsInVariousTongues;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeleteVariousTonguesSongsRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
-        return false;
+
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+            "various_tongue_song_id" => "required"
         ];
+    }
+
+
+    public function delete()
+    {
+        $grant= SongsInVariousTongues::findOrFail($this->various_tongue_song_id);
+        $grant->delete();
+        return response()->json("DELETED", 200);
     }
 }
