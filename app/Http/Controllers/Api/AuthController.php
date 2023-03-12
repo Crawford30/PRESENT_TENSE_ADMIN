@@ -44,25 +44,50 @@ class AuthController extends Controller
 
 
 
+    public function register(Request $request)
+    {
+        $user =   User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make( $request->password),
+        ]);
+
+
+        $token = $user->createToken('API Token')->accessToken;
+
+        return apiResponse([ 'user' => $user, 'token' => $token]);
+
+
+    }
+
+
+
+
     private function proceedToLogin($user)
     {
         try {
             Auth::login($user);
 
-            $tokenResult = $user->createToken('Personal Access Token');
-            $token = $tokenResult->token;
+
+            $token = $user->createToken('API Token')->accessToken;
+
+            // return response(['user' => auth()->user(), 'token' => $token]);
+
+            // $tokenResult = $user->createToken('Personal Access Token');
+            // $token = $tokenResult->token;
             $token->expires_at = Carbon::now()->addWeeks(1);
             $token->save();
 
             return response()->json([
                 'message' => "API_MESSAGE_PASS",
                 'user' => auth()->user(),
-                'token' => encrypt($user->id),
-                'access_token' => $tokenResult->accessToken,
+                'token' => $token,
+                // 'token' => encrypt($user->id),
+                // 'access_token' => $tokenResult->accessToken,
                 'token_type' => 'Bearer',
-                'expires_at' => Carbon::parse(
-                    $tokenResult->token->expires_at
-                )->toDateTimeString()
+                // 'expires_at' => Carbon::parse(
+                //     $tokenResult->token->expires_at
+                // )->toDateTimeString()
             ]);
         } catch (\Exception $ex) {
             return $ex->getMessage();

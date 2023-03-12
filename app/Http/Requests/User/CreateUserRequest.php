@@ -63,12 +63,18 @@ class CreateUserRequest extends FormRequest
             //     'color' => randomColor(),
             //     'timeline_by' => auth()->user()->name
             // ]);
+            $token = $user->createToken('API Token')->accessToken;
+
+            return apiResponse([ 'user' => $user, 'token' => $token]);
+
         } else {
             $user = User::create($data);
 
             $user->update([
                 "api_token" => Str::random(60) . $user->id,
             ]);
+
+            $token = $user->createToken('API Token')->accessToken;
             // FormTimeline::create([
             //     'form_id' => $form->id,
             //     'user_id' => auth()->user()->id,
@@ -82,8 +88,13 @@ class CreateUserRequest extends FormRequest
 
 
 
+        return apiResponse([ 'user' => $user, 'token' => $token]);
 
-        return apiResponse($user);
+
+
+
+
+        // return apiResponse($user);
 
        // return ['message' => "I have your data"];
 

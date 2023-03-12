@@ -89,6 +89,15 @@ class LoginController extends Controller
             else {
                 Auth::login($user);
 
+
+            //$token = $user->createToken('API Token')->accessToken;
+
+
+
+
+
+
+
                 // if($user->api_token == NULL ) {
                 //     $user->update([
                 //         "api_token" => Str::random(60).$user->id,
