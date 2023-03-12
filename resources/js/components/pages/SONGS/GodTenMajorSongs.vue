@@ -109,6 +109,17 @@
                       style="color: #999; font-size: 18px"
                     ></i>
                   </a>
+
+                  <a
+                    href="#"
+                    @click="viewSongDetail(tenMajorSong)"
+                    style="margin-left: 8px"
+                  >
+                    <i
+                      class="fas fa-ellipsis-v"
+                      style="color: #999; font-size: 18px"
+                    ></i>
+                  </a>
                 </td>
               </tr>
             </table>
@@ -241,22 +252,40 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------Add Single Grant  End------>
 
-            <!-- <div class="w-100 d-flex justify-content-center text-center">
-              <div class="w-100 d-flex justify-content-center text-center mt-3">
-                <button
-                  :disabled="isProcessing"
-                  @click.prevent="saveSong"
-                  type="submit"
-                  class="present-tense-btn present-tense-primary btn btn-primary px-6 myButton"
-                >
-                  <span>
-                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"> </i>
-                    SAVE</span
-                  >
-                </button>
+    <div class="modal fade" id="single-song-modal-detail">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body p-4">
+            <button
+              type="button"
+              style="position: absolute; right: 1.5rem; top: 1.5rem"
+              class="close"
+              @click="closeModel"
+            >
+              &times;
+            </button>
+            <h5 style="text-align: center; font-weight: bold">Song Details</h5>
+
+            <br />
+            <hr />
+
+            <form id="song-form" ref="songRef">
+              <div class="form-group">
+                <!-- <label>Song</label> -->
+                <vue-editor
+                  id="song-body"
+                  :disabled="true"
+                  v-model="songBody"
+                  :editorToolbar="defaultToolbar"
+                ></vue-editor>
               </div>
-            </div> -->
+            </form>
           </div>
         </div>
       </div>
@@ -516,6 +545,16 @@ export default {
       $("#single-song-modal").modal("show");
     },
 
+    viewSongDetail(item) {
+      let app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_title + "<br/>" + item.song_body;
+      //console.log("UPDATE GRANT: ", app.selectedGrant);
+      $("#single-song-modal-detail").modal("show");
+    },
+
     deleteSong(id) {
       let app = this;
       Swal.fire({
@@ -678,6 +717,7 @@ export default {
 
     closeModel() {
       $("#single-song-modal").modal("hide");
+      $("#single-song-modal-detail").modal("hide");
     },
 
     showUploadExcel() {

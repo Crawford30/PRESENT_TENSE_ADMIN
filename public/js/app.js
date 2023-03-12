@@ -4572,6 +4572,24 @@ var render = function render() {
         color: "#999",
         "font-size": "18px"
       }
+    })]), _vm._v(" "), _c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.viewSongDetail(tenMajorSong);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "fas fa-ellipsis-v",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
     })])])]);
   })], 2)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
@@ -4751,6 +4769,55 @@ var render = function render() {
       id: "sendlog-spinner-spinner"
     }
   }) : _vm._e(), _vm._v(" "), _c("span", [_vm._v("Save")])])])])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "single-song-modal-detail"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-body p-4"
+  }, [_c("button", {
+    staticClass: "close",
+    staticStyle: {
+      position: "absolute",
+      right: "1.5rem",
+      top: "1.5rem"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeModel
+    }
+  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("Song Details")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+    ref: "songRef",
+    attrs: {
+      id: "song-form"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("vue-editor", {
+    attrs: {
+      id: "song-body",
+      disabled: true,
+      editorToolbar: _vm.defaultToolbar
+    },
+    model: {
+      value: _vm.songBody,
+      callback: function callback($$v) {
+        _vm.songBody = $$v;
+      },
+      expression: "songBody"
+    }
+  })], 1)])])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
       id: "modal-upload-song-excel"
@@ -6406,6 +6473,15 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal").modal("show");
     },
+    viewSongDetail: function viewSongDetail(item) {
+      var app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_title + "<br/>" + item.song_body;
+      //console.log("UPDATE GRANT: ", app.selectedGrant);
+      $("#single-song-modal-detail").modal("show");
+    },
     deleteSong: function deleteSong(id) {
       var app = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
@@ -6543,6 +6619,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     },
     closeModel: function closeModel() {
       $("#single-song-modal").modal("hide");
+      $("#single-song-modal-detail").modal("hide");
     },
     showUploadExcel: function showUploadExcel() {
       $("#modal-upload-song-excel").modal({
