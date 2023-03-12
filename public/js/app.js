@@ -2393,23 +2393,23 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.selectedVideo.video_title,
-      expression: "selectedVideo.video_title"
+      value: _vm.selectedVideo.video_dvd_name,
+      expression: "selectedVideo.video_dvd_name"
     }],
     staticClass: "form-control",
     attrs: {
       required: "",
-      name: "video_title",
+      name: "video_dvd_name",
       placeholder: "Video DVD Name",
       type: "text"
     },
     domProps: {
-      value: _vm.selectedVideo.video_title
+      value: _vm.selectedVideo.video_dvd_name
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.selectedVideo, "video_title", $event.target.value);
+        _vm.$set(_vm.selectedVideo, "video_dvd_name", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("label", {
@@ -2531,22 +2531,22 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.selectedVideo.embed_url,
-      expression: "selectedVideo.embed_url"
+      value: _vm.selectedVideo.creation_date,
+      expression: "selectedVideo.creation_date"
     }],
     staticClass: "form-control",
     attrs: {
-      name: "embed_url",
+      name: "creation_date",
       placeholder: "e.g 2019-12-30 for 30-DEC-2019",
       type: "text"
     },
     domProps: {
-      value: _vm.selectedVideo.embed_url
+      value: _vm.selectedVideo.creation_date
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.selectedVideo, "embed_url", $event.target.value);
+        _vm.$set(_vm.selectedVideo, "creation_date", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("div", {

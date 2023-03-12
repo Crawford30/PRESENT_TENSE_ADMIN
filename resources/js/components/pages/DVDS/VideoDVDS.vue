@@ -266,8 +266,8 @@
                 <label for="">Video DVD Name</label>
                 <input
                   required
-                  v-model="selectedVideo.video_title"
-                  name="video_title"
+                  v-model="selectedVideo.video_dvd_name"
+                  name="video_dvd_name"
                   class="form-control"
                   placeholder="Video DVD Name"
                   type="text"
@@ -353,16 +353,6 @@
                 </div>
               </DropFile>
               <div class="form-group mt-3">
-                <!-- <label for="">or embed Video URL</label>
-                <input
-                  v-model="selectedVideo.embed_url"
-                  name="embed_url"
-                  class="form-control"
-                  placeholder="Embed URL"
-                  type="text"
-                />
-              </div> -->
-
                 <!-- <label for="">Date Created</label> -->
                 <label for="">
                   <label>Date Created</label>
@@ -373,8 +363,8 @@
                   /> -->
                 </label>
                 <input
-                  v-model="selectedVideo.embed_url"
-                  name="embed_url"
+                  v-model="selectedVideo.creation_date"
+                  name="creation_date"
                   class="form-control"
                   placeholder="e.g 2019-12-30 for 30-DEC-2019"
                   type="text"
