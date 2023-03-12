@@ -42,9 +42,10 @@
                 <td>{{ index + 1 }}</td>
 
                 <td>
-                  <a @click.prevent="showVideo(dvdVideo)" href="#">{{
+                  {{ dvdVideo.video_dvd_name }}
+                  <!-- <a @click.prevent="showVideo(dvdVideo)" href="#">{{
                     dvdVideo.video_dvd_name
-                  }}</a>
+                  }}</a> -->
                 </td>
 
                 <td class="text-center">{{ dvdVideo.views_count }}</td>
@@ -58,7 +59,11 @@
                     ></i>
                   </a>
 
-                  <a href="#" style="margin-left: 8px">
+                  <a
+                    @click.prevent="deleteVideoDVD(dvdVideo.id)"
+                    href="#"
+                    style="margin-left: 8px"
+                  >
                     <i
                       class="far fa-trash-alt"
                       style="color: #999; font-size: 18px"
@@ -560,7 +565,7 @@ export default {
       $("#single-song-modal-detail").modal("show");
     },
 
-    deleteSong(id) {
+    deleteVideoDVD(id) {
       let app = this;
       Swal.fire({
         title: "Are you sure?",
@@ -573,18 +578,18 @@ export default {
       }).then((result) => {
         if (result.isConfirmed) {
           $.ajax({
-            url: "api/ten-major/delete-ten-major-song",
+            url: "/api/video-dvd/delete-video-dvd",
             type: "post",
             data: {
-              ten_major_id: id,
+              video_id: id,
             },
             success(data) {
               Swal.fire(
-                "<p style='font-size: 14px;'>Song Deleted Successfully</p>",
+                "<p style='font-size: 14px;'>Video Deleted Successfully</p>",
                 "",
                 "success"
               );
-              app.getTenMajorSongs();
+              app.getAllDVDVideos();
             },
             error(e) {
               //   app.showAjaxError(e);

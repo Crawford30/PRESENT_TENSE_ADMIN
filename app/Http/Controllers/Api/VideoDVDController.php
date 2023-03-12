@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VideoDVDRequest\DeleteVideoDVDRequest;
 use App\Http\Requests\VideoDVDRequest\SaveVideoDVDRequest;
 use App\VideoDVD;
+use App\VideoDVDView;
 
 class VideoDVDController extends Controller
 {
@@ -31,6 +33,25 @@ class VideoDVDController extends Controller
         $videos = VideoDVD::orderBy("id")->withCount("views")->get();
         return apiResponse($videos);
     }
+
+
+    public function deleteVideoDVD(DeleteVideoDVDRequest $request)
+    {
+        return $request->deleteVideo();
+    }
+
+
+
+
+    // public function saveVideoView(){
+    //     $view=  VideoDVDView::create([
+    //           "video_id"=> request("video_id"),
+    //           "user_id"=> auth()->user()->id
+    //       ]);
+    //       return apiResponse($view);
+    //   }
+
+
 
 
 }

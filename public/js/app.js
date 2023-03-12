@@ -2071,19 +2071,28 @@ var render = function render() {
   }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.dvdVideos.results, function (dvdVideo, index) {
     return _c("tr", {
       key: dvdVideo.id + "_" + index
-    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v("\n                " + _vm._s(dvdVideo.video_dvd_name) + "\n                ")]), _vm._v(" "), _c("td", {
+      staticClass: "text-center"
+    }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
       attrs: {
         href: "#"
       },
       on: {
         click: function click($event) {
           $event.preventDefault();
-          return _vm.showVideo(dvdVideo);
+          return _vm.deleteVideoDVD(dvdVideo.id);
         }
       }
-    }, [_vm._v(_vm._s(dvdVideo.video_dvd_name))])]), _vm._v(" "), _c("td", {
-      staticClass: "text-center"
-    }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _vm._m(2, true)]);
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })]), _vm._v(" "), _vm._m(3, true)])]);
   })], 2)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
@@ -2309,7 +2318,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "form-group mt-3"
-  }, [_vm._m(3), _vm._v(" "), _c("input", {
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -2396,7 +2405,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("td", [_c("a", {
+  return _c("a", {
     attrs: {
       href: "#"
     }
@@ -2406,20 +2415,11 @@ var staticRenderFns = [function () {
       color: "#999",
       "font-size": "18px"
     }
-  })]), _vm._v(" "), _c("a", {
-    staticStyle: {
-      "margin-left": "8px"
-    },
-    attrs: {
-      href: "#"
-    }
-  }, [_c("i", {
-    staticClass: "far fa-trash-alt",
-    staticStyle: {
-      color: "#999",
-      "font-size": "18px"
-    }
-  })]), _vm._v(" "), _c("a", {
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
     staticStyle: {
       "margin-left": "8px"
     },
@@ -2432,7 +2432,7 @@ var staticRenderFns = [function () {
       color: "#999",
       "font-size": "18px"
     }
-  })])]);
+  })]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -8524,7 +8524,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       app.songBody = item.song_title + "<br/>" + item.song_body;
       $("#single-song-modal-detail").modal("show");
     },
-    deleteSong: function deleteSong(id) {
+    deleteVideoDVD: function deleteVideoDVD(id) {
       var app = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
         title: "Are you sure?",
@@ -8537,14 +8537,14 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }).then(function (result) {
         if (result.isConfirmed) {
           $.ajax({
-            url: "api/ten-major/delete-ten-major-song",
+            url: "/api/video-dvd/delete-video-dvd",
             type: "post",
             data: {
-              ten_major_id: id
+              video_id: id
             },
             success: function success(data) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Song Deleted Successfully</p>", "", "success");
-              app.getTenMajorSongs();
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Deleted Successfully</p>", "", "success");
+              app.getAllDVDVideos();
             },
             error: function error(e) {
               //   app.showAjaxError(e);

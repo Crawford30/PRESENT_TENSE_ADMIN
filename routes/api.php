@@ -101,7 +101,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::group(['prefix' => 'video-dvd'], function () {
         Route::get('/list', 'VideoDVDController@getAllDVDVideos');
         Route::post('/create-video-dvd', 'VideoDVDController@saveVideoDVD');
-        Route::post('/delete-various-tongue-song', 'VideoDVDController@deleteSongsInVariousTonguesSong');
+        Route::post('/delete-video-dvd', 'VideoDVDController@deleteVideoDVD');
       });
 
 
