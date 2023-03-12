@@ -6930,7 +6930,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: "warning",
+        icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
@@ -7233,7 +7233,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
-        icon: "warning",
+        icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
