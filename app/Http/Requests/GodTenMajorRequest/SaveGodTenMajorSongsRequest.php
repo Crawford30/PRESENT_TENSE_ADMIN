@@ -37,7 +37,7 @@ class SaveGodTenMajorSongsRequest extends FormRequest
             'song_number' => strip_tags($request->song_number),
             'user_id' => auth()->user()->id,
             'song_title' => strip_tags($request->song_title),
-            'song_body' => strip_tags($request->song_body),
+            'song_body' => ($request->song_body),
            ];
 
             $songData = GodTenMajorSongs::updateOrCreate([
