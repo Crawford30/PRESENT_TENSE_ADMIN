@@ -6877,7 +6877,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           app.isProcessing = false;
           app.getTenMajorSongs();
           formModal.modal("hide");
-          //this.$refs.grantRef.reset();
           //======dismiss the model
           _this.closeModel();
           sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
@@ -7052,11 +7051,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       app.selectedSong = null;
       app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
     },
-    updateGrant: function updateGrant(item) {
-      var app = this;
-      app.selectedSong = item;
-      $("#single-song-modal").modal("show");
-    },
     closeModel: function closeModel() {
       $("#single-song-modal").modal("hide");
       $("#single-song-modal-detail").modal("hide");
@@ -7187,7 +7181,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           app.isProcessing = false;
           app.getPraisesAndWorshipSongs();
           formModal.modal("hide");
-          //this.$refs.grantRef.reset();
           //======dismiss the model
           _this.closeModel();
           sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
@@ -7355,12 +7348,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       var app = this;
       app.selectedSong = null;
       app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
-    },
-    updateGrant: function updateGrant(item) {
-      var app = this;
-      app.selectedSong = item;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
-      $("#single-song-modal").modal("show");
     },
     closeModel: function closeModel() {
       $("#single-song-modal").modal("hide");

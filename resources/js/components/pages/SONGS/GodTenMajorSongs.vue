@@ -255,7 +255,7 @@
         </div>
       </div>
     </div>
-    <!-------Add Single Grant  End------>
+    <!-------Add Single Song  End------>
 
     <div class="modal fade" id="single-song-modal-detail">
       <div class="modal-dialog">
@@ -289,7 +289,7 @@
         </div>
       </div>
     </div>
-    <!-------Add Single Grant  End------>
+    <!-------Add Single Song  End------>
 
     <!-- Upload Excel -->
     <div class="modal fade" id="modal-upload-song-excel">
@@ -499,7 +499,6 @@ export default {
             app.isProcessing = false;
             app.getTenMajorSongs();
             formModal.modal("hide");
-            //this.$refs.grantRef.reset();
             //======dismiss the model
             this.closeModel();
             Swal.fire({
@@ -702,12 +701,6 @@ export default {
       (app.songBody = ""),
         (app.songTitle = ""),
         $("#single-song-modal").modal("show");
-    },
-
-    updateGrant(item) {
-      let app = this;
-      app.selectedSong = item;
-      $("#single-song-modal").modal("show");
     },
 
     closeModel() {
