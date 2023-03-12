@@ -4537,7 +4537,7 @@ var render = function render() {
   }, [_vm._m(2), _vm._v(" "), _vm._l(_vm.tenMajorSongs.results, function (tenMajorSong, index) {
     return _c("tr", {
       key: tenMajorSong.id + "_" + index
-    }, [_c("td", [_vm._v(_vm._s(tenMajorSong.song_number))]), _vm._v(" "), _c("td", {
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(tenMajorSong.song_number))]), _vm._v(" "), _c("td", {
       staticClass: "text-left"
     }, [_vm._v(_vm._s(tenMajorSong.song_title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(tenMajorSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
@@ -4959,7 +4959,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", {
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", {
     staticClass: "text-left"
   }, [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
 }, function () {
@@ -5082,18 +5082,18 @@ var render = function render() {
     staticClass: "row justify-content-center"
   }, [_c("table", {
     staticClass: "table table-sm present-tense-table"
-  }, [_vm._m(2), _vm._v(" "), _vm._l(_vm.tenMajorSongs.results, function (tenMajorSong, index) {
+  }, [_vm._m(2), _vm._v(" "), _vm._l(_vm.praisesAndWorshipSongs.results, function (praisesAndWorshipSong, index) {
     return _c("tr", {
-      key: tenMajorSong.id + "_" + index
-    }, [_c("td", [_vm._v(_vm._s(tenMajorSong.song_number))]), _vm._v(" "), _c("td", {
+      key: praisesAndWorshipSong.id + "_" + index
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(praisesAndWorshipSong.song_number))]), _vm._v(" "), _c("td", {
       staticClass: "text-left"
-    }, [_vm._v(_vm._s(tenMajorSong.song_title))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(tenMajorSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_vm._v("\n                " + _vm._s(praisesAndWorshipSong.song_title) + "\n              ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(praisesAndWorshipSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
       on: {
         click: function click($event) {
-          return _vm.updateSong(tenMajorSong);
+          return _vm.updateSong(praisesAndWorshipSong);
         }
       }
     }, [_c("i", {
@@ -5111,7 +5111,7 @@ var render = function render() {
       },
       on: {
         click: function click($event) {
-          return _vm.deleteSong(tenMajorSong.id);
+          return _vm.deleteSong(praisesAndWorshipSong.id);
         }
       }
     }, [_c("i", {
@@ -5129,7 +5129,7 @@ var render = function render() {
       },
       on: {
         click: function click($event) {
-          return _vm.viewSongDetail(tenMajorSong);
+          return _vm.viewSongDetail(praisesAndWorshipSong);
         }
       }
     }, [_c("i", {
@@ -5507,7 +5507,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", {
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("SONG NUMBER")]), _vm._v(" "), _c("th", {
     staticClass: "text-left"
   }, [_vm._v("SONG TITLE")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
 }, function () {
@@ -6852,7 +6852,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   mounted: function mounted() {
     var app = this;
     app.getTenMajorSongs();
-    console.log("Component mounted.");
   },
   methods: {
     saveSong: function saveSong() {
@@ -6916,7 +6915,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal").modal("show");
     },
     viewSongDetail: function viewSongDetail(item) {
@@ -6925,7 +6923,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_title + "<br/>" + item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal-detail").modal("show");
     },
     deleteSong: function deleteSong(id) {
@@ -6961,7 +6958,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       var app = this;
       axios.get("api/ten-major/list").then(function (response) {
         app.tenMajorSongs = response.data;
-        console.log("ALL GRANTS", app.tenMajorSongs);
       })["catch"](function (error) {
         //   app.showErrorMessage(error.response.data);
       });
@@ -7048,19 +7044,17 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         document.body.appendChild(link);
         link.click();
       })["catch"](function (error) {
-        console.log("ERRRR:: ", error.response.data);
         //app.showErrorMessage(error.response.data);
       });
     },
     showAddSingleSongModal: function showAddSingleSongModal() {
       var app = this;
       app.selectedSong = null;
-      $("#single-song-modal").modal("show");
+      app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
     },
     updateGrant: function updateGrant(item) {
       var app = this;
       app.selectedSong = item;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal").modal("show");
     },
     closeModel: function closeModel() {
@@ -7139,7 +7133,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       editmode: false,
       selectedSong: null,
       hasFile: false,
-      tenMajorSongs: [],
+      praisesAndWorshipSongs: [],
       isProcessing: false,
       songTitle: "",
       songBody: "",
@@ -7167,8 +7161,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   },
   mounted: function mounted() {
     var app = this;
-    app.getTenMajorSongs();
-    console.log("Component mounted.");
+    app.getPraisesAndWorshipSongs();
   },
   methods: {
     saveSong: function saveSong() {
@@ -7187,12 +7180,12 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         //console.log("SERIALIZED: ", form.serialize());
         axios({
           method: "post",
-          url: "/api/ten-major/create-ten-major-song",
+          url: "/api/praises-and-worship/create-praises-and-worship-song",
           data: songFormData
           //form.serialize(),
         }).then(function (response) {
           app.isProcessing = false;
-          app.getTenMajorSongs();
+          app.getPraisesAndWorshipSongs();
           formModal.modal("hide");
           //this.$refs.grantRef.reset();
           //======dismiss the model
@@ -7218,13 +7211,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           app.showErrorMessage(error.response.data.errors);
         });
       }
-      //   let app = this;
-      //   app.editmode = true;
-
-      //   if (app.selectedSong != null) {
-      //     app.requestFormData.append("bsc_request_id", app.request.id);
-      //     app.requestFormData.append("edited_request", true);
-      //   }
     },
     updateSong: function updateSong(item) {
       var app = this;
@@ -7232,7 +7218,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal").modal("show");
     },
     viewSongDetail: function viewSongDetail(item) {
@@ -7241,7 +7226,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_title + "<br/>" + item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal-detail").modal("show");
     },
     deleteSong: function deleteSong(id) {
@@ -7257,14 +7241,14 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }).then(function (result) {
         if (result.isConfirmed) {
           $.ajax({
-            url: "api/ten-major/delete-ten-major-song",
+            url: "api/praises-and-worship/delete-praises-and-worship-song",
             type: "post",
             data: {
-              ten_major_id: id
+              praises_and_worship_id: id
             },
             success: function success(data) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Song Deleted Successfully</p>", "", "success");
-              app.getTenMajorSongs();
+              app.getPraisesAndWorshipSongs();
             },
             error: function error(e) {
               //   app.showAjaxError(e);
@@ -7273,11 +7257,10 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         }
       });
     },
-    getTenMajorSongs: function getTenMajorSongs() {
+    getPraisesAndWorshipSongs: function getPraisesAndWorshipSongs() {
       var app = this;
-      axios.get("api/ten-major/list").then(function (response) {
-        app.tenMajorSongs = response.data;
-        console.log("ALL GRANTS", app.tenMajorSongs);
+      axios.get("api/praises-and-worship/list").then(function (response) {
+        app.praisesAndWorshipSongs = response.data;
       })["catch"](function (error) {
         //   app.showErrorMessage(error.response.data);
       });
@@ -7290,7 +7273,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       formData.append("file", app.file);
       axios({
         method: "post",
-        url: "api/ten-major/import-ten-major-songs",
+        url: "api/praises-and-worship/import-praises-and-worship-songs",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data"
@@ -7298,7 +7281,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }).then(function (response) {
         app.isProcessing = false;
         app.importResults = response.data;
-        app.getTenMajorSongs();
+        app.getPraisesAndWorshipSongs();
         app.closeDialog();
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
           icon: "success",
@@ -7371,7 +7354,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     showAddSingleSongModal: function showAddSingleSongModal() {
       var app = this;
       app.selectedSong = null;
-      $("#single-song-modal").modal("show");
+      app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
     },
     updateGrant: function updateGrant(item) {
       var app = this;

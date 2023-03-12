@@ -74,7 +74,7 @@
             <table class="table table-sm present-tense-table">
               <thead>
                 <tr>
-                  <!-- <th>#</th> -->
+                  <th>#</th>
                   <th>SONG NUMBER</th>
                   <th class="text-left">SONG TITLE</th>
                   <th>DATE CREATED</th>
@@ -83,16 +83,19 @@
               </thead>
 
               <tr
-                v-for="(tenMajorSong, index) in tenMajorSongs.results"
-                :key="tenMajorSong.id + '_' + index"
+                v-for="(
+                  praisesAndWorshipSong, index
+                ) in praisesAndWorshipSongs.results"
+                :key="praisesAndWorshipSong.id + '_' + index"
               >
-                <!-- <td>{{ index + 1 }}</td> -->
-                <!-- <td>{{ user.id }}</td> -->
-                <td>{{ tenMajorSong.song_number }}</td>
-                <td class="text-left">{{ tenMajorSong.song_title }}</td>
-                <td>{{ tenMajorSong.created_at | myDate }}</td>
+                <td>{{ index + 1 }}</td>
+                <td>{{ praisesAndWorshipSong.song_number }}</td>
+                <td class="text-left">
+                  {{ praisesAndWorshipSong.song_title }}
+                </td>
+                <td>{{ praisesAndWorshipSong.created_at | myDate }}</td>
                 <td>
-                  <a href="#" @click="updateSong(tenMajorSong)">
+                  <a href="#" @click="updateSong(praisesAndWorshipSong)">
                     <i
                       class="fas fa-pencil-alt"
                       style="color: #999; font-size: 18px"
@@ -101,7 +104,7 @@
 
                   <a
                     href="#"
-                    @click="deleteSong(tenMajorSong.id)"
+                    @click="deleteSong(praisesAndWorshipSong.id)"
                     style="margin-left: 8px"
                   >
                     <i
@@ -112,7 +115,7 @@
 
                   <a
                     href="#"
-                    @click="viewSongDetail(tenMajorSong)"
+                    @click="viewSongDetail(praisesAndWorshipSong)"
                     style="margin-left: 8px"
                   >
                     <i
@@ -416,7 +419,7 @@ export default {
       editmode: false,
       selectedSong: null,
       hasFile: false,
-      tenMajorSongs: [],
+      praisesAndWorshipSongs: [],
       isProcessing: false,
       songTitle: "",
       songBody: "",
@@ -467,8 +470,7 @@ export default {
 
   mounted() {
     let app = this;
-    app.getTenMajorSongs();
-    console.log("Component mounted.");
+    app.getPraisesAndWorshipSongs();
   },
   methods: {
     saveSong() {
@@ -493,13 +495,13 @@ export default {
         //console.log("SERIALIZED: ", form.serialize());
         axios({
           method: "post",
-          url: "/api/ten-major/create-ten-major-song",
+          url: "/api/praises-and-worship/create-praises-and-worship-song",
           data: songFormData,
           //form.serialize(),
         })
           .then((response) => {
             app.isProcessing = false;
-            app.getTenMajorSongs();
+            app.getPraisesAndWorshipSongs();
             formModal.modal("hide");
             //this.$refs.grantRef.reset();
             //======dismiss the model
@@ -526,13 +528,6 @@ export default {
             app.showErrorMessage(error.response.data.errors);
           });
       }
-      //   let app = this;
-      //   app.editmode = true;
-
-      //   if (app.selectedSong != null) {
-      //     app.requestFormData.append("bsc_request_id", app.request.id);
-      //     app.requestFormData.append("edited_request", true);
-      //   }
     },
 
     updateSong(item) {
@@ -541,7 +536,6 @@ export default {
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal").modal("show");
     },
 
@@ -551,7 +545,6 @@ export default {
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_title + "<br/>" + item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal-detail").modal("show");
     },
 
@@ -568,10 +561,10 @@ export default {
       }).then((result) => {
         if (result.isConfirmed) {
           $.ajax({
-            url: "api/ten-major/delete-ten-major-song",
+            url: "api/praises-and-worship/delete-praises-and-worship-song",
             type: "post",
             data: {
-              ten_major_id: id,
+              praises_and_worship_id: id,
             },
             success(data) {
               Swal.fire(
@@ -579,7 +572,7 @@ export default {
                 "",
                 "success"
               );
-              app.getTenMajorSongs();
+              app.getPraisesAndWorshipSongs();
             },
             error(e) {
               //   app.showAjaxError(e);
@@ -589,13 +582,12 @@ export default {
       });
     },
 
-    getTenMajorSongs() {
+    getPraisesAndWorshipSongs() {
       let app = this;
       axios
-        .get("api/ten-major/list")
+        .get("api/praises-and-worship/list")
         .then((response) => {
-          app.tenMajorSongs = response.data;
-          console.log("ALL GRANTS", app.tenMajorSongs);
+          app.praisesAndWorshipSongs = response.data;
         })
         .catch((error) => {
           //   app.showErrorMessage(error.response.data);
@@ -610,7 +602,7 @@ export default {
 
       axios({
         method: "post",
-        url: "api/ten-major/import-ten-major-songs",
+        url: "api/praises-and-worship/import-praises-and-worship-songs",
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -619,7 +611,7 @@ export default {
         .then((response) => {
           app.isProcessing = false;
           app.importResults = response.data;
-          app.getTenMajorSongs();
+          app.getPraisesAndWorshipSongs();
           app.closeDialog();
           Swal.fire({
             icon: "success",
@@ -705,7 +697,9 @@ export default {
     showAddSingleSongModal() {
       let app = this;
       app.selectedSong = null;
-      $("#single-song-modal").modal("show");
+      (app.songBody = ""),
+        (app.songTitle = ""),
+        $("#single-song-modal").modal("show");
     },
 
     updateGrant(item) {

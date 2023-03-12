@@ -74,7 +74,7 @@
             <table class="table table-sm present-tense-table">
               <thead>
                 <tr>
-                  <!-- <th>#</th> -->
+                  <th>#</th>
                   <th>SONG NUMBER</th>
                   <th class="text-left">SONG TITLE</th>
                   <th>DATE CREATED</th>
@@ -86,8 +86,7 @@
                 v-for="(tenMajorSong, index) in tenMajorSongs.results"
                 :key="tenMajorSong.id + '_' + index"
               >
-                <!-- <td>{{ index + 1 }}</td> -->
-                <!-- <td>{{ user.id }}</td> -->
+                <td>{{ index + 1 }}</td>
                 <td>{{ tenMajorSong.song_number }}</td>
                 <td class="text-left">{{ tenMajorSong.song_title }}</td>
                 <td>{{ tenMajorSong.created_at | myDate }}</td>
@@ -468,7 +467,6 @@ export default {
   mounted() {
     let app = this;
     app.getTenMajorSongs();
-    console.log("Component mounted.");
   },
   methods: {
     saveSong() {
@@ -541,7 +539,6 @@ export default {
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal").modal("show");
     },
 
@@ -551,7 +548,6 @@ export default {
       app.selectedSong = item;
       app.songTitle = item.song_title;
       app.songBody = item.song_title + "<br/>" + item.song_body;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal-detail").modal("show");
     },
 
@@ -595,7 +591,6 @@ export default {
         .get("api/ten-major/list")
         .then((response) => {
           app.tenMajorSongs = response.data;
-          console.log("ALL GRANTS", app.tenMajorSongs);
         })
         .catch((error) => {
           //   app.showErrorMessage(error.response.data);
@@ -697,7 +692,6 @@ export default {
           link.click();
         })
         .catch((error) => {
-          console.log("ERRRR:: ", error.response.data);
           //app.showErrorMessage(error.response.data);
         });
     },
@@ -705,13 +699,14 @@ export default {
     showAddSingleSongModal() {
       let app = this;
       app.selectedSong = null;
-      $("#single-song-modal").modal("show");
+      (app.songBody = ""),
+        (app.songTitle = ""),
+        $("#single-song-modal").modal("show");
     },
 
     updateGrant(item) {
       let app = this;
       app.selectedSong = item;
-      //console.log("UPDATE GRANT: ", app.selectedGrant);
       $("#single-song-modal").modal("show");
     },
 

@@ -56,6 +56,16 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/create-ten-major-song', 'GodTenMajorSongsController@saveTenMajorSong');
     Route::post('/delete-ten-major-song', 'GodTenMajorSongsController@deleteTenMajorSong');
   });
+
+
+   //============Praises and Worship Songs ======
+   Route::group(['prefix' => 'praises-and-worship'], function () {
+    Route::get('/list', 'PraisesAndWorshipSongsController@getAllPraisesAndWhorshipSongs');
+    Route::post('/import-praises-and-worship-songs', 'PraisesAndWorshipSongsController@importPraisesAndWorshipTemplate');
+    Route::post('/create-praises-and-worship-song', 'PraisesAndWorshipSongsController@savePraisesAndWorshipSong');
+    Route::post('/delete-praises-and-worship-song', 'PraisesAndWorshipSongsController@deletePraisesAndWorshipSong');
+  });
+
   });
 
 
