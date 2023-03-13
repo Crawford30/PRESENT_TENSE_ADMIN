@@ -2442,55 +2442,6 @@ var render = function render() {
   })], 2)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
-      id: "single-song-modal-detail"
-    }
-  }, [_c("div", {
-    staticClass: "modal-dialog"
-  }, [_c("div", {
-    staticClass: "modal-content"
-  }, [_c("div", {
-    staticClass: "modal-body p-4"
-  }, [_c("button", {
-    staticClass: "close",
-    staticStyle: {
-      position: "absolute",
-      right: "1.5rem",
-      top: "1.5rem"
-    },
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: _vm.closeModel
-    }
-  }, [_vm._v("\n                    ×\n                    ")]), _vm._v(" "), _c("h5", {
-    staticStyle: {
-      "text-align": "center",
-      "font-weight": "bold"
-    }
-  }, [_vm._v("Song Details")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
-    ref: "songRef",
-    attrs: {
-      id: "song-form"
-    }
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("vue-editor", {
-    attrs: {
-      id: "song-body",
-      disabled: true,
-      editorToolbar: _vm.defaultToolbar
-    },
-    model: {
-      value: _vm.songBody,
-      callback: function callback($$v) {
-        _vm.songBody = $$v;
-      },
-      expression: "songBody"
-    }
-  })], 1)])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "modal fade",
-    attrs: {
       id: "modal-upload-video"
     }
   }, [_c("div", {
@@ -2518,7 +2469,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n                            ×\n                            ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                        ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
   }, [_vm._v("Add Video DVD")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -2589,7 +2540,7 @@ var render = function render() {
             "padding-bottom": "0",
             "font-size": "12px"
           }
-        }, [_vm._v("\n                                                the video DVD, or if you prefer\n                                            ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                                            the video DVD, or if you prefer\n                                        ")]), _vm._v(" "), _c("div", {
           staticClass: "position-relative"
         }, [_c("button", {
           staticClass: "btn btn-primary position-relative",
@@ -2600,7 +2551,7 @@ var render = function render() {
           attrs: {
             type: "button"
           }
-        }, [_vm._v("\n                                                    Choose files\n                                                    "), _c("input", {
+        }, [_vm._v("\n                                                Choose files\n                                                "), _c("input", {
           ref: "FileInput",
           staticClass: "opactiy-none",
           staticStyle: {
@@ -2659,7 +2610,7 @@ var render = function render() {
             color: "#bbbbbb",
             "margin-bottom": "0.2rem"
           }
-        }, [_vm._v("\n                                                DRAG & DROP\n                                            ")])]);
+        }, [_vm._v("\n                                            DRAG & DROP\n                                        ")])]);
       }]
     }
   }), _vm._v(" "), _c("div", {
@@ -2711,7 +2662,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                    SAVE CHANGES\n                    ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n                ")])])], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal",
     attrs: {
       id: "showVideo"
@@ -8930,7 +8881,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       app.uploadedVideo = null;
     });
     console.log("Uploaded vdeo: ", app.uploadedVideo);
-    app.getTenMajorSongs();
   },
   methods: {
     showVideo: function showVideo(video) {
@@ -9006,76 +8956,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         });
       }
     },
-    saveSong: function saveSong() {
-      var _this = this;
-      var app = this;
-      var form = $("#song-form");
-      var formModal = $("#single-song-modal");
-      var songFormData = new FormData();
-      if (this.editmode) {
-        songFormData.append("song_id", this.selectedSong.id), songFormData.append("song_number", this.selectedSong.song_number), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
-      } else {
-        songFormData.append("song_number", this.songNumber), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
-      }
-      if (form.valid()) {
-        app.isProcessing = true;
-        //console.log("SERIALIZED: ", form.serialize());
-        axios({
-          method: "post",
-          url: "/api/ten-major/create-ten-major-song",
-          data: songFormData
-          //form.serialize(),
-        }).then(function (response) {
-          app.isProcessing = false;
-          app.getTenMajorSongs();
-          formModal.modal("hide");
-          //======dismiss the model
-          _this.closeModel();
-          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-            icon: "success",
-            title: "Success",
-            html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
-            showConfirmButton: true,
-            allowOutsideClick: false,
-            showCloseButton: true,
-            confirmButtonText: "Ok",
-            confirmButtonColor: "#32CD32"
-          }).then(function (result) {
-            if (result.isConfirmed) {
-              // window.location.href = "/list";
-            }
-          });
-        })["catch"](function (error) {
-          app.isProcessing = false;
-          _this.errors = error.response.data.errors;
-          formModal.modal("hide");
-          app.showErrorMessage(error.response.data.errors);
-        });
-      }
-      //   let app = this;
-      //   app.editmode = true;
-
-      //   if (app.selectedSong != null) {
-      //     app.requestFormData.append("bsc_request_id", app.request.id);
-      //     app.requestFormData.append("edited_request", true);
-      //   }
-    },
-    updateSong: function updateSong(item) {
-      var app = this;
-      app.editmode = true;
-      app.selectedSong = item;
-      app.songTitle = item.song_title;
-      app.songBody = item.song_body;
-      $("#single-song-modal").modal("show");
-    },
-    viewSongDetail: function viewSongDetail(item) {
-      var app = this;
-      app.editmode = true;
-      app.selectedSong = item;
-      app.songTitle = item.song_title;
-      app.songBody = item.song_title + "<br/>" + item.song_body;
-      $("#single-song-modal-detail").modal("show");
-    },
     deleteVideoDVD: function deleteVideoDVD(id) {
       var app = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
@@ -9105,85 +8985,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         }
       });
     },
-    getTenMajorSongs: function getTenMajorSongs() {
-      var app = this;
-      axios.get("api/ten-major/list").then(function (response) {
-        app.tenMajorSongs = response.data;
-      })["catch"](function (error) {
-        //   app.showErrorMessage(error.response.data);
-      });
-    },
-    uploadFile: function uploadFile() {
-      var _this2 = this;
-      var app = this;
-      app.isProcessing = true;
-      var formData = new FormData();
-      formData.append("file", app.file);
-      axios({
-        method: "post",
-        url: "api/ten-major/import-ten-major-songs",
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      }).then(function (response) {
-        app.isProcessing = false;
-        app.importResults = response.data;
-        app.getTenMajorSongs();
-        app.closeDialog();
-        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-          icon: "success",
-          title: "Success",
-          html: "<p class='font-size: 13px'>Song  Successfully Submitted</p>",
-          showConfirmButton: true,
-          allowOutsideClick: false,
-          showCloseButton: true,
-          confirmButtonText: "Ok",
-          confirmButtonColor: "#32CD32"
-        }).then(function (result) {
-          if (result.isConfirmed) {
-            // window.location.href = "/list";
-          }
-        });
-      })["catch"](function (error) {
-        _this2.isProcessing = false;
-        //   app.showErrorMessage(error.response.data);
-        _this2.errors = error.response.data.errors;
-      });
-    },
-    downloadSongTemplate: function downloadSongTemplate() {
-      window.location.href = "/download-song-template";
-    },
-    //   const url = URL.createObjectURL(new Blob([response.data], {
-    //         type: 'application/vnd.ms-excel'
-    //     }))
-    downloadTemplate: function downloadTemplate() {
-      var app = this;
-      var file = "song_template.xlsx";
-      axios.get("/api/user/download-song-template", {
-        params: {
-          fileName: "song_template.xlsx"
-        },
-        responseType: "blob"
-      }).then(function (response) {
-        var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", file);
-        document.body.appendChild(link);
-        link.click();
-      })["catch"](function (error) {
-        //app.showErrorMessage(error.response.data);
-      });
-    },
-    showAddSingleSongModal: function showAddSingleSongModal() {
-      var app = this;
-      app.selectedSong = null;
-      app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
-    },
     closeModel: function closeModel() {
-      $("#single-song-modal").modal("hide");
-      $("#single-song-modal-detail").modal("hide");
       $("#modal-upload-video").modal("hide");
     },
     showUploadExcel: function showUploadExcel() {
