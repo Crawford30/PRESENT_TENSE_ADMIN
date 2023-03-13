@@ -35,7 +35,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th class="text-justify">DVD NAME</th>
+                            <th class="text-justify">VIDEO DVD NAME</th>
                             <th class="text-center">VIEWS</th>
                             <th>DATE CREATED</th>
                             <th>ACTIONS</th>
@@ -201,7 +201,7 @@
                           padding-bottom: 0;
                           font-size: 12px;
                         ">
-                                                    the video, or if you prefer
+                                                    the video DVD, or if you prefer
                                                 </p>
                                                 <div class="position-relative">
                                                     <button

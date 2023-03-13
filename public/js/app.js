@@ -1982,10 +1982,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1996,24 +1996,417 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "dvd-view"
+  }, [_c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row my-3"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("div", {
+    staticClass: "btn-group add-new-dropdown",
+    staticStyle: {
+      width: "100%"
+    }
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group"
+    }
+  }, [_c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.showUploadVideo
+    }
+  }, [_vm._v("\n                            Upload Audio DVD\n                            ")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center"
+  }, [_c("table", {
+    staticClass: "table table-sm present-tense-table"
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.dvdVideos.results, function (dvdVideo, index) {
+    return _c("tr", {
+      key: dvdVideo.id + "_" + index
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", {
+      staticClass: "text-justify text-uppercase"
+    }, [_vm._v("\n                        " + _vm._s(dvdVideo.video_dvd_name) + "\n                        ")]), _vm._v(" "), _c("td", {
+      staticClass: "text-center"
+    }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
+      staticStyle: {
+        "margin-left": "8px"
+      },
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          $event.preventDefault();
+          return _vm.deleteVideoDVD(dvdVideo.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "far fa-trash-alt",
+      staticStyle: {
+        color: "#999",
+        "font-size": "18px"
+      }
+    })]), _vm._v(" "), _vm._m(3, true)])]);
+  })], 2)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "single-song-modal-detail"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-body p-4"
+  }, [_c("button", {
+    staticClass: "close",
+    staticStyle: {
+      position: "absolute",
+      right: "1.5rem",
+      top: "1.5rem"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeModel
+    }
+  }, [_vm._v("\n                    ×\n                    ")]), _vm._v(" "), _c("h5", {
+    staticStyle: {
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  }, [_vm._v("Song Details")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+    ref: "songRef",
+    attrs: {
+      id: "song-form"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("vue-editor", {
+    attrs: {
+      id: "song-body",
+      disabled: true,
+      editorToolbar: _vm.defaultToolbar
+    },
+    model: {
+      value: _vm.songBody,
+      callback: function callback($$v) {
+        _vm.songBody = $$v;
+      },
+      expression: "songBody"
+    }
+  })], 1)])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "modal-upload-video"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("form", {
+    attrs: {
+      enctype: "multipart/form-data",
+      id: "videos-form",
+      method: "post"
+    }
+  }, [_c("div", {
+    staticClass: "modal-body px-4 mb-3"
+  }, [_c("button", {
+    staticClass: "close",
+    staticStyle: {
+      position: "absolute",
+      right: "1.5rem",
+      top: "1.5rem"
+    },
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: _vm.closeModel
+    }
+  }, [_vm._v("\n                            ×\n                            ")]), _vm._v(" "), _c("h5", {
+    staticClass: "text-center"
+  }, [_vm._v("Add Audio DVD")]), _vm._v(" "), _c("div", {
+    staticClass: "form-group"
+  }, [_c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Audio DVD Name")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selectedVideo.video_dvd_name,
+      expression: "selectedVideo.video_dvd_name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      required: "",
+      name: "video_dvd_name",
+      placeholder: "Audio DVD Name",
+      type: "text"
+    },
+    domProps: {
+      value: _vm.selectedVideo.video_dvd_name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.selectedVideo, "video_dvd_name", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_vm._v("Audio DVD File")]), _vm._v(" "), _c("DropFile", {
+    ref: "dropFile",
+    inlineTemplate: {
+      render: function render() {
+        var _vm = this,
+          _c = _vm._self._c;
+        return _c("div", {
+          staticClass: "text-muted"
+        }, [!_vm.hasFile ? _c("div", {
+          staticClass: "drag-drop-area px-5 py-3",
+          staticStyle: {
+            "margin-left": "0",
+            "margin-right": "0"
+          },
+          style: {
+            backgroundImage: _vm.backgroundImage
+          },
+          on: {
+            drop: function drop($event) {
+              $event.preventDefault();
+              return _vm.dragDrop.apply(null, arguments);
+            },
+            dragover: function dragover($event) {
+              $event.preventDefault();
+              return _vm.dragOver.apply(null, arguments);
+            }
+          }
+        }, [_vm._m(0), _vm._v(" "), _c("div", {
+          staticClass: "text-center"
+        }, [_c("p", {
+          staticStyle: {
+            color: "#bbbbbb",
+            "margin-bottom": "0",
+            "padding-bottom": "0",
+            "font-size": "12px"
+          }
+        }, [_vm._v("\n                                                the Audio DVD, or if you prefer\n                                            ")]), _vm._v(" "), _c("div", {
+          staticClass: "position-relative"
+        }, [_c("button", {
+          staticClass: "btn btn-primary position-relative",
+          staticStyle: {
+            "font-size": "12px",
+            "margin-top": "5px"
+          },
+          attrs: {
+            type: "button"
+          }
+        }, [_vm._v("\n                                                    Choose files\n                                                    "), _c("input", {
+          ref: "FileInput",
+          staticClass: "opactiy-none",
+          staticStyle: {
+            position: "absolute",
+            left: "0",
+            top: "0",
+            opacity: "0",
+            cursor: "pointer"
+          },
+          attrs: {
+            type: "file",
+            accept: "audio/mp3,audio/mpeg,audio/*",
+            id: "videoFile",
+            name: "file"
+          },
+          on: {
+            change: _vm.fileChanged
+          }
+        })])])])]) : _c("div", {
+          staticClass: "border p-5"
+        }, [_c("h6", {
+          staticClass: "text-center te xt-black-50"
+        }, [_vm._v(_vm._s(_vm.fileName))]), _vm._v(" "), _c("div", {
+          staticClass: "text-center"
+        }, [_c("button", {
+          staticStyle: {
+            "font-size": "24px",
+            color: "#666666",
+            background: "#ffffff",
+            outline: "none",
+            border: "none",
+            cursor: "pointer"
+          },
+          on: {
+            click: function click($event) {
+              $event.preventDefault();
+              return _vm.removeFile();
+            }
+          }
+        }, [_c("i", {
+          staticClass: "far fa-trash-alt"
+        })])])])]);
+      },
+      staticRenderFns: [function () {
+        var _vm = this,
+          _c = _vm._self._c;
+        return _c("div", {
+          staticClass: "text-center drop-zone"
+        }, [_c("img", {
+          staticClass: "icon-img",
+          attrs: {
+            src: "/images/icons/upload_gray.png"
+          }
+        }), _vm._v(" "), _c("h6", {
+          staticStyle: {
+            color: "#bbbbbb",
+            "margin-bottom": "0.2rem"
+          }
+        }, [_vm._v("\n                                                DRAG & DROP\n                                            ")])]);
+      }]
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "form-group mt-3"
+  }, [_vm._m(4), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.selectedVideo.creation_date,
+      expression: "selectedVideo.creation_date"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "creation_date",
+      required: "",
+      placeholder: "e.g 2019-12-30 for 30-DEC-2019",
+      type: "text"
+    },
+    domProps: {
+      value: _vm.selectedVideo.creation_date
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.selectedVideo, "creation_date", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("input", {
+    attrs: {
+      hidden: "",
+      name: "video_id",
+      type: "text"
+    },
+    domProps: {
+      value: _vm.selectedVideo.id
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "form-group text-center"
+  }, [_c("button", {
+    staticClass: "present-tense-btn present-tense-primary px-6 mt-3 mb-3",
+    attrs: {
+      disabled: _vm.isProcessing
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.uploadVideo.apply(null, arguments);
+      }
+    }
+  }, [_c("span", [_vm.isProcessing ? _c("i", {
+    staticClass: "fa fa-spinner fa-spin"
+  }) : _vm._e()]), _vm._v("\n                    SAVE CHANGES\n                    ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+    staticClass: "modal",
+    attrs: {
+      id: "showVideo"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-lg"
+  }, [_vm.displayVideo ? _c("div", {
+    staticClass: "modal-content px-2 py-2"
+  }, [_c("p", {
+    staticClass: "text-lg"
+  }, [_vm._v(_vm._s(_vm.displayVideo.video_dvd_name))]), _vm._v(" "), _c("iframe", {
+    attrs: {
+      id: "vid-show",
+      autoplay: "false",
+      width: "100%",
+      height: "400px",
+      src: _vm.displayVideo.video_path ? "/storage" + _vm.displayVideo.video_dvd_path : _vm.displayVideo.video_dvd_path,
+      frameborder: "0",
+      gesture: "media",
+      allow: "encrypted-media",
+      allowfullscreen: ""
+    }
+  })]) : _vm._e()])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "row justify-content-center"
-  }, [_c("div", {
-    staticClass: "col-md-8"
-  }, [_c("div", {
-    staticClass: "card"
-  }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("I'm an example component.")])])])])]);
+    staticClass: "col-md-9 text-left"
+  }, [_c("h4", [_vm._v("Audio DVDS")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", {
+    staticClass: "text-justify"
+  }, [_vm._v("AUDIO DVD NAME")]), _vm._v(" "), _c("th", {
+    staticClass: "text-center"
+  }, [_vm._v("VIEWS")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-pencil-alt",
+    staticStyle: {
+      color: "#999",
+      "font-size": "18px"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("a", {
+    staticStyle: {
+      "margin-left": "8px"
+    },
+    attrs: {
+      href: "#"
+    }
+  }, [_c("i", {
+    staticClass: "fas fa-ellipsis-v",
+    staticStyle: {
+      color: "#999",
+      "font-size": "18px"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("label", {
+    attrs: {
+      "for": ""
+    }
+  }, [_c("label", [_vm._v("Date Created")])]);
 }];
 render._withStripped = true;
 
@@ -2245,7 +2638,7 @@ var render = function render() {
             "padding-bottom": "0",
             "font-size": "12px"
           }
-        }, [_vm._v("\n                                                the video, or if you prefer\n                                            ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                                                the video DVD, or if you prefer\n                                            ")]), _vm._v(" "), _c("div", {
           staticClass: "position-relative"
         }, [_c("button", {
           staticClass: "btn btn-primary position-relative",
@@ -2403,7 +2796,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", {
     staticClass: "text-justify"
-  }, [_vm._v("DVD NAME")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("VIDEO DVD NAME")]), _vm._v(" "), _c("th", {
     staticClass: "text-center"
   }, [_vm._v("VIEWS")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
 }, function () {
@@ -8304,9 +8697,364 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../mixin/dragAndDropHelper */ "./resources/js/components/mixin/dragAndDropHelper.js");
+/* harmony import */ var _mixin_IziToast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../mixin/IziToast */ "./resources/js/components/mixin/IziToast.js");
+/* harmony import */ var _common_DropFile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../common/DropFile */ "./resources/js/components/common/DropFile.vue");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"],
+    DropFile: _common_DropFile__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Tooltip: _common_DropFile__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"], _mixin_IziToast__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  data: function data() {
+    var _ref;
+    return _ref = {
+      dvdVideos: [],
+      selectedVideo: {},
+      displayVideo: null
+    }, _defineProperty(_ref, "displayVideo", null), _defineProperty(_ref, "uploadedVideo", null), _defineProperty(_ref, "file", null), _defineProperty(_ref, "editmode", false), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "hasFile", false), _defineProperty(_ref, "tenMajorSongs", []), _defineProperty(_ref, "isProcessing", false), _defineProperty(_ref, "songTitle", ""), _defineProperty(_ref, "songBody", ""), _defineProperty(_ref, "songNumber", ""), _defineProperty(_ref, "errors", null), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
+      header: [false, 1, 2, 3, 4, 5, 6]
+    }], ["bold", "italic", "underline", "strike"], [{
+      align: ""
+    }, {
+      align: "center"
+    }, {
+      align: "right"
+    }, {
+      align: "justify"
+    }], [{
+      list: "ordered"
+    }, {
+      list: "bullet"
+    }], [{
+      indent: "-1"
+    }, {
+      indent: "+1"
+    }]]), _ref;
+  },
   mounted: function mounted() {
-    console.log("Component mounted.");
+    var app = this;
+    app.getAllDVDVideos();
+    app.$on("video-uploaded", function (data) {
+      app.uploadedVideo = data;
+      //   console.log("VIDEO DATA: ", data);
+    });
+
+    app.$on("video-removed", function () {
+      app.uploadedVideo = null;
+    });
+    console.log("Uploaded vdeo: ", app.uploadedVideo);
+    app.getTenMajorSongs();
+  },
+  methods: {
+    showVideo: function showVideo(video) {
+      console.log("VIDE: ", video);
+      this.displayVideo = video;
+      $("#showVideo").modal("show");
+    },
+    getAllDVDVideos: function getAllDVDVideos() {
+      var app = this;
+      $.ajax({
+        url: "/api/video-dvd/list",
+        success: function success(data) {
+          app.dvdVideos = data;
+        }
+      });
+      console.log("DVD VIDEOS", app.dvdVideos);
+    },
+    isValid: function isValid() {
+      if (!this.selectedVideo.video_dvd_name) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>DVD name is required!</p>", "warning");
+        // this.showErrorMessage("DVD name is required");
+        return false;
+      }
+      if (!this.selectedVideo.creation_date) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>DVD creation date is required!</p>", "warning");
+        // this.showErrorMessage("DVD creation date is required");
+        return false;
+      }
+      if (!this.uploadedVideo) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>Browse and Upload a video!</p>", "warning");
+        // this.showErrorMessage("Browse and Upload a video");
+        return false;
+      }
+      return true;
+    },
+    uploadVideo: function uploadVideo() {
+      var app = this;
+      var form = $("#videos-form");
+      var modal = $("#modal-upload-video");
+      if (form.valid()) {
+        if (!this.isValid()) {
+          return;
+        }
+        app.isProcessing = true;
+        var formData = new FormData(document.getElementById("videos-form"));
+        formData.append("file", app.uploadedVideo);
+        $.ajax({
+          processData: false,
+          contentType: false,
+          enctype: "multipart/form-data",
+          type: "post",
+          url: "/api/video-dvd/create-video-dvd",
+          data: formData,
+          success: function success(data) {
+            app.isProcessing = false;
+            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Successfully Saved</p>", "", "success");
+            app.getAllDVDVideos();
+            modal.modal("hide");
+            document.getElementById("videos-form").reset();
+            $("#videos-form").trigger("reset");
+            this.uploadedVideo = null;
+            app.selectedVideo.video_dvd_name = "";
+            app.selectedVideo.creation_date = "";
+
+            // form.reset();
+          },
+          error: function error(e) {
+            modal.modal("hide");
+            app.isProcessing = false;
+            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Error Occured</p>", e, "warning");
+            app.showErrorMessage(app.formatAjaxError(e));
+          }
+        });
+      }
+    },
+    saveSong: function saveSong() {
+      var _this = this;
+      var app = this;
+      var form = $("#song-form");
+      var formModal = $("#single-song-modal");
+      var songFormData = new FormData();
+      if (this.editmode) {
+        songFormData.append("song_id", this.selectedSong.id), songFormData.append("song_number", this.selectedSong.song_number), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
+      } else {
+        songFormData.append("song_number", this.songNumber), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
+      }
+      if (form.valid()) {
+        app.isProcessing = true;
+        //console.log("SERIALIZED: ", form.serialize());
+        axios({
+          method: "post",
+          url: "/api/ten-major/create-ten-major-song",
+          data: songFormData
+          //form.serialize(),
+        }).then(function (response) {
+          app.isProcessing = false;
+          app.getTenMajorSongs();
+          formModal.modal("hide");
+          //======dismiss the model
+          _this.closeModel();
+          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+            icon: "success",
+            title: "Success",
+            html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
+            showConfirmButton: true,
+            allowOutsideClick: false,
+            showCloseButton: true,
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#32CD32"
+          }).then(function (result) {
+            if (result.isConfirmed) {
+              // window.location.href = "/list";
+            }
+          });
+        })["catch"](function (error) {
+          app.isProcessing = false;
+          _this.errors = error.response.data.errors;
+          formModal.modal("hide");
+          app.showErrorMessage(error.response.data.errors);
+        });
+      }
+      //   let app = this;
+      //   app.editmode = true;
+
+      //   if (app.selectedSong != null) {
+      //     app.requestFormData.append("bsc_request_id", app.request.id);
+      //     app.requestFormData.append("edited_request", true);
+      //   }
+    },
+    updateSong: function updateSong(item) {
+      var app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_body;
+      $("#single-song-modal").modal("show");
+    },
+    viewSongDetail: function viewSongDetail(item) {
+      var app = this;
+      app.editmode = true;
+      app.selectedSong = item;
+      app.songTitle = item.song_title;
+      app.songBody = item.song_title + "<br/>" + item.song_body;
+      $("#single-song-modal-detail").modal("show");
+    },
+    deleteVideoDVD: function deleteVideoDVD(id) {
+      var app = this;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          $.ajax({
+            url: "/api/video-dvd/delete-video-dvd",
+            type: "post",
+            data: {
+              video_id: id
+            },
+            success: function success(data) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Deleted Successfully</p>", "", "success");
+              app.getAllDVDVideos();
+            },
+            error: function error(e) {
+              //   app.showAjaxError(e);
+            }
+          });
+        }
+      });
+    },
+    getTenMajorSongs: function getTenMajorSongs() {
+      var app = this;
+      axios.get("api/ten-major/list").then(function (response) {
+        app.tenMajorSongs = response.data;
+      })["catch"](function (error) {
+        //   app.showErrorMessage(error.response.data);
+      });
+    },
+    uploadFile: function uploadFile() {
+      var _this2 = this;
+      var app = this;
+      app.isProcessing = true;
+      var formData = new FormData();
+      formData.append("file", app.file);
+      axios({
+        method: "post",
+        url: "api/ten-major/import-ten-major-songs",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }).then(function (response) {
+        app.isProcessing = false;
+        app.importResults = response.data;
+        app.getTenMajorSongs();
+        app.closeDialog();
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: "success",
+          title: "Success",
+          html: "<p class='font-size: 13px'>Song  Successfully Submitted</p>",
+          showConfirmButton: true,
+          allowOutsideClick: false,
+          showCloseButton: true,
+          confirmButtonText: "Ok",
+          confirmButtonColor: "#32CD32"
+        }).then(function (result) {
+          if (result.isConfirmed) {
+            // window.location.href = "/list";
+          }
+        });
+      })["catch"](function (error) {
+        _this2.isProcessing = false;
+        //   app.showErrorMessage(error.response.data);
+        _this2.errors = error.response.data.errors;
+      });
+    },
+    downloadSongTemplate: function downloadSongTemplate() {
+      window.location.href = "/download-song-template";
+    },
+    //   const url = URL.createObjectURL(new Blob([response.data], {
+    //         type: 'application/vnd.ms-excel'
+    //     }))
+    downloadTemplate: function downloadTemplate() {
+      var app = this;
+      var file = "song_template.xlsx";
+      axios.get("/api/user/download-song-template", {
+        params: {
+          fileName: "song_template.xlsx"
+        },
+        responseType: "blob"
+      }).then(function (response) {
+        var url = window.URL.createObjectURL(new Blob([response.data]));
+        var link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", file);
+        document.body.appendChild(link);
+        link.click();
+      })["catch"](function (error) {
+        //app.showErrorMessage(error.response.data);
+      });
+    },
+    showAddSingleSongModal: function showAddSingleSongModal() {
+      var app = this;
+      app.selectedSong = null;
+      app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
+    },
+    closeModel: function closeModel() {
+      $("#single-song-modal").modal("hide");
+      $("#single-song-modal-detail").modal("hide");
+      $("#modal-upload-video").modal("hide");
+    },
+    showUploadExcel: function showUploadExcel() {
+      $("#modal-upload-song-excel").modal({
+        backdrop: "static",
+        keyboard: false
+      }, "show");
+    },
+    showUploadVideo: function showUploadVideo() {
+      $("#modal-upload-video").modal({
+        backdrop: "static",
+        keyboard: false
+      }, "show");
+    },
+    processSelectedFile: function processSelectedFile(fileData) {
+      var app = this;
+      if (fileData.ext.toLowerCase() !== "xls" && fileData.ext.toLowerCase() !== "xlsx") {
+        app.file = null;
+        app.hasFile = false;
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+          icon: "error",
+          title: "Invalid File",
+          text: "File must be in excel format"
+        });
+      } else {
+        app.file = fileData.file;
+        app.hasFile = true;
+      }
+    },
+    removeFile: function removeFile() {
+      this.file = null, this.hasFile = false;
+    },
+    onBrowseFile: function onBrowseFile(e) {
+      var app = this;
+      app.processSelectedFile(app.fileData(e, "browse"));
+    },
+    closeDialog: function closeDialog() {
+      var app = this;
+      app.file = null;
+      app.hasFile = false;
+      app.isProcessing = false;
+      $("#modal-upload-song-excel").modal("hide");
+    }
   }
 });
 
@@ -16979,6 +17727,25 @@ function isnan (val) {
 }
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".present-tense-table th[data-v-bd36a442],\n.present-tense-table td[data-v-bd36a442] {\n  font-size: 13px !important;\n}\n#song-title .ql-editor[data-v-bd36a442] {\n  height: 20px;\n}\n.dropdown-toggle[data-v-bd36a442]::after {\n  display: inline-block;\n  margin-left: 0.255em;\n  vertical-align: 0.255em;\n  content: \"\";\n  border-top: 0.3em solid;\n  border-right: 0.3em solid transparent;\n  border-bottom: 0;\n  border-left: 0.3em solid transparent;\n  margin-top: 8px !important;\n  margin-right: 5px;\n}\n.img-logo[data-v-bd36a442] {\n  height: 30px !important;\n}\n.dropdown-menu[data-v-bd36a442] {\n  min-width: 8rem !important;\n}\n.container[data-v-bd36a442] {\n  text-align: center;\n}\n.progress-container[data-v-bd36a442] {\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  max-width: 100%;\n  width: 150px;\n  margin-bottom: 2.5em;\n}\n.progress-container[data-v-bd36a442]::before {\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 0;\n  height: 4px;\n  width: 150px;\n  background-color: #bdbdbd;\n  z-index: 1;\n}\n.progress-indicator[data-v-bd36a442] {\n  position: absolute;\n  top: 50%;\n  left: 0;\n  width: 0;\n  height: 4px;\n  background-color: #2c6ec8;\n  z-index: 1;\n  transition: all 0.5s ease-in;\n}\n.circle-item[data-v-bd36a442] {\n  background-color: #fff;\n  height: 20px;\n  width: 20px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 2px solid #bdbdbd;\n  border-radius: 50%;\n  transition: all 0.4s ease-in;\n  z-index: 2;\n}\n.circle-item.completed[data-v-bd36a442] {\n  border-color: #2c6ec8;\n  background-color: #2c6ec8;\n  color: #fff;\n  box-shadow: 0 0 31px -2px rgba(44, 110, 200, 0.62);\n}\n.done[data-v-bd36a442] {\n  width: 100% !important;\n}\n.alert-dismissible .close[data-v-bd36a442] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n  padding: 0.75rem 1.25rem;\n  color: inherit;\n  left: 0;\n  margin-right: 30px;\n}\n.alert[data-v-bd36a442] {\n  position: relative;\n  padding: 0.75rem 3.95rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  text-align: left;\n}\n#loader[data-v-bd36a442] {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: 1px 0 0 -26px;\n  border: 8px solid #f3f3f3;\n  border-radius: 50%;\n  border-top: 8px solid #3498db;\n  animation: spin-bd36a442 2s linear infinite;\n}\n@keyframes spin-bd36a442 {\n0% {\n    transform: rotate(0deg);\n}\n100% {\n    transform: rotate(360deg);\n}\n}\n.hideLoader[data-v-bd36a442] {\n  display: none;\n}", ""]);
+
+// exports
+
 
 /***/ }),
 
@@ -85510,6 +86277,36 @@ module.exports = __webpack_require__(63);
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/VideoDVDS.vue?vue&type=style&index=0&id=04aab184&lang=scss&scoped=true&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/DVDS/VideoDVDS.vue?vue&type=style&index=0&id=04aab184&lang=scss&scoped=true& ***!
@@ -107842,9 +108639,11 @@ var dragAndDropHelper = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AudioDVDS_vue_vue_type_template_id_bd36a442___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AudioDVDS.vue?vue&type=template&id=bd36a442& */ "./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&");
+/* harmony import */ var _AudioDVDS_vue_vue_type_template_id_bd36a442_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true& */ "./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true&");
 /* harmony import */ var _AudioDVDS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AudioDVDS.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _AudioDVDS_vue_vue_type_style_index_0_id_bd36a442_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true& */ "./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -107852,13 +108651,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _AudioDVDS_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AudioDVDS_vue_vue_type_template_id_bd36a442___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AudioDVDS_vue_vue_type_template_id_bd36a442___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _AudioDVDS_vue_vue_type_template_id_bd36a442_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AudioDVDS_vue_vue_type_template_id_bd36a442_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "bd36a442",
   null
   
 )
@@ -107884,19 +108683,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442& ***!
-  \*****************************************************************************************/
+/***/ "./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_style_index_0_id_bd36a442_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=style&index=0&id=bd36a442&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_style_index_0_id_bd36a442_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_style_index_0_id_bd36a442_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_style_index_0_id_bd36a442_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_style_index_0_id_bd36a442_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true& ***!
+  \*****************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_template_id_bd36a442___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDS.vue?vue&type=template&id=bd36a442& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_template_id_bd36a442___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_template_id_bd36a442_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/DVDS/AudioDVDS.vue?vue&type=template&id=bd36a442&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_template_id_bd36a442_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_template_id_bd36a442___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDS_vue_vue_type_template_id_bd36a442_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
