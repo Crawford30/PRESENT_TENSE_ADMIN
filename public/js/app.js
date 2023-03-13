@@ -2047,7 +2047,7 @@ var render = function render() {
       on: {
         click: function click($event) {
           $event.preventDefault();
-          return _vm.deleteAudioDVD(_vm.dvdVideo.id);
+          return _vm.deleteAudioDVD(dvdAudio.id);
         }
       }
     }, [_c("i", {
@@ -8762,7 +8762,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
             url: "/api/audio-dvd/delete-audio-dvd",
             type: "post",
             data: {
-              video_id: id
+              audio_id: id
             },
             success: function success(data) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Audio Deleted Successfully</p>", "", "success");

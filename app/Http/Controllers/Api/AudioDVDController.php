@@ -36,7 +36,7 @@ class AudioDVDController extends Controller
 
     public function deleteAudioDVD(DeleteAudioDVDRequest $request)
     {
-        return $request->deleteVideo();
+        return $request->deleteAudio();
     }
 
 

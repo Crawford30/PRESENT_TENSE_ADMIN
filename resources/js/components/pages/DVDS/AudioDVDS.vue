@@ -49,8 +49,8 @@
 
                         <td class="text-justify text-uppercase">
                             {{ dvdAudio.audio_dvd_name }}
-                            <!-- <a @click.prevent="showVideo(dvdVideo)" href="#">{{
-                    dvdVideo.audio_dvd_name
+                            <!-- <a @click.prevent="showVideo(dvdAudio)" href="#">{{
+                    dvdAudio.audio_dvd_name
                   }}</a> -->
                         </td>
 
@@ -66,7 +66,7 @@
                             </a>
 
                             <a
-                                @click.prevent="deleteAudioDVD(dvdVideo.id)"
+                                @click.prevent="deleteAudioDVD(dvdAudio.id)"
                                 href="#"
                                 style="margin-left: 8px"
                             >
@@ -494,7 +494,7 @@ export default {
             url: "/api/audio-dvd/delete-audio-dvd",
             type: "post",
             data: {
-              video_id: id
+              audio_id: id
             },
             success(data) {
               Swal.fire(
