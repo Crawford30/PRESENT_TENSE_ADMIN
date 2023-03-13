@@ -2404,7 +2404,7 @@ var render = function render() {
     on: {
       click: _vm.showUploadVideo
     }
-  }, [_vm._v("\n                            Upload Video DVD\n                            ")])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Upload Video DVD\n                        ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "staff-card shadow-sm table-padding"
@@ -2417,7 +2417,7 @@ var render = function render() {
       key: dvdVideo.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", {
       staticClass: "text-justify text-uppercase"
-    }, [_vm._v("\n                        " + _vm._s(dvdVideo.video_dvd_name) + "\n                        ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                                " + _vm._s(dvdVideo.video_dvd_name) + "\n                                ")]), _vm._v(" "), _c("td", {
       staticClass: "text-center"
     }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
       staticStyle: {
@@ -2469,7 +2469,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n                        ×\n                        ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                            ×\n                        ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
   }, [_vm._v("Add Video DVD")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -2662,7 +2662,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n                ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+  }) : _vm._e()]), _vm._v("\n                                SAVE CHANGES\n                            ")])])], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal",
     attrs: {
       id: "showVideo"
@@ -5164,7 +5164,7 @@ var render = function render() {
     on: {
       click: _vm.showAddSingleSongModal
     }
-  }, [_vm._v("\n              Add Song\n            ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                            Add Song\n                        ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
     attrs: {
       type: "button",
@@ -5303,7 +5303,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5315,7 +5315,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Add Ten Major Song\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Add Ten Major Song\n                        ")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5327,7 +5327,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Update Ten Major Song\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  }, [_vm._v("\n                            Update Ten Major Song\n                        ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     ref: "songRef",
     attrs: {
       id: "song-form"
@@ -5480,7 +5480,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
@@ -5529,12 +5529,12 @@ var render = function render() {
     on: {
       click: _vm.closeDialog
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        Upload Song Template\n                    ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "bs-stepper-content mt-4"
   }, [_c("div", {
     staticClass: "content",
@@ -5559,7 +5559,7 @@ var render = function render() {
       "padding-bottom": "0",
       "font-size": "12px"
     }
-  }, [_vm._v("\n                    God Ten Major Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                        God Ten Major Songs Template, or if you prefer\n                                    ")]), _vm._v(" "), _c("div", {
     staticClass: "position-relative"
   }, [_c("button", {
     staticClass: "btn btn-primary position-relative",
@@ -5570,7 +5570,7 @@ var render = function render() {
     attrs: {
       type: "button"
     }
-  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
+  }, [_vm._v("\n                                            Browse\n                                            "), _c("input", {
     staticStyle: {
       position: "absolute",
       left: "0",
@@ -5630,7 +5630,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
+  }) : _vm._e(), _vm._v("\n                                UPLOAD")])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5643,7 +5643,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")]);
+  }, [_vm._v("\n                                        Download"), _c("br"), _vm._v("Template\n                                    ")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -5665,7 +5665,7 @@ var staticRenderFns = [function () {
       color: "#bbbbbb",
       "margin-bottom": "0.2rem"
     }
-  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
+  }, [_vm._v("\n                                        DRAG & DROP\n                                    ")])]);
 }];
 render._withStripped = true;
 
@@ -5712,7 +5712,7 @@ var render = function render() {
     on: {
       click: _vm.showAddSingleSongModal
     }
-  }, [_vm._v("\n              Add Song\n            ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                            Add Song\n                        ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
     attrs: {
       type: "button",
@@ -5775,7 +5775,7 @@ var render = function render() {
       key: praisesAndWorshipSong.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(praisesAndWorshipSong.song_number))]), _vm._v(" "), _c("td", {
       staticClass: "text-left"
-    }, [_vm._v("\n                " + _vm._s(praisesAndWorshipSong.song_title) + "\n              ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(praisesAndWorshipSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_vm._v("\n                                " + _vm._s(praisesAndWorshipSong.song_title) + "\n                            ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(praisesAndWorshipSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
@@ -5851,7 +5851,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5863,7 +5863,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Add Praises And Worship Song\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Add Praises And Worship Song\n                        ")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -5875,7 +5875,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Update Praises And Worship Song\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  }, [_vm._v("\n                            Update Praises And Worship Song\n                        ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     ref: "songRef",
     attrs: {
       id: "song-form"
@@ -6028,7 +6028,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
@@ -6077,12 +6077,12 @@ var render = function render() {
     on: {
       click: _vm.closeDialog
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        Upload Song Template\n                    ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "bs-stepper-content mt-4"
   }, [_c("div", {
     staticClass: "content",
@@ -6107,7 +6107,7 @@ var render = function render() {
       "padding-bottom": "0",
       "font-size": "12px"
     }
-  }, [_vm._v("\n                    Praises And Worship Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                        Praises And Worship Songs Template, or if you prefer\n                                    ")]), _vm._v(" "), _c("div", {
     staticClass: "position-relative"
   }, [_c("button", {
     staticClass: "btn btn-primary position-relative",
@@ -6118,7 +6118,7 @@ var render = function render() {
     attrs: {
       type: "button"
     }
-  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
+  }, [_vm._v("\n                                            Browse\n                                            "), _c("input", {
     staticStyle: {
       position: "absolute",
       left: "0",
@@ -6178,7 +6178,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
+  }) : _vm._e(), _vm._v("\n                                UPLOAD")])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -6191,7 +6191,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")]);
+  }, [_vm._v("\n                                        Download"), _c("br"), _vm._v("Template\n                                    ")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -6213,7 +6213,7 @@ var staticRenderFns = [function () {
       color: "#bbbbbb",
       "margin-bottom": "0.2rem"
     }
-  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
+  }, [_vm._v("\n                                        DRAG & DROP\n                                    ")])]);
 }];
 render._withStripped = true;
 
@@ -6260,7 +6260,7 @@ var render = function render() {
     on: {
       click: _vm.showAddSingleSongModal
     }
-  }, [_vm._v("\n              Add Song\n            ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                            Add Song\n                        ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
     attrs: {
       type: "button",
@@ -6323,7 +6323,7 @@ var render = function render() {
       key: variousTongueSong.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(variousTongueSong.song_number))]), _vm._v(" "), _c("td", {
       staticClass: "text-left"
-    }, [_vm._v("\n                " + _vm._s(variousTongueSong.song_title) + "\n              ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(variousTongueSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_vm._v("\n                                " + _vm._s(variousTongueSong.song_title) + "\n                            ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(variousTongueSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
@@ -6399,7 +6399,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -6411,7 +6411,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Add Song In various Tongue\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Add Song In various Tongue\n                        ")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -6423,7 +6423,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Update Song In various Tongue\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  }, [_vm._v("\n                            Update Song In various Tongue\n                        ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     ref: "songRef",
     attrs: {
       id: "song-form"
@@ -6576,7 +6576,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
@@ -6625,12 +6625,12 @@ var render = function render() {
     on: {
       click: _vm.closeDialog
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        Upload Song Template\n                    ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "bs-stepper-content mt-4"
   }, [_c("div", {
     staticClass: "content",
@@ -6655,7 +6655,7 @@ var render = function render() {
       "padding-bottom": "0",
       "font-size": "12px"
     }
-  }, [_vm._v("\n                    The Songs In Various Tongues Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                        The Songs In Various Tongues Template, or if you prefer\n                                    ")]), _vm._v(" "), _c("div", {
     staticClass: "position-relative"
   }, [_c("button", {
     staticClass: "btn btn-primary position-relative",
@@ -6666,7 +6666,7 @@ var render = function render() {
     attrs: {
       type: "button"
     }
-  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
+  }, [_vm._v("\n                                            Browse\n                                            "), _c("input", {
     staticStyle: {
       position: "absolute",
       left: "0",
@@ -6726,7 +6726,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
+  }) : _vm._e(), _vm._v("\n                                UPLOAD")])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -6739,7 +6739,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")]);
+  }, [_vm._v("\n                                        Download"), _c("br"), _vm._v("Template\n                                    ")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -6761,7 +6761,7 @@ var staticRenderFns = [function () {
       color: "#bbbbbb",
       "margin-bottom": "0.2rem"
     }
-  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
+  }, [_vm._v("\n                                        DRAG & DROP\n                                    ")])]);
 }];
 render._withStripped = true;
 
@@ -6808,7 +6808,7 @@ var render = function render() {
     on: {
       click: _vm.showAddSingleSongModal
     }
-  }, [_vm._v("\n              Add Song\n            ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                            Add Song\n                        ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
     attrs: {
       type: "button",
@@ -6871,7 +6871,7 @@ var render = function render() {
       key: theBigSongBookSong.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(theBigSongBookSong.song_number))]), _vm._v(" "), _c("td", {
       staticClass: "text-left"
-    }, [_vm._v("\n                " + _vm._s(theBigSongBookSong.song_title) + "\n              ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(theBigSongBookSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_vm._v("\n                                " + _vm._s(theBigSongBookSong.song_title) + "\n                            ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(theBigSongBookSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
@@ -6947,7 +6947,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -6959,7 +6959,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Add The Big Song Book Song\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Add The Big Song Book Song\n                        ")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -6971,7 +6971,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Update The Big Song Book Song\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  }, [_vm._v("\n                            Update The Big Song Book Song\n                        ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     ref: "songRef",
     attrs: {
       id: "song-form"
@@ -7124,7 +7124,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
@@ -7173,12 +7173,12 @@ var render = function render() {
     on: {
       click: _vm.closeDialog
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        Upload Song Template\n                    ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "bs-stepper-content mt-4"
   }, [_c("div", {
     staticClass: "content",
@@ -7203,7 +7203,7 @@ var render = function render() {
       "padding-bottom": "0",
       "font-size": "12px"
     }
-  }, [_vm._v("\n                    The Big Song Book Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                        The Big Song Book Songs Template, or if you prefer\n                                    ")]), _vm._v(" "), _c("div", {
     staticClass: "position-relative"
   }, [_c("button", {
     staticClass: "btn btn-primary position-relative",
@@ -7214,7 +7214,7 @@ var render = function render() {
     attrs: {
       type: "button"
     }
-  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
+  }, [_vm._v("\n                                            Browse\n                                            "), _c("input", {
     staticStyle: {
       position: "absolute",
       left: "0",
@@ -7274,7 +7274,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
+  }) : _vm._e(), _vm._v("\n                                UPLOAD")])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -7287,7 +7287,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")]);
+  }, [_vm._v("\n                                        Download"), _c("br"), _vm._v("Template\n                                    ")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -7309,7 +7309,7 @@ var staticRenderFns = [function () {
       color: "#bbbbbb",
       "margin-bottom": "0.2rem"
     }
-  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
+  }, [_vm._v("\n                                        DRAG & DROP\n                                    ")])]);
 }];
 render._withStripped = true;
 
@@ -7356,7 +7356,7 @@ var render = function render() {
     on: {
       click: _vm.showAddSingleSongModal
     }
-  }, [_vm._v("\n              Add Song\n            ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                            Add Song\n                            ")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-primary dropdown-toggle dropdown-toggle-split",
     attrs: {
       type: "button",
@@ -7419,7 +7419,7 @@ var render = function render() {
       key: presentTenseSong.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(presentTenseSong.song_number))]), _vm._v(" "), _c("td", {
       staticClass: "text-left"
-    }, [_vm._v("\n                " + _vm._s(presentTenseSong.song_title) + "\n              ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(presentTenseSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_vm._v("\n                        " + _vm._s(presentTenseSong.song_title) + "\n                    ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(presentTenseSong.created_at)))]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
@@ -7495,7 +7495,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    ×\n                    ")]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -7507,7 +7507,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Add Present Tense Song\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Add Present Tense Song\n                        ")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -7519,7 +7519,7 @@ var render = function render() {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n              Update Present Tense Song\n            ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
+  }, [_vm._v("\n                            Update Present Tense Song\n                        ")])]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
     ref: "songRef",
     attrs: {
       id: "song-form"
@@ -7672,7 +7672,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                        ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
@@ -7721,12 +7721,12 @@ var render = function render() {
     on: {
       click: _vm.closeDialog
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                            ×\n                            ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
     }
-  }, [_vm._v("\n            Upload Song Template\n          ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                Upload Song Template\n                            ")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "bs-stepper-content mt-4"
   }, [_c("div", {
     staticClass: "content",
@@ -7751,7 +7751,7 @@ var render = function render() {
       "padding-bottom": "0",
       "font-size": "12px"
     }
-  }, [_vm._v("\n                    The Present Tense Songs Template, or if you prefer\n                  ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                                The Present Tense Songs Template, or if you prefer\n                                            ")]), _vm._v(" "), _c("div", {
     staticClass: "position-relative"
   }, [_c("button", {
     staticClass: "btn btn-primary position-relative",
@@ -7762,7 +7762,7 @@ var render = function render() {
     attrs: {
       type: "button"
     }
-  }, [_vm._v("\n                      Browse\n                      "), _c("input", {
+  }, [_vm._v("\n                                                    Browse\n                                                    "), _c("input", {
     staticStyle: {
       position: "absolute",
       left: "0",
@@ -7822,7 +7822,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e(), _vm._v("\n                UPLOAD")])])])])])])])]);
+  }) : _vm._e(), _vm._v("\n                                UPLOAD")])])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -7835,7 +7835,7 @@ var staticRenderFns = [function () {
     _c = _vm._self._c;
   return _c("p", {
     staticClass: "font-weight-light small mt-1"
-  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                  ")]);
+  }, [_vm._v("\n                    Download"), _c("br"), _vm._v("Template\n                ")]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -7857,7 +7857,7 @@ var staticRenderFns = [function () {
       color: "#bbbbbb",
       "margin-bottom": "0.2rem"
     }
-  }, [_vm._v("\n                    DRAG & DROP\n                  ")])]);
+  }, [_vm._v("\n                                                DRAG & DROP\n                                            ")])]);
 }];
 render._withStripped = true;
 

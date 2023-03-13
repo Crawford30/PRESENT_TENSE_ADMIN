@@ -545,8 +545,6 @@ export default {
 };
 </script>
 
-
-
 <style lang="scss" scoped>
 .present-tense-table th,
 .present-tense-table td {

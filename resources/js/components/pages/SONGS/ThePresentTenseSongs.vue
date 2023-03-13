@@ -1,370 +1,401 @@
 <template>
-  <div class="dvd-view">
-    <div class="container">
-      <div class="row my-3">
-        <div class="col-md-9 text-left">
-          <h4>The Present Tense Songs</h4>
-        </div>
-        <div class="col-md-3">
-          <div class="btn-group add-new-dropdown" style="width: 100%">
-            <div class="btn-group w-100" role="group">
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="showAddSingleSongModal"
-              >
-                Add Song
-              </button>
-              <button
-                type="button"
-                class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <div class="dropdown-menu">
-                  <div
-                    class="border-bottom dropdown-item text-center"
-                    @click="showAddSingleSongModal"
-                  >
-                    <img
-                      src="/images/icons/user_folder.png"
-                      alt="single image"
-                      class="img-logo"
-                    />
-                    <p class="font-weight-light small mt-1">Single Record</p>
-                  </div>
-                  <div
-                    class="border-bottom dropdown-item text-center"
-                    @click="showUploadExcel"
-                  >
-                    <img
-                      src="/images/icons/upload_purple.png"
-                      alt="single image"
-                      class="img-logo"
-                    />
-                    <p class="font-weight-light small mt-1">Batch Upload</p>
-                  </div>
+    <div class="dvd-view">
+        <div class="container">
+            <div class="row my-3">
+                <div class="col-md-9 text-left">
+                    <h4>The Present Tense Songs</h4>
+                </div>
+                <div class="col-md-3">
+                    <div
+                        class="btn-group add-new-dropdown"
+                        style="width: 100%"
+                    >
+                        <div
+                            class="btn-group w-100"
+                            role="group"
+                        >
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                @click="showAddSingleSongModal"
+                            >
+                                Add Song
+                                </button>
+                                <button
+                                    type="button"
+                                    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <div class="dropdown-menu">
+                                        <div
+                                            class="border-bottom dropdown-item text-center"
+                                            @click="showAddSingleSongModal"
+                                        >
+                                            <img
+                                                src="/images/icons/user_folder.png"
+                                                alt="single image"
+                                                class="img-logo"
+                                            />
+                                            <p class="font-weight-light small mt-1">Single Record</p>
+                                    </div>
+                                    <div
+                                        class="border-bottom dropdown-item text-center"
+                                        @click="showUploadExcel"
+                                    >
+                                        <img
+                                            src="/images/icons/upload_purple.png"
+                                            alt="single image"
+                                            class="img-logo"
+                                        />
+                                        <p class="font-weight-light small mt-1">Batch Upload</p>
+                </div>
 
-                  <a
+                <a
                     class="pt-2 mb-0 dropdown-item text-center"
                     @click="downloadTemplate"
-                  >
+                >
                     <img
-                      src="/images/icons/icon.excel.png"
-                      alt="single image"
-                      class="img-logo"
-                      style="height: 25px !important"
+                        src="/images/icons/icon.excel.png"
+                        alt="single image"
+                        class="img-logo"
+                        style="height: 25px !important"
                     />
                     <p class="font-weight-light small mt-1">
-                      Download<br />Template
+                        Download<br />Template
                     </p>
-                  </a>
-                </div>
-              </button>
+                    </a>
             </div>
-          </div>
+            </button>
         </div>
-      </div>
+    </div>
+    </div>
+    </div>
 
-      <div class="card">
+    <div class="card">
         <!-- <div class="col-11 ml-0 pl-0" v-if="checkPermission(current_user)"> -->
         <div class="staff-card shadow-sm table-padding">
-          <div class="row justify-content-center">
-            <table class="table table-sm present-tense-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>SONG NUMBER</th>
-                  <th class="text-left">SONG TITLE</th>
-                  <th>DATE CREATED</th>
-                  <th>ACTIONS</th>
-                </tr>
-              </thead>
+            <div class="row justify-content-center">
+                <table class="table table-sm present-tense-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>SONG NUMBER</th>
+                            <th class="text-left">SONG TITLE</th>
+                            <th>DATE CREATED</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
 
-              <tr
-                v-for="(presentTenseSong, index) in presentTenseSongs.results"
-                :key="presentTenseSong.id + '_' + index"
-              >
-                <td>{{ index + 1 }}</td>
-                <td>{{ presentTenseSong.song_number }}</td>
-                <td class="text-left">
-                  {{ presentTenseSong.song_title }}
-                </td>
-                <td>{{ presentTenseSong.created_at | myDate }}</td>
-                <td>
-                  <a href="#" @click="updateSong(presentTenseSong)">
-                    <i
-                      class="fas fa-pencil-alt"
-                      style="color: #999; font-size: 18px"
-                    ></i>
-                  </a>
+                    <tr
+                        v-for="(presentTenseSong, index) in presentTenseSongs.results"
+                        :key="presentTenseSong.id + '_' + index"
+                    >
+                        <td>{{ index + 1 }}</td>
+                        <td>{{ presentTenseSong.song_number }}</td>
+                        <td class="text-left">
+                            {{ presentTenseSong.song_title }}
+                        </td>
+                        <td>{{ presentTenseSong.created_at | myDate }}</td>
+                        <td>
+                            <a
+                                href="#"
+                                @click="updateSong(presentTenseSong)"
+                            >
+                                <i
+                                    class="fas fa-pencil-alt"
+                                    style="color: #999; font-size: 18px"
+                                ></i>
+                                    </a>
 
-                  <a
-                    href="#"
-                    @click="deleteSong(presentTenseSong.id)"
-                    style="margin-left: 8px"
-                  >
-                    <i
-                      class="far fa-trash-alt"
-                      style="color: #999; font-size: 18px"
-                    ></i>
-                  </a>
+                                    <a
+                                        href="#"
+                                        @click="deleteSong(presentTenseSong.id)"
+                                        style="margin-left: 8px"
+                                    >
+                                        <i
+                                            class="far fa-trash-alt"
+                                            style="color: #999; font-size: 18px"
+                                        ></i>
+                                            </a>
 
-                  <a
-                    href="#"
-                    @click="viewSongDetail(presentTenseSong)"
-                    style="margin-left: 8px"
-                  >
-                    <i
-                      class="fas fa-ellipsis-v"
-                      style="color: #999; font-size: 18px"
-                    ></i>
-                  </a>
-                </td>
-              </tr>
-            </table>
-          </div>
+                                            <a
+                                                href="#"
+                                                @click="viewSongDetail(presentTenseSong)"
+                                                style="margin-left: 8px"
+                                            >
+                                                <i
+                                                    class="fas fa-ellipsis-v"
+                                                    style="color: #999; font-size: 18px"
+                                                ></i>
+                                                    </a>
+                        </td>
+                        </tr>
+                </table>
+            </div>
 
-          <!-- </div> -->
+            <!-- </div> -->
         </div>
-      </div>
+    </div>
     </div>
 
-    <div class="modal fade" id="single-song-modal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body p-4">
-            <button
-              type="button"
-              style="position: absolute; right: 1.5rem; top: 1.5rem"
-              class="close"
-              @click="closeModel"
-            >
-              &times;
-            </button>
-            <div v-show="!editmode">
-              <h5 style="text-align: center; font-weight: bold">
-                Add Present Tense Song
-              </h5>
-            </div>
-            <div v-show="editmode">
-              <h5 style="text-align: center; font-weight: bold">
-                Update Present Tense Song
-              </h5>
-            </div>
+    <div
+        class="modal fade"
+        id="single-song-modal"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body p-4">
+                    <button
+                        type="button"
+                        style="position: absolute; right: 1.5rem; top: 1.5rem"
+                        class="close"
+                        @click="closeModel"
+                    >
+                        &times;
+                        </button>
+                        <div v-show="!editmode">
+                            <h5 style="text-align: center; font-weight: bold">
+                                Add Present Tense Song
+                            </h5>
+                        </div>
+                        <div v-show="editmode">
+                            <h5 style="text-align: center; font-weight: bold">
+                                Update Present Tense Song
+                            </h5>
+                        </div>
 
-            <br />
-            <hr />
+                        <br />
+                        <hr />
 
-            <form id="song-form" ref="songRef">
-              <input
-                hidden
-                name="id"
-                v-if="selectedSong != null"
-                :value="selectedSong.id"
-              />
+                        <form
+                            id="song-form"
+                            ref="songRef"
+                        >
+                            <input
+                                hidden
+                                name="id"
+                                v-if="selectedSong != null"
+                                :value="selectedSong.id"
+                            />
 
-              <div class="form-group">
-                <label>Song Number</label>
-                <input
-                  v-if="selectedSong != null"
-                  :value="selectedSong.song_number"
-                  name="song_number"
-                  type="text"
-                  class="form-control"
-                  autocomplete="off"
-                  placeholder="Song Number"
-                  required
-                />
-                <input
-                  v-else
-                  v-model="songNumber"
-                  name="song_number"
-                  type="text"
-                  class="form-control"
-                  autocomplete="off"
-                  placeholder="Song Number"
-                  required
-                />
-              </div>
-              <!-- <p style="color: red">Song number is required</p> -->
+                            <div class="form-group">
+                                <label>Song Number</label>
+                                <input
+                                    v-if="selectedSong != null"
+                                    :value="selectedSong.song_number"
+                                    name="song_number"
+                                    type="text"
+                                    class="form-control"
+                                    autocomplete="off"
+                                    placeholder="Song Number"
+                                    required
+                                />
+                                <input
+                                    v-else
+                                    v-model="songNumber"
+                                    name="song_number"
+                                    type="text"
+                                    class="form-control"
+                                    autocomplete="off"
+                                    placeholder="Song Number"
+                                    required
+                                />
+                            </div>
+                            <!-- <p style="color: red">Song number is required</p> -->
 
-              <div class="form-group">
-                <label>Song Title</label>
-                <vue-editor
-                  v-if="selectedSong != null"
-                  id="song-title"
-                  placeholder="Please Type Song Title Here"
-                  :disabled="false"
-                  v-model="songTitle"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
+                            <div class="form-group">
+                                <label>Song Title</label>
+                                <vue-editor
+                                    v-if="selectedSong != null"
+                                    id="song-title"
+                                    placeholder="Please Type Song Title Here"
+                                    :disabled="false"
+                                    v-model="songTitle"
+                                    :editorToolbar="defaultToolbar"
+                                ></vue-editor>
 
-                <vue-editor
-                  v-else
-                  id="song-title"
-                  placeholder="Please Type Song Title Here"
-                  :disabled="false"
-                  v-model="songTitle"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
-              </div>
+                                    <vue-editor
+                                        v-else
+                                        id="song-title"
+                                        placeholder="Please Type Song Title Here"
+                                        :disabled="false"
+                                        v-model="songTitle"
+                                        :editorToolbar="defaultToolbar"
+                                    ></vue-editor>
+                            </div>
 
-              <div class="form-group">
-                <label>Song Body</label>
-                <vue-editor
-                  id="song-body"
-                  placeholder="Please Type Song Body Here"
-                  :disabled="false"
-                  v-model="songBody"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
-              </div>
-            </form>
+                            <div class="form-group">
+                                <label>Song Body</label>
+                                <vue-editor
+                                    id="song-body"
+                                    placeholder="Please Type Song Body Here"
+                                    :disabled="false"
+                                    v-model="songBody"
+                                    :editorToolbar="defaultToolbar"
+                                ></vue-editor>
+                            </div>
+                            </form>
 
-            <div class="row d-flex justify-content-center">
-              <div class="col-4 px-6">
-                <div class="text-center mt-2">
-                  <button
-                    type="button"
-                    class="present-tense-btn present-tense-secondary"
-                    @click="closeModel"
-                  >
-                    <span> Close</span>
-                  </button>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-4 px-6">
+                                    <div class="text-center mt-2">
+                                        <button
+                                            type="button"
+                                            class="present-tense-btn present-tense-secondary"
+                                            @click="closeModel"
+                                        >
+                                            <span> Close</span>
+                                            </button>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-center mt-2">
+                                        <button
+                                            :disabled="isProcessing"
+                                            type="button"
+                                            class="present-tense-btn present-tense-primary"
+                                            @click="saveSong"
+                                        >
+                                            <i
+                                                v-if="isProcessing"
+                                                id="sendlog-spinner-spinner"
+                                                class="fa fa-spinner fa-spin"
+                                            ></i>
+                                                <span>Save</span>
+                                                </button>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
-              </div>
-              <div class="col-4">
-                <div class="text-center mt-2">
-                  <button
-                    :disabled="isProcessing"
-                    type="button"
-                    class="present-tense-btn present-tense-primary"
-                    @click="saveSong"
-                  >
-                    <i
-                      v-if="isProcessing"
-                      id="sendlog-spinner-spinner"
-                      class="fa fa-spinner fa-spin"
-                    ></i>
-                    <span>Save</span>
-                  </button>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-------Add Single Song  End------>
-
-    <!-------View Single  Song Detail------>
-    <div class="modal fade" id="single-song-modal-detail">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body p-4">
-            <button
-              type="button"
-              style="position: absolute; right: 1.5rem; top: 1.5rem"
-              class="close"
-              @click="closeModel"
-            >
-              &times;
-            </button>
-            <h5 style="text-align: center; font-weight: bold">Song Details</h5>
-
-            <br />
-            <hr />
-
-            <form id="song-form" ref="songRef">
-              <div class="form-group">
-                <!-- <label>Song</label> -->
-                <vue-editor
-                  id="song-body"
-                  :disabled="true"
-                  v-model="songBody"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
-              </div>
-            </form>
-          </div>
         </div>
-      </div>
-    </div>
-    <!-------View Single Song  End------>
+        <!-------Add Single Song  End------>
 
-    <!-- Upload Excel -->
-    <div class="modal fade" id="modal-upload-song-excel">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <!-- Modal body -->
-          <div class="modal-body py-4">
-            <button
-              type="button"
-              style="position: absolute; right: 1.5rem; top: 1.5rem"
-              class="close"
-              @click="closeDialog"
+        <!-------View Single  Song Detail------>
+        <div
+            class="modal fade"
+            id="single-song-modal-detail"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body p-4">
+                        <button
+                            type="button"
+                            style="position: absolute; right: 1.5rem; top: 1.5rem"
+                            class="close"
+                            @click="closeModel"
+                        >
+                            &times;
+                            </button>
+                            <h5 style="text-align: center; font-weight: bold">Song Details</h5>
+
+                            <br />
+                            <hr />
+
+                            <form
+                                id="song-form"
+                                ref="songRef"
+                            >
+                                <div class="form-group">
+                                    <!-- <label>Song</label> -->
+                                    <vue-editor
+                                        id="song-body"
+                                        :disabled="true"
+                                        v-model="songBody"
+                                        :editorToolbar="defaultToolbar"
+                                    ></vue-editor>
+                                </div>
+                                </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-------View Single Song  End------>
+
+            <!-- Upload Excel -->
+            <div
+                class="modal fade"
+                id="modal-upload-song-excel"
             >
-              &times;
-            </button>
-            <h5 style="text-align: center; font-weight: bold">
-              Upload Song Template
-            </h5>
-            <br />
-            <div class="bs-stepper-content mt-4">
-              <div id="step1-view" class="content">
-                <div
-                  v-if="!hasFile"
-                  id="drop-area"
-                  class="drag-drop-area px-5 py-3"
-                  style="margin-left: 0; margin-right: 0"
-                >
-                  <div class="text-center drop-zone">
-                    <img class="icon-img" src="/images/icons/upload_gray.png" />
-                    <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
-                      DRAG &amp; DROP
-                    </h6>
-                  </div>
-                  <div class="text-center">
-                    <p
-                      style="
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal body -->
+                        <div class="modal-body py-4">
+                            <button
+                                type="button"
+                                style="position: absolute; right: 1.5rem; top: 1.5rem"
+                                class="close"
+                                @click="closeDialog"
+                            >
+                                &times;
+                                </button>
+                                <h5 style="text-align: center; font-weight: bold">
+                                    Upload Song Template
+                                </h5>
+                                <br />
+                                <div class="bs-stepper-content mt-4">
+                                    <div
+                                        id="step1-view"
+                                        class="content"
+                                    >
+                                        <div
+                                            v-if="!hasFile"
+                                            id="drop-area"
+                                            class="drag-drop-area px-5 py-3"
+                                            style="margin-left: 0; margin-right: 0"
+                                        >
+                                            <div class="text-center drop-zone">
+                                                <img
+                                                    class="icon-img"
+                                                    src="/images/icons/upload_gray.png"
+                                                />
+                                                <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
+                                                    DRAG &amp; DROP
+                                                </h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <p style="
                         color: #bbbbbb;
                         margin-bottom: 0;
                         padding-bottom: 0;
                         font-size: 12px;
-                      "
-                    >
-                      The Present Tense Songs Template, or if you prefer
-                    </p>
-                    <div class="position-relative">
-                      <button
-                        type="button"
-                        class="btn btn-primary position-relative"
-                        style="font-size: 12px; margin-top: 5px"
-                      >
-                        Browse
-                        <input
-                          @change="onBrowseFile"
-                          type="file"
-                          style="
+                      ">
+                                                    The Present Tense Songs Template, or if you prefer
+                                                </p>
+                                                <div class="position-relative">
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-primary position-relative"
+                                                        style="font-size: 12px; margin-top: 5px"
+                                                    >
+                                                        Browse
+                                                        <input
+                                                            @change="onBrowseFile"
+                                                            type="file"
+                                                            style="
                             position: absolute;
                             left: 0;
                             top: 0;
                             opacity: 0;
                             cursor: pointer;
                           "
-                        />
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div v-else class="border p-5">
-                  <h6 class="text-center te xt-black-50">{{ file.name }}</h6>
-                  <div class="text-center">
-                    <button
-                      @click.prevent="removeFile()"
-                      style="
+                                                        />
+                                                        </button>
+                                                </div>
+                                            </div>
+                                </div>
+                                <div
+                                    v-else
+                                    class="border p-5"
+                                >
+                                    <h6 class="text-center te xt-black-50">{{ file.name }}</h6>
+                                    <div class="text-center">
+                                        <button
+                                            @click.prevent="removeFile()"
+                                            style="
                         font-size: 24px;
                         color: #666666;
                         background: #ffffff;
@@ -372,34 +403,42 @@
                         border: none;
                         cursor: pointer;
                       "
-                    >
-                      <i class="far fa-trash-alt"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div id="step2-view" class="content"></div>
-              <div id="step3-view" class="content"></div>
-            </div>
-            <div class="text-center mt-2">
-              <button
-                :disabled="file === null || isProcessing"
-                @click="uploadFile"
-                type="button"
-                class="present-tense-btn present-tense-primary"
-              >
-                <span>
-                  <i v-if="isProcessing" class="fa fa-spinner fa-spin"> </i>
-                  UPLOAD</span
-                >
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!---End of upload --->
-  </div>
+                                        >
+                                            <i class="far fa-trash-alt"></i>
+                                            </button>
+                                    </div>
+                        </div>
+                    </div>
+                    <div
+                        id="step2-view"
+                        class="content"
+                    ></div>
+                <div
+                    id="step3-view"
+                    class="content"
+                ></div>
+                    </div>
+                    <div class="text-center mt-2">
+                        <button
+                            :disabled="file === null || isProcessing"
+                            @click="uploadFile"
+                            type="button"
+                            class="present-tense-btn present-tense-primary"
+                        >
+                            <span>
+                                <i
+                                    v-if="isProcessing"
+                                    class="fa fa-spinner fa-spin"
+                                > </i>
+                                    UPLOAD</span>
+                            </button>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <!---End of upload --->
+                    </div>
 </template>
 
 <script>
@@ -409,7 +448,7 @@ import dragAndDropHelper from "./../../mixin/dragAndDropHelper";
 
 export default {
   components: {
-    VueEditor,
+    VueEditor
   },
   mixins: [dragAndDropHelper],
   data() {
@@ -429,41 +468,41 @@ export default {
       defaultToolbar: [
         [
           {
-            header: [false, 1, 2, 3, 4, 5, 6],
-          },
+            header: [false, 1, 2, 3, 4, 5, 6]
+          }
         ],
         ["bold", "italic", "underline", "strike"],
         [
           {
-            align: "",
+            align: ""
           },
           {
-            align: "center",
+            align: "center"
           },
           {
-            align: "right",
+            align: "right"
           },
           {
-            align: "justify",
-          },
+            align: "justify"
+          }
         ],
         [
           {
-            list: "ordered",
+            list: "ordered"
           },
           {
-            list: "bullet",
-          },
+            list: "bullet"
+          }
         ],
         [
           {
-            indent: "-1",
+            indent: "-1"
           },
           {
-            indent: "+1",
-          },
-        ],
-      ],
+            indent: "+1"
+          }
+        ]
+      ]
     };
   },
 
@@ -495,10 +534,10 @@ export default {
         axios({
           method: "post",
           url: "/api/present-tense/create-present-tense-song",
-          data: songFormData,
+          data: songFormData
           //form.serialize(),
         })
-          .then((response) => {
+          .then(response => {
             app.isProcessing = false;
             app.getPresentTenseSongs();
             formModal.modal("hide");
@@ -507,19 +546,20 @@ export default {
             Swal.fire({
               icon: "success",
               title: "Success",
-              html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
+              html:
+                "<p class='font-size: 13px'>Song Successfully Submitted</p>",
               showConfirmButton: true,
               allowOutsideClick: false,
               showCloseButton: true,
               confirmButtonText: "Ok",
-              confirmButtonColor: "#32CD32",
-            }).then((result) => {
+              confirmButtonColor: "#32CD32"
+            }).then(result => {
               if (result.isConfirmed) {
                 // window.location.href = "/list";
               }
             });
           })
-          .catch((error) => {
+          .catch(error => {
             app.isProcessing = false;
             this.errors = error.response.data.errors;
             formModal.modal("hide");
@@ -555,14 +595,14 @@ export default {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
         if (result.isConfirmed) {
           $.ajax({
             url: "api/present-tense/delete-present-tense-song",
             type: "post",
             data: {
-              present_tense_id: id,
+              present_tense_id: id
             },
             success(data) {
               Swal.fire(
@@ -574,7 +614,7 @@ export default {
             },
             error(e) {
               //   app.showAjaxError(e);
-            },
+            }
           });
         }
       });
@@ -584,10 +624,10 @@ export default {
       let app = this;
       axios
         .get("api/present-tense/list")
-        .then((response) => {
+        .then(response => {
           app.presentTenseSongs = response.data;
         })
-        .catch((error) => {
+        .catch(error => {
           //   app.showErrorMessage(error.response.data);
         });
     },
@@ -603,10 +643,10 @@ export default {
         url: "api/present-tense/import-present-tense-songs",
         data: formData,
         headers: {
-          "Content-Type": "multipart/form-data",
-        },
+          "Content-Type": "multipart/form-data"
+        }
       })
-        .then((response) => {
+        .then(response => {
           app.isProcessing = false;
           app.importResults = response.data;
           app.getPresentTenseSongs();
@@ -619,14 +659,14 @@ export default {
             allowOutsideClick: false,
             showCloseButton: true,
             confirmButtonText: "Ok",
-            confirmButtonColor: "#32CD32",
-          }).then((result) => {
+            confirmButtonColor: "#32CD32"
+          }).then(result => {
             if (result.isConfirmed) {
               // window.location.href = "/list";
             }
           });
         })
-        .catch((error) => {
+        .catch(error => {
           this.isProcessing = false;
           //   app.showErrorMessage(error.response.data);
           this.errors = error.response.data.errors;
@@ -647,11 +687,11 @@ export default {
       axios
         .get("/api/user/download-song-template", {
           params: {
-            fileName: "song_template.xlsx",
+            fileName: "song_template.xlsx"
           },
-          responseType: "blob",
+          responseType: "blob"
         })
-        .then((response) => {
+        .then(response => {
           const url = window.URL.createObjectURL(new Blob([response.data]));
           const link = document.createElement("a");
           link.href = url;
@@ -659,7 +699,7 @@ export default {
           document.body.appendChild(link);
           link.click();
         })
-        .catch((error) => {
+        .catch(error => {
           console.log("ERRRR:: ", error.response.data);
           //app.showErrorMessage(error.response.data);
         });
@@ -682,7 +722,7 @@ export default {
       $("#modal-upload-song-excel").modal(
         {
           backdrop: "static",
-          keyboard: false,
+          keyboard: false
         },
         "show"
       );
@@ -699,7 +739,7 @@ export default {
         Swal.fire({
           icon: "error",
           title: "Invalid File",
-          text: "File must be in excel format",
+          text: "File must be in excel format"
         });
       } else {
         app.file = fileData.file;
@@ -721,12 +761,10 @@ export default {
       app.hasFile = false;
       app.isProcessing = false;
       $("#modal-upload-song-excel").modal("hide");
-    },
-  },
+    }
+  }
 };
 </script>
-
-
 
 <style lang="scss" scoped>
 .present-tense-table th,
