@@ -1,217 +1,244 @@
 <template>
-  <div class="dvd-view">
-    <div class="container">
-      <div class="row my-3">
-        <div class="col-md-9 text-left">
-          <h4>Video DVDS</h4>
-        </div>
+    <div class="dvd-view">
+        <div class="container">
+            <div class="row my-3">
+                <div class="col-md-9 text-left">
+                    <h4>Video DVDS</h4>
+                </div>
 
-        <div class="col-md-3">
-          <div class="btn-group add-new-dropdown" style="width: 100%">
-            <div class="btn-group w-100" role="group">
-              <button
-                type="button"
-                class="btn btn-primary"
-                @click="showUploadVideo"
-              >
-                Upload Video DVD
-              </button>
+                <div class="col-md-3">
+                    <div
+                        class="btn-group add-new-dropdown"
+                        style="width: 100%"
+                    >
+                        <div
+                            class="btn-group w-100"
+                            role="group"
+                        >
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                @click="showUploadVideo"
+                            >
+                                Upload Video DVD
+                                </button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-      <div class="card">
+    <div class="card">
         <!-- <div class="col-11 ml-0 pl-0" v-if="checkPermission(current_user)"> -->
         <div class="staff-card shadow-sm table-padding">
-          <div class="row justify-content-center">
-            <table class="table table-sm present-tense-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>DVD NAME</th>
-                  <th class="text-center">VIEWS</th>
-                  <th>DATE CREATED</th>
-                  <th>ACTIONS</th>
-                </tr>
-              </thead>
-              <tr
-                v-for="(dvdVideo, index) in dvdVideos.results"
-                :key="dvdVideo.id + '_' + index"
-              >
-                <td>{{ index + 1 }}</td>
+            <div class="row justify-content-center">
+                <table class="table table-sm present-tense-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="text-justify">DVD NAME</th>
+                            <th class="text-center">VIEWS</th>
+                            <th>DATE CREATED</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tr
+                        v-for="(dvdVideo, index) in dvdVideos.results"
+                        :key="dvdVideo.id + '_' + index"
+                    >
+                        <td>{{ index + 1 }}</td>
 
-                <td>
-                  {{ dvdVideo.video_dvd_name }}
-                  <!-- <a @click.prevent="showVideo(dvdVideo)" href="#">{{
+                        <td class="text-justify text-uppercase">
+                            {{ dvdVideo.video_dvd_name }}
+                            <!-- <a @click.prevent="showVideo(dvdVideo)" href="#">{{
                     dvdVideo.video_dvd_name
                   }}</a> -->
-                </td>
+                        </td>
 
-                <td class="text-center">{{ dvdVideo.views_count }}</td>
+                        <td class="text-center">{{ dvdVideo.views_count }}</td>
 
-                <td>{{ dvdVideo.creation_date | myDate }}</td>
-                <td>
-                  <a href="#">
-                    <i
-                      class="fas fa-pencil-alt"
-                      style="color: #999; font-size: 18px"
-                    ></i>
-                  </a>
+                        <td>{{ dvdVideo.creation_date | myDate }}</td>
+                        <td>
+                            <a href="#">
+                                <i
+                                    class="fas fa-pencil-alt"
+                                    style="color: #999; font-size: 18px"
+                                ></i>
+                            </a>
 
-                  <a
-                    @click.prevent="deleteVideoDVD(dvdVideo.id)"
-                    href="#"
-                    style="margin-left: 8px"
-                  >
-                    <i
-                      class="far fa-trash-alt"
-                      style="color: #999; font-size: 18px"
-                    ></i>
-                  </a>
+                            <a
+                                @click.prevent="deleteVideoDVD(dvdVideo.id)"
+                                href="#"
+                                style="margin-left: 8px"
+                            >
+                                <i
+                                    class="far fa-trash-alt"
+                                    style="color: #999; font-size: 18px"
+                                ></i>
+                                    </a>
 
-                  <a href="#" style="margin-left: 8px">
-                    <i
-                      class="fas fa-ellipsis-v"
-                      style="color: #999; font-size: 18px"
-                    ></i>
-                  </a>
-                </td>
-              </tr>
-            </table>
-          </div>
+                                    <a
+                                        href="#"
+                                        style="margin-left: 8px"
+                                    >
+                                        <i
+                                            class="fas fa-ellipsis-v"
+                                            style="color: #999; font-size: 18px"
+                                        ></i>
+                                            </a>
+                        </td>
+                        </tr>
+                </table>
+            </div>
 
-          <!-- </div> -->
+            <!-- </div> -->
         </div>
-      </div>
+    </div>
     </div>
 
-    <div class="modal fade" id="single-song-modal-detail">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body p-4">
-            <button
-              type="button"
-              style="position: absolute; right: 1.5rem; top: 1.5rem"
-              class="close"
-              @click="closeModel"
-            >
-              &times;
-            </button>
-            <h5 style="text-align: center; font-weight: bold">Song Details</h5>
+    <div
+        class="modal fade"
+        id="single-song-modal-detail"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body p-4">
+                    <button
+                        type="button"
+                        style="position: absolute; right: 1.5rem; top: 1.5rem"
+                        class="close"
+                        @click="closeModel"
+                    >
+                        &times;
+                        </button>
+                        <h5 style="text-align: center; font-weight: bold">Song Details</h5>
 
-            <br />
-            <hr />
+                        <br />
+                        <hr />
 
-            <form id="song-form" ref="songRef">
-              <div class="form-group">
-                <!-- <label>Song</label> -->
-                <vue-editor
-                  id="song-body"
-                  :disabled="true"
-                  v-model="songBody"
-                  :editorToolbar="defaultToolbar"
-                ></vue-editor>
-              </div>
-            </form>
-          </div>
+                        <form
+                            id="song-form"
+                            ref="songRef"
+                        >
+                            <div class="form-group">
+                                <!-- <label>Song</label> -->
+                                <vue-editor
+                                    id="song-body"
+                                    :disabled="true"
+                                    v-model="songBody"
+                                    :editorToolbar="defaultToolbar"
+                                ></vue-editor>
+                            </div>
+                            </form>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-------Add Single Song  End------>
+        </div>
+        <!-------Add Single Song  End------>
 
-    <div class="modal fade" id="modal-upload-video">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <!-- Modal body -->
-          <form enctype="multipart/form-data" id="videos-form" method="post">
-            <div class="modal-body px-4 mb-3">
-              <button
-                type="button"
-                style="position: absolute; right: 1.5rem; top: 1.5rem"
-                class="close"
-                @click="closeModel"
-              >
-                &times;
-              </button>
-              <h5 class="text-center">Add Video DVD</h5>
-              <!-- <hr /> -->
-              <div class="form-group">
-                <label for="">Video DVD Name</label>
-                <input
-                  required
-                  v-model="selectedVideo.video_dvd_name"
-                  name="video_dvd_name"
-                  class="form-control"
-                  placeholder="Video DVD Name"
-                  type="text"
-                />
-              </div>
+        <div
+            class="modal fade"
+            id="modal-upload-video"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal body -->
+                    <form
+                        enctype="multipart/form-data"
+                        id="videos-form"
+                        method="post"
+                    >
+                        <div class="modal-body px-4 mb-3">
+                            <button
+                                type="button"
+                                style="position: absolute; right: 1.5rem; top: 1.5rem"
+                                class="close"
+                                @click="closeModel"
+                            >
+                                &times;
+                                </button>
+                                <h5 class="text-center">Add Video DVD</h5>
+                                <!-- <hr /> -->
+                                <div class="form-group">
+                                    <label for="">Video DVD Name</label>
+                                    <input
+                                        required
+                                        v-model="selectedVideo.video_dvd_name"
+                                        name="video_dvd_name"
+                                        class="form-control"
+                                        placeholder="Video DVD Name"
+                                        type="text"
+                                    />
+                                </div>
 
-              <label for="">Video DVD File</label>
-              <DropFile ref="dropFile" inline-template v-cloak>
-                <div class="text-muted">
-                  <div
-                    v-if="!hasFile"
-                    v-bind:style="{ backgroundImage: backgroundImage }"
-                    v-on:drop.prevent="dragDrop"
-                    v-on:dragover.prevent="dragOver"
-                    class="drag-drop-area px-5 py-3"
-                    style="margin-left: 0; margin-right: 0"
-                  >
-                    <div class="text-center drop-zone">
-                      <img
-                        class="icon-img"
-                        src="/images/icons/upload_gray.png"
-                      />
-                      <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
-                        DRAG &amp; DROP
-                      </h6>
-                    </div>
-                    <div class="text-center">
-                      <p
-                        style="
+                                <label for="">Video DVD File</label>
+                                <DropFile
+                                    ref="dropFile"
+                                    inline-template
+                                    v-cloak
+                                >
+                                    <div class="text-muted">
+                                        <div
+                                            v-if="!hasFile"
+                                            v-bind:style="{ backgroundImage: backgroundImage }"
+                                            v-on:drop.prevent="dragDrop"
+                                            v-on:dragover.prevent="dragOver"
+                                            class="drag-drop-area px-5 py-3"
+                                            style="margin-left: 0; margin-right: 0"
+                                        >
+                                            <div class="text-center drop-zone">
+                                                <img
+                                                    class="icon-img"
+                                                    src="/images/icons/upload_gray.png"
+                                                />
+                                                <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
+                                                    DRAG &amp; DROP
+                                                </h6>
+                                            </div>
+                                            <div class="text-center">
+                                                <p style="
                           color: #bbbbbb;
                           margin-bottom: 0;
                           padding-bottom: 0;
                           font-size: 12px;
-                        "
-                      >
-                        the video, or if you prefer
-                      </p>
-                      <div class="position-relative">
-                        <button
-                          type="button"
-                          class="btn btn-primary position-relative"
-                          style="font-size: 12px; margin-top: 5px"
-                        >
-                          Choose files
-                          <input
-                            type="file"
-                            style="
+                        ">
+                                                    the video, or if you prefer
+                                                </p>
+                                                <div class="position-relative">
+                                                    <button
+                                                        type="button"
+                                                        class="btn btn-primary position-relative"
+                                                        style="font-size: 12px; margin-top: 5px"
+                                                    >
+                                                        Choose files
+                                                        <input
+                                                            type="file"
+                                                            style="
                               position: absolute;
                               left: 0;
                               top: 0;
                               opacity: 0;
                               cursor: pointer;
                             "
-                            accept="video/mp4,video/x-m4v,video/*"
-                            id="videoFile"
-                            class="opactiy-none"
-                            @change="fileChanged"
-                            name="file"
-                            ref="FileInput"
-                          />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <div v-else class="border p-5">
-                    <h6 class="text-center te xt-black-50">{{ fileName }}</h6>
-                    <div class="text-center">
-                      <button
-                        @click.prevent="removeFile()"
-                        style="
+                                                            accept="video/mp4,video/x-m4v,video/*"
+                                                            id="videoFile"
+                                                            class="opactiy-none"
+                                                            @change="fileChanged"
+                                                            name="file"
+                                                            ref="FileInput"
+                                                        />
+                                                        </button>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div
+                                        v-else
+                                        class="border p-5"
+                                    >
+                                        <h6 class="text-center te xt-black-50">{{ fileName }}</h6>
+                                        <div class="text-center">
+                                            <button
+                                                @click.prevent="removeFile()"
+                                                style="
                           font-size: 24px;
                           color: #666666;
                           background: #ffffff;
@@ -219,81 +246,90 @@
                           border: none;
                           cursor: pointer;
                         "
-                      >
-                        <i class="far fa-trash-alt"></i>
-                      </button>
-                    </div>
-                  </div>
+                                            >
+                                                <i class="far fa-trash-alt"></i>
+                                                </button>
+                                        </div>
+                        </div>
                 </div>
-              </DropFile>
-              <div class="form-group mt-3">
-                <!-- <label for="">Date Created</label> -->
-                <label for="">
-                  <label>Date Created</label>
-                  <!-- <Tooltip
+                </DropFile>
+                <div class="form-group mt-3">
+                    <!-- <label for="">Date Created</label> -->
+                    <label for="">
+                        <label>Date Created</label>
+                        <!-- <Tooltip
                     id="fi-doc-number"
                     title=""
                     content="e.g 2019-12-30 for 30-DEC-2019"
                   /> -->
-                </label>
+                    </label>
+                    <input
+                        v-model="selectedVideo.creation_date"
+                        name="creation_date"
+                        required
+                        class="form-control"
+                        placeholder="e.g 2019-12-30 for 30-DEC-2019"
+                        type="text"
+                    />
+                </div>
+
                 <input
-                  v-model="selectedVideo.creation_date"
-                  name="creation_date"
-                  required
-                  class="form-control"
-                  placeholder="e.g 2019-12-30 for 30-DEC-2019"
-                  type="text"
+                    hidden
+                    :value="selectedVideo.id"
+                    name="video_id"
+                    type="text"
                 />
-              </div>
-
-              <input
-                hidden
-                :value="selectedVideo.id"
-                name="video_id"
-                type="text"
-              />
-              <div class="form-group text-center">
-                <button
-                  @click.prevent="uploadVideo"
-                  :disabled="isProcessing"
-                  class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
-                >
-                  <span>
-                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"></i>
-                  </span>
-                  SAVE CHANGES
-                </button>
-              </div>
+                <div class="form-group text-center">
+                    <button
+                        @click.prevent="uploadVideo"
+                        :disabled="isProcessing"
+                        class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
+                    >
+                        <span>
+                            <i
+                                v-if="isProcessing"
+                                class="fa fa-spinner fa-spin"
+                            ></i>
+                        </span>
+                        SAVE CHANGES
+                        </button>
+                </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
+            </form>
+            </div>
+            </div>
+            </div>
 
-    <div class="modal" id="showVideo">
-      <div class="modal-dialog modal-lg">
-        <div v-if="displayVideo" class="modal-content px-2 py-2">
-          <p class="text-lg">{{ displayVideo.video_dvd_name }}</p>
-          <!-- {{selectedVideo}} -->
-          <iframe
-            id="vid-show"
-            autoplay="false"
-            width="100%"
-            height="400px"
-            :src="
+            <div
+                class="modal"
+                id="showVideo"
+            >
+                <div class="modal-dialog modal-lg">
+                    <div
+                        v-if="displayVideo"
+                        class="modal-content px-2 py-2"
+                    >
+                        <p class="text-lg">{{ displayVideo.video_dvd_name }}</p>
+                        <!-- {{selectedVideo}} -->
+                        <iframe
+                            id="vid-show"
+                            autoplay="false"
+                            width="100%"
+                            height="400px"
+                            :src="
               displayVideo.video_path
                 ? '/storage' + displayVideo.video_dvd_path
                 : displayVideo.video_dvd_path
             "
-            frameborder="0"
-            gesture="media"
-            allow="encrypted-media"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
+                            frameborder="0"
+                            gesture="media"
+                            allow="encrypted-media"
+                            allowfullscreen
+                        ></iframe>
+                </div>
+                </div>
+                </div>
+                </div>
 </template>
 
 <script>
@@ -308,7 +344,7 @@ export default {
   components: {
     VueEditor,
     DropFile,
-    Tooltip,
+    Tooltip
   },
   mixins: [dragAndDropHelper, Izitoast],
   data() {
@@ -333,48 +369,48 @@ export default {
       defaultToolbar: [
         [
           {
-            header: [false, 1, 2, 3, 4, 5, 6],
-          },
+            header: [false, 1, 2, 3, 4, 5, 6]
+          }
         ],
         ["bold", "italic", "underline", "strike"],
         [
           {
-            align: "",
+            align: ""
           },
           {
-            align: "center",
+            align: "center"
           },
           {
-            align: "right",
+            align: "right"
           },
           {
-            align: "justify",
-          },
+            align: "justify"
+          }
         ],
         [
           {
-            list: "ordered",
+            list: "ordered"
           },
           {
-            list: "bullet",
-          },
+            list: "bullet"
+          }
         ],
         [
           {
-            indent: "-1",
+            indent: "-1"
           },
           {
-            indent: "+1",
-          },
-        ],
-      ],
+            indent: "+1"
+          }
+        ]
+      ]
     };
   },
 
   mounted() {
     let app = this;
     app.getAllDVDVideos();
-    app.$on("video-uploaded", (data) => {
+    app.$on("video-uploaded", data => {
       app.uploadedVideo = data;
       //   console.log("VIDEO DATA: ", data);
     });
@@ -399,7 +435,7 @@ export default {
         url: "/api/video-dvd/list",
         success(data) {
           app.dvdVideos = data;
-        },
+        }
       });
       console.log("DVD VIDEOS", app.dvdVideos);
     },
@@ -479,7 +515,7 @@ export default {
               "warning"
             );
             app.showErrorMessage(app.formatAjaxError(e));
-          },
+          }
         });
       }
     },
@@ -507,10 +543,10 @@ export default {
         axios({
           method: "post",
           url: "/api/ten-major/create-ten-major-song",
-          data: songFormData,
+          data: songFormData
           //form.serialize(),
         })
-          .then((response) => {
+          .then(response => {
             app.isProcessing = false;
             app.getTenMajorSongs();
             formModal.modal("hide");
@@ -519,19 +555,20 @@ export default {
             Swal.fire({
               icon: "success",
               title: "Success",
-              html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
+              html:
+                "<p class='font-size: 13px'>Song Successfully Submitted</p>",
               showConfirmButton: true,
               allowOutsideClick: false,
               showCloseButton: true,
               confirmButtonText: "Ok",
-              confirmButtonColor: "#32CD32",
-            }).then((result) => {
+              confirmButtonColor: "#32CD32"
+            }).then(result => {
               if (result.isConfirmed) {
                 // window.location.href = "/list";
               }
             });
           })
-          .catch((error) => {
+          .catch(error => {
             app.isProcessing = false;
             this.errors = error.response.data.errors;
             formModal.modal("hide");
@@ -574,14 +611,14 @@ export default {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
         if (result.isConfirmed) {
           $.ajax({
             url: "/api/video-dvd/delete-video-dvd",
             type: "post",
             data: {
-              video_id: id,
+              video_id: id
             },
             success(data) {
               Swal.fire(
@@ -593,7 +630,7 @@ export default {
             },
             error(e) {
               //   app.showAjaxError(e);
-            },
+            }
           });
         }
       });
@@ -603,10 +640,10 @@ export default {
       let app = this;
       axios
         .get("api/ten-major/list")
-        .then((response) => {
+        .then(response => {
           app.tenMajorSongs = response.data;
         })
-        .catch((error) => {
+        .catch(error => {
           //   app.showErrorMessage(error.response.data);
         });
     },
@@ -622,10 +659,10 @@ export default {
         url: "api/ten-major/import-ten-major-songs",
         data: formData,
         headers: {
-          "Content-Type": "multipart/form-data",
-        },
+          "Content-Type": "multipart/form-data"
+        }
       })
-        .then((response) => {
+        .then(response => {
           app.isProcessing = false;
           app.importResults = response.data;
           app.getTenMajorSongs();
@@ -638,14 +675,14 @@ export default {
             allowOutsideClick: false,
             showCloseButton: true,
             confirmButtonText: "Ok",
-            confirmButtonColor: "#32CD32",
-          }).then((result) => {
+            confirmButtonColor: "#32CD32"
+          }).then(result => {
             if (result.isConfirmed) {
               // window.location.href = "/list";
             }
           });
         })
-        .catch((error) => {
+        .catch(error => {
           this.isProcessing = false;
           //   app.showErrorMessage(error.response.data);
           this.errors = error.response.data.errors;
@@ -666,11 +703,11 @@ export default {
       axios
         .get("/api/user/download-song-template", {
           params: {
-            fileName: "song_template.xlsx",
+            fileName: "song_template.xlsx"
           },
-          responseType: "blob",
+          responseType: "blob"
         })
-        .then((response) => {
+        .then(response => {
           const url = window.URL.createObjectURL(new Blob([response.data]));
           const link = document.createElement("a");
           link.href = url;
@@ -678,7 +715,7 @@ export default {
           document.body.appendChild(link);
           link.click();
         })
-        .catch((error) => {
+        .catch(error => {
           //app.showErrorMessage(error.response.data);
         });
     },
@@ -701,7 +738,7 @@ export default {
       $("#modal-upload-song-excel").modal(
         {
           backdrop: "static",
-          keyboard: false,
+          keyboard: false
         },
         "show"
       );
@@ -711,7 +748,7 @@ export default {
       $("#modal-upload-video").modal(
         {
           backdrop: "static",
-          keyboard: false,
+          keyboard: false
         },
         "show"
       );
@@ -728,7 +765,7 @@ export default {
         Swal.fire({
           icon: "error",
           title: "Invalid File",
-          text: "File must be in excel format",
+          text: "File must be in excel format"
         });
       } else {
         app.file = fileData.file;
@@ -750,8 +787,8 @@ export default {
       app.hasFile = false;
       app.isProcessing = false;
       $("#modal-upload-song-excel").modal("hide");
-    },
-  },
+    }
+  }
 };
 </script>
 

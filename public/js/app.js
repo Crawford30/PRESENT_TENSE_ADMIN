@@ -2060,7 +2060,7 @@ var render = function render() {
     on: {
       click: _vm.showUploadVideo
     }
-  }, [_vm._v("\n              Upload Video DVD\n            ")])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Upload Video DVD\n                            ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "staff-card shadow-sm table-padding"
@@ -2071,7 +2071,9 @@ var render = function render() {
   }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.dvdVideos.results, function (dvdVideo, index) {
     return _c("tr", {
       key: dvdVideo.id + "_" + index
-    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v("\n                " + _vm._s(dvdVideo.video_dvd_name) + "\n                ")]), _vm._v(" "), _c("td", {
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", {
+      staticClass: "text-justify text-uppercase"
+    }, [_vm._v("\n                        " + _vm._s(dvdVideo.video_dvd_name) + "\n                        ")]), _vm._v(" "), _c("td", {
       staticClass: "text-center"
     }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
       staticStyle: {
@@ -2117,7 +2119,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n            ×\n          ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                    ×\n                    ")]), _vm._v(" "), _c("h5", {
     staticStyle: {
       "text-align": "center",
       "font-weight": "bold"
@@ -2172,7 +2174,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n              ×\n            ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                            ×\n                            ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
   }, [_vm._v("Add Video DVD")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -2243,7 +2245,7 @@ var render = function render() {
             "padding-bottom": "0",
             "font-size": "12px"
           }
-        }, [_vm._v("\n                      the video, or if you prefer\n                    ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                                                the video, or if you prefer\n                                            ")]), _vm._v(" "), _c("div", {
           staticClass: "position-relative"
         }, [_c("button", {
           staticClass: "btn btn-primary position-relative",
@@ -2254,7 +2256,7 @@ var render = function render() {
           attrs: {
             type: "button"
           }
-        }, [_vm._v("\n                        Choose files\n                        "), _c("input", {
+        }, [_vm._v("\n                                                    Choose files\n                                                    "), _c("input", {
           ref: "FileInput",
           staticClass: "opactiy-none",
           staticStyle: {
@@ -2313,7 +2315,7 @@ var render = function render() {
             color: "#bbbbbb",
             "margin-bottom": "0.2rem"
           }
-        }, [_vm._v("\n                      DRAG & DROP\n                    ")])]);
+        }, [_vm._v("\n                                                DRAG & DROP\n                                            ")])]);
       }]
     }
   }), _vm._v(" "), _c("div", {
@@ -2365,7 +2367,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n              ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+  }) : _vm._e()]), _vm._v("\n                    SAVE CHANGES\n                    ")])])], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal",
     attrs: {
       id: "showVideo"
@@ -2399,7 +2401,9 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("DVD NAME")]), _vm._v(" "), _c("th", {
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", {
+    staticClass: "text-justify"
+  }, [_vm._v("DVD NAME")]), _vm._v(" "), _c("th", {
     staticClass: "text-center"
   }, [_vm._v("VIEWS")]), _vm._v(" "), _c("th", [_vm._v("DATE CREATED")]), _vm._v(" "), _c("th", [_vm._v("ACTIONS")])])]);
 }, function () {
