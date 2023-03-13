@@ -97,11 +97,19 @@ Route::group(['middleware' => ['auth:api']], function () {
 
 
 
-    //============VVideo DVD ======
+    //============Video DVD ======
     Route::group(['prefix' => 'video-dvd'], function () {
         Route::get('/list', 'VideoDVDController@getAllDVDVideos');
         Route::post('/create-video-dvd', 'VideoDVDController@saveVideoDVD');
         Route::post('/delete-video-dvd', 'VideoDVDController@deleteVideoDVD');
+      });
+
+
+  //============Audio DVD ======
+    Route::group(['prefix' => 'audio-dvd'], function () {
+        Route::get('/list', 'AudioDVDController@getAllDVDAudios');
+        Route::post('/create-audio-dvd', 'AudioDVDController@saveAudioDVD');
+        Route::post('/delete-audio-dvd', 'AudioDVDController@deleteAudioDVD');
       });
 
 

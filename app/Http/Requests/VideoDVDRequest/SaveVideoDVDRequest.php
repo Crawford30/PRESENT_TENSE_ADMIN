@@ -45,11 +45,11 @@ class SaveVideoDVDRequest extends FormRequest
 
             ]);
 
-            $video_path = $this->storeVideo();
+            $video_dvd_path = $this->storeVideo();
 
-            if ($video_path) {
+            if ($video_dvd_path) {
                 $video->update([
-                    "video_path" => $video_path,
+                    "video_dvd_path" => $video_dvd_path,
                 ]);
             }
         } else {

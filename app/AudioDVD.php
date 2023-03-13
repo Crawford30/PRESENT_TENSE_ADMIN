@@ -12,8 +12,10 @@ class AudioDVD extends Model
     ];
 
 
-    public function audioDVDViews(){
+     public function views(){
         return $this->hasMany(AudioDVDView::class);
     }
+
+
 
 }

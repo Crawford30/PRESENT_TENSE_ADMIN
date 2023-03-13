@@ -104,7 +104,7 @@
                 <!-- Modal body -->
                 <form
                     enctype="multipart/form-data"
-                    id="videos-form"
+                    id="audios-form"
                     method="post"
                 >
                     <div class="modal-body px-4 mb-3">

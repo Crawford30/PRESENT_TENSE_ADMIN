@@ -2069,7 +2069,7 @@ var render = function render() {
   }, [_c("form", {
     attrs: {
       enctype: "multipart/form-data",
-      id: "videos-form",
+      id: "audios-form",
       method: "post"
     }
   }, [_c("div", {
