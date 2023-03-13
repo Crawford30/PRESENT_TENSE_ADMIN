@@ -352,7 +352,6 @@ export default {
       dvdVideos: [],
       selectedVideo: {},
       displayVideo: null,
-      displayVideo: null,
       uploadedVideo: null,
       file: null,
       editmode: false,

@@ -18,7 +18,7 @@
                             <button
                                 type="button"
                                 class="btn btn-primary"
-                                @click="showUploadVideo"
+                                @click="showUploadAudio"
                             >
                                 Upload Audio DVD
                                 </button>
@@ -42,21 +42,21 @@
                         </tr>
                     </thead>
                     <tr
-                        v-for="(dvdVideo, index) in dvdVideos.results"
-                        :key="dvdVideo.id + '_' + index"
+                        v-for="(dvdAudio, index) in dvdAudios.results"
+                        :key="dvdAudio.id + '_' + index"
                     >
                         <td>{{ index + 1 }}</td>
 
                         <td class="text-justify text-uppercase">
-                            {{ dvdVideo.video_dvd_name }}
+                            {{ dvdAudio.audio_dvd_name }}
                             <!-- <a @click.prevent="showVideo(dvdVideo)" href="#">{{
-                    dvdVideo.video_dvd_name
+                    dvdVideo.audio_dvd_name
                   }}</a> -->
                         </td>
 
-                        <td class="text-center">{{ dvdVideo.views_count }}</td>
+                        <td class="text-center">{{ dvdAudio.views_count }}</td>
 
-                        <td>{{ dvdVideo.creation_date | myDate }}</td>
+                        <td>{{ dvdAudio.creation_date | myDate }}</td>
                         <td>
                             <a href="#">
                                 <i
@@ -66,7 +66,7 @@
                             </a>
 
                             <a
-                                @click.prevent="deleteVideoDVD(dvdVideo.id)"
+                                @click.prevent="deleteAudioDVD(dvdVideo.id)"
                                 href="#"
                                 style="margin-left: 8px"
                             >
@@ -97,148 +97,108 @@
 
     <div
         class="modal fade"
-        id="single-song-modal-detail"
+        id="modal-upload-audio"
     >
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-body p-4">
-                    <button
-                        type="button"
-                        style="position: absolute; right: 1.5rem; top: 1.5rem"
-                        class="close"
-                        @click="closeModel"
-                    >
-                        &times;
-                        </button>
-                        <h5 style="text-align: center; font-weight: bold">Song Details</h5>
-
-                        <br />
-                        <hr />
-
-                        <form
-                            id="song-form"
-                            ref="songRef"
+                <!-- Modal body -->
+                <form
+                    enctype="multipart/form-data"
+                    id="videos-form"
+                    method="post"
+                >
+                    <div class="modal-body px-4 mb-3">
+                        <button
+                            type="button"
+                            style="position: absolute; right: 1.5rem; top: 1.5rem"
+                            class="close"
+                            @click="closeModel"
                         >
+                            &times;
+                            </button>
+                            <h5 class="text-center">Add Audio DVD</h5>
+                            <!-- <hr /> -->
                             <div class="form-group">
-                                <!-- <label>Song</label> -->
-                                <vue-editor
-                                    id="song-body"
-                                    :disabled="true"
-                                    v-model="songBody"
-                                    :editorToolbar="defaultToolbar"
-                                ></vue-editor>
+                                <label for="">Audio DVD Name</label>
+                                <input
+                                    required
+                                    v-model="selectedAudio.audio_dvd_name"
+                                    name="audio_dvd_name"
+                                    class="form-control"
+                                    placeholder="Audio DVD Name"
+                                    type="text"
+                                />
                             </div>
-                            </form>
-                </div>
-            </div>
-        </div>
-        </div>
-        <!-------Add Single Song  End------>
 
-        <div
-            class="modal fade"
-            id="modal-upload-video"
-        >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal body -->
-                    <form
-                        enctype="multipart/form-data"
-                        id="videos-form"
-                        method="post"
-                    >
-                        <div class="modal-body px-4 mb-3">
-                            <button
-                                type="button"
-                                style="position: absolute; right: 1.5rem; top: 1.5rem"
-                                class="close"
-                                @click="closeModel"
+                            <label for="">Audio DVD File</label>
+                            <DropFile
+                                ref="dropFile"
+                                inline-template
+                                v-cloak
                             >
-                                &times;
-                                </button>
-                                <h5 class="text-center">Add Audio DVD</h5>
-                                <!-- <hr /> -->
-                                <div class="form-group">
-                                    <label for="">Audio DVD Name</label>
-                                    <input
-                                        required
-                                        v-model="selectedVideo.video_dvd_name"
-                                        name="video_dvd_name"
-                                        class="form-control"
-                                        placeholder="Audio DVD Name"
-                                        type="text"
-                                    />
-                                </div>
-
-                                <label for="">Audio DVD File</label>
-                                <DropFile
-                                    ref="dropFile"
-                                    inline-template
-                                    v-cloak
-                                >
-                                    <div class="text-muted">
-                                        <div
-                                            v-if="!hasFile"
-                                            v-bind:style="{ backgroundImage: backgroundImage }"
-                                            v-on:drop.prevent="dragDrop"
-                                            v-on:dragover.prevent="dragOver"
-                                            class="drag-drop-area px-5 py-3"
-                                            style="margin-left: 0; margin-right: 0"
-                                        >
-                                            <div class="text-center drop-zone">
-                                                <img
-                                                    class="icon-img"
-                                                    src="/images/icons/upload_gray.png"
-                                                />
-                                                <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
-                                                    DRAG &amp; DROP
-                                                </h6>
-                                            </div>
-                                            <div class="text-center">
-                                                <p style="
+                                <div class="text-muted">
+                                    <div
+                                        v-if="!hasFile"
+                                        v-bind:style="{ backgroundImage: backgroundImage }"
+                                        v-on:drop.prevent="dragDrop"
+                                        v-on:dragover.prevent="dragOver"
+                                        class="drag-drop-area px-5 py-3"
+                                        style="margin-left: 0; margin-right: 0"
+                                    >
+                                        <div class="text-center drop-zone">
+                                            <img
+                                                class="icon-img"
+                                                src="/images/icons/upload_gray.png"
+                                            />
+                                            <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
+                                                DRAG &amp; DROP
+                                            </h6>
+                                        </div>
+                                        <div class="text-center">
+                                            <p style="
                           color: #bbbbbb;
                           margin-bottom: 0;
                           padding-bottom: 0;
                           font-size: 12px;
                         ">
-                                                    the Audio DVD, or if you prefer
-                                                </p>
-                                                <div class="position-relative">
-                                                    <button
-                                                        type="button"
-                                                        class="btn btn-primary position-relative"
-                                                        style="font-size: 12px; margin-top: 5px"
-                                                    >
-                                                        Choose files
-                                                        <input
-                                                            type="file"
-                                                            style="
+                                                the Audio DVD, or if you prefer
+                                            </p>
+                                            <div class="position-relative">
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-primary position-relative"
+                                                    style="font-size: 12px; margin-top: 5px"
+                                                >
+                                                    Choose files
+                                                    <input
+                                                        type="file"
+                                                        style="
                               position: absolute;
                               left: 0;
                               top: 0;
                               opacity: 0;
                               cursor: pointer;
                             "
-                                                            accept="audio/mp3,audio/mpeg,audio/*"
-                                                            id="videoFile"
-                                                            class="opactiy-none"
-                                                            @change="fileChanged"
-                                                            name="file"
-                                                            ref="FileInput"
-                                                        />
-                                                        </button>
-                                                </div>
+                                                        accept="audio/mp3,audio/mpeg,audio/*"
+                                                        id="videoFile"
+                                                        class="opactiy-none"
+                                                        @change="fileChanged"
+                                                        name="file"
+                                                        ref="FileInput"
+                                                    />
+                                                    </button>
                                             </div>
-                                    </div>
-                                    <div
-                                        v-else
-                                        class="border p-5"
-                                    >
-                                        <h6 class="text-center te xt-black-50">{{ fileName }}</h6>
-                                        <div class="text-center">
-                                            <button
-                                                @click.prevent="removeFile()"
-                                                style="
+                                        </div>
+                                </div>
+                                <div
+                                    v-else
+                                    class="border p-5"
+                                >
+                                    <h6 class="text-center te xt-black-50">{{ fileName }}</h6>
+                                    <div class="text-center">
+                                        <button
+                                            @click.prevent="removeFile()"
+                                            style="
                           font-size: 24px;
                           color: #666666;
                           background: #ffffff;
@@ -246,90 +206,90 @@
                           border: none;
                           cursor: pointer;
                         "
-                                            >
-                                                <i class="far fa-trash-alt"></i>
-                                                </button>
-                                        </div>
-                        </div>
-                </div>
-                </DropFile>
-                <div class="form-group mt-3">
-                    <!-- <label for="">Date Created</label> -->
-                    <label for="">
-                        <label>Date Created</label>
-                        <!-- <Tooltip
+                                        >
+                                            <i class="far fa-trash-alt"></i>
+                                            </button>
+                                    </div>
+                    </div>
+            </div>
+            </DropFile>
+            <div class="form-group mt-3">
+                <!-- <label for="">Date Created</label> -->
+                <label for="">
+                    <label>Date Created</label>
+                    <!-- <Tooltip
                     id="fi-doc-number"
                     title=""
                     content="e.g 2019-12-30 for 30-DEC-2019"
                   /> -->
-                    </label>
-                    <input
-                        v-model="selectedVideo.creation_date"
-                        name="creation_date"
-                        required
-                        class="form-control"
-                        placeholder="e.g 2019-12-30 for 30-DEC-2019"
-                        type="text"
-                    />
-                </div>
-
+                </label>
                 <input
-                    hidden
-                    :value="selectedVideo.id"
-                    name="video_id"
+                    v-model="selectedAudio.creation_date"
+                    name="creation_date"
+                    required
+                    class="form-control"
+                    placeholder="e.g 2019-12-30 for 30-DEC-2019"
                     type="text"
                 />
-                <div class="form-group text-center">
-                    <button
-                        @click.prevent="uploadVideo"
-                        :disabled="isProcessing"
-                        class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
-                    >
-                        <span>
-                            <i
-                                v-if="isProcessing"
-                                class="fa fa-spinner fa-spin"
-                            ></i>
-                        </span>
-                        SAVE CHANGES
-                        </button>
-                </div>
-            </div>
-            </form>
-            </div>
-            </div>
             </div>
 
-            <div
-                class="modal"
-                id="showVideo"
-            >
-                <div class="modal-dialog modal-lg">
-                    <div
-                        v-if="displayVideo"
-                        class="modal-content px-2 py-2"
-                    >
-                        <p class="text-lg">{{ displayVideo.video_dvd_name }}</p>
-                        <!-- {{selectedVideo}} -->
-                        <iframe
-                            id="vid-show"
-                            autoplay="false"
-                            width="100%"
-                            height="400px"
-                            :src="
-              displayVideo.video_path
-                ? '/storage' + displayVideo.video_dvd_path
-                : displayVideo.video_dvd_path
+            <input
+                hidden
+                :value="selectedAudio.id"
+                name="audio_id"
+                type="text"
+            />
+            <div class="form-group text-center">
+                <button
+                    @click.prevent="uploadAudio"
+                    :disabled="isProcessing"
+                    class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
+                >
+                    <span>
+                        <i
+                            v-if="isProcessing"
+                            class="fa fa-spinner fa-spin"
+                        ></i>
+                    </span>
+                    SAVE CHANGES
+                    </button>
+            </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        </div>
+
+        <div
+            class="modal"
+            id="showVideo"
+        >
+            <div class="modal-dialog modal-lg">
+                <div
+                    v-if="displayAudio"
+                    class="modal-content px-2 py-2"
+                >
+                    <p class="text-lg">{{ displayAudio.audio_dvd_name }}</p>
+                    <!-- {{selectedAudio}} -->
+                    <iframe
+                        id="vid-show"
+                        autoplay="false"
+                        width="100%"
+                        height="400px"
+                        :src="
+              displayAudio.audio_dvd_path
+                ? '/storage' + displayAudio.audio_dvd_path
+                : displayAudio.audio_dvd_path
             "
-                            frameborder="0"
-                            gesture="media"
-                            allow="encrypted-media"
-                            allowfullscreen
-                        ></iframe>
-                </div>
-                </div>
-                </div>
-                </div>
+                        frameborder="0"
+                        gesture="media"
+                        allow="encrypted-media"
+                        allowfullscreen
+                    ></iframe>
+            </div>
+            </div>
+            </div>
+            </div>
 </template>
 
 <script>
@@ -349,11 +309,10 @@ export default {
   mixins: [dragAndDropHelper, Izitoast],
   data() {
     return {
-      dvdVideos: [],
-      selectedVideo: {},
-      displayVideo: null,
-      displayVideo: null,
-      uploadedVideo: null,
+      dvdAudios: [],
+      selectedAudio: {},
+      displayAudio: null,
+      uploadedAudio: null,
       file: null,
       editmode: false,
       selectedSong: null,
@@ -409,47 +368,46 @@ export default {
 
   mounted() {
     let app = this;
-    app.getAllDVDVideos();
+    app.getAllDVDAudios();
     app.$on("video-uploaded", data => {
-      app.uploadedVideo = data;
+      app.uploadedAudio = data;
       //   console.log("VIDEO DATA: ", data);
     });
 
     app.$on("video-removed", () => {
-      app.uploadedVideo = null;
+      app.uploadedAudio = null;
     });
 
-    console.log("Uploaded vdeo: ", app.uploadedVideo);
-    app.getTenMajorSongs();
+    console.log("Uploaded vdeo: ", app.uploadedAudio);
   },
   methods: {
     showVideo(video) {
       console.log("VIDE: ", video);
-      this.displayVideo = video;
+      this.displayAudio = video;
       $("#showVideo").modal("show");
     },
 
-    getAllDVDVideos() {
+    getAllDVDAudios() {
       let app = this;
       $.ajax({
-        url: "/api/video-dvd/list",
+        url: "/api/audio-dvd/list",
         success(data) {
-          app.dvdVideos = data;
+          app.dvdAudios = data;
         }
       });
-      console.log("DVD VIDEOS", app.dvdVideos);
+      console.log("Audio DVDS", app.dvdAudios);
     },
     isValid() {
-      if (!this.selectedVideo.video_dvd_name) {
+      if (!this.selectedAudio.audio_dvd_name) {
         Swal.fire(
           "Failed!",
-          "<p style='font-size: 14px;'>DVD name is required!</p>",
+          "<p style='font-size: 14px;'>Audio DVD name is required!</p>",
           "warning"
         );
         // this.showErrorMessage("DVD name is required");
         return false;
       }
-      if (!this.selectedVideo.creation_date) {
+      if (!this.selectedAudio.creation_date) {
         Swal.fire(
           "Failed!",
           "<p style='font-size: 14px;'>DVD creation date is required!</p>",
@@ -458,7 +416,7 @@ export default {
         // this.showErrorMessage("DVD creation date is required");
         return false;
       }
-      if (!this.uploadedVideo) {
+      if (!this.uploadedAudio) {
         Swal.fire(
           "Failed!",
           "<p style='font-size: 14px;'>Browse and Upload a video!</p>",
@@ -470,38 +428,38 @@ export default {
       return true;
     },
 
-    uploadVideo() {
+    uploadAudio() {
       let app = this;
-      let form = $("#videos-form");
-      let modal = $("#modal-upload-video");
+      let form = $("#audios-form");
+      let modal = $("#modal-upload-audio");
       if (form.valid()) {
         if (!this.isValid()) {
           return;
         }
         app.isProcessing = true;
-        var formData = new FormData(document.getElementById("videos-form"));
-        formData.append("file", app.uploadedVideo);
+        var formData = new FormData(document.getElementById("audios-form"));
+        formData.append("file", app.uploadedAudio);
         $.ajax({
           processData: false,
           contentType: false,
           enctype: "multipart/form-data",
           type: "post",
-          url: "/api/video-dvd/create-video-dvd",
+          url: "/api/audio-dvd/create-audio-dvd",
           data: formData,
           success(data) {
             app.isProcessing = false;
             Swal.fire(
-              "<p style='font-size: 14px;'>Video Successfully Saved</p>",
+              "<p style='font-size: 14px;'>Audio Successfully Saved</p>",
               "",
               "success"
             );
-            app.getAllDVDVideos();
+            app.getAllDVDAudios();
             modal.modal("hide");
-            document.getElementById("videos-form").reset();
-            $("#videos-form").trigger("reset");
-            this.uploadedVideo = null;
-            app.selectedVideo.video_dvd_name = "";
-            app.selectedVideo.creation_date = "";
+            document.getElementById("audios-form").reset();
+            $("#audios-form").trigger("reset");
+            this.uploadedAudio = null;
+            app.selectedAudio.audio_dvd_name = "";
+            app.selectedAudio.creation_date = "";
 
             // form.reset();
           },
@@ -520,89 +478,7 @@ export default {
       }
     },
 
-    saveSong() {
-      let app = this;
-      let form = $("#song-form");
-      let formModal = $("#single-song-modal");
-
-      let songFormData = new FormData();
-      if (this.editmode) {
-        songFormData.append("song_id", this.selectedSong.id),
-          songFormData.append("song_number", this.selectedSong.song_number),
-          songFormData.append("song_title", this.songTitle),
-          songFormData.append("song_body", this.songBody);
-      } else {
-        songFormData.append("song_number", this.songNumber),
-          songFormData.append("song_title", this.songTitle),
-          songFormData.append("song_body", this.songBody);
-      }
-
-      if (form.valid()) {
-        app.isProcessing = true;
-        //console.log("SERIALIZED: ", form.serialize());
-        axios({
-          method: "post",
-          url: "/api/ten-major/create-ten-major-song",
-          data: songFormData
-          //form.serialize(),
-        })
-          .then(response => {
-            app.isProcessing = false;
-            app.getTenMajorSongs();
-            formModal.modal("hide");
-            //======dismiss the model
-            this.closeModel();
-            Swal.fire({
-              icon: "success",
-              title: "Success",
-              html:
-                "<p class='font-size: 13px'>Song Successfully Submitted</p>",
-              showConfirmButton: true,
-              allowOutsideClick: false,
-              showCloseButton: true,
-              confirmButtonText: "Ok",
-              confirmButtonColor: "#32CD32"
-            }).then(result => {
-              if (result.isConfirmed) {
-                // window.location.href = "/list";
-              }
-            });
-          })
-          .catch(error => {
-            app.isProcessing = false;
-            this.errors = error.response.data.errors;
-            formModal.modal("hide");
-            app.showErrorMessage(error.response.data.errors);
-          });
-      }
-      //   let app = this;
-      //   app.editmode = true;
-
-      //   if (app.selectedSong != null) {
-      //     app.requestFormData.append("bsc_request_id", app.request.id);
-      //     app.requestFormData.append("edited_request", true);
-      //   }
-    },
-
-    updateSong(item) {
-      let app = this;
-      app.editmode = true;
-      app.selectedSong = item;
-      app.songTitle = item.song_title;
-      app.songBody = item.song_body;
-      $("#single-song-modal").modal("show");
-    },
-
-    viewSongDetail(item) {
-      let app = this;
-      app.editmode = true;
-      app.selectedSong = item;
-      app.songTitle = item.song_title;
-      app.songBody = item.song_title + "<br/>" + item.song_body;
-      $("#single-song-modal-detail").modal("show");
-    },
-
-    deleteVideoDVD(id) {
+    deleteAudioDVD(id) {
       let app = this;
       Swal.fire({
         title: "Are you sure?",
@@ -615,18 +491,18 @@ export default {
       }).then(result => {
         if (result.isConfirmed) {
           $.ajax({
-            url: "/api/video-dvd/delete-video-dvd",
+            url: "/api/audio-dvd/delete-audio-dvd",
             type: "post",
             data: {
               video_id: id
             },
             success(data) {
               Swal.fire(
-                "<p style='font-size: 14px;'>Video Deleted Successfully</p>",
+                "<p style='font-size: 14px;'>Audio Deleted Successfully</p>",
                 "",
                 "success"
               );
-              app.getAllDVDVideos();
+              app.getAllDVDAudios();
             },
             error(e) {
               //   app.showAjaxError(e);
@@ -636,102 +512,10 @@ export default {
       });
     },
 
-    getTenMajorSongs() {
-      let app = this;
-      axios
-        .get("api/ten-major/list")
-        .then(response => {
-          app.tenMajorSongs = response.data;
-        })
-        .catch(error => {
-          //   app.showErrorMessage(error.response.data);
-        });
-    },
-
-    uploadFile() {
-      let app = this;
-      app.isProcessing = true;
-      let formData = new FormData();
-      formData.append("file", app.file);
-
-      axios({
-        method: "post",
-        url: "api/ten-major/import-ten-major-songs",
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
-        .then(response => {
-          app.isProcessing = false;
-          app.importResults = response.data;
-          app.getTenMajorSongs();
-          app.closeDialog();
-          Swal.fire({
-            icon: "success",
-            title: "Success",
-            html: "<p class='font-size: 13px'>Song  Successfully Submitted</p>",
-            showConfirmButton: true,
-            allowOutsideClick: false,
-            showCloseButton: true,
-            confirmButtonText: "Ok",
-            confirmButtonColor: "#32CD32"
-          }).then(result => {
-            if (result.isConfirmed) {
-              // window.location.href = "/list";
-            }
-          });
-        })
-        .catch(error => {
-          this.isProcessing = false;
-          //   app.showErrorMessage(error.response.data);
-          this.errors = error.response.data.errors;
-        });
-    },
-
-    downloadSongTemplate() {
-      window.location.href = "/download-song-template";
-    },
-
-    //   const url = URL.createObjectURL(new Blob([response.data], {
-    //         type: 'application/vnd.ms-excel'
-    //     }))
-    downloadTemplate() {
-      let app = this;
-      let file = "song_template.xlsx";
-
-      axios
-        .get("/api/user/download-song-template", {
-          params: {
-            fileName: "song_template.xlsx"
-          },
-          responseType: "blob"
-        })
-        .then(response => {
-          const url = window.URL.createObjectURL(new Blob([response.data]));
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", file);
-          document.body.appendChild(link);
-          link.click();
-        })
-        .catch(error => {
-          //app.showErrorMessage(error.response.data);
-        });
-    },
-
-    showAddSingleSongModal() {
-      let app = this;
-      app.selectedSong = null;
-      (app.songBody = ""),
-        (app.songTitle = ""),
-        $("#single-song-modal").modal("show");
-    },
-
     closeModel() {
       $("#single-song-modal").modal("hide");
       $("#single-song-modal-detail").modal("hide");
-      $("#modal-upload-video").modal("hide");
+      $("#modal-upload-audio").modal("hide");
     },
 
     showUploadExcel() {
@@ -744,8 +528,8 @@ export default {
       );
     },
 
-    showUploadVideo() {
-      $("#modal-upload-video").modal(
+    showUploadAudio() {
+      $("#modal-upload-audio").modal(
         {
           backdrop: "static",
           keyboard: false
@@ -754,39 +538,8 @@ export default {
       );
     },
 
-    processSelectedFile(fileData) {
-      let app = this;
-      if (
-        fileData.ext.toLowerCase() !== "xls" &&
-        fileData.ext.toLowerCase() !== "xlsx"
-      ) {
-        app.file = null;
-        app.hasFile = false;
-        Swal.fire({
-          icon: "error",
-          title: "Invalid File",
-          text: "File must be in excel format"
-        });
-      } else {
-        app.file = fileData.file;
-        app.hasFile = true;
-      }
-    },
-
     removeFile() {
       (this.file = null), (this.hasFile = false);
-    },
-    onBrowseFile(e) {
-      let app = this;
-      app.processSelectedFile(app.fileData(e, "browse"));
-    },
-
-    closeDialog() {
-      let app = this;
-      app.file = null;
-      app.hasFile = false;
-      app.isProcessing = false;
-      $("#modal-upload-song-excel").modal("hide");
     }
   }
 };

@@ -2020,7 +2020,7 @@ var render = function render() {
       type: "button"
     },
     on: {
-      click: _vm.showUploadVideo
+      click: _vm.showUploadAudio
     }
   }, [_vm._v("\n                            Upload Audio DVD\n                            ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
@@ -2030,14 +2030,14 @@ var render = function render() {
     staticClass: "row justify-content-center"
   }, [_c("table", {
     staticClass: "table table-sm present-tense-table"
-  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.dvdVideos.results, function (dvdVideo, index) {
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.dvdAudios.results, function (dvdAudio, index) {
     return _c("tr", {
-      key: dvdVideo.id + "_" + index
+      key: dvdAudio.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", {
       staticClass: "text-justify text-uppercase"
-    }, [_vm._v("\n                        " + _vm._s(dvdVideo.video_dvd_name) + "\n                        ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                        " + _vm._s(dvdAudio.audio_dvd_name) + "\n                        ")]), _vm._v(" "), _c("td", {
       staticClass: "text-center"
-    }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
+    }, [_vm._v(_vm._s(dvdAudio.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdAudio.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
       staticStyle: {
         "margin-left": "8px"
       },
@@ -2047,7 +2047,7 @@ var render = function render() {
       on: {
         click: function click($event) {
           $event.preventDefault();
-          return _vm.deleteVideoDVD(dvdVideo.id);
+          return _vm.deleteAudioDVD(_vm.dvdVideo.id);
         }
       }
     }, [_c("i", {
@@ -2060,56 +2060,7 @@ var render = function render() {
   })], 2)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal fade",
     attrs: {
-      id: "single-song-modal-detail"
-    }
-  }, [_c("div", {
-    staticClass: "modal-dialog"
-  }, [_c("div", {
-    staticClass: "modal-content"
-  }, [_c("div", {
-    staticClass: "modal-body p-4"
-  }, [_c("button", {
-    staticClass: "close",
-    staticStyle: {
-      position: "absolute",
-      right: "1.5rem",
-      top: "1.5rem"
-    },
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: _vm.closeModel
-    }
-  }, [_vm._v("\n                    ×\n                    ")]), _vm._v(" "), _c("h5", {
-    staticStyle: {
-      "text-align": "center",
-      "font-weight": "bold"
-    }
-  }, [_vm._v("Song Details")]), _vm._v(" "), _c("br"), _vm._v(" "), _c("hr"), _vm._v(" "), _c("form", {
-    ref: "songRef",
-    attrs: {
-      id: "song-form"
-    }
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("vue-editor", {
-    attrs: {
-      id: "song-body",
-      disabled: true,
-      editorToolbar: _vm.defaultToolbar
-    },
-    model: {
-      value: _vm.songBody,
-      callback: function callback($$v) {
-        _vm.songBody = $$v;
-      },
-      expression: "songBody"
-    }
-  })], 1)])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "modal fade",
-    attrs: {
-      id: "modal-upload-video"
+      id: "modal-upload-audio"
     }
   }, [_c("div", {
     staticClass: "modal-dialog"
@@ -2136,7 +2087,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n                            ×\n                            ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                        ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
   }, [_vm._v("Add Audio DVD")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -2148,23 +2099,23 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.selectedVideo.video_dvd_name,
-      expression: "selectedVideo.video_dvd_name"
+      value: _vm.selectedAudio.audio_dvd_name,
+      expression: "selectedAudio.audio_dvd_name"
     }],
     staticClass: "form-control",
     attrs: {
       required: "",
-      name: "video_dvd_name",
+      name: "audio_dvd_name",
       placeholder: "Audio DVD Name",
       type: "text"
     },
     domProps: {
-      value: _vm.selectedVideo.video_dvd_name
+      value: _vm.selectedAudio.audio_dvd_name
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.selectedVideo, "video_dvd_name", $event.target.value);
+        _vm.$set(_vm.selectedAudio, "audio_dvd_name", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("label", {
@@ -2207,7 +2158,7 @@ var render = function render() {
             "padding-bottom": "0",
             "font-size": "12px"
           }
-        }, [_vm._v("\n                                                the Audio DVD, or if you prefer\n                                            ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                                            the Audio DVD, or if you prefer\n                                        ")]), _vm._v(" "), _c("div", {
           staticClass: "position-relative"
         }, [_c("button", {
           staticClass: "btn btn-primary position-relative",
@@ -2218,7 +2169,7 @@ var render = function render() {
           attrs: {
             type: "button"
           }
-        }, [_vm._v("\n                                                    Choose files\n                                                    "), _c("input", {
+        }, [_vm._v("\n                                                Choose files\n                                                "), _c("input", {
           ref: "FileInput",
           staticClass: "opactiy-none",
           staticStyle: {
@@ -2277,7 +2228,7 @@ var render = function render() {
             color: "#bbbbbb",
             "margin-bottom": "0.2rem"
           }
-        }, [_vm._v("\n                                                DRAG & DROP\n                                            ")])]);
+        }, [_vm._v("\n                                            DRAG & DROP\n                                        ")])]);
       }]
     }
   }), _vm._v(" "), _c("div", {
@@ -2286,8 +2237,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.selectedVideo.creation_date,
-      expression: "selectedVideo.creation_date"
+      value: _vm.selectedAudio.creation_date,
+      expression: "selectedAudio.creation_date"
     }],
     staticClass: "form-control",
     attrs: {
@@ -2297,22 +2248,22 @@ var render = function render() {
       type: "text"
     },
     domProps: {
-      value: _vm.selectedVideo.creation_date
+      value: _vm.selectedAudio.creation_date
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.selectedVideo, "creation_date", $event.target.value);
+        _vm.$set(_vm.selectedAudio, "creation_date", $event.target.value);
       }
     }
   })]), _vm._v(" "), _c("input", {
     attrs: {
       hidden: "",
-      name: "video_id",
+      name: "audio_id",
       type: "text"
     },
     domProps: {
-      value: _vm.selectedVideo.id
+      value: _vm.selectedAudio.id
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "form-group text-center"
@@ -2324,29 +2275,29 @@ var render = function render() {
     on: {
       click: function click($event) {
         $event.preventDefault();
-        return _vm.uploadVideo.apply(null, arguments);
+        return _vm.uploadAudio.apply(null, arguments);
       }
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                    SAVE CHANGES\n                    ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n                ")])])], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal",
     attrs: {
       id: "showVideo"
     }
   }, [_c("div", {
     staticClass: "modal-dialog modal-lg"
-  }, [_vm.displayVideo ? _c("div", {
+  }, [_vm.displayAudio ? _c("div", {
     staticClass: "modal-content px-2 py-2"
   }, [_c("p", {
     staticClass: "text-lg"
-  }, [_vm._v(_vm._s(_vm.displayVideo.video_dvd_name))]), _vm._v(" "), _c("iframe", {
+  }, [_vm._v(_vm._s(_vm.displayAudio.audio_dvd_name))]), _vm._v(" "), _c("iframe", {
     attrs: {
       id: "vid-show",
       autoplay: "false",
       width: "100%",
       height: "400px",
-      src: _vm.displayVideo.video_path ? "/storage" + _vm.displayVideo.video_dvd_path : _vm.displayVideo.video_dvd_path,
+      src: _vm.displayAudio.audio_dvd_path ? "/storage" + _vm.displayAudio.audio_dvd_path : _vm.displayAudio.audio_dvd_path,
       frameborder: "0",
       gesture: "media",
       allow: "encrypted-media",
@@ -8723,10 +8674,21 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   data: function data() {
     var _ref;
     return _ref = {
-      dvdVideos: [],
-      selectedVideo: {},
-      displayVideo: null
-    }, _defineProperty(_ref, "displayVideo", null), _defineProperty(_ref, "uploadedVideo", null), _defineProperty(_ref, "file", null), _defineProperty(_ref, "editmode", false), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "hasFile", false), _defineProperty(_ref, "tenMajorSongs", []), _defineProperty(_ref, "isProcessing", false), _defineProperty(_ref, "songTitle", ""), _defineProperty(_ref, "songBody", ""), _defineProperty(_ref, "songNumber", ""), _defineProperty(_ref, "errors", null), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
+      dvdAudios: [],
+      selectedAudio: {},
+      displayAudio: null,
+      uploadedAudio: null,
+      file: null,
+      editmode: false,
+      selectedSong: null,
+      hasFile: false,
+      tenMajorSongs: [],
+      isProcessing: false,
+      songTitle: "",
+      songBody: "",
+      songNumber: "",
+      errors: null
+    }, _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
       header: [false, 1, 2, 3, 4, 5, 6]
     }], ["bold", "italic", "underline", "strike"], [{
       align: ""
@@ -8748,80 +8710,79 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   },
   mounted: function mounted() {
     var app = this;
-    app.getAllDVDVideos();
+    app.getAllDVDAudios();
     app.$on("video-uploaded", function (data) {
-      app.uploadedVideo = data;
+      app.uploadedAudio = data;
       //   console.log("VIDEO DATA: ", data);
     });
 
     app.$on("video-removed", function () {
-      app.uploadedVideo = null;
+      app.uploadedAudio = null;
     });
-    console.log("Uploaded vdeo: ", app.uploadedVideo);
-    app.getTenMajorSongs();
+    console.log("Uploaded vdeo: ", app.uploadedAudio);
   },
   methods: {
     showVideo: function showVideo(video) {
       console.log("VIDE: ", video);
-      this.displayVideo = video;
+      this.displayAudio = video;
       $("#showVideo").modal("show");
     },
-    getAllDVDVideos: function getAllDVDVideos() {
+    getAllDVDAudios: function getAllDVDAudios() {
       var app = this;
       $.ajax({
-        url: "/api/video-dvd/list",
+        url: "/api/audio-dvd/list",
         success: function success(data) {
-          app.dvdVideos = data;
+          app.dvdAudios = data;
         }
       });
-      console.log("DVD VIDEOS", app.dvdVideos);
+      console.log("Audio DVDS", app.dvdAudios);
     },
     isValid: function isValid() {
-      if (!this.selectedVideo.video_dvd_name) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>DVD name is required!</p>", "warning");
+      if (!this.selectedAudio.audio_dvd_name) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>Audio DVD name is required!</p>", "warning");
         // this.showErrorMessage("DVD name is required");
         return false;
       }
-      if (!this.selectedVideo.creation_date) {
+      if (!this.selectedAudio.creation_date) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>DVD creation date is required!</p>", "warning");
         // this.showErrorMessage("DVD creation date is required");
         return false;
       }
-      if (!this.uploadedVideo) {
+      if (!this.uploadedAudio) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("Failed!", "<p style='font-size: 14px;'>Browse and Upload a video!</p>", "warning");
         // this.showErrorMessage("Browse and Upload a video");
         return false;
       }
       return true;
     },
-    uploadVideo: function uploadVideo() {
+    uploadAudio: function uploadAudio() {
       var app = this;
-      var form = $("#videos-form");
-      var modal = $("#modal-upload-video");
+      var form = $("#audios-form");
+      var modal = $("#modal-upload-audio");
       if (form.valid()) {
         if (!this.isValid()) {
           return;
         }
         app.isProcessing = true;
-        var formData = new FormData(document.getElementById("videos-form"));
-        formData.append("file", app.uploadedVideo);
+        var formData = new FormData(document.getElementById("audios-form"));
+        formData.append("file", app.uploadedAudio);
         $.ajax({
           processData: false,
           contentType: false,
           enctype: "multipart/form-data",
           type: "post",
-          url: "/api/video-dvd/create-video-dvd",
+          url: "/api/audio-dvd/create-audio-dvd",
           data: formData,
           success: function success(data) {
             app.isProcessing = false;
-            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Successfully Saved</p>", "", "success");
-            app.getAllDVDVideos();
+            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Audio Successfully Saved</p>", "", "success");
+            app.getAllDVDAudios();
             modal.modal("hide");
-            document.getElementById("videos-form").reset();
-            $("#videos-form").trigger("reset");
-            this.uploadedVideo = null;
-            app.selectedVideo.video_dvd_name = "";
-            app.selectedVideo.creation_date = "";
+            document.getElementById("audios-form").reset();
+            $("#audios-form").trigger("reset");
+            this.uploadedAudio = null;
+            app.selectedAudio.audio_dvd_name = "";
+            app.selectedAudio.creation_date = "";
 
             // form.reset();
           },
@@ -8834,77 +8795,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         });
       }
     },
-    saveSong: function saveSong() {
-      var _this = this;
-      var app = this;
-      var form = $("#song-form");
-      var formModal = $("#single-song-modal");
-      var songFormData = new FormData();
-      if (this.editmode) {
-        songFormData.append("song_id", this.selectedSong.id), songFormData.append("song_number", this.selectedSong.song_number), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
-      } else {
-        songFormData.append("song_number", this.songNumber), songFormData.append("song_title", this.songTitle), songFormData.append("song_body", this.songBody);
-      }
-      if (form.valid()) {
-        app.isProcessing = true;
-        //console.log("SERIALIZED: ", form.serialize());
-        axios({
-          method: "post",
-          url: "/api/ten-major/create-ten-major-song",
-          data: songFormData
-          //form.serialize(),
-        }).then(function (response) {
-          app.isProcessing = false;
-          app.getTenMajorSongs();
-          formModal.modal("hide");
-          //======dismiss the model
-          _this.closeModel();
-          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-            icon: "success",
-            title: "Success",
-            html: "<p class='font-size: 13px'>Song Successfully Submitted</p>",
-            showConfirmButton: true,
-            allowOutsideClick: false,
-            showCloseButton: true,
-            confirmButtonText: "Ok",
-            confirmButtonColor: "#32CD32"
-          }).then(function (result) {
-            if (result.isConfirmed) {
-              // window.location.href = "/list";
-            }
-          });
-        })["catch"](function (error) {
-          app.isProcessing = false;
-          _this.errors = error.response.data.errors;
-          formModal.modal("hide");
-          app.showErrorMessage(error.response.data.errors);
-        });
-      }
-      //   let app = this;
-      //   app.editmode = true;
-
-      //   if (app.selectedSong != null) {
-      //     app.requestFormData.append("bsc_request_id", app.request.id);
-      //     app.requestFormData.append("edited_request", true);
-      //   }
-    },
-    updateSong: function updateSong(item) {
-      var app = this;
-      app.editmode = true;
-      app.selectedSong = item;
-      app.songTitle = item.song_title;
-      app.songBody = item.song_body;
-      $("#single-song-modal").modal("show");
-    },
-    viewSongDetail: function viewSongDetail(item) {
-      var app = this;
-      app.editmode = true;
-      app.selectedSong = item;
-      app.songTitle = item.song_title;
-      app.songBody = item.song_title + "<br/>" + item.song_body;
-      $("#single-song-modal-detail").modal("show");
-    },
-    deleteVideoDVD: function deleteVideoDVD(id) {
+    deleteAudioDVD: function deleteAudioDVD(id) {
       var app = this;
       sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
         title: "Are you sure?",
@@ -8917,14 +8808,14 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       }).then(function (result) {
         if (result.isConfirmed) {
           $.ajax({
-            url: "/api/video-dvd/delete-video-dvd",
+            url: "/api/audio-dvd/delete-audio-dvd",
             type: "post",
             data: {
               video_id: id
             },
             success: function success(data) {
-              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Deleted Successfully</p>", "", "success");
-              app.getAllDVDVideos();
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Audio Deleted Successfully</p>", "", "success");
+              app.getAllDVDAudios();
             },
             error: function error(e) {
               //   app.showAjaxError(e);
@@ -8933,86 +8824,10 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         }
       });
     },
-    getTenMajorSongs: function getTenMajorSongs() {
-      var app = this;
-      axios.get("api/ten-major/list").then(function (response) {
-        app.tenMajorSongs = response.data;
-      })["catch"](function (error) {
-        //   app.showErrorMessage(error.response.data);
-      });
-    },
-    uploadFile: function uploadFile() {
-      var _this2 = this;
-      var app = this;
-      app.isProcessing = true;
-      var formData = new FormData();
-      formData.append("file", app.file);
-      axios({
-        method: "post",
-        url: "api/ten-major/import-ten-major-songs",
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      }).then(function (response) {
-        app.isProcessing = false;
-        app.importResults = response.data;
-        app.getTenMajorSongs();
-        app.closeDialog();
-        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-          icon: "success",
-          title: "Success",
-          html: "<p class='font-size: 13px'>Song  Successfully Submitted</p>",
-          showConfirmButton: true,
-          allowOutsideClick: false,
-          showCloseButton: true,
-          confirmButtonText: "Ok",
-          confirmButtonColor: "#32CD32"
-        }).then(function (result) {
-          if (result.isConfirmed) {
-            // window.location.href = "/list";
-          }
-        });
-      })["catch"](function (error) {
-        _this2.isProcessing = false;
-        //   app.showErrorMessage(error.response.data);
-        _this2.errors = error.response.data.errors;
-      });
-    },
-    downloadSongTemplate: function downloadSongTemplate() {
-      window.location.href = "/download-song-template";
-    },
-    //   const url = URL.createObjectURL(new Blob([response.data], {
-    //         type: 'application/vnd.ms-excel'
-    //     }))
-    downloadTemplate: function downloadTemplate() {
-      var app = this;
-      var file = "song_template.xlsx";
-      axios.get("/api/user/download-song-template", {
-        params: {
-          fileName: "song_template.xlsx"
-        },
-        responseType: "blob"
-      }).then(function (response) {
-        var url = window.URL.createObjectURL(new Blob([response.data]));
-        var link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", file);
-        document.body.appendChild(link);
-        link.click();
-      })["catch"](function (error) {
-        //app.showErrorMessage(error.response.data);
-      });
-    },
-    showAddSingleSongModal: function showAddSingleSongModal() {
-      var app = this;
-      app.selectedSong = null;
-      app.songBody = "", app.songTitle = "", $("#single-song-modal").modal("show");
-    },
     closeModel: function closeModel() {
       $("#single-song-modal").modal("hide");
       $("#single-song-modal-detail").modal("hide");
-      $("#modal-upload-video").modal("hide");
+      $("#modal-upload-audio").modal("hide");
     },
     showUploadExcel: function showUploadExcel() {
       $("#modal-upload-song-excel").modal({
@@ -9020,40 +8835,14 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         keyboard: false
       }, "show");
     },
-    showUploadVideo: function showUploadVideo() {
-      $("#modal-upload-video").modal({
+    showUploadAudio: function showUploadAudio() {
+      $("#modal-upload-audio").modal({
         backdrop: "static",
         keyboard: false
       }, "show");
     },
-    processSelectedFile: function processSelectedFile(fileData) {
-      var app = this;
-      if (fileData.ext.toLowerCase() !== "xls" && fileData.ext.toLowerCase() !== "xlsx") {
-        app.file = null;
-        app.hasFile = false;
-        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-          icon: "error",
-          title: "Invalid File",
-          text: "File must be in excel format"
-        });
-      } else {
-        app.file = fileData.file;
-        app.hasFile = true;
-      }
-    },
     removeFile: function removeFile() {
       this.file = null, this.hasFile = false;
-    },
-    onBrowseFile: function onBrowseFile(e) {
-      var app = this;
-      app.processSelectedFile(app.fileData(e, "browse"));
-    },
-    closeDialog: function closeDialog() {
-      var app = this;
-      app.file = null;
-      app.hasFile = false;
-      app.isProcessing = false;
-      $("#modal-upload-song-excel").modal("hide");
     }
   }
 });
@@ -9097,8 +8886,19 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     return _ref = {
       dvdVideos: [],
       selectedVideo: {},
-      displayVideo: null
-    }, _defineProperty(_ref, "displayVideo", null), _defineProperty(_ref, "uploadedVideo", null), _defineProperty(_ref, "file", null), _defineProperty(_ref, "editmode", false), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "hasFile", false), _defineProperty(_ref, "tenMajorSongs", []), _defineProperty(_ref, "isProcessing", false), _defineProperty(_ref, "songTitle", ""), _defineProperty(_ref, "songBody", ""), _defineProperty(_ref, "songNumber", ""), _defineProperty(_ref, "errors", null), _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
+      displayVideo: null,
+      uploadedVideo: null,
+      file: null,
+      editmode: false,
+      selectedSong: null,
+      hasFile: false,
+      tenMajorSongs: [],
+      isProcessing: false,
+      songTitle: "",
+      songBody: "",
+      songNumber: "",
+      errors: null
+    }, _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
       header: [false, 1, 2, 3, 4, 5, 6]
     }], ["bold", "italic", "underline", "strike"], [{
       align: ""
