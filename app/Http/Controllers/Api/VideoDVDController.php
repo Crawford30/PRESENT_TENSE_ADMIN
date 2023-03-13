@@ -30,7 +30,7 @@ class VideoDVDController extends Controller
     //video_d_v_d_id
 
     public function getAllDVDVideos(){
-        $videos = VideoDVD::orderBy("id")->withCount("views")->get();
+        $videos = VideoDVD::orderByDesc("created_at")->withCount("views")->get();
         return apiResponse($videos);
     }
 
