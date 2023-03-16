@@ -97,6 +97,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
 
 
+
     //============Video DVD ======
     Route::group(['prefix' => 'video-dvd'], function () {
         Route::get('/list', 'VideoDVDController@getAllDVDVideos');
@@ -111,9 +112,6 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::post('/create-audio-dvd', 'AudioDVDController@saveAudioDVD');
         Route::post('/delete-audio-dvd', 'AudioDVDController@deleteAudioDVD');
       });
-
-
-
 
   });
 
