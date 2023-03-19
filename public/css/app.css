@@ -74477,6 +74477,12 @@ readers do not read off random characters that represent icons */
   height: 32px;
 }
 
+.present-tense-card {
+  box-shadow: 0 0 2px 2px #dddddd;
+  border-radius: 2px;
+  background: #ffffff;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

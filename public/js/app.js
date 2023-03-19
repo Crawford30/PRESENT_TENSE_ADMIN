@@ -4647,6 +4647,222 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "dvd-view"
+  }, [_c("div", {
+    staticClass: "container p-2"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "staff-card shadow-sm table-padding"
+  }, [_c("div", {
+    staticClass: "row justify-content-center m-0"
+  }, [_c("div", {
+    staticClass: "table table-sm"
+  }, [_vm._m(1), _vm._v(" "), _c("form", {
+    attrs: {
+      id: "permissions-form"
+    }
+  }, _vm._l(_vm.dvdAudios.results, function (audioDVD, index) {
+    return _c("div", {
+      key: "audio-dvd-" + audioDVD.id + index,
+      staticStyle: {
+        width: "100% !important"
+      }
+    }, [_c("div", {
+      staticClass: "p-0 m-0",
+      staticStyle: {
+        "padding-left": "0 !important",
+        "padding-right": "0 !important"
+      }
+    }, [_c("div", {
+      staticClass: "table table-sm m-0 p-0",
+      staticStyle: {
+        "text-align": "left"
+      }
+    }, [_c("div", [_c("div", {
+      staticClass: "row tbody mx-0"
+    }, [_c("div", {
+      staticClass: "col-md-1 px-0",
+      staticStyle: {
+        "text-align": "left"
+      }
+    }, [_vm._v("\n                        " + _vm._s(index + 1) + "\n                      ")]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-5 px-0"
+    }, [_vm._v("\n                        " + _vm._s(audioDVD.audio_dvd_name) + "\n                        ")]), _vm._v(" "), _vm._m(2, true)])])])])]);
+  }), 0)])])])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row my-3"
+  }, [_c("div", {
+    staticClass: "col-md-9 text-left my-1"
+  }, [_c("h4", [_vm._v("Audio DVDS :: Permissions")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3"
+  }, [_c("div", {
+    staticClass: "btn-group add-new-dropdown",
+    staticStyle: {
+      width: "100%"
+    }
+  }, [_c("div", {
+    staticClass: "btn-group w-100",
+    attrs: {
+      role: "group"
+    }
+  })])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-1 th",
+    staticStyle: {
+      "text-align": "left"
+    }
+  }, [_vm._v("#")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-5 th",
+    staticStyle: {
+      "text-align": "left"
+    }
+  }, [_vm._v("\n                Audio DVD Name\n              ")]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col th",
+    staticStyle: {
+      "text-align": "center"
+    }
+  }, [_vm._v("EAF")]), _vm._v(" "), _c("div", {
+    staticClass: "col th",
+    staticStyle: {
+      "text-align": "center"
+    }
+  }, [_vm._v("IND")]), _vm._v(" "), _c("div", {
+    staticClass: "col th",
+    staticStyle: {
+      "text-align": "center"
+    }
+  }, [_vm._v("SAF")]), _vm._v(" "), _c("div", {
+    staticClass: "col th",
+    staticStyle: {
+      "text-align": "center"
+    }
+  }, [_vm._v("EUF")]), _vm._v(" "), _c("div", {
+    staticClass: "col th",
+    staticStyle: {
+      "text-align": "center"
+    }
+  }, [_vm._v("ALL")])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-md-6"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col",
+    staticStyle: {
+      padding: "0rem 2rem !important"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("div", {
+    staticClass: "custom-control custom-checkbox"
+  }, [_c("input", {
+    staticClass: "custom-control-input",
+    attrs: {
+      type: "checkbox"
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "custom-control-label"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col",
+    staticStyle: {
+      padding: "0rem 2rem !important"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("div", {
+    staticClass: "custom-control custom-checkbox"
+  }, [_c("input", {
+    staticClass: "custom-control-input",
+    attrs: {
+      type: "checkbox"
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "custom-control-label"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col",
+    staticStyle: {
+      padding: "0rem 2rem !important"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("div", {
+    staticClass: "custom-control custom-checkbox"
+  }, [_c("input", {
+    staticClass: "custom-control-input",
+    attrs: {
+      type: "checkbox"
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "custom-control-label"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col",
+    staticStyle: {
+      padding: "0rem 2rem !important"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("div", {
+    staticClass: "custom-control custom-checkbox"
+  }, [_c("input", {
+    staticClass: "custom-control-input",
+    attrs: {
+      type: "checkbox"
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "custom-control-label"
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "col",
+    staticStyle: {
+      padding: "0rem 1.5rem !important"
+    }
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("div", {
+    staticClass: "custom-control custom-checkbox"
+  }, [_c("input", {
+    staticClass: "custom-control-input",
+    attrs: {
+      type: "checkbox"
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "custom-control-label"
+  })])])])])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/Settings.vue?vue&type=template&id=32569b06&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PERMISSIONCONFIGS/Settings.vue?vue&type=template&id=32569b06&scoped=true& ***!
@@ -9341,6 +9557,95 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../mixin/dragAndDropHelper */ "./resources/js/components/mixin/dragAndDropHelper.js");
+/* harmony import */ var _mixin_IziToast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../mixin/IziToast */ "./resources/js/components/mixin/IziToast.js");
+/* harmony import */ var _common_DropFile__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../../common/DropFile */ "./resources/js/components/common/DropFile.vue");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"],
+    DropFile: _common_DropFile__WEBPACK_IMPORTED_MODULE_4__["default"],
+    Tooltip: _common_DropFile__WEBPACK_IMPORTED_MODULE_4__["default"]
+  },
+  mixins: [_mixin_dragAndDropHelper__WEBPACK_IMPORTED_MODULE_2__["default"], _mixin_IziToast__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  data: function data() {
+    var _ref;
+    return _ref = {
+      dvdAudios: [],
+      selectedAudio: {},
+      displayAudio: null,
+      uploadedAudio: null,
+      file: null,
+      editmode: false,
+      selectedSong: null,
+      hasFile: false,
+      tenMajorSongs: [],
+      isProcessing: false,
+      songTitle: "",
+      songBody: "",
+      songNumber: "",
+      errors: null
+    }, _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
+      header: [false, 1, 2, 3, 4, 5, 6]
+    }], ["bold", "italic", "underline", "strike"], [{
+      align: ""
+    }, {
+      align: "center"
+    }, {
+      align: "right"
+    }, {
+      align: "justify"
+    }], [{
+      list: "ordered"
+    }, {
+      list: "bullet"
+    }], [{
+      indent: "-1"
+    }, {
+      indent: "+1"
+    }]]), _ref;
+  },
+  mounted: function mounted() {
+    var app = this;
+    app.getAllDVDAudios();
+  },
+  methods: {
+    getAllDVDAudios: function getAllDVDAudios() {
+      var app = this;
+      $.ajax({
+        url: "/api/audio-dvd/list",
+        success: function success(data) {
+          app.dvdAudios = data;
+        }
+      });
+      console.log("Audio DVDS", app.dvdAudios);
+    }
+  }
 });
 
 /***/ }),
@@ -17608,6 +17913,25 @@ exports.push([module.i, "\n.table thead[data-v-07e2d234] {\n  background-color: 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.hide[data-v-f47825b0] {\n  display: none;\n}\n[data-toggle=\"toggle\"][data-v-f47825b0] {\n  display: none;\n}\ntbody[data-v-f47825b0] {\n  width: 100% !important;\n}\nth[data-v-f47825b0],\ntd[data-v-f47825b0] {\n  font-size: 11px !important;\n}\n.table-sm .th[data-v-f47825b0] {\n  border: none !important;\n  padding: 0.5rem 0.5rem !important;\n  text-transform: uppercase;\n  background-color: #f5f6fa;\n  color: #a6a9b7;\n  font-size: 11px !important;\n  font-weight: bold;\n}\n.table-sm .th.col-md-1[data-v-f47825b0] {\n  text-align: center;\n}\n.table-sm .tbody[data-v-f47825b0] {\n  padding: 0.5rem 0rem !important;\n  border-bottom: 1px solid rgb(222, 226, 230);\n}\n.form-group[data-v-f47825b0] {\n  margin-bottom: 0 !important;\n}\n.table-sm .col-md-1[data-v-f47825b0] {\n  text-align: center;\n}\n.legend-table tr td[data-v-f47825b0]:first-child {\n  font-weight: bold;\n  padding-left: 0 !important;\n}\n.custom-checkbox-else\n  .custom-control-input:checked\n  ~ .custom-control-label[data-v-f47825b0]::after {\n  background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-f47825b0] {\n  margin-left: 15px !important;\n}\n.hideLoader[data-v-f47825b0] {\n  display: none;\n}\n.custom-checkbox-else\n  .custom-control-input:checked\n  ~ .custom-control-label[data-v-f47825b0]::after {\n  background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-f47825b0] {\n  margin-left: 15px !important;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/Settings.vue?vue&type=style&index=0&id=32569b06&scoped=true&lang=css&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader??ref--6-1!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PERMISSIONCONFIGS/Settings.vue?vue&type=style&index=0&id=32569b06&scoped=true&lang=css& ***!
@@ -17620,7 +17944,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.nav-link[data-v-32569b06] {\n  color: #666666 !important;\n  font-size: 15px !important;\n  cursor: pointer !important;\n  font-weight: 500;\n  border-bottom: 1px solid #999999;\n}\n.nav-link.active[data-v-32569b06] {\n  border-bottom-color: #666666 !important;\n}\n", ""]);
+exports.push([module.i, "\n.nav-link[data-v-32569b06] {\n  /* color: #666666 !important; */\n  font-size: 15px !important;\n  cursor: pointer !important;\n  font-weight: 500;\n  border-bottom: 1px solid #999999 !important;\n}\n.nav-link.active[data-v-32569b06] {\n  color: #fff;\n  width: 20px;\n  border-radius: 0.25rem;\n  background-color: #3490dc;\n\n  border-bottom-color: #666666 !important;\n}\n", ""]);
 
 // exports
 
@@ -86273,6 +86597,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/Settings.vue?vue&type=style&index=0&id=32569b06&scoped=true&lang=css&":
 /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/pages/PERMISSIONCONFIGS/Settings.vue?vue&type=style&index=0&id=32569b06&scoped=true&lang=css& ***!
@@ -108794,26 +109148,81 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
+/* harmony import */ var _AudioDVDPermission_vue_vue_type_template_id_f47825b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true& */ "./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true&");
+/* harmony import */ var _AudioDVDPermission_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AudioDVDPermission.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AudioDVDPermission_vue_vue_type_style_index_0_id_f47825b0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css& */ "./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _AudioDVDPermission_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AudioDVDPermission_vue_vue_type_template_id_f47825b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AudioDVDPermission_vue_vue_type_template_id_f47825b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "f47825b0",
   null
   
 )
 
+/* hot reload */
+if (false) { var api; }
 component.options.__file = "resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDPermission.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css&":
+/*!*****************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css& ***!
+  \*****************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_style_index_0_id_f47825b0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader!../../../../../../node_modules/css-loader??ref--6-1!../../../../../../node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=style&index=0&id=f47825b0&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_style_index_0_id_f47825b0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_style_index_0_id_f47825b0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_style_index_0_id_f47825b0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_style_index_0_id_f47825b0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true& ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_template_id_f47825b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/laravel-mix/node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/pages/PERMISSIONCONFIGS/DVDSETTINGS/AudioDVDPermission.vue?vue&type=template&id=f47825b0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_template_id_f47825b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_laravel_mix_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AudioDVDPermission_vue_vue_type_template_id_f47825b0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

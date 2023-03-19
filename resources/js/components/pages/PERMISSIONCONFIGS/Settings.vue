@@ -78,14 +78,20 @@ export default {
 
 <style scoped>
 .nav-link {
-  color: #666666 !important;
+  /* color: #666666 !important; */
   font-size: 15px !important;
   cursor: pointer !important;
   font-weight: 500;
-  border-bottom: 1px solid #999999;
+  border-bottom: 1px solid #999999 !important;
 }
 
 .nav-link.active {
+  color: #fff;
+  width: 20px;
+  border-radius: 0.25rem;
+  background-color: #3490dc;
+
   border-bottom-color: #666666 !important;
 }
 </style>
+
