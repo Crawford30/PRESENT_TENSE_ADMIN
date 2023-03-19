@@ -18,6 +18,7 @@ let routes = [
     { path: '/praises-and-worship-songs', component: require('./components/pages/SONGS/PraisesAndWorshipSongs.vue').default },
     { path: '/big-songbook-songs', component: require('./components/pages/SONGS/TheBigSongBookSongs.vue').default },
     { path: '/in-various-tongues-songs', component: require('./components/pages/SONGS/SongInVariousTongues.vue').default },
+    { path: '/settings', component: require('./components/pages/PERMISSIONCONFIGS/Settings.vue').default },
 
 
     // { path: '/developer', component: require('./components/pages/Developer.vue').default },

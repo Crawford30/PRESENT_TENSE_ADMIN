@@ -120,12 +120,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p>Roles</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-lock nav-icon"></i>
+
+             <li class="nav-item">
+                <router-link to="/settings" class="nav-link">
+                  <i class="fas fa-users nav-icon text-green"></i>
                   <p>Permissions</p>
-                </a>
+                </router-link>
               </li>
+
+              
+
             </ul>
           </li>
           @endcan
