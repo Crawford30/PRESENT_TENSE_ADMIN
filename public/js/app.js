@@ -10007,17 +10007,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
         }
       });
     },
-    dvdChecked: function dvdChecked(dvd, permission) {
-      //  console.log("STAFF: ", staff);
-      // console.log("PERMISSION: ", permission);
-      var filteredDVD = dvd.audio_dvd_permissions.includes(permission);
-
-      //   let staffData = staff.filter((d) =>
-      //     d.permissions.includes(permission)
-      //   ).length;
-      console.log("STAFF SECTION: ", filteredDVD);
-      return filteredDVD;
-    },
     getAllDVDAudios: function getAllDVDAudios() {
       var app = this;
       $.ajax({
@@ -10026,7 +10015,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           app.dvdAudios = data;
         }
       });
-      console.log("Audio DVDS", app.dvdAudios);
     }
   }
 });

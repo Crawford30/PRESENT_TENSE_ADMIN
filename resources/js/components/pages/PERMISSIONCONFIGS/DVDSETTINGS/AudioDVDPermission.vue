@@ -450,18 +450,7 @@ export default {
         }
       });
     },
-    dvdChecked(dvd, permission) {
-      //  console.log("STAFF: ", staff);
-      // console.log("PERMISSION: ", permission);
-      let filteredDVD = dvd.audio_dvd_permissions.includes(permission);
 
-      //   let staffData = staff.filter((d) =>
-      //     d.permissions.includes(permission)
-      //   ).length;
-      console.log("STAFF SECTION: ", filteredDVD);
-
-      return filteredDVD;
-    },
     getAllDVDAudios() {
       let app = this;
       $.ajax({
@@ -470,7 +459,6 @@ export default {
           app.dvdAudios = data;
         }
       });
-      console.log("Audio DVDS", app.dvdAudios);
     }
   }
 };
