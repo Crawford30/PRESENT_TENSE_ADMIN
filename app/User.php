@@ -43,13 +43,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // protected $appends = ['audio_dvd_permissions'];
 
-
-
-    // public function getAudioDVDPermissionsAttribute()
-    // {
-    //     return collect(UserAudioDVDPermission::where('audio', $this->id)->get())
-    //                 ->map(function($d){ return $d->permission; })->values()->all();
-    // }
 }
