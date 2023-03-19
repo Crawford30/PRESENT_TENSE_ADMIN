@@ -3,6 +3,7 @@
 namespace App\Http\Requests\AudioDVDRequest;
 
 use App\AudioDVD;
+use App\UserAudioDVDPermission;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DeleteAudioDVDRequest extends FormRequest
@@ -33,6 +34,8 @@ class DeleteAudioDVDRequest extends FormRequest
     public function deleteAudio()
     {
         $dvd= AudioDVD::findOrFail($this->audio_id);
+        UserAudioDVDPermission::where("audio_d_v_d_id", $dvd->id)->delete();
+
         $dvd->delete();
 
 // $dvdFile = public_path().'/'.$dvd->video_dvd_path;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\VideoDVDRequest;
 
+use App\UserVideoDVDPermission;
 use App\VideoDVD;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Http\FormRequest;
@@ -35,6 +36,7 @@ class DeleteVideoDVDRequest extends FormRequest
     public function deleteVideo()
     {
         $dvd= VideoDVD::findOrFail($this->video_id);
+        UserVideoDVDPermission::where("video_d_v_d_id", $dvd->id)->delete();
         $dvd->delete();
 
 // $dvdFile = public_path().'/'.$dvd->video_dvd_path;
