@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\User;
 
+use App\UserVideoDVDPermission;
+use App\VideoDVD;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateVideoDVDPermissionRequest extends FormRequest
@@ -13,7 +15,7 @@ class CreateVideoDVDPermissionRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,29 @@ class CreateVideoDVDPermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "permissions" => "required" //array
         ];
+    }
+
+
+
+    public function save()
+    {
+
+        UserVideoDVDPermission::truncate();
+
+        foreach ($this->permissions as $key => $permission) {
+
+            $audioDVD = VideoDVD::find($key);
+
+            if($audioDVD != NULL) {
+                    foreach($permission as $perm) {
+                        UserVideoDVDPermission::create([
+                            "video_d_v_d_id" => $key,
+                            "permission" => $perm
+                        ]);
+                    }
+            }
+        }
     }
 }
