@@ -35,7 +35,6 @@ class CreateAudioDVDPermissionRequest extends FormRequest
     public function save()
     {
 
-
         UserAudioDVDPermission::truncate();
 
         foreach ($this->permissions as $key => $permission) {
@@ -43,17 +42,12 @@ class CreateAudioDVDPermissionRequest extends FormRequest
             $audioDVD = AudioDVD::find($key);
 
             if($audioDVD != NULL) {
-
-               // $user = User::where('audio_d_v_d_id', $audioDVD->id)->first();
-
-                // if($user != NULL) {
                     foreach($permission as $perm) {
                         UserAudioDVDPermission::create([
                             "audio_d_v_d_id" => $key,
                             "permission" => $perm
                         ]);
                     }
-               // }
             }
         }
     }
