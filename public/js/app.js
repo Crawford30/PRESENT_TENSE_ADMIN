@@ -4675,7 +4675,7 @@ var render = function render() {
     attrs: {
       id: "permissions-form"
     }
-  }, _vm._l(_vm.dvdAudios.results, function (audioDVD, index) {
+  }, [_vm._l(_vm.dvdAudios.results, function (audioDVD, index) {
     return _c("div", {
       key: "audio-dvd-" + audioDVD.id + index,
       staticStyle: {
@@ -4701,8 +4701,162 @@ var render = function render() {
       }
     }, [_vm._v("\n                        " + _vm._s(index + 1) + "\n                      ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-5 px-0"
-    }, [_vm._v("\n                        " + _vm._s(audioDVD.audio_dvd_name) + "\n                        ")]), _vm._v(" "), _vm._m(2, true)])])])])]);
-  }), 0)])])])])]);
+    }, [_vm._v("\n                        " + _vm._s(audioDVD.audio_dvd_name) + "\n                        ")]), _vm._v(" "), _c("div", {
+      staticClass: "col-md-6"
+    }, [_c("div", {
+      staticClass: "row"
+    }, [_c("div", {
+      staticClass: "col",
+      staticStyle: {
+        padding: "0rem 2rem !important"
+      }
+    }, [_c("div", {
+      staticClass: "form-group"
+    }, [_c("div", {
+      staticClass: "custom-control custom-checkbox"
+    }, [_c("input", {
+      staticClass: "custom-control-input",
+      attrs: {
+        type: "checkbox",
+        "data-user": audioDVD.id,
+        "data-group": "1",
+        id: "permission-audio-dvd-east-africa" + audioDVD.id,
+        name: "permissions[" + audioDVD.id + "][]",
+        value: "audio_eaf"
+      },
+      domProps: {
+        checked: audioDVD.audio_dvd_permissions.includes("audio_eaf")
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "custom-control-label",
+      attrs: {
+        "for": "permission-audio-dvd-east-africa" + audioDVD.id
+      }
+    })])])]), _vm._v(" "), _c("div", {
+      staticClass: "col",
+      staticStyle: {
+        padding: "0rem 2rem !important"
+      }
+    }, [_c("div", {
+      staticClass: "form-group"
+    }, [_c("div", {
+      staticClass: "custom-control custom-checkbox"
+    }, [_c("input", {
+      staticClass: "custom-control-input",
+      attrs: {
+        type: "checkbox",
+        "data-user": audioDVD.id,
+        "data-group": "2",
+        id: "permission-audio-dvd-india" + audioDVD.id,
+        name: "permissions[" + audioDVD.id + "][]",
+        value: "audio_ind"
+      },
+      domProps: {
+        checked: audioDVD.audio_dvd_permissions.includes("audio_ind")
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "custom-control-label",
+      attrs: {
+        "for": "permission-audio-dvd-india" + audioDVD.id
+      }
+    })])])]), _vm._v(" "), _c("div", {
+      staticClass: "col",
+      staticStyle: {
+        padding: "0rem 2rem !important"
+      }
+    }, [_c("div", {
+      staticClass: "form-group"
+    }, [_c("div", {
+      staticClass: "custom-control custom-checkbox"
+    }, [_c("input", {
+      staticClass: "custom-control-input",
+      attrs: {
+        type: "checkbox",
+        "data-user": audioDVD.id,
+        "data-group": "3",
+        id: "permission-audio-dvd-south" + audioDVD.id,
+        name: "permissions[" + audioDVD.id + "][]",
+        value: "audio_saf"
+      },
+      domProps: {
+        checked: audioDVD.audio_dvd_permissions.includes("audio_saf")
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "custom-control-label",
+      attrs: {
+        "for": "permission-audio-dvd-south" + audioDVD.id
+      }
+    })])])]), _vm._v(" "), _c("div", {
+      staticClass: "col",
+      staticStyle: {
+        padding: "0rem 2rem !important"
+      }
+    }, [_c("div", {
+      staticClass: "form-group"
+    }, [_c("div", {
+      staticClass: "custom-control custom-checkbox"
+    }, [_c("input", {
+      staticClass: "custom-control-input",
+      attrs: {
+        type: "checkbox",
+        "data-user": audioDVD.id,
+        "data-group": "4",
+        id: "permission-audio-dvd-europe" + audioDVD.id,
+        name: "permissions[" + audioDVD.id + "][]",
+        value: "audio_eur"
+      },
+      domProps: {
+        checked: audioDVD.audio_dvd_permissions.includes("audio_eur")
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "custom-control-label",
+      attrs: {
+        "for": "permission-audio-dvd-europe" + audioDVD.id
+      }
+    })])])]), _vm._v(" "), _c("div", {
+      staticClass: "col",
+      staticStyle: {
+        padding: "0rem 1.6rem !important"
+      }
+    }, [_c("div", {
+      staticClass: "form-group"
+    }, [_c("div", {
+      staticClass: "custom-control custom-checkbox"
+    }, [_c("input", {
+      staticClass: "custom-control-input",
+      attrs: {
+        type: "checkbox",
+        "data-user": audioDVD.id,
+        "data-group": "5",
+        id: "permission-audio-dvd-all" + audioDVD.id,
+        name: "permissions[" + audioDVD.id + "][]",
+        value: "audio_all"
+      },
+      domProps: {
+        checked: audioDVD.audio_dvd_permissions.includes("audio_all")
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "custom-control-label",
+      attrs: {
+        "for": "permission-audio-dvd-all" + audioDVD.id
+      }
+    })])])])])])])])])])]);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "text-right mt-4"
+  }, [_c("button", {
+    staticClass: "present-tense-btn present-tense-primary px-6",
+    attrs: {
+      disabled: _vm.isProcessing
+    },
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.savePermissions.apply(null, arguments);
+      }
+    }
+  }, [_c("span", [_vm.isProcessing ? _c("i", {
+    staticClass: "fa fa-spinner fa-spin"
+  }) : _vm._e()]), _vm._v("\n                Save Changes\n              ")])])], 2)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4763,100 +4917,12 @@ var staticRenderFns = [function () {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("EUF")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("EUR")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
   }, [_vm._v("ALL")])])])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "col-md-6"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("div", {
-    staticClass: "col",
-    staticStyle: {
-      padding: "0rem 2rem !important"
-    }
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("div", {
-    staticClass: "custom-control custom-checkbox"
-  }, [_c("input", {
-    staticClass: "custom-control-input",
-    attrs: {
-      type: "checkbox"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "custom-control-label"
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "col",
-    staticStyle: {
-      padding: "0rem 2rem !important"
-    }
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("div", {
-    staticClass: "custom-control custom-checkbox"
-  }, [_c("input", {
-    staticClass: "custom-control-input",
-    attrs: {
-      type: "checkbox"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "custom-control-label"
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "col",
-    staticStyle: {
-      padding: "0rem 2rem !important"
-    }
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("div", {
-    staticClass: "custom-control custom-checkbox"
-  }, [_c("input", {
-    staticClass: "custom-control-input",
-    attrs: {
-      type: "checkbox"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "custom-control-label"
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "col",
-    staticStyle: {
-      padding: "0rem 2rem !important"
-    }
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("div", {
-    staticClass: "custom-control custom-checkbox"
-  }, [_c("input", {
-    staticClass: "custom-control-input",
-    attrs: {
-      type: "checkbox"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "custom-control-label"
-  })])])]), _vm._v(" "), _c("div", {
-    staticClass: "col",
-    staticStyle: {
-      padding: "0rem 1.5rem !important"
-    }
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("div", {
-    staticClass: "custom-control custom-checkbox"
-  }, [_c("input", {
-    staticClass: "custom-control-input",
-    attrs: {
-      type: "checkbox"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "custom-control-label"
-  })])])])])]);
 }];
 render._withStripped = true;
 
@@ -9635,6 +9701,41 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     app.getAllDVDAudios();
   },
   methods: {
+    savePermissions: function savePermissions() {
+      var app = this;
+      app.isProcessing = true;
+      var form = $("#permissions-form");
+      console.log("PERMISSION FORM: ", form);
+      var formData = new FormData(form[0]);
+      console.log("FORM DATA: ", formData);
+      $.ajax({
+        type: "post",
+        url: "/api/user/permission/create-audio-permission",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function success(data) {
+          app.isProcessing = false;
+          // app.showSuccessMessage("Changes Saved !");
+          app.getAllDVDAudios();
+        },
+        error: function error(e) {
+          app.isProcessing = false;
+          //  app.showAjaxError(e);
+        }
+      });
+    },
+    dvdChecked: function dvdChecked(dvd, permission) {
+      //  console.log("STAFF: ", staff);
+      // console.log("PERMISSION: ", permission);
+      var filteredDVD = dvd.audio_dvd_permissions.includes(permission);
+
+      //   let staffData = staff.filter((d) =>
+      //     d.permissions.includes(permission)
+      //   ).length;
+      console.log("STAFF SECTION: ", filteredDVD);
+      return filteredDVD;
+    },
     getAllDVDAudios: function getAllDVDAudios() {
       var app = this;
       $.ajax({

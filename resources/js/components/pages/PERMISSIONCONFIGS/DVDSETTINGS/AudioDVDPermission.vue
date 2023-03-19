@@ -27,7 +27,7 @@
                     <div class="col th" style="text-align: center">EAF</div>
                     <div class="col th" style="text-align: center">IND</div>
                     <div class="col th" style="text-align: center">SAF</div>
-                    <div class="col th" style="text-align: center">EUF</div>
+                    <div class="col th" style="text-align: center">EUR</div>
                     <div class="col th" style="text-align: center">ALL</div>
                   </div>
                 </div>
@@ -65,9 +65,8 @@
                             >
                               <i class="fas fa-chevron-right"></i>
                             </span>
-
-                          </label>
-                          <input
+                          </label> -->
+                          <!-- <input
                             type="checkbox"
                             :data-key="audioDVD.id"
                             :name="'section-id-' + audioDVD.id"
@@ -86,15 +85,65 @@
                                 <div class="custom-control custom-checkbox">
                                   <input
                                     type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="1"
                                     class="custom-control-input"
+                                    :id="
+                                      'permission-audio-dvd-east-africa' +
+                                      audioDVD.id
+                                    "
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_eaf"
+                                    :checked="
+                                      audioDVD.audio_dvd_permissions.includes(
+                                        'audio_eaf'
+                                      )
+                                    "
                                   />
-
-                                  <label class="custom-control-label"></label>
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
+                                      'permission-audio-dvd-east-africa' +
+                                      audioDVD.id
+                                    "
+                                  ></label>
                                 </div>
                               </div>
                             </div>
 
                             <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="2"
+                                    class="custom-control-input"
+                                    :id="
+                                      'permission-audio-dvd-india' + audioDVD.id
+                                    "
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_ind"
+                                    :checked="
+                                      audioDVD.audio_dvd_permissions.includes(
+                                        'audio_ind'
+                                      )
+                                    "
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
+                                      'permission-audio-dvd-india' + audioDVD.id
+                                    "
+                                  ></label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- <div
                               class="col"
                               style="padding: 0rem 2rem !important"
                             >
@@ -108,9 +157,98 @@
                                   <label class="custom-control-label"></label>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
 
                             <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="3"
+                                    class="custom-control-input"
+                                    :id="
+                                      'permission-audio-dvd-south' + audioDVD.id
+                                    "
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_saf"
+                                    :checked="
+                                      audioDVD.audio_dvd_permissions.includes(
+                                        'audio_saf'
+                                      )
+                                    "
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
+                                      'permission-audio-dvd-south' + audioDVD.id
+                                    "
+                                  ></label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div
+                                  class="custom-control custom-checkbox"
+                                  :class="{
+                                    'custom-checkbox-else':
+                                      dvdChecked(audioDVD, 'c_bsc') !=
+                                      audioDVD.length,
+                                  }"
+                                >
+                                  <input
+                                    type="checkbox"
+                                    class="custom-control-input"
+                                  />
+
+                                  <label class="custom-control-label"></label>
+                                </div>
+                              </div>
+                            </div> -->
+
+                            <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="4"
+                                    class="custom-control-input"
+                                    :id="
+                                      'permission-audio-dvd-europe' +
+                                      audioDVD.id
+                                    "
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_eur"
+                                    :checked="
+                                      audioDVD.audio_dvd_permissions.includes(
+                                        'audio_eur'
+                                      )
+                                    "
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
+                                      'permission-audio-dvd-europe' +
+                                      audioDVD.id
+                                    "
+                                  ></label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- <div
                               class="col"
                               style="padding: 0rem 2rem !important"
                             >
@@ -124,9 +262,9 @@
                                   <label class="custom-control-label"></label>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
 
-                            <div
+                            <!-- <div
                               class="col"
                               style="padding: 0rem 2rem !important"
                             >
@@ -140,9 +278,41 @@
                                   <label class="custom-control-label"></label>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
 
                             <div
+                              class="col"
+                              style="padding: 0rem 1.6rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="5"
+                                    class="custom-control-input"
+                                    :id="
+                                      'permission-audio-dvd-all' + audioDVD.id
+                                    "
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_all"
+                                    :checked="
+                                      audioDVD.audio_dvd_permissions.includes(
+                                        'audio_all'
+                                      )
+                                    "
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
+                                      'permission-audio-dvd-all' + audioDVD.id
+                                    "
+                                  ></label>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- <div
                               class="col"
                               style="padding: 0rem 1.5rem !important"
                             >
@@ -156,13 +326,25 @@
                                   <label class="custom-control-label"></label>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="text-right mt-4">
+                <button
+                  :disabled="isProcessing"
+                  @click.prevent="savePermissions"
+                  class="present-tense-btn present-tense-primary px-6"
+                >
+                  <span>
+                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"></i>
+                  </span>
+                  Save Changes
+                </button>
               </div>
             </form>
           </div>
@@ -251,6 +433,46 @@ export default {
     app.getAllDVDAudios();
   },
   methods: {
+    savePermissions() {
+      let app = this;
+      app.isProcessing = true;
+
+      let form = $("#permissions-form");
+
+      console.log("PERMISSION FORM: ", form);
+
+      let formData = new FormData(form[0]);
+      console.log("FORM DATA: ", formData);
+
+      $.ajax({
+        type: "post",
+        url: "/api/user/permission/create-audio-permission",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success(data) {
+          app.isProcessing = false;
+          // app.showSuccessMessage("Changes Saved !");
+          app.getAllDVDAudios();
+        },
+        error(e) {
+          app.isProcessing = false;
+          //  app.showAjaxError(e);
+        },
+      });
+    },
+    dvdChecked(dvd, permission) {
+      //  console.log("STAFF: ", staff);
+      // console.log("PERMISSION: ", permission);
+      let filteredDVD = dvd.audio_dvd_permissions.includes(permission);
+
+      //   let staffData = staff.filter((d) =>
+      //     d.permissions.includes(permission)
+      //   ).length;
+      console.log("STAFF SECTION: ", filteredDVD);
+
+      return filteredDVD;
+    },
     getAllDVDAudios() {
       let app = this;
       $.ajax({

@@ -11,4 +11,11 @@ class UserAudioDVDPermission extends Model
         'audio_d_v_d_id', 'permission'
     ];
 
+    protected $hidden = ['audio_d_v_d_s'];
+
+    public function audioDVD()
+    {
+        return $this->belongsTo(AudioDVD::class);
+    }
+
 }

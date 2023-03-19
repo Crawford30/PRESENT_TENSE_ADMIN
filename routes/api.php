@@ -41,6 +41,12 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/update-user-status', [App\Http\Controllers\Api\UserController::class, 'activateAndDeactivateUserData']);
     Route::post('/delete-user',  [App\Http\Controllers\Api\UserController::class, 'deleteUserData']);
 
+
+    Route::group(['prefix' => 'permission'], function () {
+        Route::post('/create-audio-permission', 'PermissionController@createAudioDVDPermission');
+        Route::post('/create-video-permission', 'PermissionController@createVideoDVDPermission');
+    });
+
     Route::get('/download-song-template',  [App\Http\Controllers\Api\UserController::class, 'download']);
 });
 
