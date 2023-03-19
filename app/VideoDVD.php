@@ -25,4 +25,9 @@ class VideoDVD extends Model
             return $d->permission;
         })->values()->all();
     }
+
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

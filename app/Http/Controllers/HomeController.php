@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\AudioDVD;
 use Illuminate\Http\Request;
+use App\UserAudioDVDPermission;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,7 +27,37 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+
+        $user =   User::where('id',auth()->user()->id)
+        ->where('user_status', 'ACTIVATED')
+        ->where('dvd_access_status', 'AUDIO_DVD')
+        ->orWhere('dvd_access_status','ALL')
+        ->whereNotNull('audio_dvd_permission')
+        ->where('type', 'user')
+        ->orWhere('type', 'admin')->first();
+
+
+        $userAudioLists = UserAudioDVDPermission::where("permission", $user->audio_dvd_permission)->pluck('audio_d_v_d_id')->toArray();
+        $itemCollection = DB::table('audio_d_v_d_s')
+        ->whereIn('id', $userAudioLists)
+        ->get();
+
+
+        // $user = User::where("id", auth()->user()->id)->first();
+
+       // dd(  $user);
+
+        // if($user->user_status == "ACTIVATED" && $user->dvd_access_status == "AUDIO_DVD" && $user->audio_dvd_permission != NULL){
+        //     $userAudioLists = UserAudioDVDPermission::where("permission", $user->audio_dvd_permission)->pluck('audio_d_v_d_id')->toArray();
+        //     $itemCollection = DB::table('audio_d_v_d_s')
+        //     ->whereIn('id', $userAudioLists)
+        //     ->get();
+        // }
+
+       // dd($itemCollection);
+
+         return view('home');
     }
 
 

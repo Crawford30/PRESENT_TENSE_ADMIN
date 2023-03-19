@@ -44,4 +44,15 @@ class User extends Authenticatable
     ];
 
 
+
+    public function audioDVD()
+    {
+        return $this->hasMany(AudioDVD::class, 'audio_d_v_d_id');
+    }
+    public function videoDVD()
+    {
+        return $this->hasMany(VideoDVD::class, 'video_d_v_d_id');
+    }
+
+
 }
