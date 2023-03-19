@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('type')->default('user');
             $table->enum('user_status', ['ACTIVATED', 'DEACTIVATED', 'PENDING'])->default('DEACTIVATED');
             $table->enum('dvd_access_status', ['NONE', 'AUDIO_DVD', 'VIDEO_DVD', 'ALL'])->default('NONE');
-            $table->unsignedInteger('audio_d_v_d_id')->nullable();
-            $table->unsignedInteger('video_d_v_d_id')->nullable();
+            $table->string('audio_dvd_permission')->nullable();
+            $table->string('video_dvd_permission')->nullable();
             $table->enum('song_access_status', ['NO',  'YES'])->default('NO');
             $table->enum('is_email_verified', ['NO', 'YES'])->default('NO');
             $table->string('api_token', 80)

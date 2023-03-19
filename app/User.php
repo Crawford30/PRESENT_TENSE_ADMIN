@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','type', 'api_token', 'user_status', 'dvd_access_status','song_access_status','is_email_verified', 'audio_d_v_d_id', 'video_d_v_d_id'
+        'name', 'email', 'password','type', 'api_token', 'user_status', 'dvd_access_status', 'audio_dvd_permission', 'video_dvd_permission', 'song_access_status','is_email_verified'
     ];
 
     /**
@@ -43,13 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected $appends = ['user_audio_d_v_d_permissions'];
+    // protected $appends = ['audio_dvd_permissions'];
 
 
 
-    public function getUserAudioDVDPermissionsAttribute()
-    {
-        return collect(UserAudioDVDPermission::where('audio_d_v_d_id', $this->audio_d_v_d_id)->get())
-                    ->map(function($d){ return $d->permission; })->values()->all();
-    }
+    // public function getAudioDVDPermissionsAttribute()
+    // {
+    //     return collect(UserAudioDVDPermission::where('audio', $this->id)->get())
+    //                 ->map(function($d){ return $d->permission; })->values()->all();
+    // }
 }
