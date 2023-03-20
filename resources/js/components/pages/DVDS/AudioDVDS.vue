@@ -1,204 +1,183 @@
 <template>
-    <div class="dvd-view">
-        <div class="container">
-            <div class="row my-3">
-                <div class="col-md-9 text-left">
-                    <h4>Audio DVDS</h4>
-                </div>
-
-                <div class="col-md-3">
-                    <div
-                        class="btn-group add-new-dropdown"
-                        style="width: 100%"
-                    >
-                        <div
-                            class="btn-group w-100"
-                            role="group"
-                        >
-                            <button
-                                type="button"
-                                class="btn btn-primary"
-                                @click="showUploadAudio"
-                            >
-                                Upload Audio DVD
-                                </button>
-                </div>
-            </div>
+  <div class="dvd-view">
+    <div class="container">
+      <div class="row my-3">
+        <div class="col-md-9 text-left">
+          <h4>Audio DVDS</h4>
         </div>
-    </div>
 
-    <div class="card">
+        <div class="col-md-3">
+          <div class="btn-group add-new-dropdown" style="width: 100%">
+            <div class="btn-group w-100" role="group">
+              <button
+                type="button"
+                class="btn btn-primary"
+                @click="showUploadAudio"
+              >
+                Upload Audio DVD
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
         <!-- <div class="col-11 ml-0 pl-0" v-if="checkPermission(current_user)"> -->
         <div class="staff-card shadow-sm table-padding">
-            <div class="row justify-content-center">
-                <table class="table table-sm present-tense-table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th class="text-justify">AUDIO DVD NAME</th>
-                            <th class="text-center">VIEWS</th>
-                            <th>DATE CREATED</th>
-                            <th>ACTIONS</th>
-                        </tr>
-                    </thead>
-                    <tr
-                        v-for="(dvdAudio, index) in dvdAudios.results"
-                        :key="dvdAudio.id + '_' + index"
-                    >
-                        <td>{{ index + 1 }}</td>
+          <div class="row justify-content-center">
+            <table class="table table-sm present-tense-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th class="text-justify">AUDIO DVD NAME</th>
+                  <th class="text-center">VIEWS</th>
+                  <th>DATE CREATED</th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+              <tr
+                v-for="(dvdAudio, index) in dvdAudios.results"
+                :key="dvdAudio.id + '_' + index"
+              >
+                <td>{{ index + 1 }}</td>
 
-                        <td class="text-justify text-uppercase">
-                            {{ dvdAudio.audio_dvd_name }}
-                            <!-- <a @click.prevent="showVideo(dvdAudio)" href="#">{{
+                <td class="text-justify text-uppercase">
+                  {{ dvdAudio.audio_dvd_name }}
+                  <!-- <a @click.prevent="showVideo(dvdAudio)" href="#">{{
                     dvdAudio.audio_dvd_name
                   }}</a> -->
-                        </td>
+                </td>
 
-                        <td class="text-center">{{ dvdAudio.views_count }}</td>
+                <td class="text-center">{{ dvdAudio.views_count }}</td>
 
-                        <td>{{ dvdAudio.creation_date | myDate }}</td>
-                        <td>
-                            <a href="#">
-                                <i
-                                    class="fas fa-pencil-alt"
-                                    style="color: #999; font-size: 18px"
-                                ></i>
-                            </a>
+                <td>{{ dvdAudio.creation_date | myDate }}</td>
+                <td>
+                  <a href="#">
+                    <i
+                      class="fas fa-pencil-alt"
+                      style="color: #999; font-size: 18px"
+                    ></i>
+                  </a>
 
-                            <a
-                                @click.prevent="deleteAudioDVD(dvdAudio.id)"
-                                href="#"
-                                style="margin-left: 8px"
-                            >
-                                <i
-                                    class="far fa-trash-alt"
-                                    style="color: #999; font-size: 18px"
-                                ></i>
-                                    </a>
+                  <a
+                    @click.prevent="deleteAudioDVD(dvdAudio.id)"
+                    href="#"
+                    style="margin-left: 8px"
+                  >
+                    <i
+                      class="far fa-trash-alt"
+                      style="color: #999; font-size: 18px"
+                    ></i>
+                  </a>
 
-                                    <a
-                                        href="#"
-                                        style="margin-left: 8px"
-                                    >
-                                        <i
-                                            class="fas fa-ellipsis-v"
-                                            style="color: #999; font-size: 18px"
-                                        ></i>
-                                            </a>
-                        </td>
-                        </tr>
-                </table>
-            </div>
+                  <a href="#" style="margin-left: 8px">
+                    <i
+                      class="fas fa-ellipsis-v"
+                      style="color: #999; font-size: 18px"
+                    ></i>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </div>
 
-            <!-- </div> -->
+          <!-- </div> -->
         </div>
-    </div>
+      </div>
     </div>
 
-    <div
-        class="modal fade"
-        id="modal-upload-audio"
-    >
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal body -->
-                <form
-                    enctype="multipart/form-data"
-                    id="audios-form"
-                    method="post"
-                >
-                    <div class="modal-body px-4 mb-3">
-                        <button
-                            type="button"
-                            style="position: absolute; right: 1.5rem; top: 1.5rem"
-                            class="close"
-                            @click="closeModel"
-                        >
-                            &times;
-                            </button>
-                            <h5 class="text-center">Add Audio DVD</h5>
-                            <!-- <hr /> -->
-                            <div class="form-group">
-                                <label for="">Audio DVD Name</label>
-                                <input
-                                    required
-                                    v-model="selectedAudio.audio_dvd_name"
-                                    name="audio_dvd_name"
-                                    class="form-control"
-                                    placeholder="Audio DVD Name"
-                                    type="text"
-                                />
-                            </div>
+    <div class="modal fade" id="modal-upload-audio">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal body -->
+          <form enctype="multipart/form-data" id="audios-form" method="post">
+            <div class="modal-body px-4 mb-3">
+              <button
+                type="button"
+                style="position: absolute; right: 1.5rem; top: 1.5rem"
+                class="close"
+                @click="closeModel"
+              >
+                &times;
+              </button>
+              <h5 class="text-center">Add Audio DVD</h5>
+              <!-- <hr /> -->
+              <div class="form-group">
+                <label for="">Audio DVD Name</label>
+                <input
+                  required
+                  v-model="selectedAudio.audio_dvd_name"
+                  name="audio_dvd_name"
+                  class="form-control"
+                  placeholder="Audio DVD Name"
+                  type="text"
+                />
+              </div>
 
-                            <label for="">Audio DVD File</label>
-                            <DropFile
-                                ref="dropFile"
-                                inline-template
-                                v-cloak
-                            >
-                                <div class="text-muted">
-                                    <div
-                                        v-if="!hasFile"
-                                        v-bind:style="{ backgroundImage: backgroundImage }"
-                                        v-on:drop.prevent="dragDrop"
-                                        v-on:dragover.prevent="dragOver"
-                                        class="drag-drop-area px-5 py-3"
-                                        style="margin-left: 0; margin-right: 0"
-                                    >
-                                        <div class="text-center drop-zone">
-                                            <img
-                                                class="icon-img"
-                                                src="/images/icons/upload_gray.png"
-                                            />
-                                            <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
-                                                DRAG &amp; DROP
-                                            </h6>
-                                        </div>
-                                        <div class="text-center">
-                                            <p style="
+              <label for="">Audio DVD File</label>
+              <DropFile ref="dropFile" inline-template v-cloak>
+                <div class="text-muted">
+                  <div
+                    v-if="!hasFile"
+                    v-bind:style="{ backgroundImage: backgroundImage }"
+                    v-on:drop.prevent="dragDrop"
+                    v-on:dragover.prevent="dragOver"
+                    class="drag-drop-area px-5 py-3"
+                    style="margin-left: 0; margin-right: 0"
+                  >
+                    <div class="text-center drop-zone">
+                      <img
+                        class="icon-img"
+                        src="/images/icons/upload_gray.png"
+                      />
+                      <h6 style="color: #bbbbbb; margin-bottom: 0.2rem">
+                        DRAG &amp; DROP
+                      </h6>
+                    </div>
+                    <div class="text-center">
+                      <p
+                        style="
                           color: #bbbbbb;
                           margin-bottom: 0;
                           padding-bottom: 0;
                           font-size: 12px;
-                        ">
-                                                the Audio DVD, or if you prefer
-                                            </p>
-                                            <div class="position-relative">
-                                                <button
-                                                    type="button"
-                                                    class="btn btn-primary position-relative"
-                                                    style="font-size: 12px; margin-top: 5px"
-                                                >
-                                                    Choose files
-                                                    <input
-                                                        type="file"
-                                                        style="
+                        "
+                      >
+                        the Audio DVD, or if you prefer
+                      </p>
+                      <div class="position-relative">
+                        <button
+                          type="button"
+                          class="btn btn-primary position-relative"
+                          style="font-size: 12px; margin-top: 5px"
+                        >
+                          Choose files
+                          <input
+                            type="file"
+                            style="
                               position: absolute;
                               left: 0;
                               top: 0;
                               opacity: 0;
                               cursor: pointer;
                             "
-                                                        accept="audio/mp3,audio/mpeg,audio/*"
-                                                        id="videoFile"
-                                                        class="opactiy-none"
-                                                        @change="fileChanged"
-                                                        name="file"
-                                                        ref="FileInput"
-                                                    />
-                                                    </button>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div
-                                    v-else
-                                    class="border p-5"
-                                >
-                                    <h6 class="text-center te xt-black-50">{{ fileName }}</h6>
-                                    <div class="text-center">
-                                        <button
-                                            @click.prevent="removeFile()"
-                                            style="
+                            accept="audio/mp3,audio/mpeg,audio/*"
+                            id="videoFile"
+                            class="opactiy-none"
+                            @change="fileChanged"
+                            name="file"
+                            ref="FileInput"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-else class="border p-5">
+                    <h6 class="text-center te xt-black-50">{{ fileName }}</h6>
+                    <div class="text-center">
+                      <button
+                        @click.prevent="removeFile()"
+                        style="
                           font-size: 24px;
                           color: #666666;
                           background: #ffffff;
@@ -206,90 +185,81 @@
                           border: none;
                           cursor: pointer;
                         "
-                                        >
-                                            <i class="far fa-trash-alt"></i>
-                                            </button>
-                                    </div>
+                      >
+                        <i class="far fa-trash-alt"></i>
+                      </button>
                     </div>
-            </div>
-            </DropFile>
-            <div class="form-group mt-3">
+                  </div>
+                </div>
+              </DropFile>
+              <div class="form-group mt-3">
                 <!-- <label for="">Date Created</label> -->
                 <label for="">
-                    <label>Date Created</label>
-                    <!-- <Tooltip
+                  <label>Date Created</label>
+                  <!-- <Tooltip
                     id="fi-doc-number"
                     title=""
                     content="e.g 2019-12-30 for 30-DEC-2019"
                   /> -->
                 </label>
                 <input
-                    v-model="selectedAudio.creation_date"
-                    name="creation_date"
-                    required
-                    class="form-control"
-                    placeholder="e.g 2019-12-30 for 30-DEC-2019"
-                    type="text"
+                  v-model="selectedAudio.creation_date"
+                  name="creation_date"
+                  required
+                  class="form-control"
+                  placeholder="e.g 2019-12-30 for 30-DEC-2019"
+                  type="text"
                 />
-            </div>
+              </div>
 
-            <input
+              <input
                 hidden
                 :value="selectedAudio.id"
                 name="audio_id"
                 type="text"
-            />
-            <div class="form-group text-center">
+              />
+              <div class="form-group text-center">
                 <button
-                    @click.prevent="uploadAudio"
-                    :disabled="isProcessing"
-                    class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
+                  @click.prevent="uploadAudio"
+                  :disabled="isProcessing"
+                  class="present-tense-btn present-tense-primary px-6 mt-3 mb-3"
                 >
-                    <span>
-                        <i
-                            v-if="isProcessing"
-                            class="fa fa-spinner fa-spin"
-                        ></i>
-                    </span>
-                    SAVE CHANGES
-                    </button>
+                  <span>
+                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"></i>
+                  </span>
+                  SAVE CHANGES
+                </button>
+              </div>
             </div>
+          </form>
         </div>
-        </form>
-        </div>
-        </div>
-        </div>
+      </div>
+    </div>
 
-        <div
-            class="modal"
-            id="showVideo"
-        >
-            <div class="modal-dialog modal-lg">
-                <div
-                    v-if="displayAudio"
-                    class="modal-content px-2 py-2"
-                >
-                    <p class="text-lg">{{ displayAudio.audio_dvd_name }}</p>
-                    <!-- {{selectedAudio}} -->
-                    <iframe
-                        id="vid-show"
-                        autoplay="false"
-                        width="100%"
-                        height="400px"
-                        :src="
+    <div class="modal" id="showVideo">
+      <div class="modal-dialog modal-lg">
+        <div v-if="displayAudio" class="modal-content px-2 py-2">
+          <p class="text-lg">{{ displayAudio.audio_dvd_name }}</p>
+          <!-- {{selectedAudio}} -->
+          <iframe
+            id="vid-show"
+            autoplay="false"
+            width="100%"
+            height="400px"
+            :src="
               displayAudio.audio_dvd_path
                 ? '/storage' + displayAudio.audio_dvd_path
                 : displayAudio.audio_dvd_path
             "
-                        frameborder="0"
-                        gesture="media"
-                        allow="encrypted-media"
-                        allowfullscreen
-                    ></iframe>
-            </div>
-            </div>
-            </div>
-            </div>
+            frameborder="0"
+            gesture="media"
+            allow="encrypted-media"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -304,7 +274,7 @@ export default {
   components: {
     VueEditor,
     DropFile,
-    Tooltip
+    Tooltip,
   },
   mixins: [dragAndDropHelper, Izitoast],
   data() {
@@ -328,48 +298,49 @@ export default {
       defaultToolbar: [
         [
           {
-            header: [false, 1, 2, 3, 4, 5, 6]
-          }
+            header: [false, 1, 2, 3, 4, 5, 6],
+          },
         ],
         ["bold", "italic", "underline", "strike"],
         [
           {
-            align: ""
+            align: "",
           },
           {
-            align: "center"
+            align: "center",
           },
           {
-            align: "right"
+            align: "right",
           },
           {
-            align: "justify"
-          }
+            align: "justify",
+          },
         ],
         [
           {
-            list: "ordered"
+            list: "ordered",
           },
           {
-            list: "bullet"
-          }
+            list: "bullet",
+          },
         ],
         [
           {
-            indent: "-1"
+            indent: "-1",
           },
           {
-            indent: "+1"
-          }
-        ]
-      ]
+            indent: "+1",
+          },
+        ],
+      ],
     };
   },
 
   mounted() {
     let app = this;
     app.getAllDVDAudios();
-    app.$on("video-uploaded", data => {
+    app.getUserAudioDVDList();
+    app.$on("video-uploaded", (data) => {
       app.uploadedAudio = data;
       //   console.log("VIDEO DATA: ", data);
     });
@@ -377,12 +348,9 @@ export default {
     app.$on("video-removed", () => {
       app.uploadedAudio = null;
     });
-
-    console.log("Uploaded vdeo: ", app.uploadedAudio);
   },
   methods: {
     showVideo(video) {
-      console.log("VIDE: ", video);
       this.displayAudio = video;
       $("#showVideo").modal("show");
     },
@@ -393,9 +361,19 @@ export default {
         url: "/api/audio-dvd/list",
         success(data) {
           app.dvdAudios = data;
-        }
+        },
       });
-      console.log("Audio DVDS", app.dvdAudios);
+    },
+
+    getUserAudioDVDList() {
+      let app = this;
+      $.ajax({
+        url: "/api/audio-dvd/user-audio-dvd-list",
+        success(data) {
+          console.log("USER DVDS AUDIO", data.results);
+          //app.dvdVideos = data;
+        },
+      });
     },
     isValid() {
       if (!this.selectedAudio.audio_dvd_name) {
@@ -473,7 +451,7 @@ export default {
               "warning"
             );
             app.showErrorMessage(app.formatAjaxError(e));
-          }
+          },
         });
       }
     },
@@ -487,14 +465,14 @@ export default {
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then(result => {
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
         if (result.isConfirmed) {
           $.ajax({
             url: "/api/audio-dvd/delete-audio-dvd",
             type: "post",
             data: {
-              audio_id: id
+              audio_id: id,
             },
             success(data) {
               Swal.fire(
@@ -503,10 +481,11 @@ export default {
                 "success"
               );
               app.getAllDVDAudios();
+              app.getUserAudioDVDList();
             },
             error(e) {
               //   app.showAjaxError(e);
-            }
+            },
           });
         }
       });
@@ -522,7 +501,7 @@ export default {
       $("#modal-upload-song-excel").modal(
         {
           backdrop: "static",
-          keyboard: false
+          keyboard: false,
         },
         "show"
       );
@@ -532,7 +511,7 @@ export default {
       $("#modal-upload-audio").modal(
         {
           backdrop: "static",
-          keyboard: false
+          keyboard: false,
         },
         "show"
       );
@@ -540,8 +519,8 @@ export default {
 
     removeFile() {
       (this.file = null), (this.hasFile = false);
-    }
-  }
+    },
+  },
 };
 </script>
 

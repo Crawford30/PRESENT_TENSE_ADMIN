@@ -47,6 +47,12 @@ Route::group(['prefix' => 'user'], function () {
         Route::post('/create-video-permission', 'PermissionController@createVideoDVDPermission');
     });
 
+    Route::group(['prefix' => 'permission'], function () {
+        Route::get('/get-user', [App\Http\Controllers\Api\UserController::class, 'getUserData']);
+    });
+
+
+
     Route::get('/download-song-template',  [App\Http\Controllers\Api\UserController::class, 'download']);
 });
 
@@ -106,6 +112,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     //============Video DVD ======
     Route::group(['prefix' => 'video-dvd'], function () {
+        Route::get('/user-video-dvd-list', [App\Http\Controllers\Api\VideoDVDController::class, 'getDVDList']);
         Route::get('/list', 'VideoDVDController@getAllDVDVideos');
         Route::post('/create-video-dvd', 'VideoDVDController@saveVideoDVD');
         Route::post('/delete-video-dvd', 'VideoDVDController@deleteVideoDVD');
@@ -114,6 +121,8 @@ Route::group(['middleware' => ['auth:api']], function () {
 
   //============Audio DVD ======
     Route::group(['prefix' => 'audio-dvd'], function () {
+        // Route::get('/user-audio-dvd-list', 'AudioDVDController@getAudioDVDList');
+        Route::get('/user-audio-dvd-list', [App\Http\Controllers\Api\AudioDVDController::class, 'getAudioDVDList']);
         Route::get('/list', 'AudioDVDController@getAllDVDAudios');
         Route::post('/create-audio-dvd', 'AudioDVDController@saveAudioDVD');
         Route::post('/delete-audio-dvd', 'AudioDVDController@deleteAudioDVD');

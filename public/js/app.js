@@ -2022,7 +2022,7 @@ var render = function render() {
     on: {
       click: _vm.showUploadAudio
     }
-  }, [_vm._v("\n                            Upload Audio DVD\n                            ")])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n              Upload Audio DVD\n            ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "staff-card shadow-sm table-padding"
@@ -2035,7 +2035,7 @@ var render = function render() {
       key: dvdAudio.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", {
       staticClass: "text-justify text-uppercase"
-    }, [_vm._v("\n                        " + _vm._s(dvdAudio.audio_dvd_name) + "\n                        ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                " + _vm._s(dvdAudio.audio_dvd_name) + "\n                ")]), _vm._v(" "), _c("td", {
       staticClass: "text-center"
     }, [_vm._v(_vm._s(dvdAudio.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdAudio.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
       staticStyle: {
@@ -2087,7 +2087,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n                        ×\n                        ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n              ×\n            ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
   }, [_vm._v("Add Audio DVD")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -2158,7 +2158,7 @@ var render = function render() {
             "padding-bottom": "0",
             "font-size": "12px"
           }
-        }, [_vm._v("\n                                            the Audio DVD, or if you prefer\n                                        ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                      the Audio DVD, or if you prefer\n                    ")]), _vm._v(" "), _c("div", {
           staticClass: "position-relative"
         }, [_c("button", {
           staticClass: "btn btn-primary position-relative",
@@ -2169,7 +2169,7 @@ var render = function render() {
           attrs: {
             type: "button"
           }
-        }, [_vm._v("\n                                                Choose files\n                                                "), _c("input", {
+        }, [_vm._v("\n                        Choose files\n                        "), _c("input", {
           ref: "FileInput",
           staticClass: "opactiy-none",
           staticStyle: {
@@ -2228,7 +2228,7 @@ var render = function render() {
             color: "#bbbbbb",
             "margin-bottom": "0.2rem"
           }
-        }, [_vm._v("\n                                            DRAG & DROP\n                                        ")])]);
+        }, [_vm._v("\n                      DRAG & DROP\n                    ")])]);
       }]
     }
   }), _vm._v(" "), _c("div", {
@@ -2280,7 +2280,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n                ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n              ")])])], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal",
     attrs: {
       id: "showVideo"
@@ -2404,7 +2404,7 @@ var render = function render() {
     on: {
       click: _vm.showUploadVideo
     }
-  }, [_vm._v("\n                            Upload Video DVD\n                        ")])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n              Upload Video DVD\n            ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "staff-card shadow-sm table-padding"
@@ -2417,7 +2417,7 @@ var render = function render() {
       key: dvdVideo.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", {
       staticClass: "text-justify text-uppercase"
-    }, [_vm._v("\n                                " + _vm._s(dvdVideo.video_dvd_name) + "\n                                ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                " + _vm._s(dvdVideo.video_dvd_name) + "\n                ")]), _vm._v(" "), _c("td", {
       staticClass: "text-center"
     }, [_vm._v(_vm._s(dvdVideo.views_count))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
       staticStyle: {
@@ -2469,7 +2469,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n                            ×\n                        ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n              ×\n            ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
   }, [_vm._v("Add Video DVD")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -2540,7 +2540,7 @@ var render = function render() {
             "padding-bottom": "0",
             "font-size": "12px"
           }
-        }, [_vm._v("\n                                            the video DVD, or if you prefer\n                                        ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                      the video DVD, or if you prefer\n                    ")]), _vm._v(" "), _c("div", {
           staticClass: "position-relative"
         }, [_c("button", {
           staticClass: "btn btn-primary position-relative",
@@ -2551,7 +2551,7 @@ var render = function render() {
           attrs: {
             type: "button"
           }
-        }, [_vm._v("\n                                                Choose files\n                                                "), _c("input", {
+        }, [_vm._v("\n                        Choose files\n                        "), _c("input", {
           ref: "FileInput",
           staticClass: "opactiy-none",
           staticStyle: {
@@ -2610,7 +2610,7 @@ var render = function render() {
             color: "#bbbbbb",
             "margin-bottom": "0.2rem"
           }
-        }, [_vm._v("\n                                            DRAG & DROP\n                                        ")])]);
+        }, [_vm._v("\n                      DRAG & DROP\n                    ")])]);
       }]
     }
   }), _vm._v(" "), _c("div", {
@@ -2662,7 +2662,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                                SAVE CHANGES\n                            ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n              ")])])], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal",
     attrs: {
       id: "showVideo"
@@ -4699,7 +4699,7 @@ var render = function render() {
       staticStyle: {
         "text-align": "left"
       }
-    }, [_vm._v("\n                            " + _vm._s(index + 1) + "\n                    ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(index + 1) + "\n                      ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-5 px-0"
     }, [_vm._v("\n                        " + _vm._s(audioDVD.audio_dvd_name) + "\n                        ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-6"
@@ -4856,7 +4856,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                                Save Changes\n                                ")])])], 2)])])])])]);
+  }) : _vm._e()]), _vm._v("\n                Save Changes\n              ")])])], 2)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -4893,7 +4893,7 @@ var staticRenderFns = [function () {
     staticStyle: {
       "text-align": "left"
     }
-  }, [_vm._v("\n                    Audio DVD Name\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                Audio DVD Name\n              ")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("div", {
     staticClass: "row"
@@ -4981,9 +4981,9 @@ var render = function render() {
       staticStyle: {
         "text-align": "left"
       }
-    }, [_vm._v("\n                            " + _vm._s(index + 1) + "\n                    ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(index + 1) + "\n                      ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-5 px-0"
-    }, [_vm._v("\n                        " + _vm._s(videoDVD.video_dvd_name) + "\n                    ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(videoDVD.video_dvd_name) + "\n                      ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-6"
     }, [_c("div", {
       staticClass: "row"
@@ -5138,7 +5138,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                                Save Changes\n                                ")])])], 2)])])])])]);
+  }) : _vm._e()]), _vm._v("\n                Save Changes\n              ")])])], 2)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5175,7 +5175,7 @@ var staticRenderFns = [function () {
     staticStyle: {
       "text-align": "left"
     }
-  }, [_vm._v("\n                    Video DVD Name\n            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                Video DVD Name\n              ")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("div", {
     staticClass: "row"
@@ -9290,6 +9290,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   mounted: function mounted() {
     var app = this;
     app.getAllDVDAudios();
+    app.getUserAudioDVDList();
     app.$on("video-uploaded", function (data) {
       app.uploadedAudio = data;
       //   console.log("VIDEO DATA: ", data);
@@ -9298,11 +9299,9 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     app.$on("video-removed", function () {
       app.uploadedAudio = null;
     });
-    console.log("Uploaded vdeo: ", app.uploadedAudio);
   },
   methods: {
     showVideo: function showVideo(video) {
-      console.log("VIDE: ", video);
       this.displayAudio = video;
       $("#showVideo").modal("show");
     },
@@ -9314,7 +9313,16 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           app.dvdAudios = data;
         }
       });
-      console.log("Audio DVDS", app.dvdAudios);
+    },
+    getUserAudioDVDList: function getUserAudioDVDList() {
+      var app = this;
+      $.ajax({
+        url: "/api/audio-dvd/user-audio-dvd-list",
+        success: function success(data) {
+          console.log("USER DVDS AUDIO", data.results);
+          //app.dvdVideos = data;
+        }
+      });
     },
     isValid: function isValid() {
       if (!this.selectedAudio.audio_dvd_name) {
@@ -9395,6 +9403,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
             success: function success(data) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Audio Deleted Successfully</p>", "", "success");
               app.getAllDVDAudios();
+              app.getUserAudioDVDList();
             },
             error: function error(e) {
               //   app.showAjaxError(e);
@@ -9500,6 +9509,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
   mounted: function mounted() {
     var app = this;
     app.getAllDVDVideos();
+    app.getUserVideoDVDList();
     app.$on("video-uploaded", function (data) {
       app.uploadedVideo = data;
       //   console.log("VIDEO DATA: ", data);
@@ -9508,7 +9518,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
     app.$on("video-removed", function () {
       app.uploadedVideo = null;
     });
-    console.log("Uploaded vdeo: ", app.uploadedVideo);
   },
   methods: {
     showVideo: function showVideo(video) {
@@ -9516,15 +9525,24 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       this.displayVideo = video;
       $("#showVideo").modal("show");
     },
+    getUserVideoDVDList: function getUserVideoDVDList() {
+      var app = this;
+      $.ajax({
+        url: "/api/video-dvd/user-video-dvd-list",
+        success: function success(data) {
+          console.log("USER DVD VIDEOS", data.results);
+        }
+      });
+    },
     getAllDVDVideos: function getAllDVDVideos() {
       var app = this;
       $.ajax({
         url: "/api/video-dvd/list",
         success: function success(data) {
+          console.log("DVD VIDEOS", data.results);
           app.dvdVideos = data;
         }
       });
-      console.log("DVD VIDEOS", app.dvdVideos);
     },
     isValid: function isValid() {
       if (!this.selectedVideo.video_dvd_name) {
@@ -9605,6 +9623,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
             success: function success(data) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Deleted Successfully</p>", "", "success");
               app.getAllDVDVideos();
+              app.getUserVideoDVDList();
             },
             error: function error(e) {
               //   app.showAjaxError(e);

@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\VideoDVDRequest\DeleteVideoDVDRequest;
-use App\Http\Requests\VideoDVDRequest\SaveVideoDVDRequest;
+use App\User;
 use App\VideoDVD;
 use App\VideoDVDView;
+use Illuminate\Http\Request;
+use App\UserVideoDVDPermission;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\VideoDVDRequest\SaveVideoDVDRequest;
+use App\Http\Requests\VideoDVDRequest\DeleteVideoDVDRequest;
+use App\Http\Requests\VideoDVDRequest\GetUserVideoDVDListRequest;
 
 class VideoDVDController extends Controller
 {
@@ -27,12 +31,17 @@ class VideoDVDController extends Controller
     }
 
 
-    //video_d_v_d_id
+
 
     public function getAllDVDVideos(){
         $videos = VideoDVD::orderByDesc("created_at")->withCount("views")->get();
         return apiResponse($videos);
     }
+
+    public function getDVDList(GetUserVideoDVDListRequest $request ){
+        return $request->getUserVideoDVDList();
+    }
+
 
 
     public function deleteVideoDVD(DeleteVideoDVDRequest $request)
@@ -43,13 +52,6 @@ class VideoDVDController extends Controller
 
 
 
-    // public function saveVideoView(){
-    //     $view=  VideoDVDView::create([
-    //           "video_id"=> request("video_id"),
-    //           "user_id"=> auth()->user()->id
-    //       ]);
-    //       return apiResponse($view);
-    //   }
 
 
 

@@ -1,93 +1,60 @@
 <template>
-    <div class="dvd-view">
-        <div class="container p-2">
-            <div class="row my-3">
-                <div class="col-md-9 text-left my-1">
-                    <h4>Audio DVDS :: Permissions</h4>
-                </div>
-
-                <div class="col-md-3">
-                    <div
-                        class="btn-group add-new-dropdown"
-                        style="width: 100%"
-                    >
-                        <div
-                            class="btn-group w-100"
-                            role="group"
-                        ></div>
-            </div>
+  <div class="dvd-view">
+    <div class="container p-2">
+      <div class="row my-3">
+        <div class="col-md-9 text-left my-1">
+          <h4>Audio DVDS :: Permissions</h4>
         </div>
-    </div>
 
-    <div class="staff-card shadow-sm table-padding">
+        <div class="col-md-3">
+          <div class="btn-group add-new-dropdown" style="width: 100%">
+            <div class="btn-group w-100" role="group"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="staff-card shadow-sm table-padding">
         <div class="row justify-content-center m-0">
-            <div class="table table-sm">
-                <div>
-                    <div class="row">
-                        <div
-                            class="col-md-1 th"
-                            style="text-align: left"
-                        >#</div>
-                    <div
-                        class="col-md-5 th"
-                        style="text-align: left"
-                    >
-                        Audio DVD Name
+          <div class="table table-sm">
+            <div>
+              <div class="row">
+                <div class="col-md-1 th" style="text-align: left">#</div>
+                <div class="col-md-5 th" style="text-align: left">
+                  Audio DVD Name
                 </div>
                 <div class="col-md-6">
-                    <div class="row">
-                        <div
-                            class="col th"
-                            style="text-align: center"
-                        >EAF</div>
-                    <div
-                        class="col th"
-                        style="text-align: center"
-                    >IND</div>
+                  <div class="row">
+                    <div class="col th" style="text-align: center">EAF</div>
+                    <div class="col th" style="text-align: center">IND</div>
+                    <div class="col th" style="text-align: center">SAF</div>
+                    <div class="col th" style="text-align: center">EUR</div>
+                    <div class="col th" style="text-align: center">ALL</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form id="permissions-form">
+              <div
+                v-for="(audioDVD, index) in dvdAudios.results"
+                v-bind:key="'audio-dvd-' + audioDVD.id + index"
+                style="width: 100% !important"
+              >
                 <div
-                    class="col th"
-                    style="text-align: center"
-                >SAF</div>
-            <div
-                class="col th"
-                style="text-align: center"
-            >EUR</div>
-        <div
-            class="col th"
-            style="text-align: center"
-        >ALL</div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <form id="permissions-form">
-        <div
-            v-for="(audioDVD, index) in dvdAudios.results"
-            v-bind:key="'audio-dvd-' + audioDVD.id + index"
-            style="width: 100% !important"
-        >
-            <div
-                class="p-0 m-0"
-                style="
+                  class="p-0 m-0"
+                  style="
                     padding-left: 0 !important;
                     padding-right: 0 !important;
                   "
-            >
-                <div
-                    class="table table-sm m-0 p-0"
-                    style="text-align: left"
                 >
+                  <div class="table table-sm m-0 p-0" style="text-align: left">
                     <div>
-                        <div class="row tbody mx-0">
-                            <div
-                                class="col-md-1 px-0"
-                                style="text-align: left"
-                            >
-                                {{ index + 1 }}
+                      <div class="row tbody mx-0">
+                        <div class="col-md-1 px-0" style="text-align: left">
+                          {{ index + 1 }}
                         </div>
                         <div class="col-md-5 px-0">
-                            {{ audioDVD.audio_dvd_name }}
-                            <!-- <label
+                          {{ audioDVD.audio_dvd_name }}
+                          <!-- <label
                             style="cursor: pointer; font-size: 12px"
                             class="m-0 p-0"
                             :for="'section-id-' + audioDVD.id"
@@ -99,7 +66,7 @@
                               <i class="fas fa-chevron-right"></i>
                             </span>
                           </label> -->
-                            <!-- <input
+                          <!-- <input
                             type="checkbox"
                             :data-key="audioDVD.id"
                             :name="'section-id-' + audioDVD.id"
@@ -109,74 +76,74 @@
                         </div>
 
                         <div class="col-md-6">
-                            <div class="row">
-                                <div
-                                    class="col"
-                                    style="padding: 0rem 2rem !important"
-                                >
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input
-                                                type="checkbox"
-                                                :data-user="audioDVD.id"
-                                                data-group="1"
-                                                class="custom-control-input"
-                                                :id="
+                          <div class="row">
+                            <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="1"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-audio-dvd-east-africa' +
                                       audioDVD.id
                                     "
-                                                :name="'permissions[' + audioDVD.id + '][]'"
-                                                value="audio_eaf"
-                                                :checked="
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_eaf"
+                                    :checked="
                                       audioDVD.audio_dvd_permissions.includes(
                                         'audio_eaf'
                                       )
                                     "
-                                            />
-                                            <label
-                                                class="custom-control-label"
-                                                :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-audio-dvd-east-africa' +
                                       audioDVD.id
                                     "
-                                            ></label>
-                                        </div>
-                                    </div>
+                                  ></label>
+                                </div>
+                              </div>
                             </div>
 
                             <div
-                                class="col"
-                                style="padding: 0rem 2rem !important"
+                              class="col"
+                              style="padding: 0rem 2rem !important"
                             >
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            :data-user="audioDVD.id"
-                                            data-group="2"
-                                            class="custom-control-input"
-                                            :id="
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="2"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-audio-dvd-india' + audioDVD.id
                                     "
-                                            :name="'permissions[' + audioDVD.id + '][]'"
-                                            value="audio_ind"
-                                            :checked="
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_ind"
+                                    :checked="
                                       audioDVD.audio_dvd_permissions.includes(
                                         'audio_ind'
                                       )
                                     "
-                                        />
-                                        <label
-                                            class="custom-control-label"
-                                            :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-audio-dvd-india' + audioDVD.id
                                     "
-                                        ></label>
-                                    </div>
+                                  ></label>
                                 </div>
-                        </div>
+                              </div>
+                            </div>
 
-                        <!-- <div
+                            <!-- <div
                               class="col"
                               style="padding: 0rem 2rem !important"
                             >
@@ -192,45 +159,45 @@
                               </div>
                             </div> -->
 
-                        <div
-                            class="col"
-                            style="padding: 0rem 2rem !important"
-                        >
-                            <div class="form-group">
+                            <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
                                 <div class="custom-control custom-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        :data-user="audioDVD.id"
-                                        data-group="3"
-                                        class="custom-control-input"
-                                        :id="
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="3"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-audio-dvd-south' + audioDVD.id
                                     "
-                                        :name="'permissions[' + audioDVD.id + '][]'"
-                                        value="audio_saf"
-                                        :checked="
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_saf"
+                                    :checked="
                                       audioDVD.audio_dvd_permissions.includes(
                                         'audio_saf'
                                       )
                                     "
-                                    />
-                                    <label
-                                        class="custom-control-label"
-                                        :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-audio-dvd-south' + audioDVD.id
                                     "
-                                    ></label>
+                                  ></label>
                                 </div>
+                              </div>
                             </div>
-                    </div>
 
-                    <div
-                        class="col"
-                        style="padding: 0rem 2rem !important"
-                    >
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input
+                            <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
                                     type="checkbox"
                                     :data-user="audioDVD.id"
                                     data-group="4"
@@ -246,48 +213,48 @@
                                         'audio_eur'
                                       )
                                     "
-                                />
-                                <label
+                                  />
+                                  <label
                                     class="custom-control-label"
                                     :for="
                                       'permission-audio-dvd-europe' +
                                       audioDVD.id
                                     "
-                                ></label>
+                                  ></label>
+                                </div>
+                              </div>
                             </div>
-                        </div>
-                        </div>
 
-                        <div
-                            class="col"
-                            style="padding: 0rem 1.6rem !important"
-                        >
-                            <div class="form-group">
+                            <div
+                              class="col"
+                              style="padding: 0rem 1.6rem !important"
+                            >
+                              <div class="form-group">
                                 <div class="custom-control custom-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        :data-user="audioDVD.id"
-                                        data-group="5"
-                                        class="custom-control-input"
-                                        :id="
+                                  <input
+                                    type="checkbox"
+                                    :data-user="audioDVD.id"
+                                    data-group="5"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-audio-dvd-all' + audioDVD.id
                                     "
-                                        :name="'permissions[' + audioDVD.id + '][]'"
-                                        value="audio_all"
-                                        :checked="
+                                    :name="'permissions[' + audioDVD.id + '][]'"
+                                    value="audio_all"
+                                    :checked="
                                       audioDVD.audio_dvd_permissions.includes(
                                         'audio_all'
                                       )
                                     "
-                                    />
-                                    <label
-                                        class="custom-control-label"
-                                        :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-audio-dvd-all' + audioDVD.id
                                     "
-                                    ></label>
+                                  ></label>
                                 </div>
-                            </div>
+                              </div>
                             </div>
 
                             <!-- <div
@@ -305,34 +272,31 @@
                                 </div>
                               </div>
                             </div> -->
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="text-right mt-4">
-                                <button
-                                    :disabled="isProcessing"
-                                    @click.prevent="savePermissions"
-                                    class="present-tense-btn present-tense-primary px-6"
-                                >
-                                    <span>
-                                        <i
-                                            v-if="isProcessing"
-                                            class="fa fa-spinner fa-spin"
-                                        ></i>
-                                    </span>
-                                    Save Changes
-                                    </button>
-                            </div>
-    </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right mt-4">
+                <button
+                  :disabled="isProcessing"
+                  @click.prevent="savePermissions"
+                  class="present-tense-btn present-tense-primary px-6"
+                >
+                  <span>
+                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"></i>
+                  </span>
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -347,7 +311,7 @@ export default {
   components: {
     VueEditor,
     DropFile,
-    Tooltip
+    Tooltip,
   },
   mixins: [dragAndDropHelper, Izitoast],
   data() {
@@ -371,41 +335,41 @@ export default {
       defaultToolbar: [
         [
           {
-            header: [false, 1, 2, 3, 4, 5, 6]
-          }
+            header: [false, 1, 2, 3, 4, 5, 6],
+          },
         ],
         ["bold", "italic", "underline", "strike"],
         [
           {
-            align: ""
+            align: "",
           },
           {
-            align: "center"
+            align: "center",
           },
           {
-            align: "right"
+            align: "right",
           },
           {
-            align: "justify"
-          }
+            align: "justify",
+          },
         ],
         [
           {
-            list: "ordered"
+            list: "ordered",
           },
           {
-            list: "bullet"
-          }
+            list: "bullet",
+          },
         ],
         [
           {
-            indent: "-1"
+            indent: "-1",
           },
           {
-            indent: "+1"
-          }
-        ]
-      ]
+            indent: "+1",
+          },
+        ],
+      ],
     };
   },
 
@@ -447,7 +411,7 @@ export default {
             "<p style='font-size: 14px;'>An Error has occured</p>",
             "warning"
           );
-        }
+        },
       });
     },
 
@@ -457,10 +421,10 @@ export default {
         url: "/api/audio-dvd/list",
         success(data) {
           app.dvdAudios = data;
-        }
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

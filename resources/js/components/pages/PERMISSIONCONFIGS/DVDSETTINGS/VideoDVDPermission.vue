@@ -1,163 +1,130 @@
 <template>
-    <div class="dvd-view">
-        <div class="container p-2">
-            <div class="row my-3">
-                <div class="col-md-9 text-left my-1">
-                    <h4>Video DVDS :: Permissions</h4>
-                </div>
-
-                <div class="col-md-3">
-                    <div
-                        class="btn-group add-new-dropdown"
-                        style="width: 100%"
-                    >
-                        <div
-                            class="btn-group w-100"
-                            role="group"
-                        ></div>
-            </div>
+  <div class="dvd-view">
+    <div class="container p-2">
+      <div class="row my-3">
+        <div class="col-md-9 text-left my-1">
+          <h4>Video DVDS :: Permissions</h4>
         </div>
-    </div>
 
-    <div class="staff-card shadow-sm table-padding">
+        <div class="col-md-3">
+          <div class="btn-group add-new-dropdown" style="width: 100%">
+            <div class="btn-group w-100" role="group"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="staff-card shadow-sm table-padding">
         <div class="row justify-content-center m-0">
-            <div class="table table-sm">
-                <div>
-                    <div class="row">
-                        <div
-                            class="col-md-1 th"
-                            style="text-align: left"
-                        >#</div>
-                    <div
-                        class="col-md-5 th"
-                        style="text-align: left"
-                    >
-                        Video DVD Name
+          <div class="table table-sm">
+            <div>
+              <div class="row">
+                <div class="col-md-1 th" style="text-align: left">#</div>
+                <div class="col-md-5 th" style="text-align: left">
+                  Video DVD Name
                 </div>
                 <div class="col-md-6">
-                    <div class="row">
-                        <div
-                            class="col th"
-                            style="text-align: center"
-                        >EAF</div>
-                    <div
-                        class="col th"
-                        style="text-align: center"
-                    >IND</div>
+                  <div class="row">
+                    <div class="col th" style="text-align: center">EAF</div>
+                    <div class="col th" style="text-align: center">IND</div>
+                    <div class="col th" style="text-align: center">SAF</div>
+                    <div class="col th" style="text-align: center">EUR</div>
+                    <div class="col th" style="text-align: center">ALL</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <form id="permissions-form">
+              <div
+                v-for="(videoDVD, index) in dvdVideos.results"
+                v-bind:key="'video-dvd-' + videoDVD.id + index"
+                style="width: 100% !important"
+              >
                 <div
-                    class="col th"
-                    style="text-align: center"
-                >SAF</div>
-            <div
-                class="col th"
-                style="text-align: center"
-            >EUR</div>
-        <div
-            class="col th"
-            style="text-align: center"
-        >ALL</div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <form id="permissions-form">
-        <div
-            v-for="(videoDVD, index) in dvdVideos.results"
-            v-bind:key="'video-dvd-' + videoDVD.id + index"
-            style="width: 100% !important"
-        >
-            <div
-                class="p-0 m-0"
-                style="
+                  class="p-0 m-0"
+                  style="
                     padding-left: 0 !important;
                     padding-right: 0 !important;
                   "
-            >
-                <div
-                    class="table table-sm m-0 p-0"
-                    style="text-align: left"
                 >
+                  <div class="table table-sm m-0 p-0" style="text-align: left">
                     <div>
-                        <div class="row tbody mx-0">
-                            <div
-                                class="col-md-1 px-0"
-                                style="text-align: left"
-                            >
-                                {{ index + 1 }}
+                      <div class="row tbody mx-0">
+                        <div class="col-md-1 px-0" style="text-align: left">
+                          {{ index + 1 }}
                         </div>
                         <div class="col-md-5 px-0">
-                            {{ videoDVD.video_dvd_name }}
+                          {{ videoDVD.video_dvd_name }}
                         </div>
 
                         <div class="col-md-6">
-                            <div class="row">
-                                <div
-                                    class="col"
-                                    style="padding: 0rem 2rem !important"
-                                >
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox">
-                                            <input
-                                                type="checkbox"
-                                                :data-user="videoDVD.id"
-                                                data-group="1"
-                                                class="custom-control-input"
-                                                :id="
+                          <div class="row">
+                            <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="videoDVD.id"
+                                    data-group="1"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-video-dvd-east-africa' +
                                       videoDVD.id
                                     "
-                                                :name="'permissions[' + videoDVD.id + '][]'"
-                                                value="video_eaf"
-                                                :checked="
+                                    :name="'permissions[' + videoDVD.id + '][]'"
+                                    value="video_eaf"
+                                    :checked="
                                       videoDVD.video_dvd_permissions.includes(
                                         'video_eaf'
                                       )
                                     "
-                                            />
-                                            <label
-                                                class="custom-control-label"
-                                                :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-video-dvd-east-africa' +
                                       videoDVD.id
                                     "
-                                            ></label>
-                                        </div>
-                                    </div>
+                                  ></label>
+                                </div>
+                              </div>
                             </div>
 
                             <div
-                                class="col"
-                                style="padding: 0rem 2rem !important"
+                              class="col"
+                              style="padding: 0rem 2rem !important"
                             >
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            :data-user="videoDVD.id"
-                                            data-group="2"
-                                            class="custom-control-input"
-                                            :id="
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
+                                    type="checkbox"
+                                    :data-user="videoDVD.id"
+                                    data-group="2"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-video-dvd-india' + videoDVD.id
                                     "
-                                            :name="'permissions[' + videoDVD.id + '][]'"
-                                            value="video_ind"
-                                            :checked="
+                                    :name="'permissions[' + videoDVD.id + '][]'"
+                                    value="video_ind"
+                                    :checked="
                                       videoDVD.video_dvd_permissions.includes(
                                         'video_ind'
                                       )
                                     "
-                                        />
-                                        <label
-                                            class="custom-control-label"
-                                            :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-video-dvd-india' + videoDVD.id
                                     "
-                                        ></label>
-                                    </div>
+                                  ></label>
                                 </div>
-                        </div>
+                              </div>
+                            </div>
 
-                        <!-- <div
+                            <!-- <div
                               class="col"
                               style="padding: 0rem 2rem !important"
                             >
@@ -173,45 +140,45 @@
                               </div>
                             </div> -->
 
-                        <div
-                            class="col"
-                            style="padding: 0rem 2rem !important"
-                        >
-                            <div class="form-group">
+                            <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
                                 <div class="custom-control custom-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        :data-user="videoDVD.id"
-                                        data-group="3"
-                                        class="custom-control-input"
-                                        :id="
+                                  <input
+                                    type="checkbox"
+                                    :data-user="videoDVD.id"
+                                    data-group="3"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-video-dvd-south' + videoDVD.id
                                     "
-                                        :name="'permissions[' + videoDVD.id + '][]'"
-                                        value="video_saf"
-                                        :checked="
+                                    :name="'permissions[' + videoDVD.id + '][]'"
+                                    value="video_saf"
+                                    :checked="
                                       videoDVD.video_dvd_permissions.includes(
                                         'video_saf'
                                       )
                                     "
-                                    />
-                                    <label
-                                        class="custom-control-label"
-                                        :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-video-dvd-south' + videoDVD.id
                                     "
-                                    ></label>
+                                  ></label>
                                 </div>
+                              </div>
                             </div>
-                    </div>
 
-                    <div
-                        class="col"
-                        style="padding: 0rem 2rem !important"
-                    >
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input
+                            <div
+                              class="col"
+                              style="padding: 0rem 2rem !important"
+                            >
+                              <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                  <input
                                     type="checkbox"
                                     :data-user="videoDVD.id"
                                     data-group="4"
@@ -227,77 +194,74 @@
                                         'video_eur'
                                       )
                                     "
-                                />
-                                <label
+                                  />
+                                  <label
                                     class="custom-control-label"
                                     :for="
                                       'permission-video-dvd-europe' +
                                       videoDVD.id
                                     "
-                                ></label>
+                                  ></label>
+                                </div>
+                              </div>
                             </div>
-                        </div>
-                        </div>
 
-                        <div
-                            class="col"
-                            style="padding: 0rem 1.6rem !important"
-                        >
-                            <div class="form-group">
+                            <div
+                              class="col"
+                              style="padding: 0rem 1.6rem !important"
+                            >
+                              <div class="form-group">
                                 <div class="custom-control custom-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        :data-user="videoDVD.id"
-                                        data-group="5"
-                                        class="custom-control-input"
-                                        :id="
+                                  <input
+                                    type="checkbox"
+                                    :data-user="videoDVD.id"
+                                    data-group="5"
+                                    class="custom-control-input"
+                                    :id="
                                       'permission-video-dvd-all' + videoDVD.id
                                     "
-                                        :name="'permissions[' + videoDVD.id + '][]'"
-                                        value="video_all"
-                                        :checked="
+                                    :name="'permissions[' + videoDVD.id + '][]'"
+                                    value="video_all"
+                                    :checked="
                                       videoDVD.video_dvd_permissions.includes(
                                         'video_all'
                                       )
                                     "
-                                    />
-                                    <label
-                                        class="custom-control-label"
-                                        :for="
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    :for="
                                       'permission-video-dvd-all' + videoDVD.id
                                     "
-                                    ></label>
+                                  ></label>
                                 </div>
+                              </div>
                             </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div class="text-right mt-4">
-                                <button
-                                    :disabled="isProcessing"
-                                    @click.prevent="savePermissions"
-                                    class="present-tense-btn present-tense-primary px-6"
-                                >
-                                    <span>
-                                        <i
-                                            v-if="isProcessing"
-                                            class="fa fa-spinner fa-spin"
-                                        ></i>
-                                    </span>
-                                    Save Changes
-                                    </button>
-                            </div>
-    </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right mt-4">
+                <button
+                  :disabled="isProcessing"
+                  @click.prevent="savePermissions"
+                  class="present-tense-btn present-tense-primary px-6"
+                >
+                  <span>
+                    <i v-if="isProcessing" class="fa fa-spinner fa-spin"></i>
+                  </span>
+                  Save Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -312,7 +276,7 @@ export default {
   components: {
     VueEditor,
     DropFile,
-    Tooltip
+    Tooltip,
   },
   mixins: [dragAndDropHelper, Izitoast],
   data() {
@@ -336,41 +300,41 @@ export default {
       defaultToolbar: [
         [
           {
-            header: [false, 1, 2, 3, 4, 5, 6]
-          }
+            header: [false, 1, 2, 3, 4, 5, 6],
+          },
         ],
         ["bold", "italic", "underline", "strike"],
         [
           {
-            align: ""
+            align: "",
           },
           {
-            align: "center"
+            align: "center",
           },
           {
-            align: "right"
+            align: "right",
           },
           {
-            align: "justify"
-          }
+            align: "justify",
+          },
         ],
         [
           {
-            list: "ordered"
+            list: "ordered",
           },
           {
-            list: "bullet"
-          }
+            list: "bullet",
+          },
         ],
         [
           {
-            indent: "-1"
+            indent: "-1",
           },
           {
-            indent: "+1"
-          }
-        ]
-      ]
+            indent: "+1",
+          },
+        ],
+      ],
     };
   },
 
@@ -414,7 +378,7 @@ export default {
             "warning"
           );
           //  app.showAjaxError(e);
-        }
+        },
       });
     },
 
@@ -424,14 +388,14 @@ export default {
         url: "/api/video-dvd/list",
         success(data) {
           app.dvdVideos = data;
-        }
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .hide {
   display: none;
 }
