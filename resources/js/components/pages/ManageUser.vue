@@ -225,6 +225,7 @@
                     >
                         <div class="modal-body">
                             <div class="form-group">
+                                <label>Name:</label>
                                 <input
                                     v-model="form.name"
                                     type="text"
@@ -240,8 +241,8 @@
                                     field="name"
                                 ></has-error>
                             </div>
-
                             <div class="form-group">
+                                <label>E-mail:</label>
                                 <input
                                     v-model="form.email"
                                     type="email"
@@ -258,28 +259,152 @@
                                 ></has-error>
                             </div>
 
-                            <div class="form-group">
-                                <select
-                                    name="type"
-                                    v-model="form.type"
-                                    id="type"
-                                    class="form-control"
-                                    :class="{
-                                        'is-invalid': form.errors.has('type'),
-                                    }"
-                                >
-                                    <option value="">Select User Role</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="user">Standard User</option>
-                                    <option value="author">Author</option>
-                                </select>
-                                <has-error
-                                    :form="form"
-                                    field="type"
-                                ></has-error>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>User Type:</label>
+                                        <select
+                                            name="type"
+                                            v-model="form.type"
+                                            id="type"
+                                            class="form-control"
+                                            :class="{
+                                                'is-invalid':
+                                                    form.errors.has('type'),
+                                            }"
+                                        >
+                                            <option value="">
+                                                Select User Role
+                                            </option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">
+                                                Standard User
+                                            </option>
+                                            <!-- <option value="author">Author</option> -->
+                                        </select>
+                                        <has-error
+                                            :form="form"
+                                            field="type"
+                                        ></has-error>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Song App Permssion:</label>
+                                        <select
+                                            name="songPermission"
+                                            v-model="form.songPermission"
+                                            id="songPermission"
+                                            class="form-control"
+                                            :class="{
+                                                'is-invalid':
+                                                    form.errors.has(
+                                                        'songPermission'
+                                                    ),
+                                            }"
+                                        >
+                                            <option value="">
+                                                Select song app permission
+                                            </option>
+                                            <option value="admin">Admin</option>
+                                            <option value="user">
+                                                Standard User
+                                            </option>
+                                            <!-- <option value="author">Author</option> -->
+                                        </select>
+                                        <has-error
+                                            :form="form"
+                                            field="songPermission"
+                                        ></has-error>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Audio DVD Permission</label>
+                                        <select
+                                            name="audioDVDPermission"
+                                            v-model="form.audioDVDPermission"
+                                            id="audioDVDPermission"
+                                            class="form-control"
+                                            :class="{
+                                                'is-invalid':
+                                                    form.errors.has(
+                                                        'audioDVDPermission'
+                                                    ),
+                                            }"
+                                        >
+                                            <option value="">
+                                                Select audio DVD permission
+                                            </option>
+                                            <option value="audio_all">
+                                                ALL
+                                            </option>
+                                            <option value="audio_eur">
+                                                Europe
+                                            </option>
+                                            <option value="audio_eaf">
+                                                East Africa
+                                            </option>
+                                            <option value="audio_ind">
+                                                India
+                                            </option>
+                                            <option value="audio_saf">
+                                                South Africa
+                                            </option>
+                                        </select>
+                                        <has-error
+                                            :form="form"
+                                            field="audioDVDPermission"
+                                        ></has-error>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Video DVD Permssion:</label>
+                                        <select
+                                            name="videoDVDPermission"
+                                            v-model="form.videoDVDPermission"
+                                            id="videoDVDPermission"
+                                            class="form-control"
+                                            :class="{
+                                                'is-invalid':
+                                                    form.errors.has(
+                                                        'videoDVDPermission'
+                                                    ),
+                                            }"
+                                        >
+                                            <option value="">
+                                                Select video DVD permission
+                                            </option>
+                                            <option value="video_all">
+                                                ALL
+                                            </option>
+                                            <option value="video_eur">
+                                                Europe
+                                            </option>
+                                            <option value="video_eaf">
+                                                East Africa
+                                            </option>
+                                            <option value="video_ind">
+                                                India
+                                            </option>
+                                            <option value="video_saf">
+                                                South Africa
+                                            </option>
+                                        </select>
+                                        <has-error
+                                            :form="form"
+                                            field="videoDVDPermission"
+                                        ></has-error>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group">
+                                <label>Password:</label>
                                 <input
                                     v-model="form.password"
                                     type="password"
@@ -297,6 +422,7 @@
                                 ></has-error>
                             </div>
                         </div>
+
                         <div class="modal-footer">
                             <button
                                 type="button"
@@ -349,6 +475,9 @@ export default {
                 id: "",
                 name: "",
                 email: "",
+                songPermission: "",
+                audioDVDPermission: "",
+                videoDVDPermission: "",
                 password: "",
                 type: "",
             }),

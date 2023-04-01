@@ -159,6 +159,7 @@
                     >
                         <div class="modal-body">
                             <div class="form-group">
+                                <label>Name:</label>
                                 <input
                                     v-model="form.name"
                                     type="text"
@@ -176,6 +177,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label>E-mail:</label>
                                 <input
                                     v-model="form.email"
                                     type="email"
@@ -193,6 +195,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label>User Type:</label>
                                 <select
                                     name="type"
                                     v-model="form.type"
@@ -214,6 +217,7 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Password:</label>
                                 <input
                                     v-model="form.password"
                                     type="password"
