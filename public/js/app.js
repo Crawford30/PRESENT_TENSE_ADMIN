@@ -4819,16 +4819,16 @@ var render = function render() {
       staticStyle: {
         "text-align": "left"
       }
-    }, [_vm._v("\n                                                " + _vm._s(index + 1) + "\n                                            ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(index + 1) + "\n                      ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-5 px-0"
-    }, [_vm._v("\n                                                " + _vm._s(audioDVD.audio_dvd_name) + "\n                                                ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(audioDVD.audio_dvd_name) + "\n                        ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-6"
     }, [_c("div", {
       staticClass: "row"
     }, [_c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -4855,7 +4855,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -4882,7 +4882,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -4909,7 +4909,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -4936,7 +4936,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 1.6rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -4976,7 +4976,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                                Save Changes\n                            ")])])], 2)])])])])]);
+  }) : _vm._e()]), _vm._v("\n                Save Changes\n              ")])])], 2)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5008,12 +5008,12 @@ var staticRenderFns = [function () {
     staticStyle: {
       "text-align": "left"
     }
-  }, [_vm._v("\n                                #\n                            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("#")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-5 th",
     staticStyle: {
       "text-align": "left"
     }
-  }, [_vm._v("\n                                Audio DVD Name\n                            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                Audio DVD Name\n              ")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("div", {
     staticClass: "row"
@@ -5022,27 +5022,27 @@ var staticRenderFns = [function () {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        EAF\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("EAF")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        IND\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("IND")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        SAF\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("SAF")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        EUR\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("EUR")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        ALL\n                                    ")])])])])]);
+  }, [_vm._v("ALL")])])])])]);
 }];
 render._withStripped = true;
 
@@ -5101,16 +5101,16 @@ var render = function render() {
       staticStyle: {
         "text-align": "left"
       }
-    }, [_vm._v("\n                                                " + _vm._s(index + 1) + "\n                                            ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(index + 1) + "\n                      ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-5 px-0"
-    }, [_vm._v("\n                                                " + _vm._s(videoDVD.video_dvd_name) + "\n                                            ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                        " + _vm._s(videoDVD.video_dvd_name) + "\n                      ")]), _vm._v(" "), _c("div", {
       staticClass: "col-md-6"
     }, [_c("div", {
       staticClass: "row"
     }, [_c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -5137,7 +5137,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -5164,7 +5164,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -5191,7 +5191,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 2rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -5218,7 +5218,7 @@ var render = function render() {
     })])])]), _vm._v(" "), _c("div", {
       staticClass: "col",
       staticStyle: {
-        padding: "0rem"
+        padding: "0rem 1.6rem !important"
       }
     }, [_c("div", {
       staticClass: "form-group"
@@ -5258,7 +5258,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                                Save Changes\n                            ")])])], 2)])])])])]);
+  }) : _vm._e()]), _vm._v("\n                Save Changes\n              ")])])], 2)])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5290,12 +5290,12 @@ var staticRenderFns = [function () {
     staticStyle: {
       "text-align": "left"
     }
-  }, [_vm._v("\n                                #\n                            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("#")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-5 th",
     staticStyle: {
       "text-align": "left"
     }
-  }, [_vm._v("\n                                Video DVD Name\n                            ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                Video DVD Name\n              ")]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6"
   }, [_c("div", {
     staticClass: "row"
@@ -5304,27 +5304,27 @@ var staticRenderFns = [function () {
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        EAF\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("EAF")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        IND\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("IND")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        SAF\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("SAF")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        EUR\n                                    ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("EUR")]), _vm._v(" "), _c("div", {
     staticClass: "col th",
     staticStyle: {
       "text-align": "center"
     }
-  }, [_vm._v("\n                                        ALL\n                                    ")])])])])]);
+  }, [_vm._v("ALL")])])])])]);
 }];
 render._withStripped = true;
 
@@ -18551,7 +18551,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n.hide[data-v-f47825b0] {\n    display: none;\n}\n[data-toggle=\"toggle\"][data-v-f47825b0] {\n    display: none;\n}\ntbody[data-v-f47825b0] {\n    width: 100% !important;\n}\nth[data-v-f47825b0],\ntd[data-v-f47825b0] {\n    font-size: 11px !important;\n}\n.table-sm .th[data-v-f47825b0] {\n    border: none !important;\n    padding: 0.5rem 0.5rem !important;\n    text-transform: uppercase;\n    background-color: #f5f6fa;\n    color: #a6a9b7;\n    font-size: 11px !important;\n    font-weight: bold;\n}\n.table-sm .th.col-md-1[data-v-f47825b0] {\n    text-align: center;\n}\n.table-sm .tbody[data-v-f47825b0] {\n    padding: 0.5rem 0rem !important;\n    border-bottom: 1px solid rgb(222, 226, 230);\n}\n.form-group[data-v-f47825b0] {\n    margin-bottom: 0 !important;\n}\n.table-sm .col-md-1[data-v-f47825b0] {\n    text-align: center;\n}\n.legend-table tr td[data-v-f47825b0]:first-child {\n    font-weight: bold;\n    padding-left: 0 !important;\n}\n.custom-checkbox-else\n    .custom-control-input:checked\n    ~ .custom-control-label[data-v-f47825b0]::after {\n    background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-f47825b0] {\n    margin-left: 15px !important;\n}\n.hideLoader[data-v-f47825b0] {\n    display: none;\n}\n.custom-checkbox-else\n    .custom-control-input:checked\n    ~ .custom-control-label[data-v-f47825b0]::after {\n    background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-f47825b0] {\n    margin-left: 15px !important;\n}\n", ""]);
+exports.push([module.i, "\n.hide[data-v-f47825b0] {\n  display: none;\n}\n[data-toggle=\"toggle\"][data-v-f47825b0] {\n  display: none;\n}\ntbody[data-v-f47825b0] {\n  width: 100% !important;\n}\nth[data-v-f47825b0],\ntd[data-v-f47825b0] {\n  font-size: 11px !important;\n}\n.table-sm .th[data-v-f47825b0] {\n  border: none !important;\n  padding: 0.5rem 0.5rem !important;\n  text-transform: uppercase;\n  background-color: #f5f6fa;\n  color: #a6a9b7;\n  font-size: 11px !important;\n  font-weight: bold;\n}\n.table-sm .th.col-md-1[data-v-f47825b0] {\n  text-align: center;\n}\n.table-sm .tbody[data-v-f47825b0] {\n  padding: 0.5rem 0rem !important;\n  border-bottom: 1px solid rgb(222, 226, 230);\n}\n.form-group[data-v-f47825b0] {\n  margin-bottom: 0 !important;\n}\n.table-sm .col-md-1[data-v-f47825b0] {\n  text-align: center;\n}\n.legend-table tr td[data-v-f47825b0]:first-child {\n  font-weight: bold;\n  padding-left: 0 !important;\n}\n.custom-checkbox-else\n  .custom-control-input:checked\n  ~ .custom-control-label[data-v-f47825b0]::after {\n  background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-f47825b0] {\n  margin-left: 15px !important;\n}\n.hideLoader[data-v-f47825b0] {\n  display: none;\n}\n.custom-checkbox-else\n  .custom-control-input:checked\n  ~ .custom-control-label[data-v-f47825b0]::after {\n  background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-f47825b0] {\n  margin-left: 15px !important;\n}\n", ""]);
 
 // exports
 
@@ -18570,7 +18570,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "\n.hide[data-v-7e3199ba] {\n    display: none;\n}\n[data-toggle=\"toggle\"][data-v-7e3199ba] {\n    display: none;\n}\ntbody[data-v-7e3199ba] {\n    width: 100% !important;\n}\nth[data-v-7e3199ba],\ntd[data-v-7e3199ba] {\n    font-size: 11px !important;\n}\n.table-sm .th[data-v-7e3199ba] {\n    border: none !important;\n    padding: 0.5rem 0.5rem !important;\n    text-transform: uppercase;\n    background-color: #f5f6fa;\n    color: #a6a9b7;\n    font-size: 11px !important;\n    font-weight: bold;\n}\n.table-sm .th.col-md-1[data-v-7e3199ba] {\n    text-align: center;\n}\n.table-sm .tbody[data-v-7e3199ba] {\n    padding: 0.5rem 0rem !important;\n    border-bottom: 1px solid rgb(222, 226, 230);\n}\n.form-group[data-v-7e3199ba] {\n    margin-bottom: 0 !important;\n}\n.table-sm .col-md-1[data-v-7e3199ba] {\n    text-align: center;\n}\n.legend-table tr td[data-v-7e3199ba]:first-child {\n    font-weight: bold;\n    padding-left: 0 !important;\n}\n.custom-checkbox-else\n    .custom-control-input:checked\n    ~ .custom-control-label[data-v-7e3199ba]::after {\n    background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-7e3199ba] {\n    margin-left: 15px !important;\n}\n.hideLoader[data-v-7e3199ba] {\n    display: none;\n}\n.custom-checkbox-else\n    .custom-control-input:checked\n    ~ .custom-control-label[data-v-7e3199ba]::after {\n    background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-7e3199ba] {\n    margin-left: 15px !important;\n}\n", ""]);
+exports.push([module.i, "\n.hide[data-v-7e3199ba] {\n  display: none;\n}\n[data-toggle=\"toggle\"][data-v-7e3199ba] {\n  display: none;\n}\ntbody[data-v-7e3199ba] {\n  width: 100% !important;\n}\nth[data-v-7e3199ba],\ntd[data-v-7e3199ba] {\n  font-size: 11px !important;\n}\n.table-sm .th[data-v-7e3199ba] {\n  border: none !important;\n  padding: 0.5rem 0.5rem !important;\n  text-transform: uppercase;\n  background-color: #f5f6fa;\n  color: #a6a9b7;\n  font-size: 11px !important;\n  font-weight: bold;\n}\n.table-sm .th.col-md-1[data-v-7e3199ba] {\n  text-align: center;\n}\n.table-sm .tbody[data-v-7e3199ba] {\n  padding: 0.5rem 0rem !important;\n  border-bottom: 1px solid rgb(222, 226, 230);\n}\n.form-group[data-v-7e3199ba] {\n  margin-bottom: 0 !important;\n}\n.table-sm .col-md-1[data-v-7e3199ba] {\n  text-align: center;\n}\n.legend-table tr td[data-v-7e3199ba]:first-child {\n  font-weight: bold;\n  padding-left: 0 !important;\n}\n.custom-checkbox-else\n  .custom-control-input:checked\n  ~ .custom-control-label[data-v-7e3199ba]::after {\n  background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-7e3199ba] {\n  margin-left: 15px !important;\n}\n.hideLoader[data-v-7e3199ba] {\n  display: none;\n}\n.custom-checkbox-else\n  .custom-control-input:checked\n  ~ .custom-control-label[data-v-7e3199ba]::after {\n  background-image: url(\"data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1792' viewBox='0 0 1792 1792' width='1792'%3E%3Cpath fill='white' d='M1600 736v192q0 40-28 68t-68 28h-1216q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h1216q40 0 68 28t28 68z'/%3E%3C/svg%3E\");\n}\n.custom-checkbox[data-v-7e3199ba] {\n  margin-left: 15px !important;\n}\n", ""]);
 
 // exports
 
