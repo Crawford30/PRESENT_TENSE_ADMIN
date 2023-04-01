@@ -2821,7 +2821,7 @@ var render = function render() {
         return _vm.newModal();
       }
     }
-  }, [_vm._v("\n                        Create New User\n                    ")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            Create New User\n          ")])])]), _vm._v(" "), _c("div", {
     staticClass: "card mt-3"
   }, [_c("div", {
     staticClass: "form-view"
@@ -2838,7 +2838,7 @@ var render = function render() {
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.users.data, function (user, index) {
     return _c("tr", {
       key: user.id
-    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.name))]), _vm._v(" "), _c("td", [_vm._v("\n                                                        " + _vm._s(user.email) + "\n                                                    ")]), _vm._v(" "), _c("td", [_vm._v("\n                                                        " + _vm._s(_vm._f("upText")(user.user_status)) + "\n                                                    ")]), _vm._v(" "), _c("td", [_vm._v("\n                                                        " + _vm._s(_vm._f("upText")(user.type)) + "\n                                                    ")]), _vm._v(" "), _c("td", [_vm._v("\n                                                        " + _vm._s(_vm._f("myDate")(user.created_at)) + "\n                                                    ")]), _vm._v(" "), _c("td", [_c("a", {
+    }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(user.name))]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(user.email) + "\n                          ")]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm._f("upText")(user.user_status)) + "\n                          ")]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm._f("upText")(user.type)) + "\n                          ")]), _vm._v(" "), _c("td", [_vm._v("\n                            " + _vm._s(_vm._f("myDate")(user.created_at)) + "\n                          ")]), _vm._v(" "), _c("td", [_c("a", {
       attrs: {
         href: "#"
       },
@@ -2947,7 +2947,7 @@ var render = function render() {
     attrs: {
       id: "addNewLabel"
     }
-  }, [_vm._v("\n                            Add User\n                        ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Add User")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -2959,7 +2959,7 @@ var render = function render() {
     attrs: {
       id: "addNewLabel"
     }
-  }, [_vm._v("\n                            Update User's Info\n                        ")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Update User's Info")])]), _vm._v(" "), _vm._m(2)]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -3035,7 +3035,7 @@ var render = function render() {
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-6"
+    staticClass: "col-12"
   }, [_c("div", {
     staticClass: "form-group"
   }, [_c("label", [_vm._v("User Type:")]), _vm._v(" "), _c("select", {
@@ -3068,7 +3068,7 @@ var render = function render() {
     attrs: {
       value: ""
     }
-  }, [_vm._v("\n                                            Select User Role\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("Select User Role")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "admin"
     }
@@ -3076,57 +3076,10 @@ var render = function render() {
     attrs: {
       value: "user"
     }
-  }, [_vm._v("\n                                            Standard User\n                                        ")])]), _vm._v(" "), _c("has-error", {
+  }, [_vm._v("Standard User")])]), _vm._v(" "), _c("has-error", {
     attrs: {
       form: _vm.form,
       field: "type"
-    }
-  })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "col-6"
-  }, [_c("div", {
-    staticClass: "form-group"
-  }, [_c("label", [_vm._v("Song App Permssion:")]), _vm._v(" "), _c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.form.songPermission,
-      expression: "form.songPermission"
-    }],
-    staticClass: "form-control",
-    "class": {
-      "is-invalid": _vm.form.errors.has("songPermission")
-    },
-    attrs: {
-      name: "songPermission",
-      id: "songPermission"
-    },
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.$set(_vm.form, "songPermission", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
-      }
-    }
-  }, [_c("option", {
-    attrs: {
-      value: ""
-    }
-  }, [_vm._v("\n                                            Select song app permission\n                                        ")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "admin"
-    }
-  }, [_vm._v("Admin")]), _vm._v(" "), _c("option", {
-    attrs: {
-      value: "user"
-    }
-  }, [_vm._v("\n                                            Standard User\n                                        ")])]), _vm._v(" "), _c("has-error", {
-    attrs: {
-      form: _vm.form,
-      field: "songPermission"
     }
   })], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "row"
@@ -3138,16 +3091,16 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.audioDVDPermission,
-      expression: "form.audioDVDPermission"
+      value: _vm.form.audio_dvd_permission,
+      expression: "form.audio_dvd_permission"
     }],
     staticClass: "form-control",
     "class": {
-      "is-invalid": _vm.form.errors.has("audioDVDPermission")
+      "is-invalid": _vm.form.errors.has("audio_dvd_permission")
     },
     attrs: {
-      name: "audioDVDPermission",
-      id: "audioDVDPermission"
+      name: "audio_dvd_permission",
+      id: "audio_dvd_permission"
     },
     on: {
       change: function change($event) {
@@ -3157,37 +3110,37 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
-        _vm.$set(_vm.form, "audioDVDPermission", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+        _vm.$set(_vm.form, "audio_dvd_permission", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }
     }
   }, [_c("option", {
     attrs: {
       value: ""
     }
-  }, [_vm._v("\n                                            Select audio DVD permission\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("Select audio DVD permission")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "audio_all"
     }
-  }, [_vm._v("\n                                            ALL\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("ALL")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "audio_eur"
     }
-  }, [_vm._v("\n                                            Europe\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("Europe")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "audio_eaf"
     }
-  }, [_vm._v("\n                                            East Africa\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("East Africa")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "audio_ind"
     }
-  }, [_vm._v("\n                                            India\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("India")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "audio_saf"
     }
-  }, [_vm._v("\n                                            South Africa\n                                        ")])]), _vm._v(" "), _c("has-error", {
+  }, [_vm._v("South Africa")])]), _vm._v(" "), _c("has-error", {
     attrs: {
       form: _vm.form,
-      field: "audioDVDPermission"
+      field: "audio_dvd_permission"
     }
   })], 1)]), _vm._v(" "), _c("div", {
     staticClass: "col-6"
@@ -3197,16 +3150,16 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.form.videoDVDPermission,
-      expression: "form.videoDVDPermission"
+      value: _vm.form.video_dvd_permission,
+      expression: "form.video_dvd_permission"
     }],
     staticClass: "form-control",
     "class": {
-      "is-invalid": _vm.form.errors.has("videoDVDPermission")
+      "is-invalid": _vm.form.errors.has("video_dvd_permission")
     },
     attrs: {
-      name: "videoDVDPermission",
-      id: "videoDVDPermission"
+      name: "video_dvd_permission",
+      id: "video_dvd_permission"
     },
     on: {
       change: function change($event) {
@@ -3216,37 +3169,37 @@ var render = function render() {
           var val = "_value" in o ? o._value : o.value;
           return val;
         });
-        _vm.$set(_vm.form, "videoDVDPermission", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+        _vm.$set(_vm.form, "video_dvd_permission", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
       }
     }
   }, [_c("option", {
     attrs: {
       value: ""
     }
-  }, [_vm._v("\n                                            Select video DVD permission\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("Select video DVD permission")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "video_all"
     }
-  }, [_vm._v("\n                                            ALL\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("ALL")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "video_eur"
     }
-  }, [_vm._v("\n                                            Europe\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("Europe")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "video_eaf"
     }
-  }, [_vm._v("\n                                            East Africa\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("East Africa")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "video_ind"
     }
-  }, [_vm._v("\n                                            India\n                                        ")]), _vm._v(" "), _c("option", {
+  }, [_vm._v("India")]), _vm._v(" "), _c("option", {
     attrs: {
       value: "video_saf"
     }
-  }, [_vm._v("\n                                            South Africa\n                                        ")])]), _vm._v(" "), _c("has-error", {
+  }, [_vm._v("South Africa")])]), _vm._v(" "), _c("has-error", {
     attrs: {
       form: _vm.form,
-      field: "videoDVDPermission"
+      field: "video_dvd_permission"
     }
   })], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -3288,7 +3241,7 @@ var render = function render() {
       type: "button",
       "data-dismiss": "modal"
     }
-  }, [_vm._v("\n                            Close\n                        ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n              Close\n            ")]), _vm._v(" "), _c("button", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -3299,7 +3252,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                            Update\n                        ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n              Update\n            ")]), _vm._v(" "), _c("button", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -3310,7 +3263,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("\n                            Create\n                        ")])])])])])])]);
+  }, [_vm._v("\n              Create\n            ")])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -3323,7 +3276,7 @@ var staticRenderFns = [function () {
       color: "#333",
       "font-size": "1.575rem"
     }
-  }, [_vm._v("\n                        Manage Users\n                    ")])]);
+  }, [_vm._v("\n            Manage Users\n          ")])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
@@ -9899,9 +9852,9 @@ __webpack_require__.r(__webpack_exports__);
         id: "",
         name: "",
         email: "",
-        songPermission: "",
-        audioDVDPermission: "",
-        videoDVDPermission: "",
+        song_access_status: "",
+        audio_dvd_permission: "",
+        video_dvd_permission: "",
         password: "",
         type: ""
       })
@@ -18579,7 +18532,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.table thead[data-v-07e2d234] {\n    background-color: #f5f6fa;\n    color: #a6a9b7;\n}\n.modal[data-v-07e2d234] {\n    overflow-y: auto !important;\n}\n.form-view[data-v-07e2d234],\n.form-card[data-v-07e2d234] {\n    background: #fff;\n}\n.form-view .table-padding[data-v-07e2d234] {\n    padding: 25px 35px;\n}\n.shadow-sm[data-v-07e2d234] {\n    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n.table-forms-list tr th[data-v-07e2d234],\n.table-forms-list tr td[data-v-07e2d234] {\n    font-size: 13px;\n}\n.table-padding[data-v-07e2d234] {\n    padding: 25px 35px;\n}\n", ""]);
+exports.push([module.i, "\n.table thead[data-v-07e2d234] {\n  background-color: #f5f6fa;\n  color: #a6a9b7;\n}\n.modal[data-v-07e2d234] {\n  overflow-y: auto !important;\n}\n.form-view[data-v-07e2d234],\n.form-card[data-v-07e2d234] {\n  background: #fff;\n}\n.form-view .table-padding[data-v-07e2d234] {\n  padding: 25px 35px;\n}\n.shadow-sm[data-v-07e2d234] {\n  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;\n}\n.table-forms-list tr th[data-v-07e2d234],\n.table-forms-list tr td[data-v-07e2d234] {\n  font-size: 13px;\n}\n.table-padding[data-v-07e2d234] {\n  padding: 25px 35px;\n}\n", ""]);
 
 // exports
 
