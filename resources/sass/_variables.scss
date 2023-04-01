@@ -2,7 +2,7 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -18,36 +18,35 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-
 .text-blue {
-    color: $blue
+    color: $blue;
 }
 
 .text-indigo {
-    color: $indigo
+    color: $indigo;
 }
 .text-purple {
-    color: $purple
+    color: $purple;
 }
-.text-pink{
-    color: $pink
+.text-pink {
+    color: $pink;
 }
 .text-red {
-    color: $red
+    color: $red;
 }
 .text-orange {
-    color: $orange
+    color: $orange;
 }
 .text-yellow {
-    color: $yellow
+    color: $yellow;
 }
 
 .text-teal {
-    color: $teal
+    color: $teal;
 }
 .text-green {
-    color: $green
+    color: $green;
 }
 .text-cyan {
-    color: $cyan
+    color: $cyan;
 }
