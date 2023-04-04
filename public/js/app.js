@@ -2404,7 +2404,7 @@ var render = function render() {
     on: {
       click: _vm.showUploadVideo
     }
-  }, [_vm._v("\n                            Upload Video DVD\n                        ")])])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                            Upload Video DVD\n                            ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("div", {
     staticClass: "staff-card shadow-sm table-padding"
@@ -2417,9 +2417,9 @@ var render = function render() {
       key: dvdVideo.id + "_" + index
     }, [_c("td", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", {
       staticClass: "text-justify text-uppercase"
-    }, [_vm._v("\n                                " + _vm._s(dvdVideo.video_dvd_name) + "\n                                ")]), _vm._v(" "), _c("td", {
+    }, [_vm._v("\n                        " + _vm._s(dvdVideo.video_dvd_name) + "\n                        ")]), _vm._v(" "), _c("td", {
       staticClass: "text-center"
-    }, [_vm._v("\n                                " + _vm._s(dvdVideo.views_count) + "\n                            ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
+    }, [_vm._v("\n                        " + _vm._s(dvdVideo.views_count) + "\n                    ")]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm._f("myDate")(dvdVideo.creation_date)))]), _vm._v(" "), _c("td", [_vm._m(2, true), _vm._v(" "), _c("a", {
       staticStyle: {
         "margin-left": "8px"
       },
@@ -2469,7 +2469,7 @@ var render = function render() {
     on: {
       click: _vm.closeModel
     }
-  }, [_vm._v("\n                            ×\n                        ")]), _vm._v(" "), _c("h5", {
+  }, [_vm._v("\n                        ×\n                        ")]), _vm._v(" "), _c("h5", {
     staticClass: "text-center"
   }, [_vm._v("Add Video DVD")]), _vm._v(" "), _c("div", {
     staticClass: "form-group"
@@ -2574,7 +2574,7 @@ var render = function render() {
           staticClass: "border p-5"
         }, [_c("h6", {
           staticClass: "text-center te xt-black-50"
-        }, [_vm._v("\n                                        " + _vm._s(_vm.fileName) + "\n                                    ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                                    " + _vm._s(_vm.fileName) + "\n                                ")]), _vm._v(" "), _c("div", {
           staticClass: "text-center"
         }, [_c("button", {
           staticStyle: {
@@ -2662,7 +2662,7 @@ var render = function render() {
     }
   }, [_c("span", [_vm.isProcessing ? _c("i", {
     staticClass: "fa fa-spinner fa-spin"
-  }) : _vm._e()]), _vm._v("\n                                SAVE CHANGES\n                            ")])])], 1)])])])]), _vm._v(" "), _c("div", {
+  }) : _vm._e()]), _vm._v("\n                SAVE CHANGES\n                ")])])], 1)])])])]), _vm._v(" "), _c("div", {
     staticClass: "modal",
     attrs: {
       id: "showVideo"
@@ -9600,11 +9600,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
       editmode: false,
       selectedSong: null,
       hasFile: false,
-      tenMajorSongs: [],
       isProcessing: false,
-      songTitle: "",
-      songBody: "",
-      songNumber: "",
       errors: null
     }, _defineProperty(_ref, "selectedSong", null), _defineProperty(_ref, "importResults", {}), _defineProperty(_ref, "defaultToolbar", [[{
       header: [false, 1, 2, 3, 4, 5, 6]
@@ -9703,17 +9699,25 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
           success: function success(data) {
             app.isProcessing = false;
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Video Successfully Saved</p>", "", "success");
-            app.getAllDVDVideos();
-            modal.modal("hide");
-            document.getElementById("videos-form").reset();
-            $("#videos-form").trigger("reset");
-            this.uploadedVideo = null;
             app.selectedVideo.video_dvd_name = "";
             app.selectedVideo.creation_date = "";
+            app.selectedVideo.id = "";
+            app.file = null;
+            app.uploadedVideo = null;
+            app.getAllDVDVideos();
+            modal.modal("hide");
+
+            // document.getElementById("videos-form").reset();
+            // $("#videos-form").trigger("reset");
 
             // form.reset();
           },
           error: function error(e) {
+            app.uploadedVideo = null;
+            app.selectedVideo.video_dvd_name = "";
+            app.selectedVideo.creation_date = "";
+            app.selectedVideo.id = "";
+            app.file = null;
             modal.modal("hide");
             app.isProcessing = false;
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire("<p style='font-size: 14px;'>Error Occured</p>", e, "warning");
