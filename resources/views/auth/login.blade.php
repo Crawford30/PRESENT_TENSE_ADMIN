@@ -22,7 +22,7 @@
                                                 value="{{ old('email') }}" required autocomplete="email" autofocus>
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
-                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
                                                 </span>
                                             </div>
                                             @error('email')
@@ -41,7 +41,7 @@
                                                 autocomplete="current-password">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
-                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>
                                                 </span>
                                             </div>
                                             @error('password')

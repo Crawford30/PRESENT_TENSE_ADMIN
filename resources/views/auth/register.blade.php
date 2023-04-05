@@ -22,7 +22,7 @@
                                                 placeholder="Name">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
-                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                    <i class="fa fa-user" aria-hidden="true"></i>
                                                 </span>
                                             </div>
                                             @error('name')
@@ -38,10 +38,10 @@
                                             <input id="email" type="email"
                                                 class="form-control @error('email') is-invalid @enderror" name="email"
                                                 value="{{ old('email') }}" required autocomplete="email"
-                                                placeholder="Email">
+                                                placeholder="E-mail">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
-                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
                                                 </span>
                                             </div>
                                             @error('email')
@@ -61,7 +61,7 @@
 
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
-                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>
                                                 </span>
                                             </div>
                                             @error('password')
@@ -78,7 +78,7 @@
                                                 placeholder="**********">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
-                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>
                                                 </span>
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@
                                         </button>
                                     </div>
                                     <div class="text-block text-center my-3">
-                                        <span class="text-small font-weight-semibold">Already have and account ?</span>
+                                        <span class="text-small font-weight-semibold">Already Have an Account ?</span>
                                         <a href="{{ route('login') }}"
                                             class="text-black text-small">{{ __('Login') }}</a>
                                     </div>
