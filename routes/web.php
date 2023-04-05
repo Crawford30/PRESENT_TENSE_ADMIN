@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +11,14 @@
 |
 */
 
+
+// Route::get('/',function(){
+//      if (Auth::check()) {
+//       return redirect('/login'); }else{ return view('auth/login');
+//       }  });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Auth::routes();
