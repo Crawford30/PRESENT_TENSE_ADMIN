@@ -59,7 +59,7 @@
                                     </div>
 
                                     <div class="text-block text-center my-3">
-                                        <span class="text-small font-weight-semibold">Not a member ?</span>
+                                        <span class="text-small font-weight-semibold">Don't Have an Account ?</span>
                                         <a href="{{ route('register') }}" class="text-black text-small">Create New
                                             Account</a>
                                     </div>
