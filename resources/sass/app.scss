@@ -1,17 +1,16 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 // $fa-font-path: ".../webfonts";
-$fa-font-path : "~@fortawesome/fontawesome-free-webfonts/webfonts";
+$fa-font-path: "~@fortawesome/fontawesome-free-webfonts/webfonts";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 //admin lte
-@import '~admin-lte/dist/css/adminlte.css';
-
+@import "~admin-lte/dist/css/adminlte.css";
 
 // importing core styling file
 @import "~@fortawesome/fontawesome-free/scss/solid.scss";
@@ -23,16 +22,13 @@ $fa-font-path : "~@fortawesome/fontawesome-free-webfonts/webfonts";
 //pages
 @import "pages/dvd";
 
-
-
 .navbar-laravel {
-background-color: #fff;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-
 //styling active router link for active
-.router-link-exact-active{
-background-color: #3f51b5 !important;
-color: #fff !important;
+.router-link-exact-active {
+    background-color: #3f51b5 !important;
+    color: #fff !important;
 }

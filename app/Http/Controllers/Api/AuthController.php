@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use Carbon\Carbon;
+use Laravel\Passport\Token;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Laravel\Passport\RefreshToken;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -61,6 +64,15 @@ class AuthController extends Controller
     }
 
 
+    public function logout(Request $request)
+    {
+        $user = Auth::logout();
+      return apiResponse("Successfully logged out");
+
+    }
+
+
+
 
 
     private function proceedToLogin($user)
@@ -93,5 +105,8 @@ class AuthController extends Controller
             return $ex->getMessage();
         }
     }
+
+
+
 
 }

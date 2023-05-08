@@ -428,7 +428,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
 .hide {
   display: none;
 }

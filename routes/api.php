@@ -25,6 +25,9 @@ Route::group(['namespace' => 'Api', 'middleware' => 'return-json'], function () 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('/login', 'AuthController@login');
     Route::post('/register-user', 'AuthController@register');
+    Route::post('/logout', 'AuthController@logout');
+
+
 
 
 });

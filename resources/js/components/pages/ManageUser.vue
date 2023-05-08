@@ -46,10 +46,18 @@
                           >
                             <td>{{ index + 1 }}</td>
                             <td>{{ user.name }}</td>
-                            <td>{{ user.email }}</td>
-                            <td>{{ user.user_status | upText }}</td>
-                            <td>{{ user.type | upText }}</td>
-                            <td>{{ user.created_at | myDate }}</td>
+                            <td>
+                              {{ user.email }}
+                            </td>
+                            <td>
+                              {{ user.user_status | upText }}
+                            </td>
+                            <td>
+                              {{ user.type | upText }}
+                            </td>
+                            <td>
+                              {{ user.created_at | myDate }}
+                            </td>
 
                             <td>
                               <a href="#" @click="editModal(user)">
@@ -148,57 +156,148 @@
           <form @submit.prevent="editmode ? updateUser() : createUser()">
             <div class="modal-body">
               <div class="form-group">
+                <label>Name:</label>
                 <input
                   v-model="form.name"
                   type="text"
                   name="name"
                   placeholder="Name"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('name') }"
+                  :class="{
+                    'is-invalid': form.errors.has('name'),
+                  }"
                 />
                 <has-error :form="form" field="name"></has-error>
               </div>
-
               <div class="form-group">
+                <label>E-mail:</label>
                 <input
                   v-model="form.email"
                   type="email"
                   name="email"
                   placeholder="Email Address"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('email') }"
+                  :class="{
+                    'is-invalid': form.errors.has('email'),
+                  }"
                 />
                 <has-error :form="form" field="email"></has-error>
               </div>
 
-              <div class="form-group">
-                <select
-                  name="type"
-                  v-model="form.type"
-                  id="type"
-                  class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('type') }"
-                >
-                  <option value="">Select User Role</option>
-                  <option value="admin">Admin</option>
-                  <option value="user">Standard User</option>
-                  <option value="author">Author</option>
-                </select>
-                <has-error :form="form" field="type"></has-error>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>User Type:</label>
+                    <select
+                      name="type"
+                      v-model="form.type"
+                      id="type"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has('type'),
+                      }"
+                    >
+                      <option value="">Select User Role</option>
+                      <option value="admin">Admin</option>
+                      <option value="user">Standard User</option>
+                      <!-- <option value="author">Author</option> -->
+                    </select>
+                    <has-error :form="form" field="type"></has-error>
+                  </div>
+                </div>
+                <!-- <div class="col-6">
+                  <div class="form-group">
+                    <label>Song App Permssion:</label>
+                    <select
+                      name="song_access_status"
+                      v-model="form.song_access_status"
+                      id="song_access_status"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has('song_access_status'),
+                      }"
+                    >
+                      <option value="">Select song app permission</option>
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                    <has-error
+                      :form="form"
+                      field="song_access_status"
+                    ></has-error>
+                  </div>
+                </div> -->
+              </div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label>Audio DVD Permission</label>
+                    <select
+                      name="audio_dvd_permission"
+                      v-model="form.audio_dvd_permission"
+                      id="audio_dvd_permission"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has('audio_dvd_permission'),
+                      }"
+                    >
+                      <option value="">Select audio DVD permission</option>
+                      <option value="audio_all">ALL</option>
+                      <option value="audio_eur">Europe</option>
+                      <option value="audio_eaf">East Africa</option>
+                      <option value="audio_ind">India</option>
+                      <option value="audio_saf">South Africa</option>
+                    </select>
+                    <has-error
+                      :form="form"
+                      field="audio_dvd_permission"
+                    ></has-error>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label>Video DVD Permssion:</label>
+                    <select
+                      name="video_dvd_permission"
+                      v-model="form.video_dvd_permission"
+                      id="video_dvd_permission"
+                      class="form-control"
+                      :class="{
+                        'is-invalid': form.errors.has('video_dvd_permission'),
+                      }"
+                    >
+                      <option value="">Select video DVD permission</option>
+                      <option value="video_all">ALL</option>
+                      <option value="video_eur">Europe</option>
+                      <option value="video_eaf">East Africa</option>
+                      <option value="video_ind">India</option>
+                      <option value="video_saf">South Africa</option>
+                    </select>
+                    <has-error
+                      :form="form"
+                      field="video_dvd_permission"
+                    ></has-error>
+                  </div>
+                </div>
               </div>
 
               <div class="form-group">
+                <label>Password:</label>
                 <input
                   v-model="form.password"
                   type="password"
                   name="password"
                   id="password"
                   class="form-control"
-                  :class="{ 'is-invalid': form.errors.has('password') }"
+                  :class="{
+                    'is-invalid': form.errors.has('password'),
+                  }"
                 />
                 <has-error :form="form" field="password"></has-error>
               </div>
             </div>
+
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">
                 Close
@@ -239,6 +338,9 @@ export default {
         id: "",
         name: "",
         email: "",
+        song_access_status: "",
+        audio_dvd_permission: "",
+        video_dvd_permission: "",
         password: "",
         type: "",
       }),
@@ -466,8 +568,6 @@ export default {
   },
 };
 </script>
-
-
 
 <style scoped>
 .table thead {

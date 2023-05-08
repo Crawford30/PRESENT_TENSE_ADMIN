@@ -53,6 +53,14 @@ class UpdateUserRequest extends FormRequest
 
 
 
+        // name: "",
+        // email: "",
+        // songPermission: "",
+        // audioDVDPermission: "",
+        // videoDVDPermission: "",
+        // password: "",
+        // type: "",
+
         $data = [
             "name" => $request->name,
             "email" => $request->email,
