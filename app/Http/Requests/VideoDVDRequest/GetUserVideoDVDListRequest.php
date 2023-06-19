@@ -38,7 +38,7 @@ class GetUserVideoDVDListRequest extends FormRequest
      $user = User::where('id', auth()->user()->id)
     ->where('user_status', 'ACTIVATED')
     ->where('dvd_access_status', 'VIDEO_DVD')
-    ->orWhere('dvd_access_status', 'ALL')
+    ->orWhere('dvd_access_status', 'ALL_DVD')
     ->whereNotNull('video_dvd_permission')
     ->where(function ($query) {
         $query->where('type', 'user')

@@ -37,7 +37,7 @@ class GetUserAudioDVDListRequest extends FormRequest
         ->where('user_status', 'ACTIVATED')
         ->where(function ($query) {
             $query->where('dvd_access_status', 'AUDIO_DVD')
-                ->orWhere('dvd_access_status', 'ALL');
+                ->orWhere('dvd_access_status', 'ALL_DVD');
         })
         ->whereNotNull('audio_dvd_permission')
         ->where(function ($query) {
