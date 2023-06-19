@@ -2546,7 +2546,8 @@ __webpack_require__.r(__webpack_exports__);
         audio_dvd_permission: "",
         video_dvd_permission: "",
         password: "",
-        type: ""
+        type: "",
+        dvd_access_status: ""
       })
     };
   },
@@ -2555,7 +2556,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
       axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("api/user/get-user?page=" + page).then(function (response) {
-        console.log("RESPONSE On NEXT PAGE: ", response);
+        // console.log("RESPONSE On NEXT PAGE: ", response);
         _this.users = response.data.results;
       });
     },
@@ -5892,6 +5893,61 @@ var render = function render() {
     attrs: {
       form: _vm.form,
       field: "type"
+    }
+  })], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "col-12"
+  }, [_c("div", {
+    staticClass: "form-group"
+  }, [_c("label", [_vm._v("User DVD Access Status:")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.form.dvd_access_status,
+      expression: "form.dvd_access_status"
+    }],
+    staticClass: "form-control",
+    "class": {
+      "is-invalid": _vm.form.errors.has("dvd_access_status")
+    },
+    attrs: {
+      name: "dvd_access_status",
+      id: "dvd_access_status"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.form, "dvd_access_status", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Select DVD Access Status")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "ALL_DVD"
+    }
+  }, [_vm._v("Both Audio and Video DVD")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "AUDIO_DVD"
+    }
+  }, [_vm._v("Audio DVD Access Only")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "VIDEO_DVD"
+    }
+  }, [_vm._v("Video DVD Access Only")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "NONE"
+    }
+  }, [_vm._v("No Access")])]), _vm._v(" "), _c("has-error", {
+    attrs: {
+      form: _vm.form,
+      field: "dvd_access_status"
     }
   })], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "row"

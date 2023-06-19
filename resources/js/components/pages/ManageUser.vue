@@ -205,6 +205,36 @@
                     <has-error :form="form" field="type"></has-error>
                   </div>
                 </div>
+
+
+
+
+                <div class="col-12">
+                <div class="form-group">
+                                <label>User DVD Access Status:</label>
+                                <select
+                                    name="dvd_access_status"
+                                    v-model="form.dvd_access_status"
+                                    id="dvd_access_status"
+                                    class="form-control"
+                                    :class="{
+                                        'is-invalid': form.errors.has('dvd_access_status'),
+                                    }">
+                                    <option value="">Select DVD Access Status</option>
+                                    <option value="ALL_DVD">Both Audio and Video DVD</option>
+                                    <option value="AUDIO_DVD">Audio DVD Access Only</option>
+                                    <option value="VIDEO_DVD">Video DVD Access Only</option>
+                                    <option value="NONE">No Access</option>
+                                    <!-- <option value="author">Author</option> -->
+                                </select>
+                                <has-error
+                                    :form="form"
+                                    field="dvd_access_status"
+                                ></has-error>
+                            </div>
+
+                </div>
+
                 <!-- <div class="col-6">
                   <div class="form-group">
                     <label>Song App Permssion:</label>
@@ -343,6 +373,7 @@ export default {
         video_dvd_permission: "",
         password: "",
         type: "",
+        dvd_access_status: "",
       }),
     };
   },
@@ -350,7 +381,7 @@ export default {
   methods: {
     getResults(page = 1) {
       axios.get("api/user/get-user?page=" + page).then((response) => {
-        console.log("RESPONSE On NEXT PAGE: ", response);
+        // console.log("RESPONSE On NEXT PAGE: ", response);
         this.users = response.data.results;
       });
     },

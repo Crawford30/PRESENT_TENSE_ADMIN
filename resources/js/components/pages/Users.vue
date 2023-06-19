@@ -208,11 +208,35 @@
                                     <option value="">Select User Role</option>
                                     <option value="admin">Admin</option>
                                     <option value="user">Standard User</option>
-                                    <option value="author">Author</option>
+                                    <!-- <option value="author">Author</option> -->
                                 </select>
                                 <has-error
                                     :form="form"
                                     field="type"
+                                ></has-error>
+                            </div>
+
+                            <div class="form-group">
+                                <label>User DVD Access Status:</label>
+                                <select
+                                    name="dvd_access_status"
+                                    v-model="form.dvd_access_status"
+                                    id="dvd_access_status"
+                                    class="form-control"
+                                    :class="{
+                                        'is-invalid': form.errors.has('dvd_access_status'),
+                                    }"
+                                >
+                                    <option value="">Select DVD Access Status</option>
+                                    <option value="ALL_DVD">Both Audio and Video DVD</option>
+                                    <option value="AUDIO_DVD">Audio DVD Access Only</option>
+                                    <option value="VIDEO_DVD">Video DVD Access Only</option>
+                                    <option value="NONE">No Access</option>
+                                    <!-- <option value="author">Author</option> -->
+                                </select>
+                                <has-error
+                                    :form="form"
+                                    field="dvd_access_status"
                                 ></has-error>
                             </div>
 
@@ -289,6 +313,7 @@ export default {
                 email: "",
                 password: "",
                 type: "",
+                dvd_access_status: ""
             }),
         };
     },
