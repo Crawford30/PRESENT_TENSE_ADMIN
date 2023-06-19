@@ -35,8 +35,8 @@ class AudioDVDController extends Controller
 
 
     public function getAllDVDAudios(){
-        $videos = AudioDVD::orderByDesc("created_at")->withCount("views")->get();
-        return apiResponse($videos);
+        $audioDVDS = AudioDVD::orderByDesc("created_at")->withCount("views")->get();
+        return apiResponse($audioDVDS);
     }
 
 
