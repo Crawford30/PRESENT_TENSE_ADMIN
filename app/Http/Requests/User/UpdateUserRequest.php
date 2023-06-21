@@ -65,13 +65,22 @@ class UpdateUserRequest extends FormRequest
             "name" => $request->name,
             "email" => $request->email,
             "type" => $request->type,
+            "user_status" => $request->user_status,
+            "dvd_access_status" => $request->dvd_access_status,
+            "audio_dvd_permission" => $request->audio_dvd_permission,
+            "video_dvd_permission" => $request->video_dvd_permission,
             "password" => Hash::make($request->password),
+
         ];
 
 
-        $user->update($request->all());
+        $userData = user::updateOrCreate([
+            'id' => $request->id], $data);
+          return apiResponse($userData);
 
-        return apiResponse($user);
+        // $user->update($request->all());
+
+        // return apiResponse($user);
 
 
     }

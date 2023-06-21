@@ -2538,10 +2538,12 @@ __webpack_require__.r(__webpack_exports__);
       editmode: false,
       isUserActivated: false,
       users: {},
+      session: null,
       form: new Form({
         id: "",
         name: "",
         email: "",
+        user_status: "",
         song_access_status: "",
         audio_dvd_permission: "",
         video_dvd_permission: "",
@@ -2692,6 +2694,14 @@ __webpack_require__.r(__webpack_exports__);
         //   console.log("USER DATA: ", app.users);
       }
     },
+    getCurrentUser: function getCurrentUser() {
+      var app = this;
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("api/user/get-current-user").then(function (_ref2) {
+        var data = _ref2.data;
+        return app.session = data.results;
+      });
+      console.log("CURENT USERS: ", app.session);
+    },
     createUser: function createUser() {
       var app = this;
       app.$Progress.start();
@@ -2700,6 +2710,7 @@ __webpack_require__.r(__webpack_exports__);
         $("#addNew").modal("hide");
         sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("<p style='font-size: 14px;'>User account created successfully</p>", "", "success");
         app.loadUsers();
+        app.getCurrentUser();
         app.$Progress.finish();
       })["catch"](function (e) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire("Failed!", "<p style='font-size: 14px;'>There was something wrong!</p>", "warning");
@@ -2715,12 +2726,15 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function () {});
     });
     this.loadUsers();
+    this.getCurrentUser();
     Fire.$on("AfterCreate", function () {
       _this2.loadUsers();
+      _this2.getCurrentUser();
     });
     // setInterval(() => this.loadUsers(), 3000);
   },
   mounted: function mounted() {
+    this.getCurrentUser();
     //this.$Progress.finish();
   }
 });
@@ -5666,7 +5680,7 @@ var render = function render() {
         color: "#999",
         "font-size": "18px"
       }
-    })]), _vm._v(" "), _c("a", {
+    })]), _vm._v(" "), _vm.session != null && _vm.session.id !== user.id ? _c("span", [_c("a", {
       staticStyle: {
         "margin-left": "8px"
       },
@@ -5684,7 +5698,7 @@ var render = function render() {
         color: "#999",
         "font-size": "18px"
       }
-    })]), _vm._v(" "), user.user_status === "DEACTIVATED" ? _c("span", [_c("a", {
+    })])]) : _vm._e(), _vm._v(" "), _vm.session != null && _vm.session.id !== user.id ? _c("span", [user.user_status === "DEACTIVATED" ? _c("span", [_c("a", {
       staticStyle: {
         "margin-left": "8px"
       },
@@ -5720,7 +5734,7 @@ var render = function render() {
         color: "#999",
         "font-size": "18px"
       }
-    })])])])]);
+    })])])]) : _vm._e()])]);
   }), 0)])])])])])])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   }, [_c("pagination", {

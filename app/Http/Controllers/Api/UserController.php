@@ -28,7 +28,12 @@ class UserController extends Controller
         $this->middleware('auth:api');
     }
 
+public function getCurrentUser(){
+    return apiResponse(auth()->user());
+    // $currrentUser = User::where('id', auth()->user()->id)->first();
+    // return apiResponse($currrentUser);
 
+}
 
 
     public function saveUserData(CreateUserRequest $request)
@@ -39,6 +44,8 @@ class UserController extends Controller
 
     public function getUserData()
     {
+        // $currrentUser = User::where('id', auth()->user()->id)->first();
+        // return apiResponse(auth()->user());
         //$this->authorize('isAdmin');
         $users = User::latest()->paginate(5);
         return apiResponse($users);
