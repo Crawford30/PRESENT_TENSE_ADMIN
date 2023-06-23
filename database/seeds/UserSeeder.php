@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             ["id" => 1],
             [
                 "name" => "ADMIN",
-                "email" => "info@presenttense.com",
+                "email" => "info@jocfordsolutions.com",
                 "type" => "admin",
                 "user_status" => "ACTIVATED",
                 "dvd_access_status" => "ALL_DVD",

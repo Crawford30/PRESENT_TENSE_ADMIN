@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -76,8 +77,14 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+        $userName = Str::of($data['email'])
+        ->before('@')
+        ->replaceMatches('/[0-9]+/', '')
+        ->headline();
+
        $user =   User::create([
-            'name' => $data['name'],
+            'name' => $userName,
+            // $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
