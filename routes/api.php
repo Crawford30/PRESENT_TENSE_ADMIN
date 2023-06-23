@@ -38,6 +38,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::group(['middleware' => ['auth:api']], function () {
     Route::post('/create', [App\Http\Controllers\Api\UserController::class, 'saveUserData']);
     Route::get('/get-user', [App\Http\Controllers\Api\UserController::class, 'getUserData']);
+    Route::get('/get-current-user', [App\Http\Controllers\Api\UserController::class, 'getCurrentUser']);
 
     Route::post('/create', [App\Http\Controllers\Api\UserController::class, 'saveUserData']);
     Route::post('/update-user', [App\Http\Controllers\Api\UserController::class, 'updateUserData']);

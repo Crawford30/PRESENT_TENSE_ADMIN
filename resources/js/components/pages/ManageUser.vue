@@ -59,14 +59,19 @@
                               {{ user.created_at | myDate }}
                             </td>
 
+
+
                             <td>
+                                <!-- <span v-if="(session.id !== 1)"> -->
                               <a href="#" @click="editModal(user)">
+
                                 <i
                                   class="fas fa-pencil-alt"
                                   style="color: #999; font-size: 18px"
                                 ></i>
                               </a>
-
+                              <!-- </span> -->
+                              <span v-if="session != null && (session.id !== user.id)">
                               <a
                                 href="#"
                                 @click="deleteUser(user.id)"
@@ -77,6 +82,8 @@
                                   style="color: #999; font-size: 18px"
                                 ></i>
                               </a>
+                              </span>
+                              <span v-if="session != null && (session.id !== user.id)">
                               <span v-if="user.user_status === 'DEACTIVATED'">
                                 <a
                                   href="#"
@@ -102,6 +109,7 @@
                                   </i>
                                 </a>
                               </span>
+                            </span>
                             </td>
                           </tr>
                         </tbody>
@@ -205,6 +213,36 @@
                     <has-error :form="form" field="type"></has-error>
                   </div>
                 </div>
+
+
+
+
+                <div class="col-12">
+                <div class="form-group">
+                                <label>User DVD Access Status:</label>
+                                <select
+                                    name="dvd_access_status"
+                                    v-model="form.dvd_access_status"
+                                    id="dvd_access_status"
+                                    class="form-control"
+                                    :class="{
+                                        'is-invalid': form.errors.has('dvd_access_status'),
+                                    }">
+                                    <option value="">Select DVD Access Status</option>
+                                    <option value="ALL_DVD">Both Audio and Video DVD</option>
+                                    <option value="AUDIO_DVD">Audio DVD Access Only</option>
+                                    <option value="VIDEO_DVD">Video DVD Access Only</option>
+                                    <option value="NONE">No Access</option>
+                                    <!-- <option value="author">Author</option> -->
+                                </select>
+                                <has-error
+                                    :form="form"
+                                    field="dvd_access_status"
+                                ></has-error>
+                            </div>
+
+                </div>
+
                 <!-- <div class="col-6">
                   <div class="form-group">
                     <label>Song App Permssion:</label>
@@ -334,15 +372,18 @@ export default {
       editmode: false,
       isUserActivated: false,
       users: {},
+      session: null,
       form: new Form({
         id: "",
         name: "",
         email: "",
+        user_status: "",
         song_access_status: "",
         audio_dvd_permission: "",
         video_dvd_permission: "",
         password: "",
         type: "",
+        dvd_access_status: "",
       }),
     };
   },
@@ -350,7 +391,7 @@ export default {
   methods: {
     getResults(page = 1) {
       axios.get("api/user/get-user?page=" + page).then((response) => {
-        console.log("RESPONSE On NEXT PAGE: ", response);
+        // console.log("RESPONSE On NEXT PAGE: ", response);
         this.users = response.data.results;
       });
     },
@@ -521,6 +562,18 @@ export default {
         //   console.log("USER DATA: ", app.users);
       }
     },
+    getCurrentUser(){
+        let app = this;
+        axios
+          .get("api/user/get-current-user")
+          .then(({ data }) => (
+              app.session = data.results
+              ));
+
+              console.log("CURENT USERS: ", app.session)
+    },
+
+
 
     createUser() {
       let app = this;
@@ -536,6 +589,7 @@ export default {
             "success"
           );
           app.loadUsers();
+          app.getCurrentUser();
           app.$Progress.finish();
         })
         .catch((e) => {
@@ -558,12 +612,15 @@ export default {
         .catch(() => {});
     });
     this.loadUsers();
+    this.getCurrentUser();
     Fire.$on("AfterCreate", () => {
       this.loadUsers();
+      this.getCurrentUser();
     });
     // setInterval(() => this.loadUsers(), 3000);
   },
   mounted() {
+      this.getCurrentUser();
     //this.$Progress.finish();
   },
 };

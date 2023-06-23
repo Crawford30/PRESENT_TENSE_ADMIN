@@ -70,6 +70,7 @@ class SaveVideoDVDRequest extends FormRequest
 
         if($this->hasFile('file')){
             $file = storeFile('/presenttense/videodvds/', $this->file, "video");
+            // $file = storeFile('/presenttense/videodvds/', $this->file, "video");
             $fileToStore = $file->file_path;
         } else {
             $fileToStore = null;

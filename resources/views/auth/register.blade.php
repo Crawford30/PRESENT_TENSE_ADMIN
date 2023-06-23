@@ -14,7 +14,7 @@
                             <div class="card-body">
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <div class="input-group">
                                             <input id="name" type="text"
                                                 class="form-control @error('name') is-invalid @enderror" name="name"
@@ -32,7 +32,7 @@
                                             @enderror
                                         </div>
 
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <div class="input-group">
                                             <input id="email" type="email"

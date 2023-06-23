@@ -27,7 +27,7 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required|string|max:191",
+            // "name" => "required|string|max:191",
             "email" => "required|string|email|max:191|unique:users",
             "password" => "required|string|min:6",
         ];
@@ -45,8 +45,14 @@ class CreateUserRequest extends FormRequest
 
         // ])
 
+        $userName = Str::of($request->email)
+        ->before('@')
+        ->replaceMatches('/[0-9]+/', '')
+        ->headline();
+
         $data = [
-            "name" => $request->name,
+             "name" => $userName,
+            //  $request->name,
             "email" => $request->email,
             "type" => $request->type,
             "password" => Hash::make($request->password),
