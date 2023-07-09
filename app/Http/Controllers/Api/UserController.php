@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\CreateUserRequest;
 use App\Http\Requests\User\DeleteUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
-use App\Http\Requests\user\ActivateAndDeactivateUserRequest;
+use App\Http\Requests\User\ActivateAndDeactivateUserRequest;
 use App\Http\Requests\user\ActivateUserRequest;
 use App\Http\Requests\user\DeactivateUserRequest;
 use Illuminate\Support\Facades\Storage;
