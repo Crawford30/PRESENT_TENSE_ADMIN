@@ -82,12 +82,21 @@ class RegisterController extends Controller
         ->replaceMatches('/[0-9]+/', '')
         ->headline();
 
+
+
+
        $user =   User::create([
             'name' => $userName,
             // $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+
+        dd($user);
+        return;
+
+
 
 
         $token = $user->createToken('API Token')->accessToken;

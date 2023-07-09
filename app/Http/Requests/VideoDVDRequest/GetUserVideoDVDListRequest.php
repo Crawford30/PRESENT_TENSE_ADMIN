@@ -34,34 +34,64 @@ class GetUserVideoDVDListRequest extends FormRequest
 
     public function getUserVideoDVDList() {
 
+        $user = User::where('id', auth()->user()->id)
+        ->where('user_status', 'ACTIVATED')
+        ->where(function ($query) {
+            $query->where('dvd_access_status', 'VIDEO_DVD')
+                ->orWhere('dvd_access_status', 'ALL_DVD');
+        })
+        ->whereNotNull('video_dvd_permission')
+        ->where(function ($query) {
+            $query->where('type', 'user')
+                ->orWhere('type', 'admin');
+        })
+        ->first();
 
-     $user = User::where('id', auth()->user()->id)
-    ->where('user_status', 'ACTIVATED')
-    ->where('dvd_access_status', 'VIDEO_DVD')
-    ->orWhere('dvd_access_status', 'ALL_DVD')
-    ->whereNotNull('video_dvd_permission')
-    ->where(function ($query) {
-        $query->where('type', 'user')
-            ->orWhere('type', 'admin');
-    })
-    ->first();
 
-if ($user) {
-    $userVideoLists = UserVideoDVDPermission::where("permission", $user->video_dvd_permission)
-        ->pluck('video_d_v_d_id')
-        ->toArray();
 
-    $itemCollection = DB::table('video_d_v_d_s')
-        ->whereIn('id', $userVideoLists)
-        ->get();
+    if ($user) {
+        $userVideoLists = UserVideoDVDPermission::where("permission", $user->video_dvd_permission)
+            ->pluck('video_d_v_d_id')
+            ->toArray();
 
-    return apiResponse($itemCollection);
-} else {
+        $itemCollection = DB::table('video_d_v_d_s')
+            ->whereIn('id', $userVideoLists)
+            ->get();
 
-    return apiResponse("No video found");
-    // Handle the case when $user is null
-    // You can set appropriate default values or throw an exception
-}
+        return apiResponse($itemCollection);
+    } else {
+        return apiResponse("No video found");
+    }
+
+
+//      $user = User::where('id', auth()->user()->id)
+//     ->where('user_status', 'ACTIVATED')
+//     ->where('dvd_access_status', 'VIDEO_DVD')
+//     ->orWhere('dvd_access_status', 'ALL_DVD')
+//     ->whereNotNull('video_dvd_permission')
+//     ->where(function ($query) {
+//         $query->where('type', 'user')
+//             ->orWhere('type', 'admin');
+//     })
+//     ->first();
+
+// if ($user) {
+//     $userVideoLists = UserVideoDVDPermission::where("permission", $user->video_dvd_permission)
+//         ->pluck('video_d_v_d_id')
+//         ->toArray();
+
+//     $itemCollection = DB::table('video_d_v_d_s')
+//         ->whereIn('id', $userVideoLists)
+//         ->get();
+
+//     return apiResponse($itemCollection);
+
+// } else {
+
+//     return apiResponse("No video found");
+//     // Handle the case when $user is null
+//     // You can set appropriate default values or throw an exception
+// }
 
 
         // $user =   User::where('id',auth()->user()->id)
