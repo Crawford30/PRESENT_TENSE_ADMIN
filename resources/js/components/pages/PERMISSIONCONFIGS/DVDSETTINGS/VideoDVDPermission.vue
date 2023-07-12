@@ -188,7 +188,7 @@
                                       videoDVD.id
                                     "
                                     :name="'permissions[' + videoDVD.id + '][]'"
-                                    value="viideo_eur"
+                                    value="video_eur"
                                     :checked="
                                       videoDVD.video_dvd_permissions.includes(
                                         'video_eur'
