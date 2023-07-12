@@ -9,7 +9,13 @@
                     <!-- <h2 class="text-center mb-4">{{ __('Register') }}</h2> -->
                     <div class="auto-form-wrapper">
                         <div class="card">
-                            <div class="card-header">Account Registration</div>
+                            <div class="card-headee">
+
+                                <div class="text-center">
+                                    Account Registration
+                                </div>
+
+                            </div>
 
                             <div class="card-body">
                                 <form method="POST" action="{{ route('register') }}">
@@ -35,10 +41,7 @@
                                     </div> -->
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input id="email" type="email"
-                                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                                value="{{ old('email') }}" required autocomplete="email"
-                                                placeholder="E-mail">
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="E-mail">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -54,10 +57,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input id="password" type="password"
-                                                class="form-control @error('password') is-invalid @enderror"
-                                                name="password" required autocomplete="new-password"
-                                                placeholder="**********">
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="**********">
 
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
@@ -73,9 +73,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input id="password-confirm" type="password" class="form-control"
-                                                name="password_confirmation" required autocomplete="new-password"
-                                                placeholder="**********">
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="**********">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -98,8 +96,7 @@
                                     </div>
                                     <div class="text-block text-center my-3">
                                         <span class="text-small font-weight-semibold">Already Have an Account ?</span>
-                                        <a href="{{ route('login') }}"
-                                            class="text-black text-small">{{ __('Login') }}</a>
+                                        <a href="{{ route('login') }}" class="text-black text-small">{{ __('Login') }}</a>
                                     </div>
                                 </form>
                             </div>

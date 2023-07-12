@@ -3,12 +3,17 @@
 @section('content')
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+        <div class=" d-flex align-items-center auth auth-bg-1 theme-one">
             <div class="row w-100">
                 <div class="col-lg-6 mx-auto">
                     <div class="auto-form-wrapper">
                         <div class="card">
-                            <div class="card-header">Account Login</div>
+                            <div class="card-header">
+                                <div class="text-center">
+                                    Account Login
+                                </div>
+
+                            </div>
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
