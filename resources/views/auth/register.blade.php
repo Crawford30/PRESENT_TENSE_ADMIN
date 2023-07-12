@@ -6,7 +6,7 @@
         <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
             <div class="row w-100">
                 <div class="col-lg-6 mx-auto">
-                    <h2 class="text-center mb-4">{{ __('Register') }}</h2>
+                    <!-- <h2 class="text-center mb-4">{{ __('Register') }}</h2> -->
                     <div class="auto-form-wrapper">
                         <div class="card">
                             <div class="card-header">Account Registration</div>
