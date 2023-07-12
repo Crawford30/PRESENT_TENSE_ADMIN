@@ -26,11 +26,18 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+Route::get('/user-register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('user.register');
+
+Route::post('register', 'Auth\RegisterController@register')->name('register');
+
+
 //Search for any path that match the content should redirect them somewhere
 // Route::any('{slug}', 'HomeController@index')->where( 'slug', '([-a-z0-9_\s]+)' );
 //Route::get('{path}','HomeController@index')->where( 'path', '([A-z\d-/_.]+)?' );
 
 Route::get('/{any}', 'HomeController@index')->where('any', '.*');
+
+
 
 
 

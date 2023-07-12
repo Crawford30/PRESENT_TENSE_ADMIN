@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Laravel\Passport\Token;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -31,13 +32,13 @@ class AuthController extends Controller
         }
 
         return response()->json([
-            'message' => 'WrongCredentials'
+            'message' => 'Wrong Credentials'
         ], 401);
 
         }else{
 
             return response()->json([
-                        'message' => 'WrongCredentials'
+                        'message' => 'Wrong Credentials'
                     ], 401);
 
         }
@@ -49,8 +50,14 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+
+        $userName = Str::of($request->email)
+        ->before('@')
+        ->replaceMatches('/[0-9]+/', '')
+        ->headline();
+
         $user =   User::create([
-            'name' => $request->name,
+            'name' => $request->name== null ?  $userName :  $request->name,
             'email' => $request->email,
             'password' => Hash::make( $request->password),
         ]);

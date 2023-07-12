@@ -25,7 +25,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+     use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -35,12 +35,6 @@ class RegisterController extends Controller
     // protected $redirectTo = '/login';
     protected $redirectTo = '/login';
 
-//     protected function redirectTo()
-// {
-//     $userName = Auth::user()->name;
-//     //use your own route
-//     return route('login', compact('userName'));
-// }
 
     /**
      * Create a new controller instance.
@@ -52,6 +46,17 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        return view('auth.register');
+    }
+
+
+    protected function guard()
+    {
+        return Auth::guard();
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -61,9 +66,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            "email" => "required|string|email|max:191|unique:users",
+            "password" => "required|string|min:6",
         ]);
     }
 
@@ -77,37 +81,29 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+
         $userName = Str::of($data['email'])
         ->before('@')
         ->replaceMatches('/[0-9]+/', '')
         ->headline();
 
+        $data = [
+            'name' =>   $userName,
+            "email" => $data['email'],
+            "password" => Hash::make($data['password']),
+        ];
 
 
+        $user = User::create($data);
 
-       $user =   User::create([
-            'name' => $userName,
-            // $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+            $user->update([
+                "api_token" => Str::random(60) . $user->id,
+            ]);
 
-
-        dd($user);
-        return;
+            $token = $user->createToken('API Token')->accessToken;
 
 
-
-
-        $token = $user->createToken('API Token')->accessToken;
-
-        return response([ 'user' => $user, 'token' => $token]);
-
-        // $token = $user->createToken('API Token')->accessToken;
-
-        // return apiResponse([ 'user' => $user, 'token' => $token]);
-
-
+        return $user;
 
     }
 
@@ -115,10 +111,13 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        $user = $this->create($request->all());
 
-        return redirect($this->redirectPath())->with('message', 'Your message');
+        return redirect($this->redirectPath())->with('message', 'Proceed to login');
+
+
     }
 }
