@@ -2,21 +2,18 @@
 
 @section('content')
 <div class="container-scroller">
+
     <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
+        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
             <div class="row w-100">
                 <div class="col-lg-6 mx-auto">
-                    <!-- <h2 class="text-center mb-4">{{ __('Register') }}</h2> -->
                     <div class="auto-form-wrapper">
                         <div class="card">
-                            <div class="card-headee">
-
+                            <div class="card-header">
                                 <div class="text-center">
-                                    Account Registration
+                                    Account Register
                                 </div>
-
                             </div>
-
                             <div class="card-body">
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
@@ -41,7 +38,10 @@
                                     </div> -->
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="E-mail">
+                                            <input id="email" type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ old('email') }}" required autocomplete="email"
+                                                placeholder="E-mail">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -57,7 +57,10 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="**********">
+                                            <input id="password" type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" required autocomplete="new-password"
+                                                placeholder="**********">
 
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
@@ -73,7 +76,9 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="**********">
+                                            <input id="password-confirm" type="password" class="form-control"
+                                                name="password_confirmation" required autocomplete="new-password"
+                                                placeholder="**********">
                                             <div class="input-group-append">
                                                 <span class="input-group-text">
                                                     <i class="fa fa-lock" aria-hidden="true"></i>
@@ -96,7 +101,95 @@
                                     </div>
                                     <div class="text-block text-center my-3">
                                         <span class="text-small font-weight-semibold">Already Have an Account ?</span>
-                                        <a href="{{ route('login') }}" class="text-black text-small">{{ __('Login') }}</a>
+                                        <a href="{{ route('login') }}"
+                                            class="text-black text-small">{{ __('Login') }}</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
+            <div class="row w-100">
+                <div class="col-lg-6 mx-auto">
+                    <div class="auto-form-wrapper">
+                        <div class="card">
+                            <div class="card-headee">
+
+                                <div class="text-center mt-1">
+                                    Account Registration
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('register') }}">
+                                    @csrf
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input id="email" type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                value="{{ old('email') }}" required autocomplete="email"
+                                                placeholder="E-mail">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input id="password" type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" required autocomplete="new-password"
+                                                placeholder="**********">
+
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input id="password-confirm" type="password" class="form-control"
+                                                name="password_confirmation" required autocomplete="new-password"
+                                                placeholder="**********">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="fa fa-lock" aria-hidden="true"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary submit-btn btn-block">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
+                                    <div class="text-block text-center my-3">
+                                        <span class="text-small font-weight-semibold">Already Have an Account ?</span>
+                                        <a href="{{ route('login') }}"
+                                            class="text-black text-small">{{ __('Login') }}</a>
                                     </div>
                                 </form>
                             </div>
@@ -105,7 +198,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- content-wrapper ends -->
 </div>
 <!-- page-body-wrapper ends -->
