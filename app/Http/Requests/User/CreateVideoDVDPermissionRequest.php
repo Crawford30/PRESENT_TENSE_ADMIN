@@ -26,7 +26,7 @@ class CreateVideoDVDPermissionRequest extends FormRequest
     public function rules()
     {
         return [
-            "permissions" => "required" //array
+            "permissions" => "sometimes|array",
         ];
     }
 
@@ -37,18 +37,35 @@ class CreateVideoDVDPermissionRequest extends FormRequest
 
         UserVideoDVDPermission::truncate();
 
-        foreach ($this->permissions as $key => $permission) {
 
-            $audioDVD = VideoDVD::find($key);
+        if (!is_null($this->permissions) && is_array($this->permissions)) {
+            foreach ($this->permissions as $key => $permission) {
 
-            if($audioDVD != NULL) {
+                $audioDVD = VideoDVD::find($key);
+
+                if($audioDVD != NULL) {
                     foreach($permission as $perm) {
                         UserVideoDVDPermission::create([
                             "video_d_v_d_id" => $key,
                             "permission" => $perm
                         ]);
                     }
+                }
             }
         }
+
+        // foreach ($this->permissions as $key => $permission) {
+
+        //     $audioDVD = VideoDVD::find($key);
+
+        //     if($audioDVD != NULL) {
+        //             foreach($permission as $perm) {
+        //                 UserVideoDVDPermission::create([
+        //                     "video_d_v_d_id" => $key,
+        //                     "permission" => $perm
+        //                 ]);
+        //             }
+        //     }
+        // }
     }
 }

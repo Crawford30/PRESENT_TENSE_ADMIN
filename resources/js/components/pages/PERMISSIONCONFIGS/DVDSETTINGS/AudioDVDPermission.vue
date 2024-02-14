@@ -299,9 +299,9 @@ export default {
 
             let formData = new FormData(form[0]);
 
-            if (!formData.has("permissions[]")) {
-                formData.append("permissions[]", []);
-            }
+            // if (!formData.has("permissions[]")) {
+            //     formData.append("permissions[]");
+            // }
             console.log("FORM DATA: ", formData);
 
             $.ajax({
